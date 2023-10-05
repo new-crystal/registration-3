@@ -131,7 +131,7 @@ table td {
                         echo '' . $item['deposit'] . '</td>';
                         echo '</td>';
                         echo '<td>' . $item['time'] . '</td>';
-                        echo '<td>' . $item['ksso_member_status'] . '</td>';
+                        echo '<td>' . $item['kes_member_status'] . '</td>';
                         echo '<td>' . $item['attendance_type'] . '</td>';
 
                         echo '<td>' . $item['first_name']  . " " . $item['last_name'] .  '</td>';
@@ -141,13 +141,7 @@ table td {
                         echo '<td>' . $item['phone'] . '</td>';
                         echo '<td class="user_d"><a href="/admin/user_detail?n=' . $item['registration_no'] . '" target="_self">' . $item['email'] . '</a></td>';
                         echo '<td>' . $item['member_type']  . '</td>';
-                        if (mb_strlen($item['fee']) == 1) {
-                            echo '<td>' . $item['fee']  . '</td>';
-                        } else if (mb_strlen($item['fee']) == 3) {
-                            echo '<td>' . 'USD ' . $item['fee']  . '</td>';
-                        } else {
-                            echo '<td>' . $item['fee'] . '원' . '</td>';
-                        }
+                        echo '<td>' . $item['fee']  . '</td>';
                         echo '<td>' . $item['deposit_date']  . '</td>';
                         echo '<td>' . $item['etc1']  . '</td>';
                         if ($item['memo'] != "" && $item['memo'] != 'null') {
