@@ -67,11 +67,6 @@ if ($item['onsite_reg'] == '0') {
                                             name="onsite_reg" id="onsite_reg"></td>
                                 </tr>
                                 <tr>
-                                    <th>Registration No.(Lucky Draw)</th>
-                                    <td> <input class="form-control" type="text" value="<?php echo $luckyNum;  ?>"
-                                            name="etc2" id="etc2"></td>
-                                </tr>
-                                <tr>
                                     <th>등록시간</th>
                                     <td> <input id="time" type="text" value="<?php echo substr($item['time'], 0, 10) ?>"
                                             size="16" class="form-control" name="time">
@@ -98,25 +93,9 @@ if ($item['onsite_reg'] == '0') {
                                 <tr>
                                     <th>KSSO 회원 여부</th>
                                     <td> <input type="text" class="form-control"
-                                            value="<?php echo  $item['ksso_member_status']; ?>"
-                                            name="ksso_member_status" id="ln"></td>
+                                            value="<?php echo  $item['kes_member_status']; ?>" name="kes_member_status"
+                                            id="ln"></td>
                                 </tr>
-
-
-                                <tr>
-                                    <th>비자 생년월일</th>
-                                    <td><input class="form-control" type="text"
-                                            value="<?php echo $item['date_of_birth']; ?>" name="date_of_birth"
-                                            id="registration_no"></td>
-                                </tr>
-
-
-                                <!-- <tr>
-                                    <th>구분 3</th>
-                                    <td><input class="form-control" type="text"
-                                            value="<?php echo $item['occupation_type']; ?>" name="occupation_type"
-                                            id="type2"></td>
-                                </tr> -->
                                 <tr>
                                     <th>이름</th>
                                     <td>
@@ -153,16 +132,6 @@ if ($item['onsite_reg'] == '0') {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>부서</th>
-                                    <td> <input class="form-control" type="text"
-                                            value="<?php echo $item['department']; ?>" name="department"
-                                            id="org_nametag">
-                                        <input class="form-control" type="text"
-                                            value="<?php echo $item['department_kor']; ?>" name="department_kor"
-                                            id="org_nametag">
-                                    </td>
-                                </tr>
-                                <tr>
                                     <th>E-mail</th>
                                     <td><input class="form-control" type="text" value="<?php echo $item['email']; ?>"
                                             name="email" id="email"></td>
@@ -174,19 +143,6 @@ if ($item['onsite_reg'] == '0') {
                                 </tr>
                             </table>
                             <table>
-
-                                <tr>
-                                    <th>Occupation</th>
-                                    <td> <input type="text" class="form-control"
-                                            value="<?php echo $item['occupation_type']; ?>" name="occupation_type"
-                                            id="ln"></td>
-                                </tr>
-                                <tr>
-                                    <th>Occupation (Others)</th>
-                                    <td> <input type="text" class="form-control"
-                                            value="<?php echo $item['occupation_other_type']; ?>"
-                                            name="occupation_other_type" id="ln"></td>
-                                </tr>
                                 <tr>
                                     <th>Category</th>
                                     <td>
@@ -225,18 +181,7 @@ if ($item['onsite_reg'] == '0') {
                                             value="<?php echo $item['specialty_number']; ?>" name="specialty_number"
                                             id="sn"></td>
                                 </tr>
-                                <tr>
-                                    <th>영양사면허번호</th>
-                                    <td> <input type="text" class="form-control"
-                                            value="<?php echo $item['nutritionist_number']; ?>"
-                                            name="nutritionist_number" id="sn"></td>
-                                </tr>
-                                <tr>
-                                    <th>임상영양사자격번호</th>
-                                    <td> <input type="text" class="form-control"
-                                            value="<?php echo $item['dietitian_number']; ?>" name="dietitian_number"
-                                            id="sn"></td>
-                                </tr>
+
                                 <!-- <tr>
                                     <th>운동사 신청(Y/N)</th>
                                     <td> <input type="text" class="form-control" id="ln"></td>
@@ -283,13 +228,7 @@ if ($item['onsite_reg'] == '0') {
                                     <td><input class="form-control" type="text">
                                     </td>
                                 </tr> -->
-                                <tr>
-                                    <th>추천인
-                                    </th>
-                                    <td><input class="form-control" type="text" name="etc4"
-                                            value="<?php echo $item['etc4']; ?>" id="etc4">
-                                    </td>
-                                </tr>
+
                                 <tr>
                                     <th>welcome_reception</th>
                                     <td> <input id="dp1" type="text"
@@ -299,16 +238,16 @@ if ($item['onsite_reg'] == '0') {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>day2_breakfast</th>
-                                    <td> <input id="dp1" type="text" value="<?php echo $item['day2_breakfast_yn']; ?>"
-                                            size="16" class="form-control" name="day2_breakfast_yn">
+                                    <th>day1_satellite_yn</th>
+                                    <td> <input id="dp1" type="text" value="<?php echo $item['day1_satellite_yn']; ?>"
+                                            size="16" class="form-control" name="day1_satellite_yn">
 
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>day2_luncheon</th>
-                                    <td> <input id="dp1" type="text" value="<?php echo $item['day2_luncheon_yn']; ?>"
-                                            size="16" class="form-control" name="day2_luncheon_yn">
+                                    <th>day2_satellite_yn</th>
+                                    <td> <input id="dp1" type="text" value="<?php echo $item['day2_satellite_yn']; ?>"
+                                            size="16" class="form-control" name="day2_satellite_yn">
                                     </td>
                                 </tr>
                                 <tr>
@@ -317,12 +256,7 @@ if ($item['onsite_reg'] == '0') {
                                             size="16" class="form-control" name="day3_breakfast_yn">
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th>day3_luncheon</th>
-                                    <td> <input id="dp1" type="text" value="<?php echo $item['day3_luncheon_yn']; ?>"
-                                            size="16" class="form-control" name="day3_luncheon_yn">
-                                    </td>
-                                </tr>
+
                                 <tr>
                                     <th>Where did you get the information about the conference?</th>
                                     <td><input class="form-control" type="text"
