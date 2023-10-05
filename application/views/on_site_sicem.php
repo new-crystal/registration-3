@@ -1154,11 +1154,15 @@ categorySelect.addEventListener("click", () => {
         category_3.style.display = "none";
         categoryOthers.style.display = "none"
     }
+    if (categoryValue !== "Trainee" && categoryValue !== "Other") {
+        category_2.style.display = "none";
+        category_3.style.display = "none";
+        categoryOthers.style.display = "none"
+    }
     if (categoryValue === "Other") {
         category_2.style.display = "none";
         category_3.style.display = "";
     }
-
 })
 
 category_2.addEventListener("click", () => {
@@ -1429,15 +1433,13 @@ function calRegiFee() {
                 } else {
                     fee = "USD 250"
                 }
-            } else if (category_2.value === "Resident" || category_2.value === "Graduate" || category_2
-                .value === "Fellow" || categorySelect
-                .value === "Student") {
+            } else if (categorySelect.value === "Student" || categorySelect.value === "Trainee") {
                 if (contry.value === "Republic of Korea") {
                     fee = "KRW 125,000"
                 } else {
                     fee = "USD 125"
                 }
-            } else if (categorySelect.value === "Corporate") {
+            } else if (categorySelect.value === "Corporate" || categorySelect.value === "Other") {
                 if (contry.value === "Republic of Korea") {
                     fee = "KRW 200,000"
                 } else {
@@ -1470,15 +1472,15 @@ function calRegiFee() {
                 } else {
                     fee = "USD 350"
                 }
-            } else if (category_2.value === "Resident" || category_2.value === "Graduate" || category_2
-                .value === "Fellow" || categorySelect
+            } else if (categorySelect
+                .value === "Trainee" || categorySelect
                 .value === "Student") {
                 if (contry.value === "Republic of Korea") {
                     fee = "KRW 175,000"
                 } else {
                     fee = "USD 175"
                 }
-            } else if (categorySelect.value === "Corporate") {
+            } else if (categorySelect.value === "Corporate" || categorySelect.value === "Other") {
                 if (contry.value === "Republic of Korea") {
                     fee = "KRW 250,000"
                 } else {
