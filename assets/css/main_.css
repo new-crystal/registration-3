@@ -1,0 +1,384 @@
+@import url(//fonts.googleapis.com/earlyaccess/kopubbatang.css);
+
+body {
+	background-image: url('../images/main_background.png');
+    background-size: cover;
+}
+
+
+.content {
+	padding-bottom: 0px;
+}
+.navbar {
+	border-radius: 0 0 30px 30px;
+}
+.navbar-right {
+	position: absolute;
+	right: 13px;
+	top: 6px;
+}
+
+.content-wrapper{
+	padding: 0 10px;
+}
+.container-fluid{
+	padding: 20px;
+}
+
+.total-title {
+	font-family: 'KoPub Batang', serif;
+    text-align: center;
+    color: white;
+    padding: 20px 0 40px;
+}
+
+.total-title > p {
+	text-shadow: 2px 2px 3px black;
+
+	transform: scale(.9, 1);
+}
+.main-title {
+	font-weight: 400;
+	font-size: 40px;
+}
+
+.notice-title {
+	color: white; 
+	margin-top: -60px; 
+	margin-left: -10px; 
+	font-size: 22px;
+}
+.title-img {
+	height: 65px; 
+	margin-top: -50px; 
+	margin-left: -28px
+}
+/*ul li:before {
+    content: url('../images/li_icon.png');
+}*/
+.li-header-icon {
+	width: 15px;
+	margin-left: -20px;
+}
+.red-line {
+	color: crimson;
+	font-weight: bold;
+}
+
+#see_all_lecture {
+	display: none;
+}
+
+@media (min-width: 500px){
+	.total-title > p {
+		transform: scale(1, 1);
+	}
+	.main-title {
+		font-size: 50px;
+	}
+}
+
+.panel {
+	border-radius: 10px;
+	border: 1px solid #ef9a64;
+}
+
+.program-title {
+	font-size: 20px;
+	color: white; 
+	background-color: rgb(47,166,178); 
+	position: absolute; 
+	transform: translate(-50%, -50%); 
+	margin-top: -40px;
+	padding: 0 10px;
+	margin-left: 50%;
+}
+.circle {
+	margin-top: -52px;
+}
+
+.circle:before {
+  content: ' \25CF';
+  font-size: 15px;
+  color: white;
+}
+
+.circle-small:before {
+	content: ' \25CF';
+	font-size: 15px;
+	color: white;
+}
+
+@media (min-width: 376px){
+	.circle:before {
+	  	content: ' \25CF';
+	  	font-size: 25px;
+	  	color: white;
+	}
+
+	.circle {
+		margin-top: -61px;
+	}
+}
+
+.avatar {
+	height: auto; 
+	border-radius: 50%;
+}
+
+.owner-avatar {
+	width: 300px; 
+	height: 138px;
+	margin-top: -30px;
+}
+
+.program-container {
+	/*padding: 0 10px; */
+}
+
+.program-item {
+	margin-bottom: 20px;
+	border: 1px solid #ddd;
+	border-radius: 100px;
+	background-color: white;
+	position: relative;
+}
+
+.program-item.finish{
+	background: #d9d9d9;
+	border: #d9d9d9;
+}
+
+.lesson-number-img {
+	height: 40px;
+	width: auto;
+    margin-top: -5px;
+    margin-left: 20px;
+}
+.lesson-number-title {
+	position: absolute;
+	margin-left: 40px;
+	font-size: 20px;
+	color: white;
+	font-weight: 700;
+	left:0px;
+}
+@media (min-width: 601px){
+	.lesson-number-img {
+	    margin-left: 25px;
+	}
+	.lesson-number-title {
+		margin-left: 45px;
+	}
+	#see_all_lecture {
+		display: block;
+	}
+}
+
+
+
+.lesson-img {
+	width: 38px;
+	border: 1px solid #1796a6;
+}
+
+.lesson-title {
+	margin-left: 5px;
+	font-size: 14px;
+	line-height: 3;
+	
+	max-width: calc(100vw - 190px);
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.lesson-title-tip {
+	display: none;
+	margin: 12px 0 0 5px;	
+}
+
+.program-teacher-div{
+	float: right;
+	padding: 2px;
+	display: none;
+}
+.teacher-description{
+	
+	display: none;
+}
+.teacher-job {
+	display: none;
+}
+.enter-title {
+	display: none;
+}
+
+.mobile-br {
+	display: none;
+}
+.notice-panel-height {
+	font-size: 17px;
+	border-radius: 10px;
+	word-break: keep-all;
+}
+.panel-title {
+	font-size: 17px;
+}
+
+.col-md-6 > .panel {
+	margin-bottom: 0px;
+	margin-top:  40px;
+}
+
+@media (min-width: 376px){
+
+}
+@media (min-width: 501px){
+	.enter-title {
+		display: block;
+	}
+}
+@media (min-width: 701px){
+	.program-teacher-div{
+		display: block;
+	}
+	.teacher-description{
+		display: block;
+		float: right;
+		margin-left: 5px;
+		transform: none;
+		width: 248px;
+	}
+	.lesson-title {
+		max-width: 280px;
+	}
+	.teacher-job {
+		display: flex;
+		max-width: 248px;
+		white-space: nowrap;
+	    text-overflow: ellipsis;
+	    overflow: hidden;
+	}
+	
+}
+
+@media (min-width: 1024px){
+	.teacher-description {
+		display: flex;	
+		transform: translate(0, 50%);
+		width: 320px;
+	}
+	.lesson-title {
+		margin-left: 10px;
+		max-width: 480px;
+	}
+	.notice-panel-height {
+		height: 900px;
+	}
+	.mobile-br {
+		display: block;
+	}
+}
+
+
+@media (min-width: 1201px){
+	.lesson-title {
+		max-width: 650px;
+	}
+	.lesson-title-tip {
+		display: inline-table;
+	}
+	.notice-panel-height {
+		height: 860px;
+	}
+}
+
+
+.program-btn-div {
+	float: right;
+	display: flex;
+	padding: 0 0 0 10px;
+}
+
+.program-btn-title {
+	padding: 12px 0 10px 0px;
+}
+
+.lesson-btn {
+	/*margin: 1px 0;*/
+	width: 42px;
+}
+
+.affiliates-panel {
+	display: flex;
+	overflow: hidden;
+	border-radius: 10px;
+}
+
+.affiliates-scroll-div {
+	display: inline-block;
+	white-space: nowrap;
+	animation: moveSlideshow 60s linear infinite;
+}
+
+@keyframes moveSlideshow {
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+.affliate-item {
+	display: inline-table;
+	width: 100px;
+	height: 100px;
+	margin-left: 5px;
+}
+
+.affiliate-ad-img {
+	width: 100px;
+	height: 100px;
+}
+
+#lesson_title_panel{
+	border-radius: 10px 10px 0 0; 
+	margin-bottom: 10px; 
+	display: flex;padding: 6px;
+}
+
+.lesson-title-lesson {
+	margin-left: 10px;
+	display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.video-panel{
+	margin-bottom: 10px; 
+	border-radius: 0; 
+	padding: 10px;
+}
+
+.qa-input-panel {
+	border-radius: 0px 0px 10px 10px; 
+	margin-bottom: 10px;
+}
+
+#send_btn {
+	float: right;
+	margin-top: -40px;
+	height: 44px;
+	cursor: pointer;
+}
+
+
+/*----- modal -----*/
+.control-label {
+	text-align: right;
+}
+
+.modal-content {
+	background-image: url('../images/main_background.png');
+	color: white;
+}
