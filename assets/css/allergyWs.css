@@ -1,0 +1,275 @@
+@charset "utf-8";
+
+* {
+	font-family: "Nanum Gothic";
+	-webkit-text-size-adjust: 100%;
+}
+
+/* Layout */
+div.wrapper {
+	width: 100%;
+	min-width: 1000px;
+	font-size: 10px;
+	color: #313238;
+	line-height: 160%;
+	font-family: "Nanum Gothic", sans-serif;
+	background-color: #fff;
+}
+
+/* headerWrap */
+div.headerWrap {
+	position: relative;
+	height: 381px;
+	background-color: #08426a;
+}
+div.headerWrap h1 {
+}
+div.headerWrap h1 a {
+	display: block;
+	height: 324px;
+	text-indent: -10000px;
+}
+
+div.header {
+	background: url("/assets/images/mainVisual.png") center top no-repeat;
+}
+
+dl.wsInfo {
+	position: absolute;
+	left: 0;
+	top: -330px;
+	visibility: hidden;
+	font-size: 0;
+	line-height: 0;
+}
+
+/* GNB */
+/* div.gnbWrap {background:url('/assets/images/gnbBg.jpg') 0 0 repeat-x;} */
+div.gnbWrap {
+	background: url("/assets/images/gnbBg.jpg") 0 0 no-repeat;
+}
+div.gnbWrap.sticky {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: 10;
+}
+ul#gnb {
+	width: 1000px;
+	height: 60px;
+	margin: 0 auto;
+	text-align: center;
+	display: flex;
+	justify-content: space-evenly;
+}
+ul#gnb li {
+	display: inline-block;
+}
+ul#gnb a {
+	display: block;
+	padding: 16px 30px;
+	font-weight: bold;
+	color: #fff;
+	font-size: 16px;
+	line-height: 24px;
+	text-align: center;
+}
+ul#gnb a:hover,
+ul#gnb a:focus,
+ul#gnb .on a {
+	color: #ffe06e;
+}
+
+div#container {
+	padding: 30px 0;
+	background-color: #ececec;
+}
+div#container div.contents {
+	width: 920px;
+	padding: 40px;
+	margin: 0 auto;
+	background-color: #fff;
+}
+
+div.footerWrap {
+	padding: 34px 0;
+	color: #a5a5a5;
+	text-align: center;
+	font-weight: 500;
+	font-size: 12px;
+}
+.footerWrap .corp_number {
+	display: inline-block;
+	height: 20px;
+	margin: -3px 0 0 0;
+	vertical-align: top;
+}
+
+/* Popup */
+div.popupWrap {
+	width: 500px;
+}
+div.popupWrap h1 {
+	padding: 5px 0 6px 30px;
+	background-color: #177f77;
+	color: #fff;
+}
+
+div.popupWrap div.popupCon {
+	padding: 30px;
+}
+
+div#hospital {
+}
+div#hospital div.search {
+	position: relative;
+	padding: 10px 68px 10px 0;
+	margin: 0 28px;
+}
+div#hospital div.search p.btn {
+	position: absolute;
+	right: 0;
+	top: 10px;
+}
+div#hospital div.search dd input {
+	width: 294px;
+}
+
+div#hospital div.result {
+	margin-top: 10px;
+	border-bottom: 1px solid #ddd;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	height: 300px;
+}
+
+/* 페이지 영역 양희서 추가. */
+ul.pager {
+	padding: 20px 0 30px;
+	text-align: center;
+}
+ul.pager li {
+	display: inline;
+}
+ul.pager li {
+	margin-left: 8px;
+}
+ul.pager li:first-child {
+	margin-left: 0;
+}
+ul.pager .on {
+	font-weight: bold;
+}
+ul.pager img {
+	display: inline;
+	vertical-align: middle;
+}
+
+/*tab*/
+#privacy.bdArea {
+	width: 81%;
+	margin: 0 auto 45px;
+	text-align: left;
+}
+
+#privacy.bdArea .chk_area {
+	text-align: right;
+}
+#addr.btn {
+}
+
+.ui-widget-header .ui-icon {
+	background-image: url(images/ui-icons_222222_256x240.png) !important;
+}
+
+.tab_area {
+	width: 70%;
+	margin: 40px auto 0;
+}
+
+.tabs {
+	display: inline-block;
+	position: relative;
+	width: 100%;
+}
+
+.tabs li {
+	float: left;
+	width: 100%;
+}
+
+.tabs li.w50 {
+	width: 50%;
+}
+
+.tabs a {
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	text-transform: capitalize;
+	padding: 15px 0;
+	border-top: 2px solid #6690fe;
+	background: rgba(102, 144, 254, 0.4);
+	color: #fff;
+}
+
+#tab_payment {
+	display: none;
+}
+
+#tab_payment.active {
+	display: block;
+}
+
+#tab_payment .tabs a:hover,
+#tab_payment .tabs a.active {
+	background: rgba(102, 144, 254, 0.8);
+	font-weight: bold;
+}
+
+#tab_payment div.btn {
+	padding-top: 10px;
+}
+
+#tab_payment table tbody td {
+	background-color: #fff;
+}
+
+.tabgroup {
+	padding: 15px 20px 20px;
+	margin-top: -5px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.tabgroup label {
+	margin-right: 15px;
+}
+
+.tabgroup label:last-child {
+	margin-right: 0;
+}
+
+#tab2 label {
+	width: 19%;
+	/*    text-align: left;*/
+	margin-right: 0;
+}
+
+.tabgroup div {
+	width: 100%;
+	margin: 0 auto;
+}
+.tabs .clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.sec_d {
+	padding-left: 20px;
+}
+
+div.footerWrap .under-line:hover {
+	text-decoration: underline;
+	color: #0000ff;
+}
