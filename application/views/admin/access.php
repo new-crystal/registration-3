@@ -43,9 +43,9 @@ $en_name = $firstName . " " . $lastName
     font-size: 1.5rem;
     line-height: 2.5rem;
     padding-left: 4rem;
-    display: flex;
+    /* display: flex; */
     align-items: center;
-    height: 4rem;
+    /* height: 4rem; */
     font-weight: bold;
 }
 
@@ -106,52 +106,52 @@ $en_name = $firstName . " " . $lastName
                                 <col />
                             </colgroup>
                             <tr>
-                                <th>Registartion No.</th>
+                                <th>등록번호</th>
                                 <td id="number" class="qr_text">
                                     <?php if (isset($user['registration_no'])) echo $user['registration_no'] ?>
                                 </td>
                             </tr>
                             <tr>
-                                <th>Name</th>
+                                <th>성함(E)</th>
                                 <td id="en_name" class="qr_text">
                                     <?php echo isset($user['first_name']) ? $user['first_name'] . " " . $user['last_name'] : ''; ?>
                                 </td>
                             </tr>
                             <tr>
-                                <th>성함</th>
+                                <th>성함(K)</th>
                                 <td id="name" class="qr_text">
                                     <?php if (isset($user['name_kor'])) echo $user['name_kor'] ?></td>
                             </tr>
                             <tr>
-                                <th>Country</th>
+                                <th>국적</th>
                                 <td id="nation" class="qr_text">
                                     <?php if (isset($user['nation'])) echo $user['nation'] ?></td>
                             </tr>
                             <tr>
-                                <th>Affiliation</th>
+                                <th>소속(E)</th>
                                 <td id="affiliation" class="qr_text">
                                     <?php if (isset($user['affiliation'])) echo $user['affiliation'] ?></td>
                             </tr>
                             <tr>
-                                <th>소속</th>
+                                <th>소속(k)</th>
                                 <td id="affiliation_kor" class="qr_text">
                                     <?php if (isset($user['affiliation_kor'])) echo $user['affiliation_kor'] ?></td>
                             </tr>
                             <tr>
-                                <th>비만학회 회원 여부</th>
-                                <td id="ksso_member_status" class="qr_text">
-                                    <?php if (isset($user['ksso_member_status'])) echo $user['ksso_member_status'] ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Type of Participation</th>
+                                <th>참가 유형</th>
                                 <td id="attendance_type" class="qr_text">
                                     <?php if (isset($user['attendance_type'])) echo $user['attendance_type'] ?></td>
                             </tr>
                             <tr>
-                                <th>결제여부</th>
-                                <td id="deposit" class="qr_text">
-                                    <?php if (isset($user['deposit'])) echo $user['deposit'] ?></td>
+                                <th>참가자 유형</th>
+                                <td id="member_type" class="qr_text">
+                                    <?php if (isset($user['member_type'])) echo $user['member_type']; ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>등록비</th>
+                                <td id="fee" class="qr_text">
+                                    <?php if (isset($user['fee'])) echo $user['fee'] ?></td>
                             </tr>
                         </table>
                         <table class="qr-info-table mb-80 w-2/5" id="qrTable">
@@ -159,28 +159,6 @@ $en_name = $firstName . " " . $lastName
                                 <col width="30%" />
                                 <col />
                             </colgroup>
-                            <tr>
-                                <th>Category</th>
-                                <?php if (isset($user['member_type']) && $user['member_type'] == "Student") { ?>
-                                <td id="member_type" class="qr_text" style="color:red">Student</td>
-                                <?php } else { ?>
-                                <td id="member_type" class="qr_text">
-                                    <?php if (isset($user['member_type'])) echo $user['member_type']; ?>
-                                </td>
-                                <?php } ?>
-                            </tr>
-
-
-                            <tr>
-                                <th>등록비</th>
-                                <td id="fee" class="qr_text">
-                                    <?php if (isset($user['fee'])) echo $user['fee'] ?></td>
-                            </tr>
-                            <tr>
-                                <th>평점신청여부</th>
-                                <td id="is_score" class="qr_text">
-                                    <?php if (isset($user['is_score'])) echo $user['is_score'] ?></td>
-                            </tr>
                             <tr>
                                 <th class="memoHeader">메모</th>
                                 <td id="memo" class="qr_text"><?php
@@ -340,26 +318,13 @@ function fetchData(qrcode) {
                 affiliation_kor.innerText = htmlDocument.querySelector("#affiliation_kor").innerText.replace(
                         /<br\s*\/?>/gi, "")
                     .trim();
-                ksso_member_status.innerText = htmlDocument.querySelector("#ksso_member_status").innerText.replace(
-                        /<br\s*\/?>/gi, "")
-                    .trim();
                 attendance_type.innerText = htmlDocument.querySelector("#attendance_type").innerText.replace(
                         /<br\s*\/?>/gi, "")
                     .trim();
-                if (htmlDocument.querySelector("#member_type").innerText.replace(/<br\s*\/?>/gi, "")
-                    .trim() === "Student") {
-                    category.style.color = "red";
-                    category.innerText = "Student"
-                } else {
-                    category.innerText = htmlDocument.querySelector("#member_type").innerText.replace(
-                            /<br\s*\/?>/gi, "")
-                        .trim();
-                }
-                deposit.innerText = htmlDocument.querySelector("#deposit").innerText.replace(/<br\s*\/?>/gi, "")
+                category.innerText = htmlDocument.querySelector("#member_type").innerText.replace(
+                        /<br\s*\/?>/gi, "")
                     .trim();
                 fee.innerText = htmlDocument.querySelector("#fee").innerText.replace(/<br\s*\/?>/gi, "")
-                    .trim();
-                is_score.innerText = htmlDocument.querySelector("#is_score").innerText.replace(/<br\s*\/?>/gi, "")
                     .trim();
                 memo.innerText = htmlDocument.querySelector("#memo").innerText.replace(/<br\s*\/?>/gi, "")
                     .trim();
@@ -387,7 +352,7 @@ function fetchData(qrcode) {
         }).then((data) => {
             executeFunctionInChildWindow(qrcode);
         }).then(() => {
-            window.open(`https://reg2.webeon.net/qrcode/print_file?registration_no=${qrvalue}`, "_blank")
+            window.open(`https://reg3.webeon.net/qrcode/print_file?registration_no=${qrvalue}`, "_blank")
         }).then(() => {
             // if (memo.innerText || remark1.innerText || remark2.innerText || remark3.innerText || remark4
             //     .innerText || remark5.innerText) {
