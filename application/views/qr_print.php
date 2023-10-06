@@ -33,6 +33,10 @@ body {
     font-size: 30px !important;
 }
 
+.receipt {
+    transform: rotate(0.5turn) translate(-100px, -197px);
+}
+
 .small_text_box {
     position: relative;
     top: -18px;
@@ -40,6 +44,7 @@ body {
 
 .small_text_box>.receipt_name {
     left: -42px !important;
+
 }
 
 .text_box>.receipt_name {
@@ -102,7 +107,6 @@ body {
                 if ($users['nt_info'] != '') {
                     echo '<div class="org" id="nt_info">' . $users['nt_info'] . '</div>';
                 }
-                echo '<div class="lucky_num" id="lucky_num">' . $luckyNum . '</div>';
                 echo '<div class="org" id="org">' . $users['org_nametag'] . '</div>';
                 if (mb_strlen($users['org_nametag']) <= 51) {
                     echo '<div class="org" id="nation" style="height:0;    transform: translateY(-21px);">' . $users['nation'] . '</div>';
@@ -141,15 +145,10 @@ body {
                     echo '<div class ="text_box">';
                 }
 
-                echo '<div class="receipt receipt_name">' . $users['first_name'] . ' ' . $users['last_name'] .   '</div>';
-                echo '<div class="receipt receipt_num_1">' . $users['registration_no'] . '</div>';
                 echo '<div class="receipt receipt_price">' . $users['fee'] . '</div>';
+                echo '<div class="receipt receipt_name">' . $users['first_name'] . ' ' . $users['last_name'] .   '</div>';
                 echo '</div>';
-                echo '<div class="lucky_num_bottom" id="lucky_num_bottom">' . $luckyNum . '</div>';
-                // echo '<div class="receipt receipt_num_2">' . $users['registration_no'] . '</div>';
-                // echo '<div class="receipt receipt_small small_nick">' . $users['nick_name'] . '</div>';
-                // echo '<div class="receipt receipt_small smaill_ln">' . $users['ln'] . '</div>';
-                // echo '<div class="receipt receipt_small small_sn">' . $users['sn'] . '</div>';
+
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';
@@ -195,7 +194,7 @@ function printElement(elem) {
     $printSection.innerHTML = "";
     $printSection.appendChild(domClone);
     //            console.log($printSection);
-    window.print();
+    // window.print();
 }
 
 
