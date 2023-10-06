@@ -32,9 +32,9 @@ async function saveMemo() {
     const formData = new FormData(form);
 
     if (memoValue === "") {
-        formData.set('memo', null); // 메모 필드의 값을 공백으로 설정
+        formData.set('notice', null); // 메모 필드의 값을 공백으로 설정
     } else {
-        formData.set('memo', memoValue);
+        formData.set('notice', memoValue);
     }
     try {
         const response = await fetch(url, {
@@ -45,6 +45,9 @@ async function saveMemo() {
         if (response.ok) {
             // 메모 저장 성공
             alert("메모 저장 성공");
+            const parentWindow = window.opener;
+            parentWindow.location.reload()
+            window.close()
         } else {
             // 메모 저장 실패
             alert("메모 저장 실패");
