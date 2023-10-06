@@ -1,3 +1,4 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
@@ -180,7 +181,21 @@ td {
     padding: 16px;
 }
 
+#addForm {
+    width: 60%;
+    margin: 0 auto;
+}
+
+#Email3 {
+    width: 100px;
+    height: 40px;
+}
+
 @media screen and (max-width:480px) {
+    #addForm {
+        width: 80%;
+    }
+
     .number {
         display: none;
     }
@@ -190,6 +205,7 @@ td {
     .tbl_type01 th,
     .tbl_type01 td {
         font-size: 0.7rem;
+        padding: 8px;
     }
 
     label {
@@ -208,13 +224,13 @@ td {
         height: 12px;
     }
 
-    #addForm {
-        width: 80%;
+    #Email3 {
+        width: 20px;
     }
 }
 </style>
 <script src="https://cdn.tailwindcss.com"></script>
-<?php echo form_open('/onSite/sicem', 'id="addForm" name="addForm" class="w-3/5 mx-auto"') ?>
+<?php echo form_open('/onSite/sicem', 'id="addForm" name="addForm" ') ?>
 <!-- <form action="/onSite/sicem" class="w-3/5 mx-auto"> -->
 <!-- <img src="./mail_header.png" alt="header" class="w-full h-96" /> -->
 <div class="wrap_1">
@@ -505,7 +521,7 @@ td {
                         <input type="text" name="email1" id="Email1" maxlength="64" value="" class="w-5/12">
                         <p>@</p>
                         <input type="text" name="email2" id="Email2" maxlength="64" value="" class="w-5/12">
-                        <select id="Email3" class="border" style="background-color:#ffffff;width:100px; height:40px;">
+                        <select id="Email3" class="border" style="background-color:#ffffff;">
                             <option value="" selected="selected">직접입력</option>
                             <option value="naver.com">naver.com</option>
                             <option value="daum.net">daum.net</option>
