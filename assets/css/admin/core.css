@@ -124,7 +124,7 @@
 }
 
 #printThis .org{
-  font-size: 16px;
+  font-size: 18px;
   padding: 0 10px;
   top: 16%;
   word-break: keep-all;
@@ -132,8 +132,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  letter-spacing: -0.5px;
-  transform: translateY(-27px);
+  /* letter-spacing: -0.5px; */
+  transform: translateY(-8px);
   font-weight: 400!important;
 }
 
@@ -147,16 +147,16 @@
 }
 
 #printThis .nick_name{
-  line-height: 42px;
+  line-height: 61px;
   font-weight: 400;
-  font-size: 35px;
+  font-size: 52px;
   letter-spacing: 20px;
   padding: 19px 40px 0 58px;
   overflow: hidden;
 }
 
 #printThis .nick_name.lang_en{
-    letter-spacing: 0px;
+    letter-spacing: -1px;
     padding: 30px 10px 0 10px;
 }
 
@@ -242,7 +242,7 @@
 /*    float: left;*/
 /*    width: 100px;*/
     margin-bottom: 0px;
-    padding: 41px 10px;
+    padding: 31px 10px;
 }
 
 #qrcode img{
