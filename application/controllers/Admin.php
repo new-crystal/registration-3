@@ -1601,10 +1601,64 @@ class Admin extends CI_Controller
                 if ($memo === "") {
                     $info = array("notice" => null);
                 } else {
-                    $info = array("notice" => $notice);
+                    $info = array(
+                        "notice" => $notice,
+                        "is_deleted" => 'Y'
+                    );
                 }
                 $this->schedule->add_notice($info);
             }
+        }
+    }
+    public function edit_notice()
+    {
+
+        if (!isset($this->session->admin_data['logged_in']))
+            $this->load->view('admin/login');
+        else {
+            $this->load->helper('form');
+            $this->load->library('form_validation');
+
+
+            $data['notice'] = $this->schedule->get_notice();
+            $this->form_validation->set_rules('notice', 'notice', 'required');
+
+            if ($this->form_validation->run() === FALSE) {
+                $this->load->view('admin/notice', $data);
+            } else {
+
+                $notice = $this->input->post('notice');
+                $userId =  $this->input->post('idx');
+                $where = array(
+                    'idx' => $userId
+                );
+
+                if ($notice === "") {
+                    $info = array("notice" => null); // 메모 필드를 null로 설정하여 삭제
+                } else {
+                    $info = array("notice" => $notice);
+                }
+                $this->schedule->edit_notice($info, $where);
+            }
+        }
+    }
+    public function del_notice()
+    {
+
+        if (!isset($this->session->admin_data['logged_in']))
+            $this->load->view('admin/login');
+        else {
+
+            $this->load->view('admin/notice', $data);
+
+            $userId =  $this->input->post('idx');
+            $where = array(
+                'idx' => $userId
+            );
+
+            $info = array("is_deleted" => 'N');
+
+            $this->schedule->edit_notice($info, $where);
         }
     }
 }
