@@ -119,6 +119,14 @@
                                         </span>
                                     </a>
                                 </li>
+                                <li style="margin-bottom: 2rem;"
+                                    <?php if ($primary_menu == 'notice') echo 'class="active"' ?>>
+                                    <a href="/admin/notice">
+                                        <i class="icon-list-unordered"></i>
+                                        <span>공지사항
+                                        </span>
+                                    </a>
+                                </li>
                                 <!-- <li <?php if ($primary_menu == 'abstracts') echo 'class="active"' ?>>
                                     <a href="/admin/abstracts">
                                         <i class="icon-list-unordered"></i>

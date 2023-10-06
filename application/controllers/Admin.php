@@ -1567,7 +1567,44 @@ class Admin extends CI_Controller
         $result = file_get_contents('http://www.into-webinar.com/MailSenderApi', false, $context);
     }
 
-    public function gala()
+    public function notice()
     {
+        $this->load->view('admin/header');
+        if (!isset($this->session->admin_data['logged_in']))
+            $this->load->view('admin/login');
+        else {
+            // 
+            $data['primary_menu'] = 'notice';
+            $data['notice'] = $this->schedule->get_notice();
+            $this->load->view('admin/left_side.php', $data);
+            $this->load->view('admin/notice', $data);
+        }
+        $this->load->view('footer');
+    }
+
+    public function add_notice()
+    {
+
+        if (!isset($this->session->admin_data['logged_in']))
+            $this->load->view('admin/login');
+        else {
+            $this->load->helper('form');
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules('notice', 'notice', 'required');
+
+            if ($this->form_validation->run() === FALSE) {
+                $this->load->view('admin/add_notice');
+            } else {
+
+                $notice = $this->input->post('notice');
+
+                if ($memo === "") {
+                    $info = array("notice" => null);
+                } else {
+                    $info = array("notice" => $notice);
+                }
+                $this->schedule->add_notice($info);
+            }
+        }
     }
 }
