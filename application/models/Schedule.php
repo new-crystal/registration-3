@@ -1,11 +1,12 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Schedule extends CI_Model
 {
-	private $duration = "duration";
+    private $duration = "duration";
     private $breaks = "breaks";
+    private $notice = "notice";
 
     public function get_dday()
     {
@@ -36,7 +37,14 @@ class Schedule extends CI_Model
         return $query->result_array();
     }
 
-
+    public function get_notice()
+    {
+        return $this->db->get($this->notice)->result_array();
+    }
+    public function add_notice($info)
+    {
+        $this->db->insert($this->notice, $info);
+        $idx = $this->db->insert_id();
+        $this->db->where('id', $idx);
+    }
 }
-
-?>
