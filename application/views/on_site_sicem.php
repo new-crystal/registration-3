@@ -207,10 +207,14 @@ td {
         width: 12px;
         height: 12px;
     }
+
+    #addForm {
+        width: 80%;
+    }
 }
 </style>
 <script src="https://cdn.tailwindcss.com"></script>
-<?php echo form_open('/onSite/sicem', 'id="addForm" name="addForm" class="md:w-3/5 sm:w-4/5 mx-auto"') ?>
+<?php echo form_open('/onSite/sicem', 'id="addForm" name="addForm" class="w-3/5 mx-auto"') ?>
 <!-- <form action="/onSite/sicem" class="w-3/5 mx-auto"> -->
 <!-- <img src="./mail_header.png" alt="header" class="w-full h-96" /> -->
 <div class="wrap_1">
