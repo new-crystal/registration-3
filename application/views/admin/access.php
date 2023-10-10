@@ -59,6 +59,11 @@ $en_name = $firstName . " " . $lastName
         float: right;
     }
 
+    .notice {
+        padding: 4px;
+        background-color: #ffbe0b;
+    }
+
     .memoHeader {
         background-color: #fb8500 !important;
     }
@@ -77,10 +82,12 @@ $en_name = $firstName . " " . $lastName
         <div class="content">
             <div class="panel panel-flat">
                 <div>
-                    <?php
-                    foreach ($notice as $item) {
-                        echo '<div style="text-align: left;"><input  id="notice" class="notice" value="' .  $item['notice'] . '" readonly/></div>';
-                    } ?>
+                    <div id="notice">
+                        <?php
+                        foreach ($notice as $item) {
+                            echo '<input class="notice" value="' .  $item['notice'] . '" readonly/>';
+                        } ?>
+                    </div>
                     <button class="w-[150px] h-[40px] bg-slate-300 mt-20 hover:bg-slate-400 active:bg-slate-500" type="button" id="open">새창</button>
                 </div>
                 <form action="/admin/access" id="qr_form" name="qr_form" class="w-full h-screen flex flex-col items-center justify-center bg-slate-50">
@@ -301,7 +308,6 @@ $en_name = $firstName . " " . $lastName
             .then(data => {
                 const parser = new DOMParser();
                 const htmlDocument = parser.parseFromString(data, 'text/html');
-                console.log(htmlDocument)
                 if (htmlDocument.querySelector("#number").innerText) {
                     number.innerText = htmlDocument.querySelector("#number").innerText.replace(/<br\s*\/?>/gi, "")
                         .trim();
@@ -337,6 +343,7 @@ $en_name = $firstName . " " . $lastName
                         .trim();
                     remark5.innerText = htmlDocument.querySelector("#remark5").innerText.replace(/<br\s*\/?>/gi, "")
                         .trim();
+                    notice.innerHTML = htmlDocument.querySelector("#notice").innerHTML
                     // if (remark1.innerText !== "") {
                     //     popUp(number.innerText)
                     // }
