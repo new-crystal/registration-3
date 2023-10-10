@@ -227,6 +227,10 @@ td {
     #Email3 {
         width: 20px;
     }
+
+    .check_btn {
+        display: block;
+    }
 }
 
 .sign_up {
@@ -242,14 +246,34 @@ td {
     background-color: #EBF2F9
 }
 
+.email_box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
 .check_btn {
+    /* background-color: #EBF2F9 !important; */
     border: 1px solid #CCC;
     padding: 0px 4px;
     height: 40px;
+    margin-top: 1rem;
 }
 
 .check_btn:hover {
     background-color: #CCC;
+}
+
+.button_text_box {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.email_text {
+    transform: translate(10px, 10px);
+    color: #c1121f;
 }
 </style>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -275,27 +299,34 @@ td {
                     <span class="hit">*</span>
                 </th>
                 <td>
-                    <div class="flex items-center w-11/12 justify-between">
-                        <input type="text" name="email1" id="Email1" maxlength="64" value="" class="w-4/12">
-                        <p>@</p>
-                        <input type="text" name="email2" id="Email2" maxlength="64" value="" class="w-4/12">
-                        <select id="Email3" class="border" style="background-color:#ffffff;">
-                            <option value="" selected="selected">직접입력</option>
-                            <option value="naver.com">naver.com</option>
-                            <option value="daum.net">daum.net</option>
-                            <option value="hotmail.com">hotmail.com</option>
-                            <option value="nate.com">nate.com</option>
-                            <option value="yahoo.co.kr">yahoo.co.kr</option>
-                            <option value="paran.com">paran.com</option>
-                            <option value="empas.com">empas.com</option>
-                            <option value="dreamwiz.com">dreamwiz.com</option>
-                            <option value="freechal.com">freechal.com</option>
-                            <option value="lycos.co.kr">lycos.co.kr</option>
-                            <option value="korea.com">korea.com</option>
-                            <option value="gmail.com">gmail.com</option>
-                            <option value="hanmir.com">hanmir.com</option>
-                        </select>
-                        <button class="check_btn" type="button">중복확인</button>
+                    <div class="email_box">
+                        <div class="flex items-center w-10/12 justify-between">
+                            <input type="text" name="email1" id="Email1" maxlength="64" value="" class="w-5/12">
+                            <p>@</p>
+                            <input type="text" name="email2" id="Email2" maxlength="64" value="" class="w-5/12">
+                            <select id="Email3" class="border" style="background-color:#ffffff;">
+                                <option value="" selected="selected">직접입력</option>
+                                <option value="naver.com">naver.com</option>
+                                <option value="daum.net">daum.net</option>
+                                <option value="hotmail.com">hotmail.com</option>
+                                <option value="nate.com">nate.com</option>
+                                <option value="yahoo.co.kr">yahoo.co.kr</option>
+                                <option value="paran.com">paran.com</option>
+                                <option value="empas.com">empas.com</option>
+                                <option value="dreamwiz.com">dreamwiz.com</option>
+                                <option value="freechal.com">freechal.com</option>
+                                <option value="lycos.co.kr">lycos.co.kr</option>
+                                <option value="korea.com">korea.com</option>
+                                <option value="gmail.com">gmail.com</option>
+                                <option value="hanmir.com">hanmir.com</option>
+                            </select>
+                        </div>
+                        <div class="button_text_box">
+                            <button class="check_btn bg-slate-600 text-white" type="button">Check the availability of
+                                this
+                                ID</button>
+                            <p class="email_text">Please enter your ID(E-mail)</p>
+                        </div>
                     </div>
                 </td>
             </tr>
@@ -973,6 +1004,7 @@ const email_1 = document.querySelector("#Email1")
 const email_2 = document.querySelector("#Email2")
 const email_3 = document.querySelector("#Email3")
 const check_btn = document.querySelector(".check_btn")
+const email_text = document.querySelector(".email_text")
 
 const member = document.querySelector("#member");
 const nonMember = document.querySelector("#non_member")
@@ -1140,12 +1172,14 @@ email_1.addEventListener("change", () => {
 
 email_2.addEventListener("change", () => {
     check_email = false;
+    email_text.innerText = "Please check the availability of this E-mail"
+    email_text.style.color = "#c1121f"
 })
 
 /**중복확인 버튼 */
 check_btn.addEventListener("click", () => {
     if (!email_1.value || !email_2.value) {
-        alert("Please write your email address");
+        alert("Please enter your ID(E-mail)");
         email_1.focus()
         return;
     }
@@ -1164,9 +1198,13 @@ async function checkEmail() {
     if (data.user) {
         alert("This email address is already taken")
         check_email = false;
+        email_text.innerText = "This email address is already taken"
+        email_text.style.color = "#c1121f"
     } else {
         alert("This email address is available")
         check_email = true;
+        email_text.innerText = "This email address is available"
+        email_text.style.color = "blue"
     }
 }
 
