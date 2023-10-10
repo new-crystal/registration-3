@@ -39,22 +39,8 @@
         padding: 0;
     }
 
-    .small_name {
-        font-size: 30px !important;
-    }
-
     .receipt {
         transform: rotate(0.5turn) translate(-100px, -180px);
-    }
-
-    .small_text_box {
-        position: relative;
-        top: -18px;
-    }
-
-    .small_text_box>.receipt_name {
-        left: -42px !important;
-
     }
 
     .text_box>.receipt_name {
@@ -103,44 +89,14 @@
                 }
 
                 /**닉네임 조건식 */
-                // 한국인 X && firstname 15글자 이상
-                if ($nicknameLength < 25) {
-                    if (mb_strlen($users['first_name']) >= 15 || mb_strlen($users['last_name']) >= 15) {
-                        echo '<div class="nick_name lang_en small_name" id="first_name">' .  $users['first_name'] . '</div>';
-                        echo '<div class="nick_name lang_en small_name" id="last_name">' .  $users['last_name'] . '</div>';
-                        // 한국인 X && firstname 15글자 이하
-                    } else if (mb_strlen($users['first_name']) <= 15) {
-                        echo '<div class="nick_name lang_en" id="first_name">' .  $users['first_name'] . '</div>';
-                        echo '<div class="nick_name lang_en" id="last_name">' .  $users['last_name'] . '</div>';
-                    }
-                } else if ($nicknameLength >= 25) {
-                    echo '<div class="nick_name lang_en" id="first_name" style="line-height: 40px;font-size: 25px;">' .  $users['first_name'] . '</div>';
-                    echo '<div class="nick_name lang_en" id="last_name" style="line-height: 40px;font-size: 25px;">' .  $users['last_name'] . '</div>';
-                }
+                echo '<div class="nick_name lang_en" id="first_name">' .  $users['first_name'] . '</div>';
+                echo '<div class="nick_name lang_en" id="last_name">' .  $users['last_name'] . '</div>';
 
-                // //한국인 O
-                // if ($nation == "Republic of Korea") {
-                //     echo '<div class="nick_name lang_en small_name" id="first_name">' . $users['last_name'] . " " . $users['first_name'] . '</div>';
-                // }
-
-                echo '<div class="org" id="org">' . $users['org_nametag'] . ',' . $users['nation'] . '</div>';
-                // if (mb_strlen($users['org_nametag']) <= 51) {
-                //     echo '<div class="org" id="nation" style="height:0;    transform: translateY(-21px);">' . $users['nation'] . '</div>';
-                // } else {
-                //     echo '<div class="org" id="nation" style="height:0;    transform: translateY(-13px);">' . $users['nation'] . '</div>';
-                // }
+                echo '<div class="org" id="org">' . $users['org_nametag'] . ',' . ' ' . $users['nation'] . '</div>';
 
                 echo '<div id="qrcode" class=""><img src="/assets/images/QR/qrcode_' . $users['registration_no'] . '.jpg"></div>';
 
-                //한국인 X firstname & lastName 15글자 이상
-                if (mb_strlen($users['first_name']) >= 15 || mb_strlen($users['last_name']) >= 15) {
-                    echo '<div class ="small_text_box">';
-
-                    //한국인 X firstname & lastName 15글자 이하
-                } else if (mb_strlen($users['first_name']) <= 15 && mb_strlen($users['last_name']) <= 15) {
-                    echo '<div class ="text_box">';
-                }
-
+                echo '<div class ="text_box">';
                 echo '<div class="receipt receipt_price">' . $users['fee'] . '</div>';
                 echo '<div class="receipt receipt_name">' . $users['first_name'] . ' ' . $users['last_name'] .   '</div>';
                 echo '</div>';
