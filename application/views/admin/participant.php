@@ -1,29 +1,33 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-    th,
-    td {
-        text-align: center !important;
-        border: 2px solid rgb(163 163 163);
-        font-weight: 600;
-        font-size: 1.5rem;
-        line-height: 2rem;
-    }
+th,
+td {
+    text-align: center !important;
+    border: 2px solid rgb(163 163 163);
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
 
-    tr {
-        height: 4.5rem;
-        border: 2px solid rgb(163 163 163);
-        font-weight: 600;
-        font-size: 1.5rem;
-        line-height: 2rem;
-    }
+tr {
+    height: 4.5rem;
+    border: 2px solid rgb(163 163 163);
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
 </style>
 <div class="text-center flex flex-col items-center justify-center">
     <h1 class="text-6xl font-semibold text-orange-600 my-10">ICOMES 2023</h1>
     <h6 class="text-3xl font-semibold mb-20 ">현장 참석자 데이터</h6>
 
-    <h6 class="text-3xl font-semibold mb-20 ">현장 QR 프린트 : <?php echo count($users) ?> 명</h6>
-    <h6 class="text-3xl font-semibold mb-20 ">현장 QR 출결 : <?php echo count($item) ?> 명</h6>
-    <?php
+    <h6 class="text-3xl font-semibold mb-20 ">현장 QR 프린트 :
+        <!-- <?php echo count($users) ?> --> 0명
+    </h6>
+    <h6 class="text-3xl font-semibold mb-20 ">현장 QR 출결 :
+        <!--<?php echo count($item) ?>-->0명
+    </h6>
+    <!-- <?php
     //print_r($statistics);
     // print_r($users);
     $total_1 = 0;
@@ -46,7 +50,7 @@
     $total_7 = $total_1 + $total_2;
     $total_8 = $total_3 + $total_4;
     $total_9 = $total_5 + $total_6;
-    ?>
+    ?> -->
     <table class="w-9/12 text-2xl mb-20">
         <tr class="bg-green-300 text-black">
             <th colspan="2" rowspan="2">등록구분</th>
@@ -66,17 +70,23 @@
         <tr>
             <th class="bg-red-100" rowspan="7">사전등록</th>
             <th class="bg-red-100">Chairperson</th>
-            <td><?php echo isset($statistics[1]['A_07']) ? $statistics[1]['A_07'] : 0; ?>
+            <td>
+                <!-- <?php echo isset($statistics[1]['A_07']) ? $statistics[1]['A_07'] : 0; ?> -->
             </td>
-            <td><?php echo isset($statistics[1]['AK_07']) ? $statistics[1]['AK_07'] : 0; ?>
+            <td>
+                <!-- <?php echo isset($statistics[1]['AK_07']) ? $statistics[1]['AK_07'] : 0; ?> -->
             </td>
-            <td><?php echo isset($statistics[1]['A_08']) ? $statistics[1]['A_08'] : 0; ?>
+            <td>
+                <!-- <?php echo isset($statistics[1]['A_08']) ? $statistics[1]['A_08'] : 0; ?> -->
             </td>
-            <td><?php echo isset($statistics[1]['AK_08']) ? $statistics[1]['AK_08'] : 0; ?>
+            <td>
+                <!-- <?php echo isset($statistics[1]['AK_08']) ? $statistics[1]['AK_08'] : 0; ?> -->
             </td>
-            <td><?php echo isset($statistics[1]['A_09']) ? $statistics[1]['A_09'] : 0; ?>
+            <td>
+                <!-- <?php echo isset($statistics[1]['A_09']) ? $statistics[1]['A_09'] : 0; ?> -->
             </td>
-            <td><?php echo isset($statistics[1]['AK_09']) ? $statistics[1]['AK_09'] : 0; ?>
+            <td>
+                <!-- <?php echo isset($statistics[1]['AK_09']) ? $statistics[1]['AK_09'] : 0; ?> -->
             </td>
         </tr>
         <tr>
