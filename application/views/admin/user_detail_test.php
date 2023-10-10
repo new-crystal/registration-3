@@ -312,7 +312,7 @@ if ($item['onsite_reg'] == '0') {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th style="background-color: #fb8500">Remarks 2(Special Requst for Food)</th>
+                                    <th style="background-color: #fb8500">Remarks 2</th>
                                     <td>
                                         table number:
                                         <input class="form-control" type="text"
