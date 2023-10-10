@@ -1447,12 +1447,14 @@ class Admin extends CI_Controller
 
                 //입장시간, 퇴장시간 기록
                 // $this->entrance->record($info);
-                $user = $this->users->get_user($where);
-                $this->data['user'] = $user;
 
-                $this->load->view('admin/access', $this->data);
+                $data['notice'] = $this->schedule->get_notice();
+                $data['user'] = $this->users->get_user($where);
+
+                $this->load->view('admin/access', $data);
             } else {
-                $this->load->view('admin/access');
+                $data['notice'] = $this->schedule->get_notice();
+                $this->load->view('admin/access', $data);
             }
             // $this->load->view('footer');
         }
