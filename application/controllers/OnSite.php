@@ -415,4 +415,17 @@ class OnSite extends CI_Controller
             $this->load->view('success');
         }
     }
+
+    public function check_email()
+    {
+        $email = $_GET['n'];
+        $where = array(
+            'email' => $email
+        );
+        $user = $this->users->get_user($where);
+
+        // 결과를 JSON 형태로 반환합니다.
+        header('Content-Type: application/json');
+        echo json_encode(array('user' => $user));
+    }
 }

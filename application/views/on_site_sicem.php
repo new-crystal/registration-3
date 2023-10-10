@@ -241,6 +241,16 @@ td {
 .sign_up:hover {
     background-color: #EBF2F9
 }
+
+.check_btn {
+    border: 1px solid #CCC;
+    padding: 0px 4px;
+    height: 40px;
+}
+
+.check_btn:hover {
+    background-color: #CCC;
+}
 </style>
 <script src="https://cdn.tailwindcss.com"></script>
 <?php echo form_open('/onSite/sicem', 'id="addForm" name="addForm" ') ?>
@@ -260,40 +270,74 @@ td {
                 <col width="*">
             </colgroup>
             <tr>
+                <th>
+                    E-mail<br>(이메일)
+                    <span class="hit">*</span>
+                </th>
+                <td>
+                    <div class="flex items-center w-11/12 justify-between">
+                        <input type="text" name="email1" id="Email1" maxlength="64" value="" class="w-4/12">
+                        <p>@</p>
+                        <input type="text" name="email2" id="Email2" maxlength="64" value="" class="w-4/12">
+                        <select id="Email3" class="border" style="background-color:#ffffff;">
+                            <option value="" selected="selected">직접입력</option>
+                            <option value="naver.com">naver.com</option>
+                            <option value="daum.net">daum.net</option>
+                            <option value="hotmail.com">hotmail.com</option>
+                            <option value="nate.com">nate.com</option>
+                            <option value="yahoo.co.kr">yahoo.co.kr</option>
+                            <option value="paran.com">paran.com</option>
+                            <option value="empas.com">empas.com</option>
+                            <option value="dreamwiz.com">dreamwiz.com</option>
+                            <option value="freechal.com">freechal.com</option>
+                            <option value="lycos.co.kr">lycos.co.kr</option>
+                            <option value="korea.com">korea.com</option>
+                            <option value="gmail.com">gmail.com</option>
+                            <option value="hanmir.com">hanmir.com</option>
+                        </select>
+                        <button class="check_btn" type="button">중복확인</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
                 <th>Country<br> (국가)<span class="hit">*</span></th>
                 <td>
                     <select id="nation_no" name="nation" class="px-2 py-1 w-11/12 h-10 border">
-                        <option value="" hidden="" data-nt="82">Contry</option>
                         <option data-nt="82" value="Republic of Korea" selected="">Republic of Korea</option>
                         <option data-nt="93" value="Afghanistan">Afghanistan</option>
+                        <option data-nt="358" value="Aland Islands">Aland Islands</option>
                         <option data-nt="355" value="Albania">Albania</option>
                         <option data-nt="213" value="Algeria">Algeria</option>
-                        <option data-nt="1684" value="American Samoa">American Samoa</option>
+                        <option data-nt="684" value="American Samoa">American Samoa</option>
                         <option data-nt="376" value="Andorra">Andorra</option>
                         <option data-nt="244" value="Angola">Angola</option>
-                        <option data-nt="1264" value="Anguilla">Anguilla</option>
-                        <option data-nt="1268" value="Antigua and Barbuda">Antigua and Barbuda</option>
+                        <option data-nt="1-264" value="Anguilla">Anguilla</option>
+                        <option data-nt="672" value="Antarctica">Antarctica</option>
+                        <option data-nt="1-268" value="Antigua and Barbuda">Antigua and Barbuda</option>
                         <option data-nt="54" value="Argentina">Argentina</option>
                         <option data-nt="374" value="Armenia">Armenia</option>
                         <option data-nt="297" value="Aruba">Aruba</option>
                         <option data-nt="61" value="Australia">Australia</option>
                         <option data-nt="43" value="Austria">Austria</option>
                         <option data-nt="994" value="Azerbaijan">Azerbaijan</option>
-                        <option data-nt="1242" value="Bahamas">Bahamas</option>
+                        <option data-nt="1" value="Bahamas">Bahamas</option>
                         <option data-nt="973" value="Bahrain">Bahrain</option>
                         <option data-nt="880" value="Bangladesh">Bangladesh</option>
-                        <option data-nt="1246" value="Barbados">Barbados</option>
+                        <option data-nt="1-246" value="Barbados">Barbados</option>
                         <option data-nt="375" value="Belarus">Belarus</option>
                         <option data-nt="32" value="Belgium">Belgium</option>
                         <option data-nt="501" value="Belize">Belize</option>
                         <option data-nt="229" value="Benin">Benin</option>
-                        <option data-nt="1441" value="Bermuda">Bermuda</option>
+                        <option data-nt="1-441" value="Bermuda">Bermuda</option>
                         <option data-nt="975" value="Bhutan">Bhutan</option>
                         <option data-nt="591" value="Bolivia">Bolivia</option>
                         <option data-nt="387" value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
                         <option data-nt="267" value="Botswana">Botswana</option>
+                        <option data-nt="47" value="Bouvet Island">Bouvet Island</option>
                         <option data-nt="55" value="Brazil">Brazil</option>
-                        <option data-nt="673" value="Brunei">Brunei</option>
+                        <option data-nt="246" value="British Indian Ocean Territory">British Indian Ocean Territory
+                        </option>
+                        <option data-nt="673" value="Brunei Darussalam">Brunei Darussalam</option>
                         <option data-nt="359" value="Bulgaria">Bulgaria</option>
                         <option data-nt="226" value="Burkina Faso">Burkina Faso</option>
                         <option data-nt="257" value="Burundi">Burundi</option>
@@ -301,182 +345,204 @@ td {
                         <option data-nt="237" value="Cameroon">Cameroon</option>
                         <option data-nt="1" value="Canada">Canada</option>
                         <option data-nt="238" value="Cape Verde">Cape Verde</option>
-                        <option data-nt="1345" value="Cayman Islands">Cayman Islands</option>
-                        <option data-nt="236" value="Central Africa">Central Africa</option>
+                        <option data-nt="1-345" value="Cayman Islands">Cayman Islands</option>
+                        <option data-nt="236" value="Central African Republic">Central African Republic</option>
                         <option data-nt="235" value="Chad">Chad</option>
                         <option data-nt="56" value="Chile">Chile</option>
                         <option data-nt="86" value="China">China</option>
                         <option data-nt="57" value="Colombia">Colombia</option>
+                        <option data-nt="269" value="Comoros">Comoros</option>
                         <option data-nt="242" value="Congo">Congo</option>
+                        <option data-nt="243" value="Congo, The Democratic Republic of th">Congo, The Democratic
+                            Republic of the</option>
                         <option data-nt="682" value="Cook Islands">Cook Islands</option>
                         <option data-nt="506" value="Costa Rica">Costa Rica</option>
+                        <option data-nt="225" value="Cote D'Ivoire">Cote D'Ivoire</option>
                         <option data-nt="385" value="Croatia">Croatia</option>
                         <option data-nt="53" value="Cuba">Cuba</option>
                         <option data-nt="357" value="Cyprus">Cyprus</option>
-                        <option data-nt="420" value="Czech">Czech</option>
+                        <option data-nt="420" value="Czech Republic">Czech Republic</option>
                         <option data-nt="45" value="Denmark">Denmark</option>
                         <option data-nt="253" value="Djibouti">Djibouti</option>
-                        <option data-nt="1767" value="Dominica">Dominica</option>
-                        <option data-nt="1809" value="Dominican R.">Dominican R.</option>
-                        <option data-nt="850" value="DPR of Korea">DPR of Korea</option>
-                        <option data-nt="243" value="DR Congo">DR Congo</option>
-                        <option data-nt="670" value="East Timor">East Timor</option>
+                        <option data-nt="1-767" value="Dominica">Dominica</option>
+                        <option data-nt="1-809" value="Dominican Republic">Dominican Republic</option>
                         <option data-nt="593" value="Ecuador">Ecuador</option>
                         <option data-nt="20" value="Egypt">Egypt</option>
                         <option data-nt="503" value="El Salvador">El Salvador</option>
                         <option data-nt="240" value="Equatorial Guinea">Equatorial Guinea</option>
                         <option data-nt="291" value="Eritrea">Eritrea</option>
                         <option data-nt="372" value="Estonia">Estonia</option>
-                        <option data-nt="268" value="Eswatini">Eswatini</option>
                         <option data-nt="251" value="Ethiopia">Ethiopia</option>
-                        <option data-nt="500" value="Falkland Islands">Falkland Islands</option>
+                        <option data-nt="500" value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option>
+                        <option data-nt="298" value="Faroe Islands">Faroe Islands</option>
                         <option data-nt="679" value="Fiji">Fiji</option>
                         <option data-nt="358" value="Finland">Finland</option>
                         <option data-nt="33" value="France">France</option>
+                        <option data-nt="594" value="French Guiana">French Guiana</option>
+                        <option data-nt="689" value="French Polynesia">French Polynesia</option>
                         <option data-nt="241" value="Gabon">Gabon</option>
                         <option data-nt="220" value="Gambia">Gambia</option>
                         <option data-nt="995" value="Georgia">Georgia</option>
                         <option data-nt="49" value="Germany">Germany</option>
+                        <option data-nt="233" value="Ghana">Ghana</option>
                         <option data-nt="350" value="Gibraltar">Gibraltar</option>
                         <option data-nt="30" value="Greece">Greece</option>
                         <option data-nt="299" value="Greenland">Greenland</option>
-                        <option data-nt="1473" value="Grenada">Grenada</option>
+                        <option data-nt="1-473" value="Grenada">Grenada</option>
                         <option data-nt="590" value="Guadeloupe">Guadeloupe</option>
-                        <option data-nt="1671" value="Guam">Guam</option>
+                        <option data-nt="1-671" value="Guam">Guam</option>
                         <option data-nt="502" value="Guatemala">Guatemala</option>
+                        <option data-nt="44" value="Guernsey">Guernsey</option>
                         <option data-nt="224" value="Guinea">Guinea</option>
                         <option data-nt="245" value="Guinea-Bissau">Guinea-Bissau</option>
                         <option data-nt="592" value="Guyana">Guyana</option>
                         <option data-nt="509" value="Haiti">Haiti</option>
+                        <option data-nt="672" value="Heard Island and McDonald Islands">Heard Island and McDonald
+                            Islands</option>
+                        <option data-nt="379" value="Holy See (Vatican City State)">Holy See (Vatican City State)
+                        </option>
                         <option data-nt="504" value="Honduras">Honduras</option>
                         <option data-nt="852" value="Hong Kong">Hong Kong</option>
                         <option data-nt="36" value="Hungary">Hungary</option>
                         <option data-nt="354" value="Iceland">Iceland</option>
                         <option data-nt="91" value="India">India</option>
                         <option data-nt="62" value="Indonesia">Indonesia</option>
-                        <option data-nt="98" value="Iran">Iran</option>
+                        <option data-nt="98" value="Iran, Islamic Republic of">Iran, Islamic Republic of</option>
                         <option data-nt="964" value="Iraq">Iraq</option>
                         <option data-nt="353" value="Ireland">Ireland</option>
+                        <option data-nt="44" value="Isle of Man">Isle of Man</option>
                         <option data-nt="972" value="Israel">Israel</option>
                         <option data-nt="39" value="Italy">Italy</option>
-                        <option data-nt="225" value="Ivory Coast">Ivory Coast</option>
-                        <option data-nt="1876" value="Jamaica">Jamaica</option>
+                        <option data-nt="1-876" value="Jamaica">Jamaica</option>
                         <option data-nt="81" value="Japan">Japan</option>
+                        <option data-nt="44" value="Jersey">Jersey</option>
                         <option data-nt="962" value="Jordan">Jordan</option>
-                        <option data-nt="7" value="Kazakstan">Kazakstan</option>
+                        <option data-nt="7" value="Kazakhstan">Kazakhstan</option>
                         <option data-nt="254" value="Kenya">Kenya</option>
                         <option data-nt="686" value="Kiribati">Kiribati</option>
                         <option data-nt="965" value="Kuwait">Kuwait</option>
-                        <option data-nt="996" value="Kyrgizstan">Kyrgizstan</option>
-                        <option data-nt="856" value="Laos">Laos</option>
+                        <option data-nt="996" value="Kyrgyzstan">Kyrgyzstan</option>
+                        <option data-nt="856" value="Lao People's Democratic Republic">Lao People's Democratic Republic
+                        </option>
                         <option data-nt="371" value="Latvia">Latvia</option>
                         <option data-nt="961" value="Lebanon">Lebanon</option>
                         <option data-nt="266" value="Lesotho">Lesotho</option>
                         <option data-nt="231" value="Liberia">Liberia</option>
-                        <option data-nt="218" value="Libya">Libya</option>
+                        <option data-nt="218" value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
                         <option data-nt="423" value="Liechtenstein">Liechtenstein</option>
                         <option data-nt="370" value="Lithuania">Lithuania</option>
                         <option data-nt="352" value="Luxembourg">Luxembourg</option>
-                        <option data-nt="853" value="Macao">Macao</option>
+                        <option data-nt="853" value="Macau">Macau</option>
                         <option data-nt="389" value="Macedonia">Macedonia</option>
                         <option data-nt="261" value="Madagascar">Madagascar</option>
                         <option data-nt="265" value="Malawi">Malawi</option>
                         <option data-nt="60" value="Malaysia">Malaysia</option>
                         <option data-nt="960" value="Maldives">Maldives</option>
-                        <option data-nt="373" value="Maldova">Maldova</option>
                         <option data-nt="223" value="Mali">Mali</option>
                         <option data-nt="356" value="Malta">Malta</option>
                         <option data-nt="692" value="Marshall Islands">Marshall Islands</option>
                         <option data-nt="596" value="Martinique">Martinique</option>
                         <option data-nt="222" value="Mauritania">Mauritania</option>
                         <option data-nt="230" value="Mauritius">Mauritius</option>
-                        <option data-nt="269" value="Mayotte">Mayotte</option>
+                        <option data-nt="262" value="Mayotte">Mayotte</option>
                         <option data-nt="52" value="Mexico">Mexico</option>
-                        <option data-nt="691" value="Micronesia">Micronesia</option>
+                        <option data-nt="691" value="Micronesia, Federated States of">Micronesia, Federated States of
+                        </option>
+                        <option data-nt="373" value="Moldova, Republic of">Moldova, Republic of</option>
                         <option data-nt="377" value="Monaco">Monaco</option>
                         <option data-nt="976" value="Mongolia">Mongolia</option>
                         <option data-nt="382" value="Montenegro">Montenegro</option>
-                        <option data-nt="1664" value="Montserrat">Montserrat</option>
+                        <option data-nt="1-664" value="Montserrat">Montserrat</option>
                         <option data-nt="212" value="Morocco">Morocco</option>
                         <option data-nt="258" value="Mozambique">Mozambique</option>
                         <option data-nt="95" value="Myanmar">Myanmar</option>
                         <option data-nt="264" value="Namibia">Namibia</option>
                         <option data-nt="674" value="Nauru">Nauru</option>
                         <option data-nt="977" value="Nepal">Nepal</option>
+                        <option data-nt="31" value="Netherlands">Netherlands</option>
+                        <option data-nt="599" value="Netherlands Antilles">Netherlands Antilles</option>
                         <option data-nt="687" value="New Caledonia">New Caledonia</option>
                         <option data-nt="64" value="New Zealand">New Zealand</option>
                         <option data-nt="505" value="Nicaragua">Nicaragua</option>
                         <option data-nt="227" value="Niger">Niger</option>
                         <option data-nt="234" value="Nigeria">Nigeria</option>
                         <option data-nt="683" value="Niue">Niue</option>
+                        <option data-nt="672" value="Norfolk Island">Norfolk Island</option>
+                        <option data-nt="1-670" value="Northern Mariana Islands">Northern Mariana Islands</option>
                         <option data-nt="47" value="Norway">Norway</option>
                         <option data-nt="968" value="Oman">Oman</option>
                         <option data-nt="92" value="Pakistan">Pakistan</option>
                         <option data-nt="680" value="Palau">Palau</option>
+                        <option data-nt="970" value="Palestinian Territory, Occupied">Palestinian Territory, Occupied
+                        </option>
                         <option data-nt="507" value="Panama">Panama</option>
                         <option data-nt="675" value="Papua New Guinea">Papua New Guinea</option>
                         <option data-nt="595" value="Paraguay">Paraguay</option>
                         <option data-nt="51" value="Peru">Peru</option>
+                        <option data-nt="63" value="Philippines">Philippines</option>
                         <option data-nt="48" value="Poland">Poland</option>
                         <option data-nt="351" value="Portugal">Portugal</option>
-                        <option data-nt="1787" value="Puerto Rico">Puerto Rico</option>
+                        <option data-nt="1-787" value="Puerto Rico">Puerto Rico</option>
                         <option data-nt="974" value="Qatar">Qatar</option>
+                        <option data-nt="262" value="Reunion">Reunion</option>
                         <option data-nt="40" value="Romania">Romania</option>
-                        <option data-nt="7" value="Russia">Russia</option>
+                        <option data-nt="7" value="Russian Federation">Russian Federation</option>
                         <option data-nt="250" value="Rwanda">Rwanda</option>
-                        <option data-nt="290" value="Saint Helena">Saint Helena</option>
-                        <option data-nt="1758" value="Saint Lucia">Saint Lucia</option>
+                        <option data-nt="1-869" value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                        <option data-nt="1-758" value="Saint Lucia">Saint Lucia</option>
                         <option data-nt="508" value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
+                        <option data-nt="1-784" value="Saint Vincent and the Grenadines">Saint Vincent and the
+                            Grenadines</option>
                         <option data-nt="685" value="Samoa">Samoa</option>
                         <option data-nt="378" value="San Marino">San Marino</option>
+                        <option data-nt="239" value="Sao Tome and Principe">Sao Tome and Principe</option>
                         <option data-nt="966" value="Saudi Arabia">Saudi Arabia</option>
                         <option data-nt="221" value="Senegal">Senegal</option>
                         <option data-nt="381" value="Serbia">Serbia</option>
                         <option data-nt="248" value="Seychelles">Seychelles</option>
                         <option data-nt="232" value="Sierra Leone">Sierra Leone</option>
                         <option data-nt="65" value="Singapore">Singapore</option>
-                        <option data-nt="1721" value="Sint Maarten">Sint Maarten</option>
                         <option data-nt="421" value="Slovakia">Slovakia</option>
                         <option data-nt="386" value="Slovenia">Slovenia</option>
                         <option data-nt="677" value="Solomon Islands">Solomon Islands</option>
                         <option data-nt="252" value="Somalia">Somalia</option>
                         <option data-nt="27" value="South Africa">South Africa</option>
-                        <option data-nt="211" value="South Sudan">South Sudan</option>
                         <option data-nt="34" value="Spain">Spain</option>
                         <option data-nt="94" value="Sri Lanka">Sri Lanka</option>
-                        <option data-nt="970" value="State of Palestine">State of Palestine</option>
                         <option data-nt="249" value="Sudan">Sudan</option>
                         <option data-nt="597" value="Suriname">Suriname</option>
+                        <option data-nt="268" value="Swaziland">Swaziland</option>
                         <option data-nt="46" value="Sweden">Sweden</option>
                         <option data-nt="41" value="Switzerland">Switzerland</option>
-                        <option data-nt="963" value="Syria">Syria</option>
+                        <option data-nt="963" value="Syrian Arab Republic">Syrian Arab Republic</option>
                         <option data-nt="886" value="Taiwan">Taiwan</option>
                         <option data-nt="992" value="Tajikistan">Tajikistan</option>
-                        <option data-nt="255" value="Tanzania">Tanzania</option>
+                        <option data-nt="255" value="Tanzania, United Republic of">Tanzania, United Republic of</option>
                         <option data-nt="66" value="Thailand">Thailand</option>
-                        <option data-nt="269" value="the Comoros">the Comoros</option>
-                        <option data-nt="31" value="the Netherlands">the Netherlands</option>
-                        <option data-nt="63" value="the Philippines">the Philippines</option>
                         <option data-nt="228" value="Togo">Togo</option>
                         <option data-nt="690" value="Tokelau">Tokelau</option>
                         <option data-nt="676" value="Tonga">Tonga</option>
-                        <option data-nt="1868" value="Trinidad and Tobago">Trinidad and Tobago</option>
+                        <option data-nt="1-868" value="Trinidad and Tobago">Trinidad and Tobago</option>
                         <option data-nt="216" value="Tunisia">Tunisia</option>
                         <option data-nt="90" value="Turkey">Turkey</option>
                         <option data-nt="993" value="Turkmenistan">Turkmenistan</option>
+                        <option data-nt="1-649" value="Turks and Caicos Islands">Turks and Caicos Islands</option>
                         <option data-nt="688" value="Tuvalu">Tuvalu</option>
                         <option data-nt="256" value="Uganda">Uganda</option>
                         <option data-nt="380" value="Ukraine">Ukraine</option>
                         <option data-nt="971" value="United Arab Emirates">United Arab Emirates</option>
                         <option data-nt="44" value="United Kingdom">United Kingdom</option>
-                        <option data-nt="1" value="United States of America">United States of America</option>
+                        <option data-nt="1" value="United States">United States</option>
+                        <option data-nt="1-808" value="United States Minor Outlying Islands">United States Minor
+                            Outlying Islands</option>
                         <option data-nt="598" value="Uruguay">Uruguay</option>
                         <option data-nt="998" value="Uzbekistan">Uzbekistan</option>
                         <option data-nt="678" value="Vanuatu">Vanuatu</option>
-                        <option data-nt="379" value="Vatican">Vatican</option>
                         <option data-nt="58" value="Venezuela">Venezuela</option>
                         <option data-nt="84" value="Vietnam">Vietnam</option>
-                        <option data-nt="212" value="Western Sahara">Western Sahara</option>
+                        <option data-nt="1-284" value="Virgin Islands, British">Virgin Islands, British</option>
+                        <option data-nt="1-340" value="Virgin Islands, U.S.">Virgin Islands, U.S.</option>
+                        <option data-nt="681" value="Wallis and Futuna">Wallis and Futuna</option>
                         <option data-nt="967" value="Yemen">Yemen</option>
                         <option data-nt="260" value="Zambia">Zambia</option>
                         <option data-nt="263" value="Zimbabwe">Zimbabwe</option>
@@ -524,35 +590,7 @@ td {
                     </div>
                 </td>
             </tr>
-            <tr>
-                <th>
-                    E-mail<br>(이메일)
-                    <span class="hit">*</span>
-                </th>
-                <td>
-                    <div class="flex items-center w-11/12 justify-between">
-                        <input type="text" name="email1" id="Email1" maxlength="64" value="" class="w-5/12">
-                        <p>@</p>
-                        <input type="text" name="email2" id="Email2" maxlength="64" value="" class="w-5/12">
-                        <select id="Email3" class="border" style="background-color:#ffffff;">
-                            <option value="" selected="selected">직접입력</option>
-                            <option value="naver.com">naver.com</option>
-                            <option value="daum.net">daum.net</option>
-                            <option value="hotmail.com">hotmail.com</option>
-                            <option value="nate.com">nate.com</option>
-                            <option value="yahoo.co.kr">yahoo.co.kr</option>
-                            <option value="paran.com">paran.com</option>
-                            <option value="empas.com">empas.com</option>
-                            <option value="dreamwiz.com">dreamwiz.com</option>
-                            <option value="freechal.com">freechal.com</option>
-                            <option value="lycos.co.kr">lycos.co.kr</option>
-                            <option value="korea.com">korea.com</option>
-                            <option value="gmail.com">gmail.com</option>
-                            <option value="hanmir.com">hanmir.com</option>
-                        </select>
-                    </div>
-                </td>
-            </tr>
+
             <tr>
                 <th>
                     평점신청 여부<br>(Only Korean)
@@ -934,6 +972,7 @@ const phone = document.querySelector("#phoneNumber")
 const email_1 = document.querySelector("#Email1")
 const email_2 = document.querySelector("#Email2")
 const email_3 = document.querySelector("#Email3")
+const check_btn = document.querySelector(".check_btn")
 
 const member = document.querySelector("#member");
 const nonMember = document.querySelector("#non_member")
@@ -1025,6 +1064,7 @@ const special_vege = document.querySelector("#special_vege")
 const fee_input = document.querySelector("#fee")
 let fee;
 let member_other_type;
+let check_email = false;
 
 /**영어 유효성 검사 */
 firstName.addEventListener("input", (event) => {
@@ -1093,6 +1133,42 @@ contry.addEventListener("click", () => {
 email_3.addEventListener("click", () => {
     email_2.value = email_3.options[email_3.selectedIndex].value
 })
+
+email_1.addEventListener("change", () => {
+    check_email = false;
+})
+
+email_2.addEventListener("change", () => {
+    check_email = false;
+})
+
+/**중복확인 버튼 */
+check_btn.addEventListener("click", () => {
+    if (!email_1.value || !email_2.value) {
+        alert("Please write your email address");
+        email_1.focus()
+        return;
+    }
+    checkEmail()
+})
+
+async function checkEmail() {
+    const email = `${email_1.value}@${email_2.value}`
+    const url = `/onSite/check_email?n=${email}`
+    const response = await fetch(url, {
+        method: "GET"
+    })
+
+    const data = await response.json()
+
+    if (data.user) {
+        alert("This email address is already taken")
+        check_email = false;
+    } else {
+        alert("This email address is available")
+        check_email = true;
+    }
+}
 
 /**회원 여부 checkbox */
 member.addEventListener("click", () => {
@@ -1374,18 +1450,25 @@ special_vege.addEventListener("click", () => {
 // })
 
 $(function() {
-    $("#addForm").submit(function() {
-        onSubmit();
-        if (fee_input.value) {
-            $("#addForm").attr("action", "/onSite/sicem")
-        }
-        return true;
+    $("#Submit").click(function(e) {
+        onSubmit(e);
+        $("#addForm").submit();
     });
 });
 
-function onSubmit() {
-
+function onSubmit(e) {
+    e.preventDefault()
     /** Personal Information */
+    if (!email_1.value || !email_2.value) {
+        alert("invaild email");
+        email_1.focus()
+        return;
+    }
+    if (check_email === false) {
+        alert("invaild Check for Duplicate");
+        email_1.focus()
+        return;
+    }
     if (!firstName.value || !LastName.value) {
         alert("invaild Name");
         firstName.focus()
@@ -1404,11 +1487,6 @@ function onSubmit() {
     if (!phone.value) {
         alert("invaild phone");
         phone.focus()
-        return;
-    }
-    if (!email_1.value || !email_2.value) {
-        alert("invaild email");
-        email_1.focus()
         return;
     }
     if (!need.checked && !nonNeed.checked) {
