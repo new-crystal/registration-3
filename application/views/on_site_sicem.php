@@ -256,9 +256,9 @@ td {
 .check_btn {
     /* background-color: #EBF2F9 !important; */
     border: 1px solid #CCC;
-    padding: 0px 4px;
+    padding: 0px 12px;
     height: 40px;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
 }
 
 .check_btn:hover {
@@ -274,6 +274,10 @@ td {
 .email_text {
     transform: translate(10px, 10px);
     color: #c1121f;
+}
+
+.justify-between {
+    justify-content: space-between !important;
 }
 </style>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -299,34 +303,32 @@ td {
                     <span class="hit">*</span>
                 </th>
                 <td>
-                    <div class="email_box">
-                        <div class="flex items-center w-10/12 justify-between">
-                            <input type="text" name="email1" id="Email1" maxlength="64" value="" class="w-5/12">
-                            <p>@</p>
-                            <input type="text" name="email2" id="Email2" maxlength="64" value="" class="w-5/12">
-                            <select id="Email3" class="border" style="background-color:#ffffff;">
-                                <option value="" selected="selected">직접입력</option>
-                                <option value="naver.com">naver.com</option>
-                                <option value="daum.net">daum.net</option>
-                                <option value="hotmail.com">hotmail.com</option>
-                                <option value="nate.com">nate.com</option>
-                                <option value="yahoo.co.kr">yahoo.co.kr</option>
-                                <option value="paran.com">paran.com</option>
-                                <option value="empas.com">empas.com</option>
-                                <option value="dreamwiz.com">dreamwiz.com</option>
-                                <option value="freechal.com">freechal.com</option>
-                                <option value="lycos.co.kr">lycos.co.kr</option>
-                                <option value="korea.com">korea.com</option>
-                                <option value="gmail.com">gmail.com</option>
-                                <option value="hanmir.com">hanmir.com</option>
-                            </select>
+                    <div class="email_box w-11/12">
+                        <div class="flex items-center w-full justify-between flex-wrap">
+                            <div class="flex items-center w-10/12 justify-around p-1">
+                                <input type="text" name="email1" id="Email1" maxlength="64" value="" class="w-5/12">
+                                <p class="mx-1">@</p>
+                                <input type="text" name="email2" id="Email2" maxlength="64" value="" class="w-5/12">
+                                <select id="Email3" class="border mx-1" style="background-color:#ffffff;">
+                                    <option value="" selected="selected">직접입력</option>
+                                    <option value="naver.com">naver.com</option>
+                                    <option value="daum.net">daum.net</option>
+                                    <option value="hotmail.com">hotmail.com</option>
+                                    <option value="nate.com">nate.com</option>
+                                    <option value="yahoo.co.kr">yahoo.co.kr</option>
+                                    <option value="paran.com">paran.com</option>
+                                    <option value="empas.com">empas.com</option>
+                                    <option value="dreamwiz.com">dreamwiz.com</option>
+                                    <option value="freechal.com">freechal.com</option>
+                                    <option value="lycos.co.kr">lycos.co.kr</option>
+                                    <option value="korea.com">korea.com</option>
+                                    <option value="gmail.com">gmail.com</option>
+                                    <option value="hanmir.com">hanmir.com</option>
+                                </select>
+                            </div>
+                            <button class="check_btn bg-slate-600 text-white" type="button">Check ID</button>
                         </div>
-                        <div class="button_text_box">
-                            <button class="check_btn bg-slate-600 text-white" type="button">Check the availability of
-                                this
-                                ID</button>
-                            <p class="email_text">Please enter your ID(E-mail)</p>
-                        </div>
+                        <p class="email_text">Please enter your ID(E-mail)</p>
                     </div>
                 </td>
             </tr>
@@ -609,7 +611,7 @@ td {
             </tr>
             <tr>
                 <th>
-                    Mobile Phone Number<br>
+                    Mobile Number<br>
                     (휴대전화번호)
                     <span class="hit">*</span>
                 </th>
@@ -622,7 +624,7 @@ td {
                 </td>
             </tr>
 
-            <tr>
+            <tr class="ln">
                 <th>
                     평점신청 여부<br>(Only Korean)
                     <span class="hit">*</span>
