@@ -20,43 +20,39 @@ tr {
 <div class="text-center flex flex-col items-center justify-center">
     <h1 class="text-6xl font-semibold text-orange-600 my-10">ICOMES 2023</h1>
     <h6 class="text-3xl font-semibold mb-20 ">현장 참석자 데이터</h6>
-
-    <h6 class="text-3xl font-semibold mb-20 ">현장 QR 프린트 :
-        <!-- <?php echo count($users) ?> --> 0명
-    </h6>
     <h6 class="text-3xl font-semibold mb-20 ">현장 QR 출결 :
         <!--<?php echo count($item) ?>-->0명
     </h6>
     <!-- <?php
-    //print_r($statistics);
-    // print_r($users);
-    $total_1 = 0;
-    $total_2 = 0;
-    $total_3 = 0;
-    $total_4 = 0;
-    $total_5 = 0;
-    $total_6 = 0;
-    $total_7 = 0;
-    $total_8 = 0;
-    $total_9 = 0;
-    for ($i = 0; $i <= 7; $i++) {
-        $total_1 += $statistics[$i]['A_07'] + $statistics[$i]['R_07'];
-        $total_2 += $statistics[$i]['AK_07'] + $statistics[$i]['RK_07'];
-        $total_3 += $statistics[$i]['A_08'] + $statistics[$i]['R_08'];
-        $total_4 += $statistics[$i]['AK_08'] + $statistics[$i]['RK_08'];
-        $total_5 += $statistics[$i]['A_09'] + $statistics[$i]['R_09'];
-        $total_6 += $statistics[$i]['AK_09'] + $statistics[$i]['RK_09'];
-    }
-    $total_7 = $total_1 + $total_2;
-    $total_8 = $total_3 + $total_4;
-    $total_9 = $total_5 + $total_6;
-    ?> -->
+            //print_r($statistics);
+            // print_r($users);
+            $total_1 = 0;
+            $total_2 = 0;
+            $total_3 = 0;
+            $total_4 = 0;
+            $total_5 = 0;
+            $total_6 = 0;
+            $total_7 = 0;
+            $total_8 = 0;
+            $total_9 = 0;
+            for ($i = 0; $i <= 7; $i++) {
+                $total_1 += $statistics[$i]['A_07'] + $statistics[$i]['R_07'];
+                $total_2 += $statistics[$i]['AK_07'] + $statistics[$i]['RK_07'];
+                $total_3 += $statistics[$i]['A_08'] + $statistics[$i]['R_08'];
+                $total_4 += $statistics[$i]['AK_08'] + $statistics[$i]['RK_08'];
+                $total_5 += $statistics[$i]['A_09'] + $statistics[$i]['R_09'];
+                $total_6 += $statistics[$i]['AK_09'] + $statistics[$i]['RK_09'];
+            }
+            $total_7 = $total_1 + $total_2;
+            $total_8 = $total_3 + $total_4;
+            $total_9 = $total_5 + $total_6;
+            ?> -->
     <table class="w-9/12 text-2xl mb-20">
         <tr class="bg-green-300 text-black">
             <th colspan="2" rowspan="2">등록구분</th>
-            <th colspan="2">9월 7일(목)</th>
-            <th colspan="2">9월 8일(금)</th>
-            <th colspan="2">9월 9일(토)</th>
+            <th colspan="2">10월 26일(목)</th>
+            <th colspan="2">10월 27일(금)</th>
+            <th colspan="2">10월 28일(토)</th>
         </tr>
         <tr class="bg-green-300 text-black">
             <th>국외</th>

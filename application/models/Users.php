@@ -88,6 +88,17 @@ class Users extends CI_Model
 		return $query->result_array();
 	}
 
+	public function get_gala_users()
+	{
+		$query = $this->db->query("
+		SELECT *
+		FROM users a
+		WHERE a.remark2 = 'Y'
+		ORDER BY a.id ASC
+");
+		return $query->result_array();
+	}
+
 	public function get_mail_user()
 	{
 		$query = $this->db->query("
