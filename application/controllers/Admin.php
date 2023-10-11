@@ -447,7 +447,7 @@ class Admin extends CI_Controller
             );
         } else {
             if ($userType == '01') {
-                $userType = 'Participants';
+                $userType = 'Participant';
             } else if ($userType == '02') {
                 $userType = 'Committee';
             } else if ($userType == '04') {
