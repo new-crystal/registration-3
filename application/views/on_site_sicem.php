@@ -336,7 +336,7 @@ td {
             <tr>
                 <th>Country<br> (국가)<span class="hit">*</span></th>
                 <td>
-                    <select id="nation_no" name="nation" class="px-2 py-1 w-11/12 h-10 border">
+                    <select id="nation_no" name="nation" class="px-2 py-1 w-11/12 h-10 border" disabled>
                         <option data-nt="82" value="Republic of Korea" selected="">Republic of Korea</option>
                         <option data-nt="93" value="Afghanistan">Afghanistan</option>
                         <option data-nt="358" value="Aland Islands">Aland Islands</option>
@@ -589,12 +589,12 @@ td {
                     <div class="w-11/12 flex flex-col">
                         <div class="flex w-full justify-between  mb-3">
                             <input type="text" id="firstName" name="first_name" placeholder="First name (only English)"
-                                class="w-6/12" />
+                                class="w-6/12" disabled />
                             <input type="text" id="lastName" placeholder="Last name (only English)" id="lastName"
-                                name="last_name" type="text" class="w-6/12" />
+                                name="last_name" type="text" class="w-6/12" disabled />
                         </div>
                         <input id="koreanName" name="name_kor" id="koreanName" placeholder="국문 이름 (korean Name)"
-                            type="text" class="w-full">
+                            type="text" class="w-full" disabled>
                     </div>
                 </td>
             </tr>
@@ -605,9 +605,9 @@ td {
                 </th>
                 <td>
                     <input type="text" id="affiliation" name="affiliation" class="w-11/12  mb-3"
-                        placeholder="Affiliation (only English)" />
+                        placeholder="Affiliation (only English)" disabled />
                     <input type="text" id="affiliation_kor" name="affiliation_kor" class="w-11/12"
-                        placeholder="국문 소속 (korean Affiliation)" />
+                        placeholder="국문 소속 (korean Affiliation)" disabled />
                 </td>
             </tr>
             <tr>
@@ -620,7 +620,8 @@ td {
                     <div class="flex w-11/12">
                         <input type="text" id="contryNum" name="phone1" class="w-1/6" placeholder="contry number"
                             value="82" />
-                        <input type="text" id="phoneNumber" name="phone2" class="w-5/6" placeholder="ex)1012345678" />
+                        <input type="text" id="phoneNumber" name="phone2" class="w-5/6" placeholder="ex)1012345678"
+                            disabled />
                     </div>
                 </td>
             </tr>
@@ -633,20 +634,21 @@ td {
                 <td>
                     <div class="h-12">
                         <input id="is_score" name="is_score" hidden />
-                        <input type="radio" id="need" />
+                        <input type="radio" id="need" disabled />
                         <label for="need">필요</label>
-                        <input type="radio" id="non_need" />
+                        <input type="radio" id="non_need" disabled />
                         <label for="non_need">불필요</label>
                     </div>
                     <div class="flex items-center w-12/12 justify-left flex-wrap">
                         <div class="flex items-center ">
                             <p class="mx-2 number">의사면허번호</p>
-                            <input name="licence_number" id="doctor" type="text" class="mx-2" placeholder="의사 면허 번호" />
+                            <input name="licence_number" id="doctor" type="text" class="mx-2" placeholder="의사 면허 번호"
+                                disabled />
                         </div>
                         <div class="flex items-center">
                             <p class="mx-4 number"> 전문의번호 </p>
-                            <input name="specialty_number" id="specialist" class="mx-2" type="text"
-                                placeholder="전문의 번호" />
+                            <input name="specialty_number" id="specialist" class="mx-2" type="text" placeholder="전문의 번호"
+                                disabled />
                         </div>
                     </div>
                 </td>
@@ -1105,17 +1107,9 @@ let check_email = false;
 
 /**영어 유효성 검사 */
 firstName.addEventListener("input", (event) => {
-    if (!check_email) {
-        alert("Please check the availability of this E-mail");
-        return;
-    }
     englishInput(event)
 })
 LastName.addEventListener("input", (event) => {
-    if (!check_email) {
-        alert("Please check the availability of this E-mail");
-        return;
-    }
     englishInput(event)
 })
 
@@ -1164,10 +1158,6 @@ phone.addEventListener('input', (event) => {
 
 /**국적 -> 한국인만 한국이름 작성 */
 contry.addEventListener("click", () => {
-    if (!check_email) {
-        alert("Please check the availability of this E-mail");
-        return;
-    }
     contryNumber.value = contry.options[contry.selectedIndex].dataset.nt
     if (contry.value !== "Republic of Korea") {
         KoreanName.style.display = "none"
@@ -1208,6 +1198,10 @@ check_btn.addEventListener("click", () => {
 async function checkEmail() {
     const email = `${email_1.value}@${email_2.value}`
     const url = `/onSite/check_email?n=${email}`
+    const personalInfoList = [firstName, LastName, KoreanName, contry, affilation, koreanAffiliation, phone, need,
+        nonNeed, doctor, specialist
+    ]
+
     const response = await fetch(url, {
         method: "GET"
     })
@@ -1224,7 +1218,15 @@ async function checkEmail() {
         check_email = true;
         email_text.innerText = "This email address is available"
         email_text.style.color = "blue"
+
+        personalInfoList.map((info) => {
+            removeDisabled(info)
+        })
     }
+}
+
+function removeDisabled(content) {
+    content.disabled = false;
 }
 
 /**회원 여부 checkbox */
