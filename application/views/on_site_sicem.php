@@ -305,10 +305,10 @@ td {
                 <td>
                     <div class="email_box w-11/12">
                         <div class="flex items-center w-full justify-between flex-wrap">
-                            <div class="flex items-center w-10/12 justify-around p-1">
-                                <input type="text" name="email1" id="Email1" maxlength="64" value="" class="w-5/12">
+                            <div class="flex items-center w-10/12 justify-between p-1">
+                                <input type="text" name="email1" id="Email1" maxlength="64" value="" class="w-6/12">
                                 <p class="mx-1">@</p>
-                                <input type="text" name="email2" id="Email2" maxlength="64" value="" class="w-5/12">
+                                <input type="text" name="email2" id="Email2" maxlength="64" value="" class="w-6/12">
                                 <select id="Email3" class="border mx-1" style="background-color:#ffffff;">
                                     <option value="" selected="selected">직접입력</option>
                                     <option value="naver.com">naver.com</option>
