@@ -871,4 +871,30 @@ class Access extends CI_Controller
             $this->load->view('row_scan_qr', $this->data);
         }
     }
+
+    public function gala_table()
+    {
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('qrcode', 'text', 'required');
+
+        if ($this->form_validation->run() === FALSE) {
+            $this->load->view('gala_table', $this->data);
+        } else {
+            $rop = array("options" => array("regexp" => "/[0-9]{5,10}$/"));
+            $qrcode = $this->input->post('qrcode');
+            $qrstr = explode('/', $qrcode);
+
+            if ($qrcode) {
+                $where = array(
+                    'registration_no' => $qrcode
+                );
+                $data['users'] = $this->users->get_user($where);
+                $this->load->view('gala_table', $data);
+            } else {
+                $this->load->view('gala_table');
+            }
+        }
+    }
 }
