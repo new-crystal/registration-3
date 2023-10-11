@@ -794,6 +794,8 @@ class Admin extends CI_Controller
                 $qr_chk_day_1 = $this->input->post('qr_chk_day_1');
                 $qr_chk_day_2 = $this->input->post('qr_chk_day_2');
                 $qr_chk_day_3 = $this->input->post('qr_chk_day_3');
+                $first_time_yn = $this->input->post('first_time_yn');
+                $first_time = $this->input->post('first_time');
                 if ($memo == "") {
                     $memo = null;
                 }
@@ -850,6 +852,8 @@ class Admin extends CI_Controller
                     'remark3' => $remark3,
                     'remark4' => $remark4,
                     'remark5' => $remark5,
+                    'first_time_yn' => $first_time_yn,
+                    'first_time' => $first_time,
                     'qr_print' => $qr_print,
                     'onsite_reg' => $onsite_reg,
                     'qr_chk_day_1' => $qr_chk_day_1,
