@@ -78,6 +78,7 @@ if ($item['onsite_reg'] == '0') {
                                             value="<?php echo $item['attendance_type']; ?>" name="attendance_type"
                                             id="attendance_type"></td>
                                 </tr>
+
                                 <tr>
                                     <th>국내/국외</th>
                                     <td> <input class="form-control" type="text" name="contry" id="type2"
@@ -225,19 +226,6 @@ if ($item['onsite_reg'] == '0') {
                                     <td><input class="form-control" type="text" value="<?php echo $item['fee']; ?>">
                                     </td>
                                 </tr>
-                                <!-- <tr>
-                                    <th>할인율
-                                    </th>
-                                    <td><input class="form-control" type="text">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Promotion Code
-                                    </th>
-                                    <td><input class="form-control" type="text">
-                                    </td>
-                                </tr> -->
-
                                 <tr>
                                     <th>welcome_reception</th>
                                     <td> <input id="dp1" type="text"
@@ -301,18 +289,32 @@ if ($item['onsite_reg'] == '0') {
                                             name="memo" id="memo">
                                     </td>
                                 </tr>
+                                <tr>
+                                    <th>첫번째 방문 여부</th>
+                                    <td><input class="form-control" type="text"
+                                            value="<?php echo $item['first_time_yn']; ?>" name="first_time_yn"
+                                            id="first_time_yn">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>방문 횟수</th>
+                                    <td><input class="form-control" type="text"
+                                            value="<?php echo $item['first_time']; ?>" name="first_time"
+                                            id="first_time">
+                                    </td>
+                                </tr>
                             </table>
                         </div>
                         <div class="detail_table">
                             <table>
                                 <tr>
-                                    <th style="background-color: #fb8500">Remarks 1(하단택) </th>
+                                    <th style="background-color: #fb8500">Remarks 1<br>(구분택 내용) </th>
                                     <td><input class="form-control" type="text" name="remark1" id="remark1"
                                             value="<?php echo $item['remark1']; ?>">
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th style="background-color: #fb8500">Remarks 2</th>
+                                    <th style="background-color: #fb8500">Remarks 2<br>(Gala Dinner)</th>
                                     <td>
                                         table number:
                                         <input class="form-control" type="text"
@@ -323,19 +325,19 @@ if ($item['onsite_reg'] == '0') {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th style="background-color: #fb8500">Remarks 3</th>
+                                    <th style="background-color: #fb8500">Remarks 3<br>(Presidential Dinner)</th>
                                     <td><input class="form-control" type="text" name="remark3"
                                             value="<?php echo $item['remark3']; ?>" id="remark3">
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th style="background-color: #fb8500">Remarks 4</th>
+                                    <th style="background-color: #fb8500">Remarks 4<br>(Abstact)</th>
                                     <td><input class="form-control" type="text" value="<?php echo $item['remark4']; ?>"
                                             name="remark4" id="remark4">
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th style="background-color: #fb8500">Remarks 5</th>
+                                    <th style="background-color: #fb8500">Remarks 5<br>(special request food)</th>
                                     <td><input class="form-control" type="text" value="<?php echo $item['remark5']; ?>"
                                             name="remark5" id="remark5">
                                     </td>
