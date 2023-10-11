@@ -336,25 +336,25 @@ td {
             <tr>
                 <th>Country<br> (국가)<span class="hit">*</span></th>
                 <td>
-                    <select id="nation_no" name="nation" class="px-2 py-1 w-11/12 h-10 border">
+                    <select id="nation_no" name="nation" class="px-2 py-1 w-11/12 h-10 border" disabled>
                         <option data-nt="82" value="Republic of Korea" selected="">Republic of Korea</option>
                         <option data-nt="93" value="Afghanistan">Afghanistan</option>
-                        <option data-nt="358" value="Aland Islands">Aland Islands</option>
+                        <!-- <option data-nt="358" value="Aland Islands">Aland Islands</option> -->
                         <option data-nt="355" value="Albania">Albania</option>
                         <option data-nt="213" value="Algeria">Algeria</option>
                         <option data-nt="684" value="American Samoa">American Samoa</option>
                         <option data-nt="376" value="Andorra">Andorra</option>
                         <option data-nt="244" value="Angola">Angola</option>
-                        <option data-nt="1-264" value="Anguilla">Anguilla</option>
-                        <option data-nt="672" value="Antarctica">Antarctica</option>
-                        <option data-nt="1-268" value="Antigua and Barbuda">Antigua and Barbuda</option>
+                        <option data-nt="1" value="Anguilla">Anguilla</option>
+                        <option data-nt="672-1" value="Antarctica">Antarctica</option>
+                        <option data-nt="1-809" value="Antigua and Barbuda">Antigua and Barbuda</option>
                         <option data-nt="54" value="Argentina">Argentina</option>
                         <option data-nt="374" value="Armenia">Armenia</option>
                         <option data-nt="297" value="Aruba">Aruba</option>
                         <option data-nt="61" value="Australia">Australia</option>
                         <option data-nt="43" value="Austria">Austria</option>
                         <option data-nt="994" value="Azerbaijan">Azerbaijan</option>
-                        <option data-nt="1" value="Bahamas">Bahamas</option>
+                        <option data-nt="1-242" value="Bahamas">Bahamas</option>
                         <option data-nt="973" value="Bahrain">Bahrain</option>
                         <option data-nt="880" value="Bangladesh">Bangladesh</option>
                         <option data-nt="1-246" value="Barbados">Barbados</option>
@@ -367,7 +367,7 @@ td {
                         <option data-nt="591" value="Bolivia">Bolivia</option>
                         <option data-nt="387" value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
                         <option data-nt="267" value="Botswana">Botswana</option>
-                        <option data-nt="47" value="Bouvet Island">Bouvet Island</option>
+                        <!-- <option data-nt="47" value="Bouvet Island">Bouvet Island</option> -->
                         <option data-nt="55" value="Brazil">Brazil</option>
                         <option data-nt="246" value="British Indian Ocean Territory">British Indian Ocean Territory
                         </option>
@@ -379,7 +379,7 @@ td {
                         <option data-nt="237" value="Cameroon">Cameroon</option>
                         <option data-nt="1" value="Canada">Canada</option>
                         <option data-nt="238" value="Cape Verde">Cape Verde</option>
-                        <option data-nt="1-345" value="Cayman Islands">Cayman Islands</option>
+                        <option data-nt="1" value="Cayman Islands">Cayman Islands</option>
                         <option data-nt="236" value="Central African Republic">Central African Republic</option>
                         <option data-nt="235" value="Chad">Chad</option>
                         <option data-nt="56" value="Chile">Chile</option>
@@ -387,7 +387,7 @@ td {
                         <option data-nt="57" value="Colombia">Colombia</option>
                         <option data-nt="269" value="Comoros">Comoros</option>
                         <option data-nt="242" value="Congo">Congo</option>
-                        <option data-nt="243" value="Congo, The Democratic Republic of th">Congo, The Democratic
+                        <option data-nt="242" value="Congo, The Democratic Republic of th">Congo, The Democratic
                             Republic of the</option>
                         <option data-nt="682" value="Cook Islands">Cook Islands</option>
                         <option data-nt="506" value="Costa Rica">Costa Rica</option>
@@ -399,7 +399,7 @@ td {
                         <option data-nt="45" value="Denmark">Denmark</option>
                         <option data-nt="253" value="Djibouti">Djibouti</option>
                         <option data-nt="1-767" value="Dominica">Dominica</option>
-                        <option data-nt="1-809" value="Dominican Republic">Dominican Republic</option>
+                        <option data-nt="1-767" value="Dominican Republic">Dominican Republic</option>
                         <option data-nt="593" value="Ecuador">Ecuador</option>
                         <option data-nt="20" value="Egypt">Egypt</option>
                         <option data-nt="503" value="El Salvador">El Salvador</option>
@@ -422,11 +422,11 @@ td {
                         <option data-nt="350" value="Gibraltar">Gibraltar</option>
                         <option data-nt="30" value="Greece">Greece</option>
                         <option data-nt="299" value="Greenland">Greenland</option>
-                        <option data-nt="1-473" value="Grenada">Grenada</option>
+                        <option data-nt="1-809" value="Grenada">Grenada</option>
                         <option data-nt="590" value="Guadeloupe">Guadeloupe</option>
-                        <option data-nt="1-671" value="Guam">Guam</option>
-                        <option data-nt="502" value="Guatemala">Guatemala</option>
-                        <option data-nt="44" value="Guernsey">Guernsey</option>
+                        <option data-nt="1" value="Guam">Guam</option>
+                        <!-- <option data-nt="502" value="Guatemala">Guatemala</option>
+                        <option data-nt="44" value="Guernsey">Guernsey</option> -->
                         <option data-nt="224" value="Guinea">Guinea</option>
                         <option data-nt="245" value="Guinea-Bissau">Guinea-Bissau</option>
                         <option data-nt="592" value="Guyana">Guyana</option>
@@ -449,13 +449,13 @@ td {
                         <option data-nt="39" value="Italy">Italy</option>
                         <option data-nt="1-876" value="Jamaica">Jamaica</option>
                         <option data-nt="81" value="Japan">Japan</option>
-                        <option data-nt="44" value="Jersey">Jersey</option>
+                        <!-- <option data-nt="44" value="Jersey">Jersey</option> -->
                         <option data-nt="962" value="Jordan">Jordan</option>
                         <option data-nt="7" value="Kazakhstan">Kazakhstan</option>
                         <option data-nt="254" value="Kenya">Kenya</option>
                         <option data-nt="686" value="Kiribati">Kiribati</option>
                         <option data-nt="965" value="Kuwait">Kuwait</option>
-                        <option data-nt="996" value="Kyrgyzstan">Kyrgyzstan</option>
+                        <!-- <option data-nt="996" value="Kyrgyzstan">Kyrgyzstan</option> -->
                         <option data-nt="856" value="Lao People's Democratic Republic">Lao People's Democratic Republic
                         </option>
                         <option data-nt="371" value="Latvia">Latvia</option>
@@ -463,9 +463,9 @@ td {
                         <option data-nt="266" value="Lesotho">Lesotho</option>
                         <option data-nt="231" value="Liberia">Liberia</option>
                         <option data-nt="218" value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
-                        <option data-nt="423" value="Liechtenstein">Liechtenstein</option>
+                        <option data-nt="41-75" value="Liechtenstein">Liechtenstein</option>
                         <option data-nt="370" value="Lithuania">Lithuania</option>
-                        <option data-nt="352" value="Luxembourg">Luxembourg</option>
+                        <option data-nt="362" value="Luxembourg">Luxembourg</option>
                         <option data-nt="853" value="Macau">Macau</option>
                         <option data-nt="389" value="Macedonia">Macedonia</option>
                         <option data-nt="261" value="Madagascar">Madagascar</option>
@@ -478,14 +478,14 @@ td {
                         <option data-nt="596" value="Martinique">Martinique</option>
                         <option data-nt="222" value="Mauritania">Mauritania</option>
                         <option data-nt="230" value="Mauritius">Mauritius</option>
-                        <option data-nt="262" value="Mayotte">Mayotte</option>
+                        <option data-nt="269-6" value="Mayotte">Mayotte</option>
                         <option data-nt="52" value="Mexico">Mexico</option>
                         <option data-nt="691" value="Micronesia, Federated States of">Micronesia, Federated States of
                         </option>
                         <option data-nt="373" value="Moldova, Republic of">Moldova, Republic of</option>
                         <option data-nt="377" value="Monaco">Monaco</option>
                         <option data-nt="976" value="Mongolia">Mongolia</option>
-                        <option data-nt="382" value="Montenegro">Montenegro</option>
+                        <option data-nt="381" value="Montenegro">Montenegro</option>
                         <option data-nt="1-664" value="Montserrat">Montserrat</option>
                         <option data-nt="212" value="Morocco">Morocco</option>
                         <option data-nt="258" value="Mozambique">Mozambique</option>
@@ -494,21 +494,21 @@ td {
                         <option data-nt="674" value="Nauru">Nauru</option>
                         <option data-nt="977" value="Nepal">Nepal</option>
                         <option data-nt="31" value="Netherlands">Netherlands</option>
-                        <option data-nt="599" value="Netherlands Antilles">Netherlands Antilles</option>
+                        <option data-nt="31" value="Netherlands Antilles">Netherlands Antilles</option>
                         <option data-nt="687" value="New Caledonia">New Caledonia</option>
                         <option data-nt="64" value="New Zealand">New Zealand</option>
                         <option data-nt="505" value="Nicaragua">Nicaragua</option>
                         <option data-nt="227" value="Niger">Niger</option>
                         <option data-nt="234" value="Nigeria">Nigeria</option>
                         <option data-nt="683" value="Niue">Niue</option>
-                        <option data-nt="672" value="Norfolk Island">Norfolk Island</option>
+                        <option data-nt="672-3" value="Norfolk Island">Norfolk Island</option>
                         <option data-nt="1-670" value="Northern Mariana Islands">Northern Mariana Islands</option>
                         <option data-nt="47" value="Norway">Norway</option>
                         <option data-nt="968" value="Oman">Oman</option>
                         <option data-nt="92" value="Pakistan">Pakistan</option>
                         <option data-nt="680" value="Palau">Palau</option>
-                        <option data-nt="970" value="Palestinian Territory, Occupied">Palestinian Territory, Occupied
-                        </option>
+                        <!-- <option data-nt="970" value="Palestinian Territory, Occupied">Palestinian Territory, Occupied
+                        </option> -->
                         <option data-nt="507" value="Panama">Panama</option>
                         <option data-nt="675" value="Papua New Guinea">Papua New Guinea</option>
                         <option data-nt="595" value="Paraguay">Paraguay</option>
@@ -522,10 +522,10 @@ td {
                         <option data-nt="40" value="Romania">Romania</option>
                         <option data-nt="7" value="Russian Federation">Russian Federation</option>
                         <option data-nt="250" value="Rwanda">Rwanda</option>
-                        <option data-nt="1-869" value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                        <option data-nt="1-809" value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
                         <option data-nt="1-758" value="Saint Lucia">Saint Lucia</option>
                         <option data-nt="508" value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
-                        <option data-nt="1-784" value="Saint Vincent and the Grenadines">Saint Vincent and the
+                        <option data-nt="1-809" value="Saint Vincent and the Grenadines">Saint Vincent and the
                             Grenadines</option>
                         <option data-nt="685" value="Samoa">Samoa</option>
                         <option data-nt="378" value="San Marino">San Marino</option>
@@ -550,7 +550,7 @@ td {
                         <option data-nt="41" value="Switzerland">Switzerland</option>
                         <option data-nt="963" value="Syrian Arab Republic">Syrian Arab Republic</option>
                         <option data-nt="886" value="Taiwan">Taiwan</option>
-                        <option data-nt="992" value="Tajikistan">Tajikistan</option>
+                        <option data-nt="7" value="Tajikistan">Tajikistan</option>
                         <option data-nt="255" value="Tanzania, United Republic of">Tanzania, United Republic of</option>
                         <option data-nt="66" value="Thailand">Thailand</option>
                         <option data-nt="228" value="Togo">Togo</option>
@@ -560,7 +560,7 @@ td {
                         <option data-nt="216" value="Tunisia">Tunisia</option>
                         <option data-nt="90" value="Turkey">Turkey</option>
                         <option data-nt="993" value="Turkmenistan">Turkmenistan</option>
-                        <option data-nt="1-649" value="Turks and Caicos Islands">Turks and Caicos Islands</option>
+                        <option data-nt="1" value="Turks and Caicos Islands">Turks and Caicos Islands</option>
                         <option data-nt="688" value="Tuvalu">Tuvalu</option>
                         <option data-nt="256" value="Uganda">Uganda</option>
                         <option data-nt="380" value="Ukraine">Ukraine</option>
@@ -575,7 +575,7 @@ td {
                         <option data-nt="58" value="Venezuela">Venezuela</option>
                         <option data-nt="84" value="Vietnam">Vietnam</option>
                         <option data-nt="1-284" value="Virgin Islands, British">Virgin Islands, British</option>
-                        <option data-nt="1-340" value="Virgin Islands, U.S.">Virgin Islands, U.S.</option>
+                        <option data-nt="1-809" value="Virgin Islands, U.S.">Virgin Islands, U.S.</option>
                         <option data-nt="681" value="Wallis and Futuna">Wallis and Futuna</option>
                         <option data-nt="967" value="Yemen">Yemen</option>
                         <option data-nt="260" value="Zambia">Zambia</option>
@@ -589,12 +589,12 @@ td {
                     <div class="w-11/12 flex flex-col">
                         <div class="flex w-full justify-between  mb-3">
                             <input type="text" id="firstName" name="first_name" placeholder="First name (only English)"
-                                class="w-6/12" />
+                                class="w-6/12" disabled />
                             <input type="text" id="lastName" placeholder="Last name (only English)" id="lastName"
-                                name="last_name" type="text" class="w-6/12" />
+                                name="last_name" type="text" class="w-6/12" disabled />
                         </div>
                         <input id="koreanName" name="name_kor" id="koreanName" placeholder="국문 이름 (korean Name)"
-                            type="text" class="w-full">
+                            type="text" class="w-full" disabled>
                     </div>
                 </td>
             </tr>
@@ -605,9 +605,9 @@ td {
                 </th>
                 <td>
                     <input type="text" id="affiliation" name="affiliation" class="w-11/12  mb-3"
-                        placeholder="Affiliation (only English)" />
+                        placeholder="Affiliation (only English)" disabled />
                     <input type="text" id="affiliation_kor" name="affiliation_kor" class="w-11/12"
-                        placeholder="국문 소속 (korean Affiliation)" />
+                        placeholder="국문 소속 (korean Affiliation)" disabled />
                 </td>
             </tr>
             <tr>
@@ -620,7 +620,8 @@ td {
                     <div class="flex w-11/12">
                         <input type="text" id="contryNum" name="phone1" class="w-1/6" placeholder="contry number"
                             value="82" />
-                        <input type="text" id="phoneNumber" name="phone2" class="w-5/6" placeholder="ex)1012345678" />
+                        <input type="text" id="phoneNumber" name="phone2" class="w-5/6" placeholder="ex)1012345678"
+                            disabled />
                     </div>
                 </td>
             </tr>
@@ -633,20 +634,21 @@ td {
                 <td>
                     <div class="h-12">
                         <input id="is_score" name="is_score" hidden />
-                        <input type="radio" id="need" />
+                        <input type="radio" id="need" disabled />
                         <label for="need">필요</label>
-                        <input type="radio" id="non_need" />
+                        <input type="radio" id="non_need" disabled />
                         <label for="non_need">불필요</label>
                     </div>
                     <div class="flex items-center w-12/12 justify-left flex-wrap">
                         <div class="flex items-center ">
                             <p class="mx-2 number">의사면허번호</p>
-                            <input name="licence_number" id="doctor" type="text" class="mx-2" placeholder="의사 면허 번호" />
+                            <input name="licence_number" id="doctor" type="text" class="mx-2" placeholder="의사 면허 번호"
+                                disabled />
                         </div>
                         <div class="flex items-center">
                             <p class="mx-4 number"> 전문의번호 </p>
-                            <input name="specialty_number" id="specialist" class="mx-2" type="text"
-                                placeholder="전문의 번호" />
+                            <input name="specialty_number" id="specialist" class="mx-2" type="text" placeholder="전문의 번호"
+                                disabled />
                         </div>
                     </div>
                 </td>
@@ -1105,17 +1107,9 @@ let check_email = false;
 
 /**영어 유효성 검사 */
 firstName.addEventListener("input", (event) => {
-    if (!check_email) {
-        alert("Please check the availability of this E-mail");
-        return;
-    }
     englishInput(event)
 })
 LastName.addEventListener("input", (event) => {
-    if (!check_email) {
-        alert("Please check the availability of this E-mail");
-        return;
-    }
     englishInput(event)
 })
 
@@ -1164,10 +1158,6 @@ phone.addEventListener('input', (event) => {
 
 /**국적 -> 한국인만 한국이름 작성 */
 contry.addEventListener("click", () => {
-    if (!check_email) {
-        alert("Please check the availability of this E-mail");
-        return;
-    }
     contryNumber.value = contry.options[contry.selectedIndex].dataset.nt
     if (contry.value !== "Republic of Korea") {
         KoreanName.style.display = "none"
@@ -1208,6 +1198,10 @@ check_btn.addEventListener("click", () => {
 async function checkEmail() {
     const email = `${email_1.value}@${email_2.value}`
     const url = `/onSite/check_email?n=${email}`
+    const personalInfoList = [firstName, LastName, KoreanName, contry, affilation, koreanAffiliation, phone, need,
+        nonNeed, doctor, specialist
+    ]
+
     const response = await fetch(url, {
         method: "GET"
     })
@@ -1224,7 +1218,15 @@ async function checkEmail() {
         check_email = true;
         email_text.innerText = "This email address is available"
         email_text.style.color = "blue"
+
+        personalInfoList.map((info) => {
+            removeDisabled(info)
+        })
     }
+}
+
+function removeDisabled(content) {
+    content.disabled = false;
 }
 
 /**회원 여부 checkbox */
@@ -1349,6 +1351,7 @@ function dayCheck(selected) {
             day.checked = true;
         }
     })
+    calRegiFee()
 }
 
 /**지불방법 checkbox */
