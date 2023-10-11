@@ -1058,7 +1058,6 @@
     const conference_info = document.querySelector("#conference_info")
     const conferList = document.querySelectorAll(".confer")
 
-
     const attend_yes = document.querySelector("#attend_yes");
     const attend_no = document.querySelector("#attend_no")
 
@@ -1082,6 +1081,9 @@
     const special_vege = document.querySelector("#special_vege")
 
     const fee_input = document.querySelector("#fee")
+
+    const ln = document.querySelector(".ln")
+
     let fee;
     let member_other_type;
     let check_email = false;
@@ -1155,9 +1157,11 @@
         if (contry.value !== "Republic of Korea") {
             KoreanName.style.display = "none"
             koreanAffiliation.style.display = "none"
+            ln.style.display = "none"
         } else if (contry.value === "Republic of Korea") {
             KoreanName.style.display = "";
             koreanAffiliation.style.display = "";
+            ln.style.display = ""
         }
     })
 
@@ -1489,8 +1493,14 @@
 
     $(function() {
         $("#Submit").click(function(e) {
-            onSubmit(e);
-            $("#addForm").submit();
+            const submit = onSubmit(e)
+            if (submit) {
+                // 폼을 제출합니다.
+                $("#addForm").submit();
+            } else {
+                // onSubmit 함수가 false를 반환하면 폼 제출을 막습니다.
+                e.preventDefault();
+            }
         });
     });
 
@@ -1527,7 +1537,7 @@
             phone.focus()
             return;
         }
-        if (!need.checked && !nonNeed.checked) {
+        if (contry.value === "Republic of Korea" && !need.checked && !nonNeed.checked) {
             alert("invaild grade");
             need.focus()
             return;
@@ -1621,9 +1631,7 @@
             card.focus()
             return;
         }
-        // calRegiFee()
-
-
+        return true;
     }
 
 
