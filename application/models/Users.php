@@ -273,22 +273,22 @@ class Users extends CI_Model
 		$query = $this->db->query("
 		SELECT
 		u.attendance_type,
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-09-07' AND u.onsite_reg = '0' AND u.nation = 'republic of korea' THEN u.registration_no END) AS 'AK_07',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-09-07' AND u.onsite_reg = '0' AND u.nation != 'republic of korea' THEN u.registration_no END) AS 'A_07',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-09-07' AND u.onsite_reg = '1' AND u.nation = 'republic of korea' THEN u.registration_no END) AS 'RK_07',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-09-07' AND u.onsite_reg = '1' AND u.nation != 'republic of korea' THEN u.registration_no END) AS 'R_07',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-09-08' AND u.onsite_reg = '0' AND u.nation = 'republic of korea' THEN u.registration_no END) AS 'AK_08',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-09-08' AND u.onsite_reg = '0' AND u.nation != 'republic of korea' THEN u.registration_no END) AS 'A_08',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-09-08' AND u.onsite_reg = '1' AND u.nation != 'republic of korea' THEN u.registration_no END) AS 'R_08',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-09-08' AND u.onsite_reg = '1' AND u.nation = 'republic of korea' THEN u.registration_no END) AS 'RK_08',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-09-09' AND u.onsite_reg = '0' AND u.nation = 'republic of korea' THEN u.registration_no END) AS 'AK_09',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-09-09' AND u.onsite_reg = '0' AND u.nation != 'republic of korea' THEN u.registration_no END) AS 'A_09',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-09-09' AND u.onsite_reg = '1' AND u.nation = 'republic of korea' THEN u.registration_no END) AS 'RK_09',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-09-09' AND u.onsite_reg = '1' AND u.nation != 'republic of korea' THEN u.registration_no END) AS 'R_09'
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-26' AND u.onsite_reg = '0' AND u.nation = 'Republic of korea' THEN u.registration_no END) AS 'AK_07',
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-26' AND u.onsite_reg = '0' AND u.nation != 'Republic of korea' THEN u.registration_no END) AS 'A_07',
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-26' AND u.onsite_reg = '1' AND u.nation = 'Republic of korea' THEN u.registration_no END) AS 'RK_07',
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-26' AND u.onsite_reg = '1' AND u.nation != 'Republic of korea' THEN u.registration_no END) AS 'R_07',
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-27' AND u.onsite_reg = '0' AND u.nation = 'Republic of korea' THEN u.registration_no END) AS 'AK_08',
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-27' AND u.onsite_reg = '0' AND u.nation != 'Republic of korea' THEN u.registration_no END) AS 'A_08',
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-27' AND u.onsite_reg = '1' AND u.nation != 'Republic of korea' THEN u.registration_no END) AS 'R_08',
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-27' AND u.onsite_reg = '1' AND u.nation = 'Republic of korea' THEN u.registration_no END) AS 'RK_08',
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-28' AND u.onsite_reg = '0' AND u.nation = 'Republic of korea' THEN u.registration_no END) AS 'AK_09',
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-28' AND u.onsite_reg = '0' AND u.nation != 'Republic of korea' THEN u.registration_no END) AS 'A_09',
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-28' AND u.onsite_reg = '1' AND u.nation = 'Republic of korea' THEN u.registration_no END) AS 'RK_09',
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-28' AND u.onsite_reg = '1' AND u.nation != 'Republic of korea' THEN u.registration_no END) AS 'R_09'
 	FROM
 		users u
 	 LEFT JOIN
-		  access a ON u.registration_no = a.registration_no AND (DATE(a.time) = '2023-09-07' OR DATE(a.time) = '2023-09-08' OR DATE(a.time) = '2023-09-09')
+		  access a ON u.registration_no = a.registration_no AND (DATE(a.time) = '2023-10-26' OR DATE(a.time) = '2023-10-27' OR DATE(a.time) = '2023-10-28')
 	
 	GROUP BY
 		u.attendance_type;
