@@ -134,16 +134,16 @@ input {
                                     <dl class="pl-2" style="transform: translateY(-200px);">
                                         <div id="qr_nick_name" class="qr_info_wrap">
                                             <div class="info_table_num" style="opacity: 0;">테이블 넘버</div>
-                                            <?php if($users['table_num'] === 'N'){?>
+                                            <?php if (isset($users['table_num']) && $users['table_num'] === 'N') { ?>
                                             <div class="info_content"><input type="text" class="qr_info input"
                                                     value="갈라디너 미대상자입니다." readonly>
                                             </div>
-                                            <?php }else {?>
+                                            <?php } else { ?>
                                             <div class="info_content"><input type="text" class="qr_info input"
-                                                    value="<?php if ($users['table_num']) echo $users['table_num'] ?>"
+                                                    value="<?php if (isset($users['table_num'])) echo $users['table_num'] ?>"
                                                     readonly>
                                             </div>
-                                            <?php }?>
+                                            <?php } ?>
                                         </div>
                                     </dl>
                                     <div class="w-full flex items-center justify-center"><button type="submit"
