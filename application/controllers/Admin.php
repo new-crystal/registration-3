@@ -763,6 +763,7 @@ class Admin extends CI_Controller
                 // $deposit_name = $this->input->post('deposit_name');
                 $memo = $this->input->post('memo');
                 $attendance_type = $this->input->post('attendance_type');
+                $attendance_date = $this->input->post('attendance_date');
                 $specialty_number = $this->input->post('specialty_number');
                 // $nutritionist_number = $this->input->post('nutritionist_number');
                 // $dietitian_number = $this->input->post('dietitian_number');
@@ -828,6 +829,7 @@ class Admin extends CI_Controller
                     'deposit_method' => $deposit_method,
                     'memo' => $memo,
                     'attendance_type' => $attendance_type,
+                    'attendance_date' => $attendance_date,
                     'specialty_number' => $specialty_number,
                     'first_name' => $first_name,
                     'last_name' => $last_name,
