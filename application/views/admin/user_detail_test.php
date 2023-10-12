@@ -78,7 +78,12 @@ if ($item['onsite_reg'] == '0') {
                                             value="<?php echo $item['attendance_type']; ?>" name="attendance_type"
                                             id="attendance_type"></td>
                                 </tr>
-
+                                <tr>
+                                    <th>참석날짜</th>
+                                    <td> <input class="form-control" type="text"
+                                            value="<?php echo $item['attendance_date']; ?>" name="attendance_date"
+                                            id="attendance_date"></td>
+                                </tr>
                                 <tr>
                                     <th>국내/국외</th>
                                     <td> <input class="form-control" type="text" name="contry" id="type2"
