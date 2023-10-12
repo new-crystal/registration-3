@@ -1114,23 +1114,22 @@ class Admin extends CI_Controller
             $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row['affiliation_kor']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $row['phone']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $row['email']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(10, $excel_row, $row['email']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(11, $excel_row, $row['fee']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(12, $excel_row, date("H:i", strtotime($row['mintime_day1'])));  //DAY1입실
-            $object->getActiveSheet()->setCellValueByColumnAndRow(13, $excel_row, date("H:i", strtotime($row['maxtime_day1'])));  //DAY1퇴실
-            $object->getActiveSheet()->setCellValueByColumnAndRow(14, $excel_row, $row['d_format_day1']);                //DAY1체류시간
-            $object->getActiveSheet()->setCellValueByColumnAndRow(15, $excel_row, hoursandmins($spent1));
-            $object->getActiveSheet()->setCellValueByColumnAndRow(16, $excel_row, date("H:i", strtotime($row['mintime_day2'])));  //DAY2입실
-            $object->getActiveSheet()->setCellValueByColumnAndRow(17, $excel_row, date("H:i", strtotime($row['maxtime_day2'])));  //DAY2퇴실
-            $object->getActiveSheet()->setCellValueByColumnAndRow(18, $excel_row, $row['d_format_day2']);                          //DAY2체류시간
-            $object->getActiveSheet()->setCellValueByColumnAndRow(19, $excel_row, hoursandmins($spent2));
-            $object->getActiveSheet()->setCellValueByColumnAndRow(20, $excel_row, date("H:i", strtotime($row['mintime_day3'])));  //DAY3입실
-            $object->getActiveSheet()->setCellValueByColumnAndRow(21, $excel_row, date("H:i", strtotime($row['maxtime_day3'])));  //DAY3퇴실
-            $object->getActiveSheet()->setCellValueByColumnAndRow(22, $excel_row, $row['d_format_day3']);        //DAY3체류시간
-            $object->getActiveSheet()->setCellValueByColumnAndRow(23, $excel_row, hoursandmins($spent3));
+            $object->getActiveSheet()->setCellValueByColumnAndRow(10, $excel_row, $row['fee']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(11, $excel_row, date("H:i", strtotime($row['mintime_day1'])));  //DAY1입실
+            $object->getActiveSheet()->setCellValueByColumnAndRow(12, $excel_row, date("H:i", strtotime($row['maxtime_day1'])));  //DAY1퇴실
+            $object->getActiveSheet()->setCellValueByColumnAndRow(13, $excel_row, $row['d_format_day1']);                //DAY1체류시간
+            $object->getActiveSheet()->setCellValueByColumnAndRow(14, $excel_row, hoursandmins($spent1));
+            $object->getActiveSheet()->setCellValueByColumnAndRow(15, $excel_row, date("H:i", strtotime($row['mintime_day2'])));  //DAY2입실
+            $object->getActiveSheet()->setCellValueByColumnAndRow(16, $excel_row, date("H:i", strtotime($row['maxtime_day2'])));  //DAY2퇴실
+            $object->getActiveSheet()->setCellValueByColumnAndRow(17, $excel_row, $row['d_format_day2']);                          //DAY2체류시간
+            $object->getActiveSheet()->setCellValueByColumnAndRow(18, $excel_row, hoursandmins($spent2));
+            $object->getActiveSheet()->setCellValueByColumnAndRow(19, $excel_row, date("H:i", strtotime($row['mintime_day3'])));  //DAY3입실
+            $object->getActiveSheet()->setCellValueByColumnAndRow(20, $excel_row, date("H:i", strtotime($row['maxtime_day3'])));  //DAY3퇴실
+            $object->getActiveSheet()->setCellValueByColumnAndRow(21, $excel_row, $row['d_format_day3']);        //DAY3체류시간
+            $object->getActiveSheet()->setCellValueByColumnAndRow(22, $excel_row, hoursandmins($spent3));
             //$object->getActiveSheet()->setCellValueByColumnAndRow(15, $excel_row, hoursandmins($spent));
             //$object->getActiveSheet()->setCellValueByColumnAndRow(16, $excel_row, $score);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(24, $excel_row, '');
+            $object->getActiveSheet()->setCellValueByColumnAndRow(23, $excel_row, '');
 
             $excel_row++;
         }
