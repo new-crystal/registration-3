@@ -835,8 +835,8 @@ td {
                     <label for="non_member">Non-Member(비회원)</label>
                     <div class="sign_up_btn_box" style="display: none;">
                         <br>
-                        <a type="_blank"><button type="button" class="sign_up">KES 회원가입(only korean)</button></a>
-                        <a type="_blank"><button type="button" class="sign_up">KES Sign Up</button></a>
+                        <a type="_blank"><button type="button" class="sign_up">KES 회원가입(Korean only)</button></a>
+                        <a type="_blank"><button type="button" class="sign_up">KES Sign up(For foreigner)</button></a>
                     </div>
                 </td>
             </tr>
@@ -851,6 +851,7 @@ td {
                         <select id="Participation_1" style="background-color:#ffffff;"
                             class="px-2 py-1 w-full h-10 border" name="attendance_type">
                             <option value="" selected="selected">선택사항</option>
+                            <option value="Participant">Participant</option>
                             <option value="Speaker">Speaker</option>
                             <option value="Chairperson">Chairperson</option>
                             <option value="Moderator">Moderator</option>
@@ -859,7 +860,6 @@ td {
                             <option value="Organizer">Organizer</option>
                             <option value="Oral Presenter">Oral Presenter</option>
                             <option value="Poster Oral Presenter">Poster Oral Presenter</option>
-                            <option value="Participant">Participant</option>
                             <option value="Press">Press</option>
                             <option value="Exhibitior">Exhibitior</option>
                         </select>
@@ -1100,10 +1100,16 @@ const special_vege = document.querySelector("#special_vege")
 const fee_input = document.querySelector("#fee")
 
 const ln = document.querySelector(".ln")
+const header = document.querySelector(".onsite_header")
 
 let fee;
 let member_other_type;
 let check_email = false;
+
+/**header 새로고침 */
+header.addEventListener("click", () => {
+    window.location.reload()
+})
 
 /**영어 유효성 검사 */
 firstName.addEventListener("input", (event) => {
@@ -1119,10 +1125,10 @@ affilation.addEventListener("input", (event) => {
 
 function englishInput(event) {
     const inputValue = event.target.value;
-    const onlyEnglish = /^[A-Za-z]+$/;
+    const onlyEnglish = /^[A-Za-z\s\-_]+$/;
 
     if (!onlyEnglish.test(inputValue)) {
-        event.target.value = inputValue.replace(/[^A-Za-z]/g, '');
+        event.target.value = inputValue.replace(/[^A-Za-z\s\-_]+/g, '');
     }
 }
 
@@ -1130,19 +1136,19 @@ function englishInput(event) {
 /**한국어 유효성 검사 */
 KoreanName.addEventListener('input', (event) => {
     const inputValue = event.target.value;
-    const onlyHangul = /^[ㄱ-ㅎㅏ-ㅣ가-힣]+$/;
+    const onlyHangul = /^[ㄱ-ㅎㅏ-ㅣ가-힣\s\-_]+$/;
 
     if (!onlyHangul.test(inputValue)) {
-        event.target.value = inputValue.replace(/[^\uAC00-\uD7AF\u1100-\u11FF\u3130-\u318F]+/g, '');
+        event.target.value = inputValue.replace(/[^\uAC00-\uD7AF\u1100-\u11FF\u3130-\u318F\s\-_]+/g, '');
     }
 });
 
 koreanAffiliation.addEventListener("input", (event) => {
     const inputValue = event.target.value;
-    const onlyHangul = /^[ㄱ-ㅎㅏ-ㅣ가-힣]+$/;
+    const onlyHangul = /^[ㄱ-ㅎㅏ-ㅣ가-힣\s\-_]+$/;
 
     if (!onlyHangul.test(inputValue)) {
-        event.target.value = inputValue.replace(/[^\uAC00-\uD7AF\u1100-\u11FF\u3130-\u318F]+/g, '');
+        event.target.value = inputValue.replace(/[^\uAC00-\uD7AF\u1100-\u11FF\u3130-\u318F\s\-_]+/g, '');
     }
 })
 
@@ -1195,6 +1201,7 @@ check_btn.addEventListener("click", () => {
     checkEmail()
 })
 
+/**이메일 중복검사 */
 async function checkEmail() {
     const email = `${email_1.value}@${email_2.value}`
     const url = `/onSite/check_email?n=${email}`
@@ -1739,8 +1746,4 @@ function calRegiFee() {
     total.innerText = fee;
     fee_input.value = fee;
 }
-
-// window.onload = () => {
-//     contry.focus()
-// }
 </script>
