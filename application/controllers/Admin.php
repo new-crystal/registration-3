@@ -1040,7 +1040,7 @@ class Admin extends CI_Controller
         $object = new PHPExcel();
         $object->setActiveSheetIndex(0);
 
-        $table_columns = array("NO", "참석여부", "구분1", "구분2", "이름", "의사면허번호", "소속", "우편번호", "주소", "핸드폰", "이메일", "등록비", "DAY1입실", "DAY1퇴실", "DAY1체류시간", "DAY1인정시간", "DAY2입실", "DAY2퇴실", "DAY2체류시간", "DAY2인정시간", "DAY3입실", "DAY3퇴실", "DAY3체류시간", "DAY3인정시간", "메모");
+        $table_columns = array("NO", "참석여부", "구분1", "구분2", "이름(E)", "이름(K)", "소속(E)", "소속(K)", "핸드폰", "이메일", "등록비", "DAY1입실", "DAY1퇴실", "DAY1체류시간", "DAY1인정시간", "DAY2입실", "DAY2퇴실", "DAY2체류시간", "DAY2인정시간", "DAY3입실", "DAY3퇴실", "DAY3체류시간", "DAY3인정시간", "메모");
 
         $column = 0;
 
@@ -1106,16 +1106,16 @@ class Admin extends CI_Controller
 
             $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $excel_row - 1);
             $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $chk);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row['attendance_type']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row['member_type']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row['name_kor']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, (string)$row['licence_number']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row['member_type']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row['member_other_type']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row['first_name'] . ' ' . $row['last_name']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $row['name_kor']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $row['affiliation']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, (string)$row['postcode']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $row['addr']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $row['phone']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row['affiliation_kor']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $row['phone']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $row['email']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(10, $excel_row, $row['email']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(11, $excel_row, number_format($row['fee']));
+            $object->getActiveSheet()->setCellValueByColumnAndRow(11, $excel_row, $row['fee']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(12, $excel_row, date("H:i", strtotime($row['mintime_day1'])));  //DAY1입실
             $object->getActiveSheet()->setCellValueByColumnAndRow(13, $excel_row, date("H:i", strtotime($row['maxtime_day1'])));  //DAY1퇴실
             $object->getActiveSheet()->setCellValueByColumnAndRow(14, $excel_row, $row['d_format_day1']);                //DAY1체류시간
