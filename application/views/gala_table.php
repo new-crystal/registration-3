@@ -134,7 +134,7 @@ input {
                                     <dl class="pl-2" style="transform: translateY(-200px);">
                                         <div id="qr_nick_name" class="qr_info_wrap">
                                             <div class="info_table_num" style="opacity: 0;">테이블 넘버</div>
-                                            <?php if (isset($users['table_num']) && $users['table_num'] === 'N') { ?>
+                                            <?php if (isset($users['remark2']) && $users['table_num'] === 'N') { ?>
                                             <div class="info_content"><input type="text" class="qr_info input"
                                                     value="갈라디너 미대상자입니다." readonly>
                                             </div>
@@ -180,12 +180,12 @@ input {
                 hideText()
             }
 
-            /**8초 이후 텍스트 자동 제거 */
+            /**10초 이후 텍스트 자동 제거 */
             function hideText() {
                 let hideTimeout = setTimeout(() => {
                     textList.forEach((text) => {
                         text.value = ""
                     })
-                }, 8000)
+                }, 10000)
             }
             </script>
