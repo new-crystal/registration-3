@@ -69,6 +69,10 @@
         font-size: 34px !important;
         line-height: 64px !important;
     }
+
+    .org_small {
+        transform: translateY(7px) !important;
+    }
 </style>
 
 <!-- Main content -->
@@ -90,7 +94,7 @@
                 <?php
                 $lang = preg_match("/[\xE0-\xFF][\x80-\xFF][\x80-\xFF]/", $users['name_kor']);
                 $nicknameLength = mb_strlen($users['first_name'], "UTF-8") + mb_strlen($users['last_name'], "UTF-8");
-
+                $orgLength = mb_strlen($users['org_nametag'], "UTF-8") + mb_strlen($users['nation'], "UTF-8");
                 echo '<div class="a4_area">';
                 echo '<div class="bg_area">';
                 echo '<div class="txt_con">';
@@ -110,7 +114,15 @@
                     echo '<div class="nick_name lang_en small" id="last_name">' .  $users['last_name'] . '</div>';
                 }
 
-                echo '<div class="org" id="org">' . $users['org_nametag'] . ',' . ' ' . $users['nation'] . '</div>';
+                /**소속, 나라 조건식 */
+                /**1. 총 글자 수 44글자 이하 */
+                if ($orgLength < 44) {
+                    echo '<div class="org" id="org">' . $users['org_nametag'] . ',' . ' ' . $users['nation'] . '</div>';
+                }
+                /**2. 총 글자 수 44글자 이상 */
+                else if ($orgLength >= 44) {
+                    echo '<div class="org org_small" id="org">' . $users['org_nametag'] . ',' . ' ' . $users['nation'] . '</div>';
+                }
 
                 echo '<div id="qrcode" class=""><img src="/assets/images/QR/qrcode_' . $users['registration_no'] . '.jpg"></div>';
 
