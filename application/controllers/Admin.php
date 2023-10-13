@@ -1264,12 +1264,15 @@ class Admin extends CI_Controller
             $this->load->view('admin/login');
         else {
             $userId = $this->input->post('userId');
-            $data['users'] = array(); // 배열로 초기화
+            // $data['users'] = array(); // 배열로 초기화
             $wheres = array(
                 'nation' => 'Republic of Korea',
+                'QR_SMS_SEND_YN' =>  'N',
+                'qr_generated' =>  'Y'
+
             );
-            $users = $this->users->get_msm_user($wheres);
-            $data['users'] = array_merge($data['users'], $users);
+            $data['users'] = $this->users->get_msm_user($wheres);
+            // $data['users'] = array_merge($data['users'], $users);
             foreach ($data['users'] as $users) {
                 $where = array(
                     'registration_no' => $users['registration_no'],
@@ -1294,7 +1297,8 @@ class Admin extends CI_Controller
             foreach ($data['users'] as $users) {
                 // var_dump($value);
                 $where = array(
-                    'registration_no' => $users['registration_no']
+                    'registration_no' => $users['registration_no'],
+                    'qr_generated' =>  'Y'
                 );
                 $info = array(
                     'QR_MAIL_SEND_YN' =>  'Y'
@@ -1495,11 +1499,11 @@ class Admin extends CI_Controller
                 'CATEGORY_D_1'      => 'QrSystem',
                 'CATEGORY_D_2'      => 'icomes',
                 'CATEGORY_D_3'      => '230907',
-                'SEND_ADDRESS'      => 'icomes@into-on.com',
+                'SEND_ADDRESS'      => 'into-mail@into-on.com',
                 'SEND_NAME'         => 'ICOMES 2023',
                 'RECV_ADDRESS'      => $data['users']['email'],
-                'RECV_NAME'         => $data['users']['name_kor'],
-                'REPLY_ADDRESS'     => 'icomes@into-on.com',
+                'RECV_NAME'         => $data['users']['first_name'] . ' ' . $data['users']['last_name'],
+                'REPLY_ADDRESS'     => 'into-mail@into-on.com',
                 'REPLY_NAME'        => 'ICOMES 2023',
                 'EMAIL_SUBJECT'     => 'ICOMES 2023',
                 'EMAIL_ALTBODY'     => 'ICOMES 2023',
