@@ -60,6 +60,11 @@ body {
     position: relative;
     top: 24px;
 }
+
+.small {
+    font-size: 36px !important;
+    line-height: 64px !important;
+}
 </style>
 <!-- Main content -->
 <div id="nametag_wrapper">
@@ -80,7 +85,6 @@ body {
                 <?php
                 $lang = preg_match("/[\xE0-\xFF][\x80-\xFF][\x80-\xFF]/", $users['name_kor']);
                 $nicknameLength = mb_strlen($users['first_name'], "UTF-8") + mb_strlen($users['last_name'], "UTF-8");
-                $luckyNum = substr($users['registration_no'], 11, 4);
                 echo '<div class="a4_area">';
                 echo '<div class="bg_area">';
                 echo '<div class="txt_con">';
@@ -89,8 +93,16 @@ body {
                 }
 
                 /**닉네임 조건식 */
-                echo '<div class="nick_name lang_en" id="first_name">' .  $users['first_name'] . '</div>';
-                echo '<div class="nick_name lang_en" id="last_name">' .  $users['last_name'] . '</div>';
+                /**1. 총 글자 수 22글자 이하 */
+                if ($nicknameLength < 22) {
+                    echo '<div class="nick_name lang_en" id="first_name">' .  $users['first_name'] . '</div>';
+                    echo '<div class="nick_name lang_en" id="last_name">' .  $users['last_name'] . '</div>';
+                }
+                /**2. 총 글자 수 22글자 이상 */
+                else if ($nicknameLength >= 22) {
+                    echo '<div class="nick_name lang_en small" id="first_name">' .  $users['first_name'] . '</div>';
+                    echo '<div class="nick_name lang_en small" id="last_name">' .  $users['last_name'] . '</div>';
+                }
 
                 echo '<div class="org" id="org">' . $users['org_nametag'] . ',' . ' ' . $users['nation'] . '</div>';
 
