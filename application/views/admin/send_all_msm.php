@@ -1,5 +1,7 @@
 <?php
 $curl = curl_init();
+$code = "222";
+$after = "0";
 
 curl_setopt_array($curl, array(
     CURLOPT_URL => "https://sms.gabia.com/oauth/token",
@@ -23,16 +25,16 @@ $err = curl_error($curl);
 curl_close($curl);
 
 if ($err) {
-    // echo "cURL Error #:" . $err;
-} else if ($users) {
-    // echo $response;
+    echo "cURL Error #:" . $err;
+} else {
     $responseData = json_decode($response, true);
     $accessToken = $responseData['access_token'];
     foreach ($users as $item) {
+        // echo $item['phone'];
         // MMS 포토문자
-        if (substr($item['phone'], 0, 2) == "82") {
-            $phone = '0' . substr($item['phone'], 3);
-        }
+        // if (substr($item['phone'], 0, 2) == "82") {
+        //     $phone = '0' . substr($item['phone'], 3);
+        // }
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_URL => "https://sms.gabia.com/api/send/mms",
@@ -44,7 +46,7 @@ if ($err) {
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_POSTFIELDS => array(
-                'phone' => $phone,
+                'phone' =>  $item['phone'],
                 'callback' => '01090224867',
                 'message' =>  '
 안녕하십니까,
@@ -87,7 +89,6 @@ TEL:82-2-2285-2568, 82-10-3009-8530/ E-mail: icomes@into-on.com
 
         $response = curl_exec($curl);
         $err = curl_error($curl);
-
         curl_close($curl);
 
         if ($err) {
@@ -99,34 +100,34 @@ TEL:82-2-2285-2568, 82-10-3009-8530/ E-mail: icomes@into-on.com
             $responseData = json_decode($response, true);
             $code = $responseData['code'];
             $after = $responseData['data']['AFTER_SMS_QTY'];
+            // echo $code;
         }
     }
-} else if (!$users) {
-?>
-    <script>
-        alert('문자메시지를 전송할 유저가 없습니다.');
-        window.location.href = "/admin/qr_user";
-    </script>
-<?php
 }
 
 ?>
 <script src="https://cdn.tailwindcss.com"></script>
 <div class="w-full h-full flex items-center justify-center">
-    <?php if ($code == "200") : ?>
+    <?php if ($code == "200") { ?>
         <div class="w-2/4 h-2/4 bg-lime-500 flex flex-col items-center justify-center">
             <h1 class="text-white font-semibold text-3xl">MMS 전송이 성공하였습니다.</h1>
             <p class="text-xl font-semibold mt-5">문자 잔여량 : <?= $after ?> </p>
             <a href="/admin/qr_user"><button class="bg-white text-lime-500 p-3 translate-y-32 font-semibold rounded">뒤로
                     가기</button></a>
         </div>
-    <?php endif; ?>
-    <?php if ($code != "200") : ?>
+    <?php } else if ($code != "200" && $code != "222") { ?>
         <div class="w-2/4 h-3/4 bg-orange-500 flex flex-col items-center justify-center">
             <h1 class="text-white font-semibold text-3xl">MMS 전송이 실패하였습니다.</h1>
             <!-- <p class="text-xl font-semibold mt-5"> <?= $error ? $error : null ?> </p> -->
             <a href="/admin/qr_user"><button class="bg-white bg-orange-500 p-3 font-semibold rounded">뒤로
                     가기</button></a>
         </div>
-    <?php endif; ?>
+    <?php } else if ($code == "222") { ?>
+        <div class="w-2/4 h-3/4 bg-orange-500 flex flex-col items-center justify-center">
+            <h1 class="text-white font-semibold text-3xl">MMS 전송할 유저가 없습니다.</h1>
+            <!-- <p class="text-xl font-semibold mt-5"> <?= $error ? $error : null ?> </p> -->
+            <a href="/admin/qr_user"><button class="bg-white bg-orange-500 p-3 font-semibold rounded">뒤로
+                    가기</button></a>
+        </div>
+    <?php } ?>
 </div>

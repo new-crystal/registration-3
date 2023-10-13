@@ -79,10 +79,10 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         } else {
             const registrationNo = sendMail.getAttribute("data-registration-no");
-            const url = `https://reg2.webeon.net/admin/sendemail?n=${registrationNo}&m=${email.value}`;
+            const url = `https://reg3.webeon.net/admin/sendemail?n=${registrationNo}&m=${email.value}`;
 
             fetch(url, {
-                    method: 'POST',
+                    method: 'GET',
                 })
                 .then(response => {
                     // 응답 처리
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 })
                 .catch(error => {
                     // 에러 처리
-                    console.error("POST 요청 실패", error);
+                    console.error("GET 요청 실패", error);
                 });
         }
     })
