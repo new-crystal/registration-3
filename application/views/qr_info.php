@@ -49,7 +49,7 @@
 <script type="text/javascript">
 $(function() {
     <?php
-        $url = "https://reg2.webeon.net/qrcode/print_file?registration_no=" . $user['registration_no'] . "\"";
+        $url = "https://reg3.webeon.net/qrcode/print_file?registration_no=" . $user['registration_no'] . "\"";
         echo "window.open(\"" . $url . ", \"_blank\");"
         ?>
 });
@@ -128,7 +128,7 @@ $(function() {
     </div>
 </dl> -->
 
-<form action="https://reg2.webeon.net/index.php/qrcode" id="accessForm" name="accessForm" method="post"
+<form action="https://reg3.webeon.net/index.php/qrcode" id="accessForm" name="accessForm" method="post"
     accept-charset="utf-8">
     <fieldset>
         <div class="btn btnSubm submit-box">
