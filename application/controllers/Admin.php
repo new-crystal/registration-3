@@ -1267,7 +1267,6 @@ class Admin extends CI_Controller
             // $data['users'] = array(); // 배열로 초기화
             $wheres = array(
                 'nation' => 'Republic of Korea',
-                'QR_SMS_SEND_YN' =>  'N',
                 'qr_generated' =>  'Y'
 
             );
