@@ -2,25 +2,21 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <style>
 body {
-    font-family: 'Gothic A1', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
-#accessForm {
+input #accessForm {
     padding: 0 3rem;
     /* height: 60%; */
 }
 
 #qrcode:focus {
     outline: none;
-}
-
-.font_nanum {
-    font-family: 'Nanum Gothic', sans-serif;
 }
 
 .qr_info_wrap {
@@ -56,11 +52,11 @@ body {
 .info_content>input {
     margin-left: 139px;
     margin-top: 10px;
-    width: 117%;
+    width: 141%;
     height: 90%;
     padding: 0 2rem;
     z-index: 999;
-    transform: translate(346px, -250px);
+    transform: translate(536px, -166px);
 }
 
 input {
@@ -149,7 +145,7 @@ input {
                                     <dl class="pl-2" style="transform: translateY(-200px);">
                                         <dd><input type="text" name="qrcode" id="qrcode"
                                                 class=" h-20  px-3 py-3 mt-5 border-indigo-900 mx-auto"
-                                                style="transform: translate(609px,-261px);width: 1100px;" placeholder=""
+                                                style="transform:translate(105px,-61px);width: 800px;" placeholder=""
                                                 autofocus>
                                         </dd>
                                     </dl>
@@ -165,31 +161,7 @@ input {
                                                     value="<?php if (isset($name_kor)) echo $name_kor ?>" readonly>
                                             </div>
                                         </div>
-                                        <div id="qr_org" class="qr_info_wrap">
-                                            <div class="info_name" style="opacity: 0;">소 속</div>
-                                            <?php if (mb_strlen($entrance_org) >= 10 && mb_strlen($entrance_org) < 14) { ?>
-                                            <div class="info_content"> <input type="text"
-                                                    style="font-size:2rem;transform: translate(346px, -242px);"
-                                                    class="qr_info input"
-                                                    value="<?php if (isset($entrance_org)) echo $entrance_org ?>"
-                                                    readonly>
-                                            </div>
-                                            <?php } else if (mb_strlen($entrance_org) >= 14) { ?>
-                                            <div class="info_content"> <input type="text"
-                                                    style="font-size:2rem;transform: translate(346px, -242px);"
-                                                    class="qr_info input"
-                                                    value="<?php if (isset($entrance_org)) echo $entrance_org ?>"
-                                                    readonly>
-                                            </div>
-                                            <?php } else { ?>
-                                            <div class="info_content"> <input
-                                                    style="transform: translate(346px, -242px);" type="text"
-                                                    class="qr_info input"
-                                                    value="<?php if (isset($entrance_org)) echo $entrance_org ?>"
-                                                    readonly>
-                                            </div>
-                                            <?php } ?>
-                                        </div>
+
                                     </dl>
 
                                     <dl class="pl-2" style="transform: translateY(-200px);">
@@ -197,7 +169,7 @@ input {
                                             <div class="info_name" style="opacity: 0;">입장시간</div>
                                             <div class="info_content">
                                                 <input type="text"
-                                                    style="margin-top:3px;transform:translate(346px, -230px)"
+                                                    style="margin-top:3px;transform: translate(-327px, -66px);"
                                                     class="qr_info input" value="<?php
                                                                                                                                                             if (isset($enter)) {
                                                                                                                                                                 $enter = date("Y-m-d H:i", strtotime($enter));
@@ -211,14 +183,14 @@ input {
                                         <div id="qr_exit" class="qr_info_wrap">
                                             <div class="info_name" style="opacity: 0;">퇴장시간</div>
                                             <div class="info_content">
-                                                <input type="text" style="margin-top:0;
-    transform: translate(346px, -216px);
-" class="qr_info input" value="<?php
-                                if (isset($leave)) {
-                                    $leave = date("Y-m-d H:i", strtotime($leave));
-                                    echo $leave;
-                                }
-                                ?>
+                                                <input type="text"
+                                                    style="margin-top:0;    transform: translate(534px, -166px);"
+                                                    class="qr_info input" value="<?php
+                                                                                                                                                                if (isset($leave)) {
+                                                                                                                                                                    $leave = date("Y-m-d H:i", strtotime($leave));
+                                                                                                                                                                    echo $leave;
+                                                                                                                                                                }
+                                                                                                                                                                ?>
                                                 " readonly>
                                             </div>
                                         </div>
