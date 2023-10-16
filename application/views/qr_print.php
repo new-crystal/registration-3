@@ -13,7 +13,22 @@ body {
     padding: 0;
 }
 
+@font-face {
+    font-family: Arial_bold;
+    src: url("../../../assets/font/arial_bold.otf");
+}
+
+@font-face {
+    font-family: Arial_italic;
+    src: url("../../../assets/font/Arial_Italic.otf");
+}
+
+.org {
+    font-family: Arial_italic;
+}
+
 .nick_name {
+    font-family: Arial_bold;
     font-size: 48px;
 }
 
@@ -37,12 +52,12 @@ body {
 }
 
 .text_box {
-    position: relative;
-    top: -40px;
+    position: absolute;
+    top: 302px;
 }
 
 .kor_box {
-    position: relative;
+    position: absolute;
     top: 24px;
 }
 
@@ -56,7 +71,7 @@ body {
 }
 
 .small_box {
-    top: -34px !important;
+    top: 302px !important;
 }
 
 .reg {
@@ -121,16 +136,20 @@ body {
                 /**1. 총 글자 수 44글자 이하 */
                 if ($orgLength < 44) {
                     echo '<div class ="text_box small_box">';
+                    echo '<div class="receipt receipt_price">' . $users['fee'] . '</div>';
+                    echo '<div class="receipt receipt_name">' . $users['first_name'] . ' ' . $users['last_name'] .   '</div>';
+                    echo '</div>';
                 }
                 /**2. 총 글자 수 44글자 이상 */
                 else if ($orgLength >= 44) {
                     echo '<div class ="text_box">';
-                }
+                    echo '<div class="receipt receipt_price">' . $users['fee'] . '</div>';
+                    echo '<div class="receipt receipt_name">' . $users['first_name'] . ' ' . $users['last_name'] .   '</div>';
+                    echo '</div>';
+                };
 
-                echo '<div class="receipt receipt_price">' . $users['fee'] . '</div>';
-                echo '<div class="receipt receipt_name">' . $users['first_name'] . ' ' . $users['last_name'] .   '</div>';
                 echo '</div>';
-
+                echo '</div>';
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';
@@ -190,6 +209,7 @@ $(function() {
         var mediaQueryList = window.matchMedia('print');
         mediaQueryList.addListener(function(mql) {
             if (mql.matches) {
+                console.log(mql)
                 console.log('프린트 이전에 호출됩니다.');
             } else {
                 console.log('프린트 이후에 호출됩니다.');
