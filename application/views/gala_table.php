@@ -128,10 +128,10 @@ input {
                             <fieldset>
                                 <div class="fresh"></div>
                                 <div style=" transform: translateY(700px);">
-                                    <dl class="pl-2" style="transform: translateY(-200px);">
+                                    <dl class="pl-2">
                                         <dd><input type="text" name="qrcode" id="qrcode"
-                                                class=" h-20  px-3 py-3 mt-5 border-indigo-900 mx-auto"
-                                                style="width: 1100px;" placeholder="" autofocus></dd>
+                                                class=" h-20  px-3 py-3 mt-5 border-indigo-900 mx-auto" style="    width: 656px;
+    transform: translate(169px, -434px);" placeholder="" autofocus></dd>
                                     </dl>
                                     <dl class="pl-2" style="transform: translateY(-200px);">
                                         <div id="qr_nick_name" class="qr_info_wrap">
