@@ -1,6 +1,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+
 <style>
     @page {
         size: 10cm 24cm;
@@ -39,9 +40,12 @@
     }
 
     .receipt {
-        transform: rotate(0.5turn);
+        transform: rotate(0.5turn) translate(-100px, -180px);
     }
 
+    .text_box>.receipt_name {
+        left: -42px !important;
+    }
 
     #last_name {
         padding: 0 !important;
@@ -49,7 +53,12 @@
 
     .text_box {
         position: relative;
-        top: 140px !important;
+        top: -19px;
+    }
+
+    .kor_box {
+        position: relative;
+        top: 24px;
     }
 
     .small {
@@ -62,14 +71,10 @@
     }
 
     .small_box {
-        top: 147px !important;
-    }
-
-    .reg {
-        text-align: right !important;
-        transform: translate(-16px, -43px);
+        top: -15px !important;
     }
 </style>
+
 <!-- Main content -->
 <div id="nametag_wrapper">
     <div class="edit_wrapper">
@@ -88,7 +93,6 @@
                 echo '<div class="a4_area">';
                 echo '<div class="bg_area">';
                 echo '<div class="txt_con">';
-                echo '<div class="reg" id="reg">' .  $item['registration_no'] . '</div>';
                 if ($item['nt_info'] != '') {
                     echo '<div class="org" id="nt_info">' . $item['nt_info'] . '</div>';
                 }
@@ -131,9 +135,6 @@
                 echo '<div class="receipt receipt_name">' . $item['first_name'] . ' ' . $item['last_name'] .   '</div>';
                 echo '</div>';
 
-                echo '</div>';
-                echo '</div>';
-                echo '</div>';
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';
