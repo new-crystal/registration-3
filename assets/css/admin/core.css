@@ -174,7 +174,7 @@
     position: relative;
     /* width: 100%; */
     /* padding-right: 96px; */
-    text-align: right;
+    text-align: left;
 }
 #printThis .receipt_num_1{
   top: 84px;
@@ -219,13 +219,12 @@
 
 #printThis .receipt_name{
   top: 81px;
-  left: -200px;
-
+  left: -105px;
 }
 
 #printThis .receipt_price{
   top: 73px;
-  left: -43px;
+  left: -162px;
 }
 
 
