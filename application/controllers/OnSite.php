@@ -405,7 +405,7 @@ class OnSite extends CI_Controller
                 'first_time' => $first_time,
                 'first_time_yn' => $first_time_yn,
                 'is_score' => $is_score,
-                'special_request_food' => $special_request_food,
+                'remark5' => $special_request_food,
                 'welcome_reception_yn' => $welcome_reception_yn,
                 'kes_member_status' => $kes_member_status,
                 'fee' => $fee,

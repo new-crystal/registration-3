@@ -150,13 +150,8 @@ if ($item['onsite_reg'] == '0') {
                                 <tr>
                                     <th>Category</th>
                                     <td>
-                                        <?php if ($item['member_type'] == "Student") { ?>
-                                        <input class="form-control" type="text" style="color: red;"
-                                            value="<?php echo $item['member_type']; ?>" name="member_type" id="type1">
-                                        <?php  } else { ?>
                                         <input class="form-control" type="text"
                                             value="<?php echo $item['member_type']; ?>" name="member_type" id="type1">
-                                        <?php  }    ?>
                                     </td>
                                 </tr>
                                 <tr>
@@ -228,7 +223,8 @@ if ($item['onsite_reg'] == '0') {
                                     <th>결제금액
 
                                     </th>
-                                    <td><input class="form-control" type="text" value="<?php echo $item['fee']; ?>">
+                                    <td><input class="form-control" type="text" name="fee"
+                                            value="<?php echo $item['fee']; ?>">
                                     </td>
                                 </tr>
                                 <tr>
@@ -320,7 +316,7 @@ if ($item['onsite_reg'] == '0') {
                                 </tr>
                                 <tr>
                                     <th style="background-color: #fb8500">Remarks 2<br>(Gala Dinner)</th>
-                                    <td>
+                                    <td style="font-weight: bold;">
                                         table number:
                                         <input class="form-control" type="text"
                                             value="<?php echo $item['table_num']; ?>" name="table_num" id="table_num">
@@ -337,13 +333,14 @@ if ($item['onsite_reg'] == '0') {
                                 </tr>
                                 <tr>
                                     <th style="background-color: #fb8500">Remarks 4<br>(Abstact)</th>
-                                    <td><input class="form-control" type="text" value="<?php echo $item['remark4']; ?>"
-                                            name="remark4" id="remark4">
+                                    <td><input class="form-control" type="text" value="<?php echo $item['copy_yn']; ?>"
+                                            name="copy_yn" id="remark4">
                                     </td>
                                 </tr>
                                 <tr>
                                     <th style="background-color: #fb8500">Remarks 5<br>(special request food)</th>
-                                    <td><input class="form-control" type="text" value="<?php echo $item['remark5']; ?>"
+                                    <td>
+                                        <input class="form-control" type="text" value="<?php echo $item['remark5']; ?>"
                                             name="remark5" id="remark5">
                                     </td>
                                 </tr>
