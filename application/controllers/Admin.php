@@ -474,7 +474,8 @@ class Admin extends CI_Controller
             //     $this->load->view('admin/qr_layout_all', array('users' => $result));
             // } else {
             $where = array(
-                'attendance_type' => $userType
+                'attendance_type' => $userType,
+                'qr_generated' =>  'Y'
             );
             $data['users'] = $this->users->get_users_order('name_kor', $where);
             $this->load->view('admin/qr_layout_all', $data);
