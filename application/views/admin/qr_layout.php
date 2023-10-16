@@ -40,7 +40,7 @@ body {
 }
 
 .receipt {
-    transform: rotate(0.5turn) translate(-100px, -180px);
+    transform: rotate(0.5turn);
 }
 
 .text_box>.receipt_name {
@@ -52,12 +52,12 @@ body {
 }
 
 .text_box {
-    position: relative;
-    top: -19px;
+    position: absolute;
+    top: 302px;
 }
 
 .kor_box {
-    position: relative;
+    position: absolute;
     top: 24px;
 }
 
@@ -71,8 +71,23 @@ body {
 }
 
 .small_box {
-    top: -15px !important;
+    top: 302px !important;
 }
+
+.reg {
+    text-align: right !important;
+    transform: translate(-16px, -43px);
+}
+
+/* 
+    .long_nick>.receipt {
+        position: static !important;
+        transform: rotate(0.5turn) !important;
+    }
+
+    .long_nick {
+        padding-top: 249px;
+    } */
 </style>
 <!-- Main content -->
 <div id="nametag_wrapper">
@@ -99,6 +114,7 @@ body {
                 echo '<div class="a4_area">';
                 echo '<div class="bg_area">';
                 echo '<div class="txt_con">';
+                echo '<div class="reg" id="reg">' .  $users['registration_no'] . '</div>';
                 if ($users['nt_info'] != '') {
                     echo '<div class="org" id="nt_info">' . $users['nt_info'] . '</div>';
                 }
@@ -115,33 +131,14 @@ body {
                     echo '<div class="nick_name lang_en small" id="last_name">' .  $users['last_name'] . '</div>';
                 }
 
-                /**소속, 나라 조건식 */
-                /**1. 총 글자 수 44글자 이하 */
-                if ($orgLength < 44) {
-                    echo '<div class="org" id="org">' . $users['org_nametag'] . ',' . ' ' . $users['nation'] . '</div>';
-                }
-                /**2. 총 글자 수 44글자 이상 */
-                else if ($orgLength >= 44) {
-                    echo '<div class="org org_small" id="org">' . $users['org_nametag'] . ',' . ' ' . $users['nation'] . '</div>';
-                }
-
-
+                echo '<div class="org" id="org">' . $users['org_nametag'] . ',' . ' ' . $users['nation'] . '</div>';
                 echo '<div id="qrcode" class=""><img src="/assets/images/QR/qrcode_' . $users['registration_no'] . '.jpg"></div>';
-
-                /**소속, 나라 조건식 */
-                /**1. 총 글자 수 44글자 이하 */
-                if ($orgLength < 44) {
-                    echo '<div class ="text_box small_box">';
-                }
-                /**2. 총 글자 수 44글자 이상 */
-                else if ($orgLength >= 44) {
-                    echo '<div class ="text_box">';
-                }
 
                 echo '<div class="receipt receipt_price">' . $users['fee'] . '</div>';
                 echo '<div class="receipt receipt_name">' . $users['first_name'] . ' ' . $users['last_name'] .   '</div>';
-                echo '</div>';
 
+                echo '</div>';
+                echo '</div>';
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';
