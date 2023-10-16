@@ -39,10 +39,6 @@
         padding: 0;
     }
 
-    .small_name {
-        font-size: 30px !important;
-    }
-
     .receipt {
         transform: rotate(0.5turn) translate(-100px, -180px);
     }
@@ -56,12 +52,12 @@
     }
 
     .text_box {
-        position: relative;
-        top: -19px;
+        position: absolute;
+        top: 302px;
     }
 
     .kor_box {
-        position: relative;
+        position: absolute;
         top: 24px;
     }
 
@@ -75,7 +71,31 @@
     }
 
     .small_box {
-        top: -15px !important;
+        top: 302px !important;
+    }
+
+    .reg {
+        text-align: right !important;
+        transform: translate(-16px, -43px);
+    }
+
+
+    .tag_price,
+    .tag_name {
+        transform: rotate(0.5turn);
+        width: 77%;
+        margin: 0 auto;
+        text-align: right !important;
+    }
+
+    .tag_name {
+        position: relative;
+        top: 228px;
+    }
+
+    .tag_price {
+        position: relative;
+        top: 214px;
     }
 </style>
 
@@ -102,6 +122,7 @@
                 echo '<div class="a4_area">';
                 echo '<div class="bg_area">';
                 echo '<div class="txt_con">';
+                echo '<div class="reg" id="reg">' .  $users['registration_no'] . '</div>';
                 if ($users['nt_info'] != '') {
                     echo '<div class="org" id="nt_info">' . $users['nt_info'] . '</div>';
                 }
@@ -130,20 +151,12 @@
 
                 echo '<div id="qrcode" class=""><img src="/assets/images/QR/qrcode_' . $users['registration_no'] . '.jpg"></div>';
 
-                /**소속, 나라 조건식 */
-                /**1. 총 글자 수 44글자 이하 */
-                if ($orgLength < 44) {
-                    echo '<div class ="text_box small_box">';
-                }
-                /**2. 총 글자 수 44글자 이상 */
-                else if ($orgLength >= 44) {
-                    echo '<div class ="text_box">';
-                }
 
-                echo '<div class="receipt receipt_price">' . $users['fee'] . '</div>';
-                echo '<div class="receipt receipt_name">' . $users['first_name'] . ' ' . $users['last_name'] .   '</div>';
+                echo '<div class="tag_price">' . $users['fee'] . '</div>';
+                echo '<div class="tag_name">' . $users['first_name'] . ' ' . $users['last_name'] .   '</div>';
+
                 echo '</div>';
-
+                echo '</div>';
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';
@@ -189,7 +202,7 @@
         $printSection.innerHTML = "";
         $printSection.appendChild(domClone);
         //            console.log($printSection);
-        // window.print();
+        window.print();
     }
 
 
@@ -203,6 +216,7 @@
             var mediaQueryList = window.matchMedia('print');
             mediaQueryList.addListener(function(mql) {
                 if (mql.matches) {
+                    console.log(mql)
                     console.log('프린트 이전에 호출됩니다.');
                 } else {
                     console.log('프린트 이후에 호출됩니다.');
