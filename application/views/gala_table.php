@@ -1,9 +1,9 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap" rel="stylesheet">
 <style>
 body {
     font-family: 'Gothic A1', sans-serif;
@@ -56,7 +56,7 @@ body {
     margin-left: 139px;
     margin-top: 10px;
     width: 117%;
-    height: 90%;
+    /* height: 90%; */
     padding: 0 2rem;
     z-index: 999;
     transform: translate(346px, -250px);
@@ -86,6 +86,18 @@ input {
 .input_box {
     transform: translate(1px, -92px);
 }
+
+.name {
+    transform: translate(-612px, -332px) !important;
+    font-family: 'DM Serif Text', serif;
+    font-size: 45px;
+}
+
+.number {
+    font-family: 'DM Serif Text', serif;
+    font-size: 250px;
+    transform: translate(346px, -480px) !important;
+}
 </style>
 
 <body id="body" class="flex items-center justify-center">
@@ -93,7 +105,7 @@ input {
     <div id="container" class="w-full h-full flex items-center overflow-hidden">
         <div class="h-full">
             <div>
-                <div><img src="../../assets/images/row_app_loading_bg.png" onclick="window.location.replace()"
+                <div><img src="../../assets/images/gala_table.png" onclick="window.location.replace()"
                         style="position: absolute;z-index: -999;width: 1920px;" />
                     <dl>
                         <script type="text/javascript">
@@ -119,13 +131,12 @@ input {
                                     <dl class="pl-2" style="transform: translateY(-200px);">
                                         <dd><input type="text" name="qrcode" id="qrcode"
                                                 class=" h-20  px-3 py-3 mt-5 border-indigo-900 mx-auto"
-                                                style="transform: translate(609px,-261px);width: 1100px;" placeholder=""
-                                                autofocus></dd>
+                                                style="width: 1100px;" placeholder="" autofocus></dd>
                                     </dl>
                                     <dl class="pl-2" style="transform: translateY(-200px);">
                                         <div id="qr_nick_name" class="qr_info_wrap">
                                             <div class="info_name" style="opacity: 0;">성 명</div>
-                                            <div class="info_content"><input type="text" class="qr_info input"
+                                            <div class="info_content"><input type="text" class="qr_info input name"
                                                     value="<?php if (isset($users['first_name'])) echo $users['first_name'] . ' ' . $users['last_name'] ?>"
                                                     readonly>
                                             </div>
@@ -139,7 +150,7 @@ input {
                                                     value="갈라디너 미대상자입니다." readonly>
                                             </div>
                                             <?php } else { ?>
-                                            <div class="info_content"><input type="text" class="qr_info input"
+                                            <div class="info_content"><input type="text" class="qr_info input number"
                                                     value="<?php if (isset($users['table_num'])) echo $users['table_num'] ?>"
                                                     readonly>
                                             </div>

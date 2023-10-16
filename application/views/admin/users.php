@@ -1,49 +1,54 @@
 <script type="text/javascript" src="/assets/js/admin/lecture_history.js"></script>
 <style>
-    table th {
-        padding: 0;
-        font-size: 12px !important;
-        padding: 8px !important;
-    }
+table th {
+    padding: 0;
+    font-size: 12px !important;
+    padding: 8px !important;
+}
 
-    table {
-        font-size: 13px !important;
-    }
+table {
+    font-size: 13px !important;
+}
 
-    table td {
-        padding: 4px !important;
-    }
+table td {
+    padding: 4px !important;
+}
 
-    .loading_box {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        transform: translateX(-200px);
-        z-index: 9999;
-    }
+.loading_box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: translateX(-200px);
+    z-index: 9999;
+}
 
-    .loading {
-        position: absolute;
-        top: 20%;
-        left: 52%;
-        transform: translate(-50%, -50%);
-    }
+.loading {
+    position: absolute;
+    top: 20%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+}
 </style>
 <!-- Main content -->
 <div class="content-wrapper">
     <!-- Page header -->
     <div style="display: none;" class="loading_box" onclick="alert('진행중입니다.')">
 
-        <svg class="loading" version="1.1" id="L5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve" width="70px" height="70px">
+        <svg class="loading" version="1.1" id="L5" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
+            enable-background="new 0 0 0 0" xml:space="preserve" width="70px" height="70px">
             <circle fill="#fff" stroke="none" cx="6" cy="50" r="6">
-                <animateTransform attributeName="transform" dur="1s" type="translate" values="0 15 ; 0 -15; 0 15" repeatCount="indefinite" begin="0.1" />
+                <animateTransform attributeName="transform" dur="1s" type="translate" values="0 15 ; 0 -15; 0 15"
+                    repeatCount="indefinite" begin="0.1" />
             </circle>
             <circle fill="#fff" stroke="none" cx="30" cy="50" r="6">
-                <animateTransform attributeName="transform" dur="1s" type="translate" values="0 10 ; 0 -10; 0 10" repeatCount="indefinite" begin="0.2" />
+                <animateTransform attributeName="transform" dur="1s" type="translate" values="0 10 ; 0 -10; 0 10"
+                    repeatCount="indefinite" begin="0.2" />
             </circle>
             <circle fill="#fff" stroke="none" cx="54" cy="50" r="6">
-                <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.3" />
+                <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5"
+                    repeatCount="indefinite" begin="0.3" />
             </circle>
         </svg>
     </div>
@@ -138,7 +143,7 @@
                         echo '<td>' . $item['member_type']  . '</td>';
                         echo '<td>' . $item['fee']  . '</td>';
                         echo '<td>' . $item['deposit_date']  . '</td>';
-                        echo '<td>' . $item['etc1']  . '</td>';
+                        echo '<td>' . $item['deposit_method']  . '</td>';
                         if ($item['memo'] != "" && $item['memo'] != 'null') {
                             echo '<td>';
                             echo '<button class="btn qr_btn memo bg-indigo-800" onclick="onClickMemo(\'' . $item['registration_no'] . '\')" data-id="' . $item['registration_no'] . '" style="padding:8px;">메모</button>';
@@ -170,63 +175,63 @@
 </div>
 <!-- /page container -->
 <script>
-    //        $('#allChk').click(function(){
-    //            if($('input:checkbox[id="allChk"]').prop('checked')){
-    //                $('input[type=checkbox]').prop('checked',true);
-    //            }else{
-    //                $('input[type=checkbox]').prop('checked',false);
-    //            }
-    //        })
+//        $('#allChk').click(function(){
+//            if($('input:checkbox[id="allChk"]').prop('checked')){
+//                $('input[type=checkbox]').prop('checked',true);
+//            }else{
+//                $('input[type=checkbox]').prop('checked',false);
+//            }
+//        })
 
 
-    function onClickMemo(id) {
-        const url = `/admin/memo?n=${id}`;
-        window.open(url, "Certificate", "width=500, height=300, top=30, left=30");
+function onClickMemo(id) {
+    const url = `/admin/memo?n=${id}`;
+    window.open(url, "Certificate", "width=500, height=300, top=30, left=30");
+}
+
+function onClickReceipt(id) {
+    const url = `/admin/receipt?n=${id}`
+    window.open(url, "Certificate", "width=500, height=300, top=30, left=30")
+}
+
+
+$('.depositChk').click(function() {
+    var formName = $('#depositForm');
+    var formName2 = $('#nametagForm');
+    var formName3 = $('#non_depositForm');
+    // var formName4 = $('#all_depositForm');
+    var userId = $(this).val();
+    var checkHtml = '<input type="hidden" class="userId user' + userId + '" name="userId[]" value="' + userId +
+        '" id="">'
+    if ($(this).prop('checked')) {
+        formName.append(checkHtml);
+        formName2.append(checkHtml);
+        formName3.append(checkHtml);
+        // formName4.append(checkHtml)
+    } else {
+        $('.user' + userId).remove();
     }
+})
 
-    function onClickReceipt(id) {
-        const url = `/admin/receipt?n=${id}`
-        window.open(url, "Certificate", "width=500, height=300, top=30, left=30")
+$('#all_depositForm').click(function(e) {
+    e.preventDefault()
+    if (window.confirm("※ 일괄 입금 완료처리를 하시겠습니까?")) {
+        var formName4 = $('#all_depositForm');
+        $('.depositChk').prop('checked', true).each(function() {
+            const loading = document.querySelector(".loading_box")
+            loading.style.display = ""
+            var userId = $(this).val();
+            var checkHtml = '<input type="hidden" class="userId user' + userId +
+                '" name="userId[]" value="' + userId +
+                '" id="">';
+
+            formName4.append(checkHtml);
+            formName4.submit()
+        });
+    } else {
+        window.location = "/admin";
+
     }
-
-
-    $('.depositChk').click(function() {
-        var formName = $('#depositForm');
-        var formName2 = $('#nametagForm');
-        var formName3 = $('#non_depositForm');
-        // var formName4 = $('#all_depositForm');
-        var userId = $(this).val();
-        var checkHtml = '<input type="hidden" class="userId user' + userId + '" name="userId[]" value="' + userId +
-            '" id="">'
-        if ($(this).prop('checked')) {
-            formName.append(checkHtml);
-            formName2.append(checkHtml);
-            formName3.append(checkHtml);
-            // formName4.append(checkHtml)
-        } else {
-            $('.user' + userId).remove();
-        }
-    })
-
-    $('#all_depositForm').click(function(e) {
-        e.preventDefault()
-        if (window.confirm("※ 일괄 입금 완료처리를 하시겠습니까?")) {
-            var formName4 = $('#all_depositForm');
-            $('.depositChk').prop('checked', true).each(function() {
-                const loading = document.querySelector(".loading_box")
-                loading.style.display = ""
-                var userId = $(this).val();
-                var checkHtml = '<input type="hidden" class="userId user' + userId +
-                    '" name="userId[]" value="' + userId +
-                    '" id="">';
-
-                formName4.append(checkHtml);
-                formName4.submit()
-            });
-        } else {
-            window.location = "/admin";
-
-        }
-    });
+});
 </script>
 </body>
