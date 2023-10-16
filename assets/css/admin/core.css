@@ -174,7 +174,7 @@
     position: relative;
     /* width: 100%; */
     /* padding-right: 96px; */
-    text-align: right;
+    text-align: left;
 }
 #printThis .receipt_num_1{
   top: 84px;
@@ -218,13 +218,13 @@
 }
 
 #printThis .receipt_name{
-  top: 221px;
-  left: 49px;
+  top: 226px;
+  left: -104px;
 }
 
 #printThis .receipt_price{
-  top: 213px;
-  left: 49px;
+  top: 216px;
+  left: -156px;
 }
 
 
@@ -6597,7 +6597,7 @@ h6.panel-title,
     position: relative;
     /* width: 100%; */
     /* padding-right: 96px; */
-    text-align: right;
+    text-align: left;
 }
 #printThis .receipt_num_1{
   top: 84px;
