@@ -2,6 +2,8 @@
 $curl = curl_init();
 $code = "222";
 $after = "0";
+$success = 0;
+$failed = 0;
 
 curl_setopt_array($curl, array(
     CURLOPT_URL => "https://sms.gabia.com/oauth/token",
@@ -100,7 +102,11 @@ TEL:82-2-2285-2568, 82-10-3009-8530/ E-mail: icomes@into-on.com
             $responseData = json_decode($response, true);
             $code = $responseData['code'];
             $after = $responseData['data']['AFTER_SMS_QTY'];
-            // echo $code;
+            if ($code == "200") {
+                $success = $success + 1;
+            } else {
+                $failed =  $failed + 1;
+            }
         }
     }
 }
@@ -108,26 +114,13 @@ TEL:82-2-2285-2568, 82-10-3009-8530/ E-mail: icomes@into-on.com
 ?>
 <script src="https://cdn.tailwindcss.com"></script>
 <div class="w-full h-full flex items-center justify-center">
-    <?php if ($code == "200") { ?>
-        <div class="w-2/4 h-2/4 bg-lime-500 flex flex-col items-center justify-center">
-            <h1 class="text-white font-semibold text-3xl">MMS 전송이 성공하였습니다.</h1>
-            <p class="text-xl font-semibold mt-5">문자 잔여량 : <?= $after ?> </p>
-            <a href="/admin/qr_user"><button class="bg-white text-lime-500 p-3 translate-y-32 font-semibold rounded">뒤로
-                    가기</button></a>
-        </div>
-    <?php } else if ($code != "200" && $code != "222") { ?>
-        <div class="w-2/4 h-3/4 bg-orange-500 flex flex-col items-center justify-center">
-            <h1 class="text-white font-semibold text-3xl">MMS 전송이 실패하였습니다.</h1>
-            <!-- <p class="text-xl font-semibold mt-5"> <?= $error ? $error : null ?> </p> -->
-            <a href="/admin/qr_user"><button class="bg-white bg-orange-500 p-3 font-semibold rounded">뒤로
-                    가기</button></a>
-        </div>
-    <?php } else if ($code == "222") { ?>
-        <div class="w-2/4 h-3/4 bg-orange-500 flex flex-col items-center justify-center">
-            <h1 class="text-white font-semibold text-3xl">MMS 전송할 유저가 없습니다.</h1>
-            <!-- <p class="text-xl font-semibold mt-5"> <?= $error ? $error : null ?> </p> -->
-            <a href="/admin/qr_user"><button class="bg-white bg-orange-500 p-3 font-semibold rounded">뒤로
-                    가기</button></a>
-        </div>
-    <?php } ?>
+    <div class="w-2/4 h-2/4 bg-lime-500 flex flex-col items-center justify-center">
+        <h1 class="text-white font-semibold text-3xl">MMS 전송이 성공하였습니다.</h1>
+        <p class="text-xl font-semibold mt-5">성공 : <?= $success ?> </p>
+        <p class="text-xl font-semibold mt-5">실패 : <?= $failed ?> </p>
+        <p class="text-xl font-semibold mt-5">문자 잔여량 : <?= $after ?> </p>
+        <a href="/admin/qr_user"><button class="bg-white text-lime-500 p-3 translate-y-32 font-semibold rounded">뒤로
+                가기</button></a>
+    </div>
+
 </div>

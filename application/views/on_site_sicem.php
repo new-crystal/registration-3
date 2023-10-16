@@ -340,7 +340,7 @@
                         <option data-nt="82" value="Republic of Korea" selected="">Republic of Korea</option>
                         <option data-nt="93" value="Afghanistan">Afghanistan</option>
                         <!-- <option data-nt="358" value="Aland Islands">Aland Islands</option> -->
-                        <option data-nt="355" value="Albania">Albania</option>
+                        <option data-nt="335" value="Albania">Albania</option>
                         <option data-nt="213" value="Algeria">Algeria</option>
                         <option data-nt="684" value="American Samoa">American Samoa</option>
                         <option data-nt="376" value="Andorra">Andorra</option>
@@ -369,8 +369,8 @@
                         <option data-nt="267" value="Botswana">Botswana</option>
                         <!-- <option data-nt="47" value="Bouvet Island">Bouvet Island</option> -->
                         <option data-nt="55" value="Brazil">Brazil</option>
-                        <option data-nt="246" value="British Indian Ocean Territory">British Indian Ocean Territory
-                        </option>
+                        <!-- <option data-nt="246" value="British Indian Ocean Territory">British Indian Ocean Territory
+                        </option> -->
                         <option data-nt="673" value="Brunei Darussalam">Brunei Darussalam</option>
                         <option data-nt="359" value="Bulgaria">Bulgaria</option>
                         <option data-nt="226" value="Burkina Faso">Burkina Faso</option>
@@ -431,8 +431,8 @@
                         <option data-nt="245" value="Guinea-Bissau">Guinea-Bissau</option>
                         <option data-nt="592" value="Guyana">Guyana</option>
                         <option data-nt="509" value="Haiti">Haiti</option>
-                        <option data-nt="672" value="Heard Island and McDonald Islands">Heard Island and McDonald
-                            Islands</option>
+                        <!-- <option data-nt="672" value="Heard Island and McDonald Islands">Heard Island and McDonald
+                            Islands</option> -->
                         <option data-nt="379" value="Holy See (Vatican City State)">Holy See (Vatican City State)
                         </option>
                         <option data-nt="504" value="Honduras">Honduras</option>
@@ -444,7 +444,7 @@
                         <option data-nt="98" value="Iran, Islamic Republic of">Iran, Islamic Republic of</option>
                         <option data-nt="964" value="Iraq">Iraq</option>
                         <option data-nt="353" value="Ireland">Ireland</option>
-                        <option data-nt="44" value="Isle of Man">Isle of Man</option>
+                        <!-- <option data-nt="44" value="Isle of Man">Isle of Man</option> -->
                         <option data-nt="972" value="Israel">Israel</option>
                         <option data-nt="39" value="Italy">Italy</option>
                         <option data-nt="1-876" value="Jamaica">Jamaica</option>
@@ -455,7 +455,7 @@
                         <option data-nt="254" value="Kenya">Kenya</option>
                         <option data-nt="686" value="Kiribati">Kiribati</option>
                         <option data-nt="965" value="Kuwait">Kuwait</option>
-                        <!-- <option data-nt="996" value="Kyrgyzstan">Kyrgyzstan</option> -->
+                        <option data-nt="7" value="Kyrgyzstan">Kyrgyzstan</option>
                         <option data-nt="856" value="Lao People's Democratic Republic">Lao People's Democratic Republic
                         </option>
                         <option data-nt="371" value="Latvia">Latvia</option>
@@ -567,8 +567,8 @@
                         <option data-nt="971" value="United Arab Emirates">United Arab Emirates</option>
                         <option data-nt="44" value="United Kingdom">United Kingdom</option>
                         <option data-nt="1" value="United States">United States</option>
-                        <option data-nt="1-808" value="United States Minor Outlying Islands">United States Minor
-                            Outlying Islands</option>
+                        <!-- <option data-nt="1-808" value="United States Minor Outlying Islands">United States Minor
+                            Outlying Islands</option> -->
                         <option data-nt="598" value="Uruguay">Uruguay</option>
                         <option data-nt="998" value="Uzbekistan">Uzbekistan</option>
                         <option data-nt="678" value="Vanuatu">Vanuatu</option>
