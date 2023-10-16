@@ -296,7 +296,7 @@ class OnSite extends CI_Controller
             // $uagent = $this->agent->agent_string();
             $email = $email1 . "@" . $email2;
             $phone = $phone1 . "-" . $phone2;
-
+            $onsite_reg = "On-site registration";
 
             if ($kes_member_status == 'Y') {
                 /**full day & member*/
@@ -409,6 +409,7 @@ class OnSite extends CI_Controller
                 'welcome_reception_yn' => $welcome_reception_yn,
                 'kes_member_status' => $kes_member_status,
                 'fee' => $fee,
+                'onsite_reg' => $onsite_reg,
                 // 'uagent' => $uagent,
             );
             $this->users->add_onsite_user($info);

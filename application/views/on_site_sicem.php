@@ -1350,7 +1350,7 @@
     /**지불방법 checkbox */
     card.addEventListener("click", () => {
         transfer.checked = false;
-        deposit_method.value = "card"
+        deposit_method.value = "Credit card"
         calRegiFee()
     })
 
@@ -1571,13 +1571,13 @@
 
         if (!attend_yes.checked && !attend_no.checked) {
             alert("invaild attend");
-            member.focus()
+            attend_yes.focus()
             return;
         }
         let conferCheck = false
         conferList.forEach((confer) => {
             if (confer.checked) {
-                conferCheck = true
+                conferCheck = true;
             }
         })
         if (!conferCheck) {
@@ -1591,11 +1591,11 @@
             return;
         }
 
-        // if (!special_no.checked && !special_halal.checked && !special_vege.checked) {
-        //     alert("invaild special food");
-        //     special_no.focus()
-        //     return;
-        // }
+        if (!special_no.checked && !special_halal.checked && !special_vege.checked) {
+            alert("invaild special food");
+            special_no.focus()
+            return;
+        }
 
         /** Session Participation */
         if (!yes_1.checked && !no_1.checked) {

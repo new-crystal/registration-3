@@ -801,11 +801,11 @@ class Admin extends CI_Controller
                 if ($memo == "") {
                     $memo = null;
                 }
-                if ($onsite_reg == "사전등록") {
-                    $onsite_reg = '0';
-                } else {
-                    $onsite_reg = '1';
-                }
+                // if ($onsite_reg == "사전등록") {
+                //     $onsite_reg = '0';
+                // } else {
+                //     $onsite_reg = '1';
+                // }
 
                 $updateTime = date("Y-m-d H:i:s");
                 $info = array(
@@ -861,7 +861,7 @@ class Admin extends CI_Controller
                     'onsite_reg' => $onsite_reg,
                     'qr_chk_day_1' => $qr_chk_day_1,
                     'qr_chk_day_2' => $qr_chk_day_2,
-                    'qr_chk_day_3' => $qr_chk_day_3
+                    'qr_chk_day_3' => $qr_chk_day_3,
                     // 'time' => substr($time, 0, 10)
                 );
 
