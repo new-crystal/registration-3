@@ -301,7 +301,7 @@ class OnSite extends CI_Controller
             $email = $email1 . "@" . $email2;
             $phone = $phone1 . "-" . $phone2;
             $onsite_reg = "On-site registration";
-
+            $kes_member = "Non-member";
             if ($kes_member_status == 'Y') {
                 /**full day & member*/
                 if ($attendance_date == "Full registration") {
@@ -381,7 +381,14 @@ class OnSite extends CI_Controller
                 }
             }
 
-
+            /**kes member
+             * member(kes_id)/Non-member
+             */
+            if ($kes_member_status == "Y") {
+                $kes_member = "member(" . $kes_id . ")";
+            } else if ($kes_member_status == "N") {
+                $kes_member = "Non-member";
+            }
 
 
             $info = array(
@@ -412,7 +419,7 @@ class OnSite extends CI_Controller
                 'is_score' => $is_score,
                 'remark5' => $special_request_food,
                 'welcome_reception_yn' => $welcome_reception_yn,
-                'kes_member_status' => $kes_member_status,
+                'kes_member_status' => $kes_member,
                 'kes_id' => $kes_id,
                 'fee' => $fee,
                 'onsite_reg' => $onsite_reg,
