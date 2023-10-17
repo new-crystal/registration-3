@@ -124,7 +124,7 @@ class Users extends CI_Model
 		$this->db->insert($this->users, $info);
 
 		$id = $this->db->insert_id();
-		$registration_no = 'ICOMES2023-' . str_pad($id, 3, '0', STR_PAD_LEFT);
+		$registration_no = 'AR-' . str_pad($id, 4, '0', STR_PAD_LEFT);
 		$this->db->where('id', $id);
 		$this->db->update($this->users, array('registration_no' => $registration_no));
 	}
