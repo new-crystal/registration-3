@@ -268,6 +268,7 @@ class OnSite extends CI_Controller
             $last_name = $this->input->post('last_name');
             $name = $this->input->post('name_kor');
             $affiliation = $this->input->post('affiliation');
+            $department = $this->input->post('department');
             $affilation_kor = $this->input->post('affiliation_kor');
             $attendance_date = $this->input->post('attendance_date');
             $attendance_type = $this->input->post('attendance_type');
@@ -291,8 +292,11 @@ class OnSite extends CI_Controller
             $welcome_reception_yn = $this->input->post('welcome_reception_yn');
             $specialty_number = $this->input->post('specialty_number');
             $kes_member_status = $this->input->post('kes_member_status');
+            $kes_id = $this->input->post('kes_id');
             $fee = 0;
             $time = date("Y-m-d H:i:s");
+            $etc3 = $this->input->post('etc3');
+            $etc4 = $this->input->post('etc4');
             // $uagent = $this->agent->agent_string();
             $email = $email1 . "@" . $email2;
             $phone = $phone1 . "-" . $phone2;
@@ -394,6 +398,7 @@ class OnSite extends CI_Controller
                 'first_name' => $first_name,
                 'last_name' => $last_name,
                 'affiliation' => $affiliation,
+                'department' => $department,
                 'affiliation_kor' => $affilation_kor,
                 'attendance_date' => $attendance_date,
                 'conference_info' => $conference_info,
@@ -408,8 +413,11 @@ class OnSite extends CI_Controller
                 'remark5' => $special_request_food,
                 'welcome_reception_yn' => $welcome_reception_yn,
                 'kes_member_status' => $kes_member_status,
+                'kes_id' => $kes_id,
                 'fee' => $fee,
                 'onsite_reg' => $onsite_reg,
+                'etc3' => $etc3,
+                'etc4' => $etc4
                 // 'uagent' => $uagent,
             );
             $this->users->add_onsite_user($info);
