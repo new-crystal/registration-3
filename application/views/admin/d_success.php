@@ -7,4 +7,3 @@
     echo '}';
     echo 'goback(\'/admin\')';
     echo '</script>';
-?>
