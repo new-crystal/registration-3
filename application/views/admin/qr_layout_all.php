@@ -3,88 +3,116 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
 
 <style>
-@page {
-    size: 10cm 24cm;
-    margin: 0;
-}
+    @page {
+        size: 10cm 24cm;
+        margin: 0;
+    }
 
-body {
-    margin: 0;
-    padding: 0;
-}
+    body {
+        margin: 0;
+        padding: 0;
+    }
 
-@font-face {
-    font-family: Arial_bold;
-    src: url("../../../assets/font/arial_bold.otf");
-}
+    @font-face {
+        font-family: Arial_bold;
+        src: url("../../../assets/font/arial_bold.otf");
+    }
 
-@font-face {
-    font-family: Arial_italic;
-    src: url("../../../assets/font/Arial_Italic.otf");
-}
+    @font-face {
+        font-family: Arial_italic;
+        src: url("../../../assets/font/Arial_Italic.otf");
+    }
 
-.org {
-    font-family: Arial_italic;
-}
+    .org {
+        font-family: Arial_italic;
+    }
 
-.nick_name {
-    font-family: Arial_bold;
-    font-size: 48px;
-}
+    .nick_name {
+        font-family: Arial_bold;
+        font-size: 48px;
+    }
 
-#printThis {
-    width: 10cm;
-    height: 24cm;
-    margin: 0;
-    padding: 0;
-}
+    #printThis {
+        width: 10cm;
+        height: 24cm;
+        margin: 0;
+        padding: 0;
+    }
 
-.receipt {
-    transform: rotate(0.5turn) translate(-100px, -180px);
-}
+    .receipt {
+        transform: rotate(0.5turn);
+    }
 
-.text_box>.receipt_name {
-    left: -42px !important;
-}
 
-#last_name {
-    padding: 0 !important;
-}
+    .text_box>.receipt_name {
+        left: -42px !important;
+    }
 
-.text_box {
-    position: relative;
-    top: -40px;
-}
+    #last_name {
+        padding: 0 !important;
+    }
 
-.kor_box {
-    position: relative;
-    top: 24px;
-}
+    .text_box {
+        position: absolute;
+        top: 302px;
+    }
 
-.small {
-    font-size: 34px !important;
-    line-height: 64px !important;
-}
+    .kor_box {
+        position: absolute;
+        top: 24px;
+    }
 
-.org_small {
-    transform: translateY(7px) !important;
-}
+    .small {
+        font-size: 34px !important;
+        line-height: 64px !important;
+    }
 
-.small_box {
-    top: -34px !important;
-}
+    .org_small {
+        transform: translateY(7px) !important;
+    }
 
-.reg {
-    text-align: right !important;
-    transform: translate(-16px, -43px);
-}
+    .small_box {
+        top: 302px !important;
+    }
+
+    .reg {
+        text-align: right !important;
+        transform: translate(-16px, -43px);
+    }
+
+    /* 
+    .long_nick>.receipt {
+        position: static !important;
+        transform: rotate(0.5turn) !important;
+    }
+
+    .long_nick {
+        padding-top: 249px;
+    } */
+
+    .tag_price,
+    .tag_name {
+        transform: rotate(0.5turn);
+        width: 77%;
+        margin: 0 auto;
+        text-align: right !important;
+    }
+
+    .tag_name {
+        position: relative;
+        top: 265px;
+    }
+
+    .tag_price {
+        position: relative;
+        top: 250px;
+    }
 </style>
 
 <!-- Main content -->
 <div id="nametag_wrapper">
     <div class="edit_wrapper">
-        <button onclick="" id="btnPrint" type="button" class="btn btn-primary"
-            style="margin-left:20px;">Print<?php $num_row ?></button>
+        <button onclick="" id="btnPrint" type="button" class="btn btn-primary" style="margin-left:20px;">Print<?php $num_row ?></button>
     </div>
 
     <!-- Content area -->
@@ -164,34 +192,34 @@ body {
 </div>
 <!-- /page container -->
 <style>
-body {
-    background-color: #fff;
-}
+    body {
+        background-color: #fff;
+    }
 </style>
 <script>
-document.getElementById("btnPrint").onclick = function() {
-    // const id = "<?php echo $users['registration_no']; ?>";
+    document.getElementById("btnPrint").onclick = function() {
+        // const id = "<?php echo $users['registration_no']; ?>";
 
-    // window.location.href = `https://reg2.webeon.net/qrcode/print_file?registration_no=${id}`
-    printElement(document.getElementById("printThis"));
-}
-
-function printElement(elem) {
-    var domClone = elem.cloneNode(true);
-
-    var $printSection = document.getElementById("printSection");
-
-    if (!$printSection) {
-        var $printSection = document.createElement("div");
-        $printSection.style.width = "10cm";
-        $printSection.style.height = "24cm";
-        $printSection.id = "printSection";
-        document.body.appendChild($printSection);
+        // window.location.href = `https://reg2.webeon.net/qrcode/print_file?registration_no=${id}`
+        printElement(document.getElementById("printThis"));
     }
 
-    $printSection.innerHTML = "";
-    $printSection.appendChild(domClone);
-    window.print();
-}
+    function printElement(elem) {
+        var domClone = elem.cloneNode(true);
+
+        var $printSection = document.getElementById("printSection");
+
+        if (!$printSection) {
+            var $printSection = document.createElement("div");
+            $printSection.style.width = "10cm";
+            $printSection.style.height = "24cm";
+            $printSection.id = "printSection";
+            document.body.appendChild($printSection);
+        }
+
+        $printSection.innerHTML = "";
+        $printSection.appendChild(domClone);
+        window.print();
+    }
 </script>
 </body>
