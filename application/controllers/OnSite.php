@@ -18,9 +18,9 @@ class OnSite extends CI_Controller
     public function index()
     {
 
-        $this->load->view('header');
+        // $this->load->view('header');
         $this->load->view('on-site', $this->data);
-        $this->load->view('footer');
+        // $this->load->view('footer');
         $type = isset($_GET['type1']) ? $_GET['type1'] : null;
         $type2 = isset($_GET['type2']) ? $_GET['type2'] : null;
         $type4 = isset($_GET['type4']) ? $_GET['type4'] : null;
@@ -300,6 +300,12 @@ class OnSite extends CI_Controller
             // $uagent = $this->agent->agent_string();
             $email = $email1 . "@" . $email2;
 
+            if ($nation == "Korea") {
+                $phone = $phone2;
+            } else {
+                $phone = '+' . $phone1 . " " . $phone2;
+            }
+
             $onsite_reg = "On-site registration";
             $kes_member = "Non-member";
 
@@ -307,10 +313,6 @@ class OnSite extends CI_Controller
             $day1_satellite_yn = 'N';
             $day2_satellite_yn = 'N';
             $day3_breakfast_yn = 'N';
-
-
-            $phone = $phone2;
-            $country_code = $phone1;
 
 
             if (
@@ -422,7 +424,6 @@ class OnSite extends CI_Controller
                 'member_other_type' => trim($member_other_type),
                 'org_nametag' => trim($affiliation),
                 'phone' => preg_replace("/\s+/", "", $phone),
-                'country_code' => preg_replace("/\s+/", "", $country_code),
                 'email' => preg_replace("/\s+/", "", $email),
                 'nation' => $nation,
                 'first_name' => $first_name,
