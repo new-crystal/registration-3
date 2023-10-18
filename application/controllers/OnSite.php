@@ -274,9 +274,6 @@ class OnSite extends CI_Controller
             $attendance_type = $this->input->post('attendance_type');
             $conference_info = $this->input->post('conference_info');
             $copy_yn = $this->input->post('copy_yn');
-            // $day1_satellite_yn = $this->input->post('day1_satellite_yn');
-            // $day2_satellite_yn = $this->input->post('day2_satellite_yn');
-            // $day3_breakfast_yn = $this->input->post('day3_breakfast_yn');
             $deposit_method = $this->input->post('deposit_method');
             $email1 = $this->input->post('email1');
             $email2 = $this->input->post('email2');
@@ -289,7 +286,6 @@ class OnSite extends CI_Controller
             $phone1 = $this->input->post('phone1');
             $phone2 = $this->input->post('phone2');
             $special_request_food = $this->input->post('special_request_food');
-            // $welcome_reception_yn = $this->input->post('welcome_reception_yn');
             $specialty_number = $this->input->post('specialty_number');
             $kes_member_status = $this->input->post('kes_member_status');
             $kes_id = $this->input->post('kes_id');
@@ -412,6 +408,10 @@ class OnSite extends CI_Controller
                 $kes_member = "Member ( ID : " . trim($kes_id) . ")";
             } else if ($kes_member_status == "N") {
                 $kes_member = "Non-Member";
+            }
+
+            if ($special_request_food == "None") {
+                $special_request_food = 'N';
             }
 
 
