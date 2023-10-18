@@ -87,6 +87,7 @@ $en_name = $firstName . " " . $lastName
                         foreach ($notice as $item) {
                             echo '<input class="notice" value="' .  $item['notice'] . '" readonly/>';
                         } ?>
+
                     </div>
                     <button class="w-[150px] h-[40px] bg-slate-300 mt-20 hover:bg-slate-400 active:bg-slate-500"
                         type="button" id="open">새창</button>
