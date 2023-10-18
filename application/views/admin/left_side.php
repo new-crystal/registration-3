@@ -68,7 +68,7 @@
                                         </span>
                                     </a>
                                 </li>
-                                <li style="margin-bottom: 2rem;">
+                                <!-- <li style="margin-bottom: 2rem;">
                                     <a href="/admin/qr_layout_all?type=02" target="_blank">
                                         <i class="icon-printer2"></i>
                                         <span>임원 QR생성
@@ -110,7 +110,7 @@
                                         <span>후원사 QR생성
                                         </span>
                                     </a>
-                                </li>
+                                </li> -->
                                 <li style="margin-bottom: 2rem;"
                                     <?php if ($primary_menu == 'participant') echo 'class="active"' ?>>
                                     <a href="/admin/participant">
@@ -136,7 +136,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/admin/qr_excel_download" target="_blank">
+                                    <a href="/admin/sicem_qr_excel_download" target="_blank">
                                         <i class="icon-download4"></i>
                                         <span>QR 기록 다운로드
                                         </span>
