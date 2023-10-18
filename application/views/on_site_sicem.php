@@ -337,7 +337,7 @@ td {
                 <th>Country<br> (국가)<span class="hit">*</span></th>
                 <td>
                     <select id="nation_no" name="nation" class="px-2 py-1 w-11/12 h-10 border" disabled>
-                        <option data-nt="82" value="Republic of Korea" selected="">Republic of Korea</option>
+                        <option data-nt="82" value="Korea" selected="">Korea</option>
                         <option data-nt="93" value="Afghanistan">Afghanistan</option>
                         <!-- <option data-nt="358" value="Aland Islands">Aland Islands</option> -->
                         <option data-nt="335" value="Albania">Albania</option>
@@ -773,62 +773,6 @@ td {
             </tr>
         </table>
 
-        <img src="../../assets/images/circle.png" class="inline" />
-        <h1 class="text-sky-900 font-bold text-xl mt-10 mb-5 inline-block">Session Participation</h1>
-        <table class="survey">
-            <colgroup>
-                <col width="50%">
-                <col width="*">
-            </colgroup>
-            <tr>
-                <th>Welcome reception – Thursday, October 26</th>
-                <td>
-                    <div>
-                        <input id="yn_1" name="welcome_reception_yn" class="yn" hidden />
-                        <input type="checkbox" id="yes_1" />
-                        <label>Yes</label>
-                        <input type="checkbox" id="no_1" />
-                        <label>No</label>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th>Satellite Symposium - Thursday, October 26</th>
-                <td>
-                    <div>
-                        <input id="yn_2" name="day1_satellite_yn" class="yn" hidden />
-                        <input type="checkbox" id="yes_2" />
-                        <label>Yes</label>
-                        <input type="checkbox" id="no_2" />
-                        <label>No</label>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th>Satellite Symposium - Friday, October 27</th>
-                <td>
-                    <div>
-                        <input id="yn_3" name="day2_satellite_yn" class="yn" hidden />
-                        <input type="checkbox" id="yes_3" />
-                        <label>Yes</label>
-                        <input type="checkbox" id="no_3" />
-                        <label>No</label>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th>Breakfast Symposium – Saturday, October 28</th>
-                <td>
-                    <div>
-                        <input id="yn_4" name="day3_breakfast_yn" class="yn" hidden />
-                        <input type="checkbox" id="yes_4" />
-                        <label>Yes</label>
-                        <input type="checkbox" id="no_4" />
-                        <label>No</label>
-                    </div>
-                </td>
-            </tr>
-        </table>
 
         <img src="../../assets/images/circle.png" class="inline" />
         <h1 class="text-sky-900 font-bold text-xl mt-10 mb-5 inline-block">Registration Fees</h1>
@@ -858,8 +802,7 @@ td {
                                 type="button" class="sign_up">KES Sign up(For foreigner)</button></a>
                     </div>
                     <div class="kes_id" style="display: none;">
-                        <input class="kes_id_input" name="kes_id" class="border p-2 mt-2"
-                            placeholder="KES ID를 입력해주세요" />
+                        <input name="kes_id" class="kes_id_input border p-2 mt-2" placeholder="KES ID를 입력해주세요" />
                     </div>
                 </td>
             </tr>
@@ -1079,19 +1022,19 @@ const account = document.querySelector(".account")
 const transfer_box = document.querySelector("#transfer_box")
 const etc4 = document.querySelector("#etc4")
 
-const yes_1 = document.querySelector("#yes_1")
-const no_1 = document.querySelector("#no_1")
-const yes_2 = document.querySelector("#yes_2")
-const no_2 = document.querySelector("#no_2")
-const yes_3 = document.querySelector("#yes_3")
-const no_3 = document.querySelector("#no_3")
-const yes_4 = document.querySelector("#yes_4")
-const no_4 = document.querySelector("#no_4")
-const ynList = document.querySelectorAll(".yn")
-const yn_1 = document.querySelector("#yn_1")
-const yn_2 = document.querySelector("#yn_2")
-const yn_3 = document.querySelector("#yn_3")
-const yn_4 = document.querySelector("#yn_4")
+// const yes_1 = document.querySelector("#yes_1")
+// const no_1 = document.querySelector("#no_1")
+// const yes_2 = document.querySelector("#yes_2")
+// const no_2 = document.querySelector("#no_2")
+// const yes_3 = document.querySelector("#yes_3")
+// const no_3 = document.querySelector("#no_3")
+// const yes_4 = document.querySelector("#yes_4")
+// const no_4 = document.querySelector("#no_4")
+// const ynList = document.querySelectorAll(".yn")
+// const yn_1 = document.querySelector("#yn_1")
+// const yn_2 = document.querySelector("#yn_2")
+// const yn_3 = document.querySelector("#yn_3")
+// const yn_4 = document.querySelector("#yn_4")
 
 const participationRadios = document.querySelectorAll('.session_radio');
 const checkboxes = document.querySelectorAll('.checkbox');
@@ -1222,11 +1165,11 @@ phone.addEventListener('input', (event) => {
 /**국적 -> 한국인만 한국이름 작성 */
 contry.addEventListener("click", () => {
     contryNumber.value = contry.options[contry.selectedIndex].dataset.nt
-    if (contry.value !== "Republic of Korea") {
+    if (contry.value !== "Korea") {
         KoreanName.style.display = "none"
         koreanAffiliation.style.display = "none"
         ln.style.display = "none"
-    } else if (contry.value === "Republic of Korea") {
+    } else if (contry.value === "Korea") {
         KoreanName.style.display = "";
         koreanAffiliation.style.display = "";
         ln.style.display = ""
@@ -1528,45 +1471,6 @@ specialist.addEventListener("input", () => {
     }
 })
 
-/**participation */
-function participationY(number) {
-    if (document.querySelector(`#yes_${number}`).checked) {
-        document.querySelector(`#no_${number}`).checked = false;
-    }
-    ynList.forEach((yn) => {
-        if (yn.id === `yn_${number}`) {
-            yn.value = "Y"
-        }
-    })
-}
-
-function participationN(number) {
-    if (document.querySelector(`#no_${number}`).checked) {
-        document.querySelector(`#yes_${number}`).checked = false;
-    }
-    ynList.forEach((yn) => {
-        if (yn.id === `yn_${number}`) {
-            yn.value = "N"
-        }
-    })
-}
-
-/**Session Participation */
-const yesList = [yes_1, yes_2, yes_3, yes_4];
-
-const noList = [no_1, no_2, no_3, no_4];
-
-yesList.map((yes, i) => {
-    yes.addEventListener("click", () => {
-        participationY(i + 1)
-    })
-})
-
-noList.map((no, i) => {
-    no.addEventListener("click", () => {
-        participationN(i + 1)
-    })
-})
 
 /**abstract book */
 abstract_yes.addEventListener("click", () => {
@@ -1667,7 +1571,7 @@ function onSubmit(e) {
         phone.focus()
         return;
     }
-    if (contry.value === "Republic of Korea" && !need.checked && !nonNeed.checked) {
+    if (contry.value === "Korea" && !need.checked && !nonNeed.checked) {
         alert("invaild grade");
         need.focus()
         return;
@@ -1702,33 +1606,13 @@ function onSubmit(e) {
         return;
     }
 
-    if (!special_no.checked && !special_halal.checked && !special_vege.checked) {
-        alert("invaild special food");
-        special_no.focus()
-        return;
-    }
+    // if (!special_no.checked && !special_halal.checked && !special_vege.checked) {
+    //     alert("invaild special food");
+    //     special_no.focus()
+    //     return;
+    // }
 
-    /** Session Participation */
-    if (!yes_1.checked && !no_1.checked) {
-        alert("invaild Session Participation");
-        yes_1.focus()
-        return;
-    }
-    if (!yes_2.checked && !no_2.checked) {
-        alert("invaild Session Participation");
-        yes_1.focus()
-        return;
-    }
-    if (!yes_3.checked && !no_3.checked) {
-        alert("invaild Session Participation");
-        yes_1.focus()
-        return;
-    }
-    if (!yes_4.checked && !no_4.checked) {
-        alert("invaild Session Participation");
-        yes_1.focus()
-        return;
-    }
+
 
     /** Registration Fees */
     if (!member.checked && !nonMember.checked) {
@@ -1786,7 +1670,7 @@ function calRegiFee() {
         .value === "Preceptor" || participationSelect.value === "Organizer" || participationSelect.value ===
         "Press" || participationSelect.value === "Exhibitior" || participationSelect.value === "Satellite Attendee"
     ) {
-        if (contry.value === "Republic of Korea") {
+        if (contry.value === "Korea") {
             fee = "KRW 0"
         } else {
             fee = "USD 0"
@@ -1798,25 +1682,25 @@ function calRegiFee() {
             /**full day & member*/
             if (full.checked) {
                 if (categorySelect.value === "Medical Doctor" || categorySelect.value === "Professor") {
-                    if (contry.value === "Republic of Korea") {
+                    if (contry.value === "Korea") {
                         fee = "KRW 250,000"
                     } else {
                         fee = "USD 250"
                     }
                 } else if (categorySelect.value === "Student" || categorySelect.value === "Trainee") {
-                    if (contry.value === "Republic of Korea") {
+                    if (contry.value === "Korea") {
                         fee = "KRW 125,000"
                     } else {
                         fee = "USD 125"
                     }
                 } else if (categorySelect.value === "Corporate" || categorySelect.value === "Other") {
-                    if (contry.value === "Republic of Korea") {
+                    if (contry.value === "Korea") {
                         fee = "KRW 200,000"
                     } else {
                         fee = "USD 200"
                     }
                 } else {
-                    if (contry.value === "Republic of Korea") {
+                    if (contry.value === "Korea") {
                         fee = "KRW 200,000"
                     } else {
                         fee = "USD 200"
@@ -1826,7 +1710,7 @@ function calRegiFee() {
 
             /** one day & member */
             else {
-                if (contry.value === "Republic of Korea") {
+                if (contry.value === "Korea") {
                     fee = "KRW 200,000"
                 } else {
                     fee = "USD 200"
@@ -1840,7 +1724,7 @@ function calRegiFee() {
             /**full day & non-member */
             if (full.checked) {
                 if (categorySelect.value === "Medical Doctor" || categorySelect.value === "Professor") {
-                    if (contry.value === "Republic of Korea") {
+                    if (contry.value === "Korea") {
                         fee = "KRW 350,000"
                     } else {
                         fee = "USD 350"
@@ -1848,19 +1732,19 @@ function calRegiFee() {
                 } else if (categorySelect
                     .value === "Trainee" || categorySelect
                     .value === "Student") {
-                    if (contry.value === "Republic of Korea") {
+                    if (contry.value === "Korea") {
                         fee = "KRW 175,000"
                     } else {
                         fee = "USD 175"
                     }
                 } else if (categorySelect.value === "Corporate" || categorySelect.value === "Other") {
-                    if (contry.value === "Republic of Korea") {
+                    if (contry.value === "Korea") {
                         fee = "KRW 250,000"
                     } else {
                         fee = "USD 250"
                     }
                 } else {
-                    if (contry.value === "Republic of Korea") {
+                    if (contry.value === "Korea") {
                         fee = "KRW 250,000"
                     } else {
                         fee = "USD 250"
@@ -1870,7 +1754,7 @@ function calRegiFee() {
 
             /** one day  & non-member */
             else {
-                if (contry.value === "Republic of Korea") {
+                if (contry.value === "Korea") {
                     fee = "KRW 230,000"
                 } else {
                     fee = "USD 230"
@@ -1880,6 +1764,5 @@ function calRegiFee() {
     }
     total.innerText = fee;
     fee_input.value = fee;
-
 }
 </script>

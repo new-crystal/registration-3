@@ -7,6 +7,8 @@
 <style>
 body {
     font-family: 'Gothic A1', sans-serif;
+    width: 1920px;
+    height: 1080px;
 }
 
 #accessForm {
@@ -55,11 +57,8 @@ body {
 .info_content>input {
     margin-left: 139px;
     margin-top: 10px;
-    width: 117%;
-    /* height: 90%; */
     padding: 0 2rem;
     z-index: 999;
-    transform: translate(346px, -250px);
 }
 
 input {
@@ -80,23 +79,43 @@ input {
     width: 152%;
     height: 291px;
     /* background-color: #ddd; */
-    transform: translate(71px, 114px);
-}
-
-.input_box {
-    transform: translate(1px, -92px);
+    /* transform: translate(71px, 114px); */
 }
 
 .name {
-    transform: translate(-612px, -332px) !important;
+    position: absolute;
+    top: 485px;
+    left: 74px;
     font-family: 'DM Serif Text', serif;
     font-size: 45px;
+    overflow: hidden;
+    width: 688px;
 }
 
+
 .number {
+    position: absolute;
+    top: 443px;
+    left: 1029px;
     font-family: 'DM Serif Text', serif;
     font-size: 250px;
-    transform: translate(346px, -480px) !important;
+    width: 500px;
+}
+
+.none_number {
+    position: absolute;
+    top: 561px;
+    left: 802px;
+    font-family: 'DM Serif Text', serif;
+    font-size: 34px;
+    width: 759px;
+    height: 202px;
+}
+
+#qrcode {
+    position: absolute;
+    top: -12px;
+    left: 0;
 }
 </style>
 
@@ -127,13 +146,13 @@ input {
                             <?php echo form_open('/access/gala_table', 'id="accessForm" name="accessForm"') ?>
                             <fieldset>
                                 <div class="fresh"></div>
-                                <div style=" transform: translateY(700px);">
+                                <div>
                                     <dl class="pl-2">
                                         <dd><input type="text" name="qrcode" id="qrcode"
-                                                class=" h-20  px-3 py-3 mt-5 border-indigo-900 mx-auto" style="    width: 656px;
-    transform: translate(169px, -434px);" placeholder="" autofocus></dd>
+                                                class=" h-20  px-3 py-3 mt-5 border-indigo-900 mx-auto"
+                                                style="width: 656px;" placeholder="" autofocus></dd>
                                     </dl>
-                                    <dl class="pl-2" style="transform: translateY(-200px);">
+                                    <dl class="pl-2">
                                         <div id="qr_nick_name" class="qr_info_wrap">
                                             <div class="info_name" style="opacity: 0;">성 명</div>
                                             <div class="info_content"><input type="text" class="qr_info input name"
@@ -142,12 +161,12 @@ input {
                                             </div>
                                         </div>
                                     </dl>
-                                    <dl class="pl-2" style="transform: translateY(-200px);">
+                                    <dl class="pl-2">
                                         <div id="qr_nick_name" class="qr_info_wrap">
                                             <div class="info_table_num" style="opacity: 0;">테이블 넘버</div>
                                             <?php if (isset($users['remark2']) && $users['table_num'] === 'N') { ?>
-                                            <div class="info_content"><input type="text" class="qr_info input"
-                                                    value="갈라디너 미대상자입니다." readonly>
+                                            <div class="info_content"><input type="text"
+                                                    class="qr_info input none_number" value="갈라디너 미대상자입니다." readonly>
                                             </div>
                                             <?php } else { ?>
                                             <div class="info_content"><input type="text" class="qr_info input number"
@@ -158,8 +177,8 @@ input {
                                         </div>
                                     </dl>
                                     <div class="w-full flex items-center justify-center"><button type="submit"
-                                            value="등록" class="btnPoint w-full flex items-center justify-center"
-                                            style="    transform: translate(55px,434px);"></button></div>
+                                            value="등록"
+                                            class="btnPoint w-full flex items-center justify-center"></button></div>
                                 </div>
                             </fieldset>
                             </form>
@@ -188,7 +207,7 @@ input {
             })
             window.onload = () => {
                 qrcode.focus();
-                hideText()
+                //hideText()
             }
 
             /**10초 이후 텍스트 자동 제거 */

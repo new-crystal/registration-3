@@ -274,9 +274,9 @@ class OnSite extends CI_Controller
             $attendance_type = $this->input->post('attendance_type');
             $conference_info = $this->input->post('conference_info');
             $copy_yn = $this->input->post('copy_yn');
-            $day1_satellite_yn = $this->input->post('day1_satellite_yn');
-            $day2_satellite_yn = $this->input->post('day2_satellite_yn');
-            $day3_breakfast_yn = $this->input->post('day3_breakfast_yn');
+            // $day1_satellite_yn = $this->input->post('day1_satellite_yn');
+            // $day2_satellite_yn = $this->input->post('day2_satellite_yn');
+            // $day3_breakfast_yn = $this->input->post('day3_breakfast_yn');
             $deposit_method = $this->input->post('deposit_method');
             $email1 = $this->input->post('email1');
             $email2 = $this->input->post('email2');
@@ -289,7 +289,7 @@ class OnSite extends CI_Controller
             $phone1 = $this->input->post('phone1');
             $phone2 = $this->input->post('phone2');
             $special_request_food = $this->input->post('special_request_food');
-            $welcome_reception_yn = $this->input->post('welcome_reception_yn');
+            // $welcome_reception_yn = $this->input->post('welcome_reception_yn');
             $specialty_number = $this->input->post('specialty_number');
             $kes_member_status = $this->input->post('kes_member_status');
             $kes_id = $this->input->post('kes_id');
@@ -299,95 +299,117 @@ class OnSite extends CI_Controller
             $etc4 = $this->input->post('etc4');
             // $uagent = $this->agent->agent_string();
             $email = $email1 . "@" . $email2;
-            $phone = $phone1 . "-" . $phone2;
+
             $onsite_reg = "On-site registration";
             $kes_member = "Non-member";
-            if ($kes_member_status == 'Y') {
-                /**full day & member*/
-                if ($attendance_date == "Full registration") {
-                    if ($member_type == "Medical Doctor" || $member_type == "Professor") {
-                        if ($nation == "Republic of Korea") {
-                            $fee = "KRW 250,000";
+
+            $welcome_reception_yn = 'N';
+            $day1_satellite_yn = 'N';
+            $day2_satellite_yn = 'N';
+            $day3_breakfast_yn = 'N';
+
+
+            $phone = $phone2;
+            $country_code = $phone1;
+
+
+            if (
+                $attendance_type == "Speaker" || $attendance_type == "Chairperson" ||
+                $attendance_type == "Moderator" || $attendance_type == "Panel" || $attendance_type == "Preceptor" || $attendance_type == "Organizer" || $attendance_type ==
+                "Press" || $attendance_type == "Exhibitior" || $attendance_type == "Satellite Attendee"
+            ) {
+                if ($nation ==  "Korea") {
+                    $fee = "KRW 0";
+                } else {
+                    $fee = "USD 0";
+                }
+            } else {
+                if ($kes_member_status == 'Y') {
+                    /**full day & member*/
+                    if ($attendance_date == "Full registration") {
+                        if ($member_type == "Medical Doctor" || $member_type == "Professor") {
+                            if ($nation == "Korea") {
+                                $fee = "KRW 250,000";
+                            } else {
+                                $fee = "USD 250";
+                            }
+                        } else if ($member_type == "Trainee" || $member_type == "Student") {
+                            if ($nation == "Korea") {
+                                $fee = "KRW 125,000";
+                            } else {
+                                $fee = "USD 125";
+                            }
+                        } else if ($member_type == "Corporate" || $member_type == "Other") {
+                            if ($nation === "Korea") {
+                                $fee = "KRW 200,000";
+                            } else {
+                                $fee = "USD 200";
+                            }
                         } else {
-                            $fee = "USD 250";
+                            if ($nation == "Korea") {
+                                $fee = "KRW 200,000";
+                            } else {
+                                $fee = "USD 200";
+                            }
                         }
-                    } else if ($member_type == "Trainee" || $member_type == "Student") {
-                        if ($nation == "Republic of Korea") {
-                            $fee = "KRW 125,000";
-                        } else {
-                            $fee = "USD 125";
-                        }
-                    } else if ($member_type == "Corporate" || $member_type == "Other") {
-                        if ($nation === "Republic of Korea") {
+                    }
+
+                    /** one day & member */
+                    else if ($attendance_date != "Full registration") {
+                        if ($nation == "Korea") {
                             $fee = "KRW 200,000";
                         } else {
                             $fee = "USD 200";
                         }
-                    } else {
-                        if ($nation == "Republic of Korea") {
-                            $fee = "KRW 200,000";
+                    }
+                } else if ($kes_member_status == 'N') {
+
+                    /**full day & non-member */
+                    if ($attendance_date == "Full registration") {
+                        if ($member_type == "Medical Doctor" || $member_type == "Professor") {
+                            if ($nation == "Korea") {
+                                $fee = "KRW 350,000";
+                            } else {
+                                $fee = "USD 350";
+                            }
+                        } else if ($member_type == "Trainee" ||  $member_type == "Student") {
+                            if ($nation == "Korea") {
+                                $fee = "KRW 175,000";
+                            } else {
+                                $fee = "USD 175";
+                            }
+                        } else if ($member_type == "Corporate" || $member_type == "Other") {
+                            if ($nation == "Korea") {
+                                $fee = "KRW 250,000";
+                            } else {
+                                $fee = "USD 250";
+                            }
                         } else {
-                            $fee = "USD 200";
+                            if ($nation == "Korea") {
+                                $fee = "KRW 250,000";
+                            } else {
+                                $fee = "USD 250";
+                            }
                         }
                     }
-                }
 
-                /** one day & member */
-                else if ($attendance_date != "Full registration") {
-                    if ($nation == "Republic of Korea") {
-                        $fee = "KRW 200,000";
-                    } else {
-                        $fee = "USD 200";
-                    }
-                }
-            } else if ($kes_member_status == 'N') {
-
-                /**full day & non-member */
-                if ($attendance_date == "Full registration") {
-                    if ($member_type == "Medical Doctor" || $member_type == "Professor") {
-                        if ($nation == "Republic of Korea") {
-                            $fee = "KRW 350,000";
+                    /** one day  & non-member */
+                    else if ($attendance_date != "Full registration") {
+                        if ($nation == "Korea") {
+                            $fee = "KRW 230,000";
                         } else {
-                            $fee = "USD 350";
+                            $fee = "USD 230";
                         }
-                    } else if ($member_type == "Trainee" ||  $member_type == "Student") {
-                        if ($nation == "Republic of Korea") {
-                            $fee = "KRW 175,000";
-                        } else {
-                            $fee = "USD 175";
-                        }
-                    } else if ($member_type == "Corporate" || $member_type == "Other") {
-                        if ($nation == "Republic of Korea") {
-                            $fee = "KRW 250,000";
-                        } else {
-                            $fee = "USD 250";
-                        }
-                    } else {
-                        if ($nation == "Republic of Korea") {
-                            $fee = "KRW 250,000";
-                        } else {
-                            $fee = "USD 250";
-                        }
-                    }
-                }
-
-                /** one day  & non-member */
-                else if ($attendance_date != "Full registration") {
-                    if ($nation == "Republic of Korea") {
-                        $fee = "KRW 230,000";
-                    } else {
-                        $fee = "USD 230";
                     }
                 }
             }
-
             /**kes member
              * member(kes_id)/Non-member
              */
             if ($kes_member_status == "Y") {
-                $kes_member = "member(" . $kes_id . ")";
+                $kes_member = "Member ( ID : " . trim($kes_id) . ")";
             } else if ($kes_member_status == "N") {
-                $kes_member = "Non-member";
+                $kes_member = "Non-Member";
             }
 
 
@@ -400,6 +422,7 @@ class OnSite extends CI_Controller
                 'member_other_type' => trim($member_other_type),
                 'org_nametag' => trim($affiliation),
                 'phone' => preg_replace("/\s+/", "", $phone),
+                'country_code' => preg_replace("/\s+/", "", $country_code),
                 'email' => preg_replace("/\s+/", "", $email),
                 'nation' => $nation,
                 'first_name' => $first_name,
@@ -420,7 +443,6 @@ class OnSite extends CI_Controller
                 'remark5' => $special_request_food,
                 'welcome_reception_yn' => $welcome_reception_yn,
                 'kes_member_status' => $kes_member,
-                'kes_id' => $kes_id,
                 'fee' => $fee,
                 'onsite_reg' => $onsite_reg,
                 'etc3' => $etc3,
