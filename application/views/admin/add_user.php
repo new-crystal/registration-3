@@ -14,14 +14,19 @@
                                 <label class="col-sm-2 control-label">구분 1</label>
                                 <div class="col-sm-10">
                                     <select class="form-control input-lg m-bot15" name="attendance_type" id="type1">
-                                        <option value="Participants">Participants</option>
+                                        <option value="" selected="selected">선택사항</option>
+                                        <option value="Participant">Participant</option>
+                                        <option value="Speaker">Speaker</option>
                                         <option value="Chairperson">Chairperson</option>
-                                        <option value="Speakers">Speakers</option>
+                                        <option value="Moderator">Moderator</option>
                                         <option value="Panel">Panel</option>
-                                        <option value="Committee">Committee</option>
-                                        <option value="Sponsor">Sponsor</option>
+                                        <option value="Preceptor">Preceptor</option>
+                                        <option value="Organizer">Organizer</option>
+                                        <!-- <option value="Oral Presenter">Oral Presenter</option> -->
+                                        <!-- <option value="Poster Oral Presenter">Poster Oral Presenter</option> -->
+                                        <option value="Satellite Attendee">Satellite Attendee</option>
                                         <option value="Press">Press</option>
-                                        <option value="Others">Others</option>
+                                        <option value="Exhibitior">Exhibitior</option>
                                     </select>
                                 </div>
                             </div>
@@ -29,45 +34,39 @@
                                 <label class="col-sm-2 control-label">구분 2</label>
                                 <div class="col-sm-10">
                                     <select class="form-control input-lg m-bot15" name="member_type" id="type2">
-                                        <option value="Certified M.D.">Certified M.D.</option>
-                                        <!-- <option value="봉직의">봉직의</option> -->
-                                        <option value="Resident">Resident</option>
-                                        <option value="Fellow">Fellow</option>
+                                        <option value="Medical Doctor">Medical Doctor</option>
                                         <option value="Professor">Professor</option>
-                                        <option value="Nurse">Nurse</option>
-                                        <option value="Researcher">Researcher</option>
-                                        <!--option value="사회복지사">사회복지사</option-->
-                                        <option value="Pharmacist">Pharmacist</option>
-                                        <option value="Nutritionist">Nutritionist</option>
-                                        <option value="Exercise Specialist">Exercise Specialist</option>
-                                        <option value="Military Surgeon">Military Surgeon</option>
-                                        <option value="Public Health Doctor">Public Health Doctor</option>
-                                        <option value="Corporate Member">Corporate Member</option>
+                                        <option value="Trainee">Trainee</option>
                                         <option value="Student">Student</option>
-                                        <!-- <option value="연구원">연구원</option> -->
-                                        <!-- <option value="운동처방사">운동처방사</option> -->
-                                        <option value="Others">Others</option>
+                                        <option value="Other">Other</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group form-inline">
                                 <label class="col-sm-2 control-label">구분 3</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control input-lg m-bot15" name="occupation_type" id="type2">
-                                        <option value="Medical">Medical</option>
-                                        <option value="Food & Nutrition">Food & Nutrition</option>
-                                        <option value="Exercise">Exercise</option>
-                                        <option value="Others">Others</option>
+                                    <select class="form-control input-lg m-bot15" name="member_other_type" id="type2">
+                                        <option value="Fellow">Fellow</option>
+                                        <option value="Resident">Resident</option>
+                                        <option value="Graduate">Graduate</option>
+                                        <option value="Individual Researcher">Individual Researcher</option>
+                                        <option value="Public Health Doctor">Public Health Doctor</option>
+                                        <option value="Military Doctor">Military Doctor</option>
+                                        <option value="Nurse">Nurse</option>
+                                        <option value="Nutritionist">Nutritionist</option>
+                                        <option value="Pharmacist">Pharmacist</option>
+                                        <option value="Exercise Specialist">Exercise Specialist</option>
+                                        <option value="Researcher">Researcher</option>
+                                        <option value="Other">Other</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group form-inline">
-                                <label class="col-sm-2 control-label">KSSO 회원여부</label>
+                                <label class="col-sm-2 control-label">KES 회원여부</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control input-lg m-bot15" name="ksso_member_status" id="type3">
-                                        <option value="정회원">정회원</option>
-                                        <option value="평생회원">평생회원</option>
-                                        <option value="비회원">비회원</option>
+                                    <select class="form-control input-lg m-bot15" name="kes_member_status" id="type3">
+                                        <option value="Member">회원</option>
+                                        <option value="Non-Member">비회원</option>
                                     </select>
                                 </div>
                             </div>
@@ -83,18 +82,7 @@
                                     <input type="text" class="form-control" name="specialty_number" id="sn">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">영양사면허번호</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nutritionist_number" id="sn">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"> 임상영양사자격번호</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="dietitian_number" id="sn">
-                                </div>
-                            </div>
+
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">이름 *</label>
                                 <div class="col-sm-10">
@@ -106,7 +94,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">전화번호 *</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" name="phone" id="phone" placeholder="*필수 연락처 (국가번호와 함께 입력해주세요 ex)82-1012345678)">
+                                    <input class="form-control" type="text" name="phone" id="phone" placeholder="*필수 연락처 (외국인은 국가번호와 함께 입력해주세요 ex)01012345678)">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -134,7 +122,6 @@
                                 <label class="col-sm-2 control-label">부서 *</label>
                                 <div class="col-sm-10">
                                     <input class="form-control" type="text" name="department" id="org" placeholder="*필수(영어)">
-                                    <input class="form-control" type="text" name="department_kor" id="org" placeholder="*필수(한글)">
                                 </div>
                             </div>
                         </div>
@@ -152,7 +139,7 @@
                                     </div>
                                 </div>
                             </div> -->
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label class="col-sm-2 control-label">입금자명</label>
                                 <div class="col-sm-10">
                                     <input class="form-control" type="text" name="deposit_name" id="deposit_name">
@@ -163,7 +150,7 @@
                                 <div class="col-sm-10">
                                     <input id="dp1" type="text" size="16" class="form-control" name="deposit_date">
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">메모</label>
                                 <div class="col-sm-10">
@@ -171,71 +158,77 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">remark1</label>
+                                <label class="col-sm-2 control-label">remark1(명찰케이스)</label>
                                 <div class="col-sm-10">
                                     <input id="dp1" type="text" size="16" class="form-control" name="remark1">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">remark2</label>
+                                <label class="col-sm-2 control-label">remark2(리본)</label>
                                 <div class="col-sm-10">
                                     <input id="dp1" type="text" size="16" class="form-control" name="remark2">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label class="col-sm-2 control-label">remark3</label>
                                 <div class="col-sm-10">
                                     <input id="dp1" type="text" size="16" class="form-control" name="remark3">
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">remark4</label>
+                                <label class="col-sm-2 control-label">remark6(Gala dinner)</label>
                                 <div class="col-sm-10">
-                                    <input id="dp1" type="text" size="16" class="form-control" name="remark4">
+                                    <input id="dp1" type="text" size="16" class="form-control" name="remark6">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">remark5</label>
+                                <label class="col-sm-2 control-label">remark7(Gala dinner Table number)</label>
                                 <div class="col-sm-10">
-                                    <input id="dp1" type="text" size="16" class="form-control" name="remark5">
+                                    <input id="dp1" type="text" size="16" class="form-control" name="remark7">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label class="col-sm-2 control-label">welcome reception </label>
                                 <div class="col-sm-10">
-                                    <input placeholder="Y/N" class="form-control" type="text" name="welcome_reception_yn" id="deposit_name">
+                                    <input placeholder="Y/N" class="form-control" type="text"
+                                        name="welcome_reception_yn" id="deposit_name">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">day2_breakfast_yn</label>
                                 <div class="col-sm-10">
-                                    <input placeholder="Y/N" class="form-control" type="text" name="day2_breakfast_yn" id="deposit_name">
+                                    <input placeholder="Y/N" class="form-control" type="text" name="day2_breakfast_yn"
+                                        id="deposit_name">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">day2_luncheon_yn</label>
                                 <div class="col-sm-10">
-                                    <input placeholder="Y/N" class="form-control" type="text" name="day2_luncheon_yn" id="deposit_name">
+                                    <input placeholder="Y/N" class="form-control" type="text" name="day2_luncheon_yn"
+                                        id="deposit_name">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">day3_breakfast_yn</label>
                                 <div class="col-sm-10">
-                                    <input placeholder="Y/N" class="form-control" type="text" name="day3_breakfast_yn" id="deposit_name">
+                                    <input placeholder="Y/N" class="form-control" type="text" name="day3_breakfast_yn"
+                                        id="deposit_name">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">day3_luncheon_yn</label>
                                 <div class="col-sm-10">
-                                    <input placeholder="Y/N" class="form-control" type="text" name="day3_luncheon_yn" id="deposit_name">
+                                    <input placeholder="Y/N" class="form-control" type="text" name="day3_luncheon_yn"
+                                        id="deposit_name">
                                 </div>
-                            </div>
-                            <div class="form-group">
+                            </div> -->
+                            <!-- <div class="form-group">
                                 <label class="col-sm-2 control-label">생년월일</label>
                                 <div class="col-sm-10">
-                                    <input placeholder="dd-mm-yyyy" class="form-control" type="text" name="date_of_birth" id="deposit_name">
+                                    <input placeholder="dd-mm-yyyy" class="form-control" type="text"
+                                        name="date_of_birth" id="deposit_name">
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"> Special Request for Food</label>
                                 <div class="col-sm-10">

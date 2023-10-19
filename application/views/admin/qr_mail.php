@@ -23,12 +23,11 @@ table {
 }
 </style>
 
-<table width='750' style='border:none; padding: 0;'>
+<table width='750' style='border:none; padding: 0; border-collapse:collapse'>
     <tbody>
         <tr>
             <td colspan='3'>
-                <img src='https://image.webeon.net/icomes2023/1st/icomes2023_QRmail-1_01.png' width='750'
-                    style='width:750px;'>
+                <img src='https://image.webeon.net/SICEM/1026/SICEM_2023_01.png' width='750' style='width:750px;'>
             </td>
         </tr>
 
@@ -43,11 +42,17 @@ table {
         </tr>
 
         <tr>
-            <td colspan='3' style='padding-top:50px;'>
-                <img src='https://image.webeon.net/icomes2023/1st/icomes2023_QRmail-1_03.png' width='750'
-                    style='width:750px;'>
+            <td colspan='3' style="padding: 0; border:none; margin:0">
+                <img src='https://image.webeon.net/SICEM/1026/SICEM_2023_03.png' width='750' style='width:750px;'
+                    usemap="#image-map">
+                <map name="image-map" id="#image-map">
+                    <area target="_blank" alt="" title=""
+                        href="https://image.webeon.net/SICEM/1026/SICEM_2023_Abstract.pdf" coords="198,981,548,1045"
+                        shape="rect">
+                </map>
             </td>
         </tr>
+
     </tbody>
 </table>
 <div style="width:750px;display:flex; justify-content:center; margin-top:1rem;">

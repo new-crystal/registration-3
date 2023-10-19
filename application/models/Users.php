@@ -93,7 +93,7 @@ class Users extends CI_Model
 		$query = $this->db->query("
 		SELECT *
 		FROM users a
-		WHERE a.remark2 = 'Y'
+		WHERE a.remark6 = 'Y'
 		ORDER BY a.id ASC
 ");
 		return $query->result_array();
@@ -247,53 +247,29 @@ class Users extends CI_Model
 
 	public function get_access_statistics()
 	{
-		//기존 코드
-		// SELECT u.type,
-		//     COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-07-11' THEN a.registration_no END) AS '2023-07-11',
-		//     COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-07-12' THEN a.registration_no END) AS '2023-07-12',
-		//     COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-07-13' THEN a.registration_no END) AS '2023-07-13'
-		// FROM users u
-		// JOIN access a
-		// ON u.registration_no = a.registration_no
-		// GROUP BY u.type;
-
-		//현장등록 반영한 코드 -> A와 B로 시작할 경우
-		// SELECT u.type,
-		// 		 COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-07-11' AND a.registration_no LIKE 'A%' THEN a.registration_no END) AS '2023-07-11_A',
-		// 		 COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-07-11' AND a.registration_no LIKE 'B%' THEN a.registration_no END) AS '2023-07-11_B',
-		// 		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-07-12' AND a.registration_no LIKE 'A%' THEN a.registration_no END) AS '2023-07-12_A',
-		// 		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-07-12' AND a.registration_no LIKE 'B%' THEN a.registration_no END) AS '2023-07-12_B',
-		// 		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-07-13' AND a.registration_no LIKE 'A%' THEN a.registration_no END) AS '2023-07-13_A',
-		// 		 COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-07-13' AND a.registration_no LIKE 'B%' THEN a.registration_no END) AS '2023-07-13_B'	
-		// 		FROM users u
-		// 		JOIN access a ON u.registration_no = a.registration_no
-		// 		GROUP BY u.type;
-
 		//etc 3이 0 -> 사전등록/ 1 -> 현장등록 
 		$query = $this->db->query("
 		SELECT
 		u.attendance_type,
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-26' AND u.onsite_reg = '0' AND u.nation = 'Korea' THEN u.registration_no END) AS 'AK_07',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-26' AND u.onsite_reg = '0' AND u.nation != 'Korea' THEN u.registration_no END) AS 'A_07',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-26' AND u.onsite_reg = '1' AND u.nation = 'Korea' THEN u.registration_no END) AS 'RK_07',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-26' AND u.onsite_reg = '1' AND u.nation != 'Korea' THEN u.registration_no END) AS 'R_07',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-27' AND u.onsite_reg = '0' AND u.nation = 'Korea' THEN u.registration_no END) AS 'AK_08',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-27' AND u.onsite_reg = '0' AND u.nation != 'Korea' THEN u.registration_no END) AS 'A_08',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-27' AND u.onsite_reg = '1' AND u.nation != 'Korea' THEN u.registration_no END) AS 'R_08',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-27' AND u.onsite_reg = '1' AND u.nation = 'Korea' THEN u.registration_no END) AS 'RK_08',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-28' AND u.onsite_reg = '0' AND u.nation = 'Korea' THEN u.registration_no END) AS 'AK_09',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-28' AND u.onsite_reg = '0' AND u.nation != 'Korea' THEN u.registration_no END) AS 'A_09',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-28' AND u.onsite_reg = '1' AND u.nation = 'Korea' THEN u.registration_no END) AS 'RK_09',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-28' AND u.onsite_reg = '1' AND u.nation != 'Korea' THEN u.registration_no END) AS 'R_09'
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-26' AND u.onsite_reg != 'On-site registration' AND u.nation = 'Korea' THEN u.registration_no END) AS 'AK_01',
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-26' AND u.onsite_reg != 'On-site registration' AND u.nation != 'Korea' THEN u.registration_no END) AS 'A_01',
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-26' AND u.onsite_reg = 'On-site registration' AND u.nation = 'Korea' THEN u.registration_no END) AS 'RK_01',
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-26' AND u.onsite_reg = 'On-site registration' AND u.nation != 'Korea' THEN u.registration_no END) AS 'R_01',
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-27' AND u.onsite_reg != 'On-site registration' AND u.nation = 'Korea' THEN u.registration_no END) AS 'AK_02',
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-27' AND u.onsite_reg != 'On-site registration' AND u.nation != 'Korea' THEN u.registration_no END) AS 'A_02',
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-27' AND u.onsite_reg = 'On-site registration' AND u.nation != 'Korea' THEN u.registration_no END) AS 'R_02',
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-27' AND u.onsite_reg = 'On-site registration' AND u.nation = 'Korea' THEN u.registration_no END) AS 'RK_02',
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-28' AND u.onsite_reg != 'On-site registration' AND u.nation = 'Korea' THEN u.registration_no END) AS 'AK_03',
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-28' AND u.onsite_reg != 'On-site registration' AND u.nation != 'Korea' THEN u.registration_no END) AS 'A_03',
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-28' AND u.onsite_reg = 'On-site registration' AND u.nation = 'Korea' THEN u.registration_no END) AS 'RK_03',
+		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-28' AND u.onsite_reg = 'On-site registration' AND u.nation != 'Korea' THEN u.registration_no END) AS 'R_03'
 	FROM
 		users u
 	 LEFT JOIN
 		  access a ON u.registration_no = a.registration_no AND (DATE(a.time) = '2023-10-26' OR DATE(a.time) = '2023-10-27' OR DATE(a.time) = '2023-10-28')
 	
 	GROUP BY
-		u.attendance_type;
-	
-        ");
+		u.attendance_type;");
 		return $query->result_array();
 	}
 }
