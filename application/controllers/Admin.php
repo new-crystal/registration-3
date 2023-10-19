@@ -1330,15 +1330,13 @@ class Admin extends CI_Controller
         else {
             $data['primary_menu'] = 'participant';
             $data['statistics'] = $this->users->get_access_statistics();
-            $where = array(
-                'qr_print' => 'Y'
-            );
+
             $wheres = array(
                 'qr_chk' => 'Y'
             );
 
-            $data['users'] = $this->users->get_qr_print_user($where);
-            $data['item'] = $this->users->get_qr_print_user($wheres);
+            $data['users'] = $this->users->get_users();
+            $data['item'] = $this->users->get_user($wheres);
 
             $this->load->view('admin/left_side.php', $data);
             $this->load->view('admin/participant.php', $data);

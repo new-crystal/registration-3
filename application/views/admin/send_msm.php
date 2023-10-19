@@ -9,6 +9,9 @@ $error = "";
 if (substr($phone, 0, 2) == "82") {
     $phone = '0' . substr($phone, 3);
 }
+if (substr($phone, 0, 2) == "10") {
+    $phone = '0' . $phone;
+}
 
 
 curl_setopt_array($curl, array(
