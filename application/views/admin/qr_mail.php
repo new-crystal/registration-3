@@ -1,42 +1,39 @@
 <style>
-@font-face {
-    font-family: 'Times New Roman', Times, serif;
-    src: url("../../../assets/font/Times_New_Roman.otf");
-}
+    @font-face {
+        font-family: 'Times New Roman', Times, serif;
+        src: url("../../../assets/font/Times_New_Roman.otf");
+    }
 
 
-#send_mail {
-    background-color: #fff;
-    padding: 4px 8px;
-    border: 2px solid #ddd;
-    cursor: pointer;
-    margin-left: 1rem;
-    font-weight: 600;
-}
+    #send_mail {
+        background-color: #fff;
+        padding: 4px 8px;
+        border: 2px solid #ddd;
+        cursor: pointer;
+        margin-left: 1rem;
+        font-weight: 600;
+    }
 
-#send_mail:hover {
-    background-color: #ddd;
-}
+    #send_mail:hover {
+        background-color: #ddd;
+    }
 
-table {
-    font-family: 'Times New Roman', Times, serif;
-}
+    table {
+        font-family: 'Times New Roman', Times, serif;
+    }
 </style>
 
 <table width='750' style='border:none; padding: 0;'>
     <tbody>
         <tr>
             <td colspan='3'>
-                <img src='https://image.webeon.net/icomes2023/1st/icomes2023_QRmail-1_01.png' width='750'
-                    style='width:750px;'>
+                <img src='https://image.webeon.net/SICEM/1026/SICEM-2023_231019_01.png' width='750' style='width:750px;'>
             </td>
         </tr>
 
         <tr>
             <td colspan='3' style="text-align: center;">
-                <img width="200px" height="200px"
-                    src="data:image/jpg;base64,<?php echo base64_encode(file_get_contents(getcwd() . '/assets/images/QR/qrcode_' . $users['registration_no'] . '.jpg')); ?>"
-                    alt="" />
+                <img width="200px" height="200px" src="data:image/jpg;base64,<?php echo base64_encode(file_get_contents(getcwd() . '/assets/images/QR/qrcode_' . $users['registration_no'] . '.jpg')); ?>" alt="" />
                 <!-- <img width="200px" height="200px" src="data:image/jpg;base64,{$text4}" alt="" /> -->
 
             </td>
@@ -44,8 +41,7 @@ table {
 
         <tr>
             <td colspan='3' style='padding-top:50px;'>
-                <img src='https://image.webeon.net/icomes2023/1st/icomes2023_QRmail-1_03.png' width='750'
-                    style='width:750px;'>
+                <img src='https://image.webeon.net/icomes2023/1st/icomes2023_QRmail-1_03.png' width='750' style='width:750px;'>
             </td>
         </tr>
     </tbody>
@@ -61,59 +57,59 @@ table {
 </div>
 
 <script>
-// JavaScript 코드
-document.addEventListener("DOMContentLoaded", function() {
-    const sendMailLink = document.getElementById("sendMailLink");
-    const sendMail = document.querySelector("#send_mail")
-    const email = document.querySelector("#email")
-    let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
+    // JavaScript 코드
+    document.addEventListener("DOMContentLoaded", function() {
+        const sendMailLink = document.getElementById("sendMailLink");
+        const sendMail = document.querySelector("#send_mail")
+        const email = document.querySelector("#email")
+        let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
 
-    sendMail.addEventListener("click", () => {
-        if (!email.value) {
-            alert("보내실 이메일을 입력해주세요.")
-            email.focus()
-            return;
-        } else if (!regex.test(email.value)) {
-            alert("이메일 형식을 확인해주세요.")
-            email.focus()
-            return;
-        } else {
-            const registrationNo = sendMail.getAttribute("data-registration-no");
-            const url = `https://reg3.webeon.net/admin/sendemail?n=${registrationNo}&m=${email.value}`;
+        sendMail.addEventListener("click", () => {
+            if (!email.value) {
+                alert("보내실 이메일을 입력해주세요.")
+                email.focus()
+                return;
+            } else if (!regex.test(email.value)) {
+                alert("이메일 형식을 확인해주세요.")
+                email.focus()
+                return;
+            } else {
+                const registrationNo = sendMail.getAttribute("data-registration-no");
+                const url = `https://reg3.webeon.net/admin/sendemail?n=${registrationNo}&m=${email.value}`;
 
-            fetch(url, {
-                    method: 'GET',
-                })
-                .then(response => {
-                    // 응답 처리
-                    alert("이메일 발송 성공");
-                })
-                .catch(error => {
-                    // 에러 처리
-                    console.error("GET 요청 실패", error);
-                });
-        }
-    })
+                fetch(url, {
+                        method: 'GET',
+                    })
+                    .then(response => {
+                        // 응답 처리
+                        alert("이메일 발송 성공");
+                    })
+                    .catch(error => {
+                        // 에러 처리
+                        console.error("GET 요청 실패", error);
+                    });
+            }
+        })
 
 
 
-    // sendMailLink.addEventListener("click", function(event) {
-    //     event.preventDefault();
+        // sendMailLink.addEventListener("click", function(event) {
+        //     event.preventDefault();
 
-    //     const registrationNo = sendMailLink.getAttribute("data-registration-no");
-    //     const url = `https://reg2.webeon.net/admin/sendmail?n=${registrationNo}`;
+        //     const registrationNo = sendMailLink.getAttribute("data-registration-no");
+        //     const url = `https://reg2.webeon.net/admin/sendmail?n=${registrationNo}`;
 
-    //     fetch(url, {
-    //             method: 'POST',
-    //         })
-    //         .then(response => {
-    //             // 응답 처리
-    //             alert("이메일 발송 성공");
-    //         })
-    //         .catch(error => {
-    //             // 에러 처리
-    //             console.error("POST 요청 실패", error);
-    //         });
-    // });
-});
+        //     fetch(url, {
+        //             method: 'POST',
+        //         })
+        //         .then(response => {
+        //             // 응답 처리
+        //             alert("이메일 발송 성공");
+        //         })
+        //         .catch(error => {
+        //             // 에러 처리
+        //             console.error("POST 요청 실패", error);
+        //         });
+        // });
+    });
 </script>

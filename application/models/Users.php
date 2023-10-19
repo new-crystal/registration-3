@@ -93,7 +93,7 @@ class Users extends CI_Model
 		$query = $this->db->query("
 		SELECT *
 		FROM users a
-		WHERE a.remark2 = 'Y'
+		WHERE a.remark6 = 'Y'
 		ORDER BY a.id ASC
 ");
 		return $query->result_array();

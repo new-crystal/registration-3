@@ -314,7 +314,7 @@ class OnSite extends CI_Controller
             if (
                 $attendance_type == "Speaker" || $attendance_type == "Chairperson" ||
                 $attendance_type == "Moderator" || $attendance_type == "Panel" || $attendance_type == "Preceptor" || $attendance_type == "Organizer" || $attendance_type ==
-                "Press" || $attendance_type == "Exhibitior" || $attendance_type == "Satellite Attendee"
+                "Press" ||  $attendance_type == "Satellite Attendee"
             ) {
                 if ($nation ==  "Korea") {
                     $fee = "KRW 0";
@@ -414,6 +414,9 @@ class OnSite extends CI_Controller
                 $special_request_food = 'N';
             }
 
+            if ($etc4 === "/") {
+                $etc4 = null;
+            }
 
             $info = array(
                 'name_kor' => preg_replace("/\s+/", "", $name),
@@ -441,7 +444,7 @@ class OnSite extends CI_Controller
                 'first_time' => $first_time,
                 'first_time_yn' => $first_time_yn,
                 'is_score' => $is_score,
-                'remark5' => $special_request_food,
+                'special_request_food' => $special_request_food,
                 'welcome_reception_yn' => $welcome_reception_yn,
                 'kes_member_status' => $kes_member,
                 'fee' => $fee,

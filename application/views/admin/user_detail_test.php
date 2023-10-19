@@ -164,8 +164,6 @@ if ($item['kes_member_status'] != "Non-Member" && $item['first_time_yn'] == 'Y')
                                     <th>연락처</th>
                                     <td>
                                         <div style="display:flex;  align-items: center;">
-                                            <input class="form-control" type="text" value="<?php echo $item['country_code']; ?>" name="country_code" id="country_code">
-                                            -
                                             <input class="form-control" type="text" value="<?php echo $item['phone']; ?>" name="phone" id="phone">
                                         </div>
                                     </td>
@@ -334,20 +332,20 @@ if ($item['kes_member_status'] != "Non-Member" && $item['first_time_yn'] == 'Y')
                                 <tr>
                                     <th style="background-color: #fb8500">Remarks 6<br>(Gala dinner)</th>
                                     <td>
-                                        <input class="form-control" type="text" value="<?php echo $item['special_request_food']; ?>" name="special_request_food" id="remark5">
+                                        <input class="form-control" type="text" value="<?php echo $item['remark6']; ?>" name="remark6" id="remark6">
                                     </td>
                                 </tr>
                                 <tr>
                                     <th style="background-color: #fb8500">Remarks 7<br>(Gala dinner
                                         테이블넘버)</th>
                                     <td>
-                                        <input class="form-control" type="text" value="<?php echo $item['table_num']; ?>" name="table_num" id="remark5">
+                                        <input class="form-control" type="text" value="<?php echo $item['remark7']; ?>" name="remark7" id="remark7">
                                     </td>
                                 </tr>
                                 <tr>
                                     <th style="background-color: #fb8500">Remarks 7<br>(Presidential Dinner)</th>
                                     <td>
-                                        <input class="form-control" type="text" value="<?php echo $item['remark3']; ?>" name="remark3" id="remark3">
+                                        <input class="form-control" type="text" value="<?php echo $item['remark8']; ?>" name="remark8" id="remark8">
                                     </td>
                                 </tr>
                                 <tr>
