@@ -107,7 +107,7 @@ input {
     top: 561px;
     left: 802px;
     font-family: 'DM Serif Text', serif;
-    font-size: 34px;
+    font-size: 200px;
     width: 759px;
     height: 202px;
 }
@@ -170,7 +170,7 @@ input {
                                             </div>
                                             <?php } else { ?>
                                             <div class="info_content"><input type="text" class="qr_info input number"
-                                                    value="<?php if (isset($users['table_num'])) echo $users['table_num'] ?>"
+                                                    value="<?php if (isset($users['remark7'])) echo $users['remark7'] ?>"
                                                     readonly>
                                             </div>
                                             <?php } ?>
