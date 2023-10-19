@@ -105,7 +105,7 @@
                         echo '<td>' . $item['org_nametag'] . '</td>';
                         echo '<td class="user_d"><a href="/admin/user_detail?n=' . $item['registration_no'] . '" target="_self">' . $item['email'] . '</a></td>';
                         echo '<td>' . $item['phone'] . '</td>';
-                        echo '<td style="text-align: center;">' . $item['table_num'] . '</td>';
+                        echo '<td style="text-align: center;">' . $item['remark7'] . '</td>';
 
 
                         // echo $item['deposit'] . '</td>';
@@ -147,82 +147,6 @@
 </div>
 <!-- /page container -->
 <script>
-    function onClickMsm(number) {
-        const url = `/admin/send_msm?n=${number}`
-        if (window.confirm("※ 문자 전송을 하시겠습니까?")) {
-            window.open(url, "Certificate", "width=800, height=1000, top=30, left=30")
-        } else {
-            window.location = "/admin/qr_user";
-        }
-    }
 
-    //        $('#allChk').click(function(){
-    //            if($('input:checkbox[id="allChk"]').prop('checked')){
-    //                $('input[type=checkbox]').prop('checked',true);
-    //            }else{
-    //                $('input[type=checkbox]').prop('checked',false);
-    //            }
-    //        })
-
-
-    $('.depositChk').click(function() {
-        // var formName = $('#depositForm');
-
-        // var formName2 = $('#nametagForm');
-        // var formName3 = $('#deposit_mail_Form');
-        var userId = $(this).val();
-        var checkHtml = '<input type="hidden" class="userId user' + userId + '" name="userId[]" value="' + userId +
-            '" id="">'
-
-        if ($(this).prop('checked')) {
-            const loading = document.querySelector(".loading")
-            loading.style.display = ""
-            // formName.append(checkHtml);
-            // formName3.append(checkHtml);
-        } else {
-            $('.user' + userId).remove();
-        }
-    })
-
-    $('#depositForm').click(function(e) {
-        e.preventDefault()
-        if (window.confirm("※ 전체 문자 전송을 하시겠습니까?")) {
-            var formName4 = $('#depositForm');
-            $('.depositChk').prop('checked', true).each(function() {
-                const loading = document.querySelector(".loading_box")
-                loading.style.display = ""
-                var userId = $(this).val();
-                console.log(userId)
-                var checkHtml = '<input type="hidden" class="userId user' + userId +
-                    '" name="userId[]" value="' + userId +
-                    '" id="">';
-                formName4.append(checkHtml);
-                formName4.submit()
-            });
-        } else {
-            window.location = "/admin/qr_user";
-
-        }
-    });
-
-    $('#deposit_mail_Form').click(function(e) {
-        e.preventDefault()
-        if (window.confirm("※ 전체 메일 발송을 하시겠습니까?")) {
-            var formName6 = $('#deposit_mail_Form');
-            $('.depositChk').prop('checked', true).each(function() {
-                const loading = document.querySelector(".loading_box")
-                loading.style.display = ""
-                var userId = $(this).val();
-                var checkHtml = '<input type="hidden" class="userId user' + userId +
-                    '" name="userId[]" value="' + userId +
-                    '" id="">';
-                formName6.append(checkHtml);
-                formName6.submit()
-            });
-        } else {
-            window.location = "/admin/qr_user";
-
-        }
-    });
 </script>
 </body>

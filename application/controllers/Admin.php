@@ -786,11 +786,10 @@ class Admin extends CI_Controller
                 $conference_info = $this->input->post('conference_info');
                 $remark1 = $this->input->post('remark1');
                 $remark2 = $this->input->post('remark2');
-                $table_num = $this->input->post('table_num');
+                $remark6 = $this->input->post('remark6');
+                $remark7 = $this->input->post('remark7');
+                $remark8 = $this->input->post('remark8');
                 $special_request_food = $this->input->post('special_request_food');
-                $remark3 = $this->input->post('remark3');
-                $remark4 = $this->input->post('remark4');
-                $remark5 = $this->input->post('remark5');
                 $qr_print = $this->input->post('qr_print');
                 $onsite_reg = $this->input->post('onsite_reg');
                 $qr_chk_day_1 = $this->input->post('qr_chk_day_1');
@@ -849,12 +848,12 @@ class Admin extends CI_Controller
                     'etc5' => $etc5,
                     'conference_info' => $conference_info,
                     'special_request_food' => $special_request_food,
-                    'table_num' => $table_num,
+
                     'remark1' => $remark1,
                     'remark2' => $remark2,
-                    'remark3' => $remark3,
-                    'remark4' => $remark4,
-                    'remark5' => $remark5,
+                    'remark6' => $remark6,
+                    'remark7' => $remark7,
+                    'remark8' => $remark8,
                     'first_time_yn' => $first_time_yn,
                     'first_time' => $first_time,
                     'qr_print' => $qr_print,
