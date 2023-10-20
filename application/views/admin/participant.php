@@ -24,147 +24,527 @@
 <?php
 
 /**
- * $attendancd_type_1 => day 1 국내 
- * $attendancd_type_1_e => day 1 국외 
+ * $on_attendancd_type_1 => day 1 국내 현장등록
+ * $on_attendancd_type_1_e => day 1 국외 현장등록
+ * $attendancd_type_1 => day 1 국내 사전등록
+ * $attendancd_type_1_e => day 1 국외 사전등록
  * 
- * $attendancd_type_2 => day 2 국내 
- * $attendancd_type_2_e => day 2 국외
+ * $on_attendancd_type_2 => day 2 국내 현장등록
+ * $on_attendancd_type_2_e => day 2 국외 현장등록
+ * $attendancd_type_2 => day 2 국내 사전등록
+ * $attendancd_type_2_e => day 2 국외 사전등록
  * 
- * $attendancd_type_3 => day 3 국내 
- * $attendancd_type_3_e => day 3 국외
+ * $on_attendancd_type_3 => day 3 국내 현장등록
+ * $on_attendancd_type_3_e => day 3 국외 현장등록
+ * $attendancd_type_3 => day 3 국내 사전등록
+ * $attendancd_type_3_e => day 3 국외 사전등록
  */
 
+$on_speaker_1 = 0;
+$on_chairperson_1 = 0;
+$on_panel_1 = 0;
+$on_moderator_1 = 0;
+$on_organizer_1 = 0;
+$on_preceptor_1 = 0;
+$on_press_1 = 0;
+$on_participant_1 = 0;
+$on_others_1 = 0;
+
+$speaker_1 = 0;
+$chairperson_1 = 0;
+$panel_1 = 0;
+$moderator_1 = 0;
+$organizer_1 = 0;
+$preceptor_1 = 0;
+$press_1 = 0;
+$participant_1 = 0;
+$others_1 = 0;
+
+$on_speaker_1_e = 0;
+$on_chairperson_1_e = 0;
+$on_panel_1_e = 0;
+$on_moderator_1_e = 0;
+$on_organizer_1_e = 0;
+$on_preceptor_1_e = 0;
+$on_press_1_e = 0;
+$on_participant_1_e = 0;
+$on_others_1_e = 0;
+
+$speaker_1_e = 0;
+$chairperson_1_e = 0;
+$panel_1_e = 0;
+$moderator_1_e = 0;
+$organizer_1_e = 0;
+$preceptor_1_e = 0;
+$press_1_e = 0;
+$participant_1_e = 0;
+$others_1_e = 0;
+
+$on_speaker_2 = 0;
+$on_chairperson_2 = 0;
+$on_panel_2 = 0;
+$on_moderator_2 = 0;
+$on_organizer_2 = 0;
+$on_preceptor_2 = 0;
+$on_press_2 = 0;
+$on_participant_2 = 0;
+$on_others_2 = 0;
+
+$speaker_2 = 0;
+$chairperson_2 = 0;
+$panel_2 = 0;
+$moderator_2 = 0;
+$organizer_2 = 0;
+$preceptor_2 = 0;
+$press_2 = 0;
+$participant_2 = 0;
+$others_2 = 0;
+
+$on_speaker_2_e = 0;
+$on_chairperson_2_e = 0;
+$on_panel_2_e = 0;
+$on_moderator_2_e = 0;
+$on_organizer_2_e = 0;
+$on_preceptor_2_e = 0;
+$on_press_2_e = 0;
+$on_participant_2_e = 0;
+$on_others_2_e = 0;
+
+$on_speaker_3 = 0;
+$on_chairperson_3 = 0;
+$on_panel_3 = 0;
+$on_moderator_3 = 0;
+$on_organizer_3 = 0;
+$on_preceptor_3 = 0;
+$on_press_3 = 0;
+$on_participant_3 = 0;
+$on_others_3 = 0;
+
+$speaker_3 = 0;
+$chairperson_3 = 0;
+$panel_3 = 0;
+$moderator_3 = 0;
+$organizer_3 = 0;
+$preceptor_3 = 0;
+$press_3 = 0;
+$participant_3 = 0;
+$others_3 = 0;
+
+
+$on_speaker_3_e = 0;
+$on_chairperson_3_e = 0;
+$on_panel_3_e = 0;
+$on_moderator_3_e = 0;
+$on_organizer_3_e = 0;
+$on_preceptor_3_e = 0;
+$on_press_3_e = 0;
+$on_participant_3_e = 0;
+$on_others_3_e = 0;
+
+$speaker_3_e = 0;
+$chairperson_3_e = 0;
+$panel_3_e = 0;
+$moderator_3_e = 0;
+$organizer_3_e = 0;
+$preceptor_3_e = 0;
+$press_3_e = 0;
+$participant_3_e = 0;
+$others_3_e = 0;
 foreach ($day_1 as $item_1) {
-    // print_r($item['attendance_type']);
-    $speaker_1 = 0;
-    $chairperson_1 = 0;
-    $panel_1 = 0;
-    $moderator_1 = 0;
-    $organizer_1 = 0;
-    $preceptor_1 = 0;
-    $press_1 = 0;
-    $participant_1 = 0;
-    $others_1 = 0;
-    if ($item['attendance_type'] == "Speaker") {
-        $speaker_1 = $speaker_1 + 1;
-    }
-    if ($item['attendance_type'] == "Chairperson") {
-        $chairperson_1 = $chairperson_1 + 1;
-    }
-    if ($item['attendance_type'] == "Panel") {
-        $panel_1 = $panel_1 + 1;
-    }
-    if ($item['attendance_type'] == "Moderator") {
-        $moderator_1 = $moderator_1 + 1;
-    }
-    if ($item['attendance_type'] == "Organizer") {
-        $organizer_1 = $organizer_1 + 1;
-    }
-    if ($item['attendance_type'] == "Preceptor") {
-        $preceptor_1 = $preceptor_1 + 1;
-    }
-    if ($item['attendance_type'] == "Press") {
-        $press_1 = $press_1 + 1;
-    }
-    if ($item['attendance_type'] == "Participant" || $item['attendance_type'] == "Satellite Attendee" || $item['attendance_type'] == "Oral Presenter" || $item['attendance_type'] == "Poster Oral Presenter") {
-        $participant_1 = $participant_1 + 1;
-    }
-    if ($item['attendance_type'] == "Staff" || $item['attendance_type'] == "Exhibitor") {
-        $others_1 = $others_1 + 1;
+
+    /**현장등록 & day1 & 국내 */
+    if ($item_1['onsite_reg'] === "On-site registratoin") {
+        // print_r($item['attendance_type']);
+
+        if ($item_1['attendance_type'] == "Speaker") {
+            $on_speaker_1 = $on_speaker_1 + 1;
+        }
+        if ($item_1['attendance_type'] == "Chairperson") {
+            $on_chairperson_1 = $on_chairperson_1 + 1;
+        }
+        if ($item_1['attendance_type'] == "Panel") {
+            $on_panel_1 = $on_panel_1 + 1;
+        }
+        if ($item_1['attendance_type'] == "Moderator") {
+            $on_moderator_1 = $on_moderator_1 + 1;
+        }
+        if ($item_1['attendance_type'] == "Organizer") {
+            $on_organizer_1 = $on_organizer_1 + 1;
+        }
+        if ($item_1['attendance_type'] == "Preceptor") {
+            $on_preceptor_1 = $on_preceptor_1 + 1;
+        }
+        if ($item_1['attendance_type'] == "Press") {
+            $on_press_1 = $on_press_1 + 1;
+        }
+        if ($item_1['attendance_type'] == "Participant" || $item_1['attendance_type'] == "Satellite Attendee" || $item_1['attendance_type'] == "Oral Presenter" || $item_1['attendance_type'] == "Poster Oral Presenter") {
+            $on_participant_1 = $on_participant_1 + 1;
+        }
+        if ($item_1['attendance_type'] == "Staff" || $item_1['attendance_type'] == "Exhibitor") {
+            $on_others_1 = $on_others_1 + 1;
+        }
+    } else {
+        // print_r($item['attendance_type']);
+
+        if ($item_1['attendance_type'] == "Speaker") {
+            $speaker_1 = $speaker_1 + 1;
+        }
+        if ($item_1['attendance_type'] == "Chairperson") {
+            $chairperson_1 = $chairperson_1 + 1;
+        }
+        if ($item_1['attendance_type'] == "Panel") {
+            $panel_1 = $panel_1 + 1;
+        }
+        if ($item_1['attendance_type'] == "Moderator") {
+            $moderator_1 = $moderator_1 + 1;
+        }
+        if ($item_1['attendance_type'] == "Organizer") {
+            $organizer_1 = $organizer_1 + 1;
+        }
+        if ($item_1['attendance_type'] == "Preceptor") {
+            $preceptor_1 = $preceptor_1 + 1;
+        }
+        if ($item_1['attendance_type'] == "Press") {
+            $press_1 = $press_1 + 1;
+        }
+        if ($item_1['attendance_type'] == "Participant" || $item_1['attendance_type'] == "Satellite Attendee" || $item_1['attendance_type'] == "Oral Presenter" || $item_1['attendance_type'] == "Poster Oral Presenter") {
+            $participant_1 = $participant_1 + 1;
+        }
+        if ($item_1['attendance_type'] == "Staff" || $item_1['attendance_type'] == "Exhibitor") {
+            $others_1 = $others_1 + 1;
+        }
     }
 }
 foreach ($day_1_e as $item_1_e) {
-    // print_r($item['attendance_type']);
-    $speaker_1_e = 0;
-    $chairperson_1_e = 0;
-    $panel_1_e = 0;
-    $moderator_1_e = 0;
-    $organizer_1_e = 0;
-    $preceptor_1_e = 0;
-    $press_1_e = 0;
-    $participant_1_e = 0;
-    $others_1_e = 0;
-    if ($item['attendance_type'] == "Speaker") {
-        $speaker_1_e = $speaker_1_e + 1;
-    }
-    if ($item['attendance_type'] == "Chairperson") {
-        $chairperson_1_e = $chairperson_1_e + 1;
-    }
-    if ($item['attendance_type'] == "Panel") {
-        $panel_1_e = $panel_1_e + 1;
-    }
-    if ($item['attendance_type'] == "Moderator") {
-        $moderator_1_e = $moderator_1_e + 1;
-    }
-    if ($item['attendance_type'] == "Organizer") {
-        $organizer_1_e = $organizer_1_e + 1;
-    }
-    if ($item['attendance_type'] == "Preceptor") {
-        $preceptor_1_e = $preceptor_1_e + 1;
-    }
-    if ($item['attendance_type'] == "Press") {
-        $press_1_e = $press_1_e + 1;
-    }
-    if ($item['attendance_type'] == "Participant" || $item['attendance_type'] == "Satellite Attendee" || $item['attendance_type'] == "Oral Presenter" || $item['attendance_type'] == "Poster Oral Presenter") {
-        $participant_1_e = $participant_1_e + 1;
-    }
-    if ($item['attendance_type'] == "Staff" || $item['attendance_type'] == "Exhibitor") {
-        $others_1_e = $others_1_e + 1;
+
+    if ($item_1_e['onsite_reg'] === "On-site registratoin") {
+        // print_r($item['attendance_type']);
+
+        if ($item_1_e['attendance_type'] == "Speaker") {
+            $on_speaker_1_e = $on_speaker_1_e + 1;
+        }
+        if ($item_1_e['attendance_type'] == "Chairperson") {
+            $on_chairperson_1_e = $on_chairperson_1_e + 1;
+        }
+        if ($item_1_e['attendance_type'] == "Panel") {
+            $on_panel_1_e = $on_panel_1_e + 1;
+        }
+        if ($item_1_e['attendance_type'] == "Moderator") {
+            $on_moderator_1_e = $on_moderator_1_e + 1;
+        }
+        if ($item_1_e['attendance_type'] == "Organizer") {
+            $on_organizer_1_e = $on_organizer_1_e + 1;
+        }
+        if ($item_1_e['attendance_type'] == "Preceptor") {
+            $on_preceptor_1_e = $on_preceptor_1_e + 1;
+        }
+        if ($item_1_e['attendance_type'] == "Press") {
+            $on_press_1_e = $on_press_1_e + 1;
+        }
+        if ($item_1_e['attendance_type'] == "Participant" || $item_1_e['attendance_type'] == "Satellite Attendee" || $item_1_e['attendance_type'] == "Oral Presenter" || $item_1_e['attendance_type'] == "Poster Oral Presenter") {
+            $on_participant_1_e = $on_participant_1_e + 1;
+        }
+        if ($ititem_1_eem['attendance_type'] == "Staff" || $item_1_e['attendance_type'] == "Exhibitor") {
+            $on_others_1_e = $on_others_1_e + 1;
+        }
+    } else {
+        // print_r($item['attendance_type']);
+
+        if ($item_1_e['attendance_type'] == "Speaker") {
+            $speaker_1_e = $speaker_1_e + 1;
+        }
+        if ($item_1_e['attendance_type'] == "Chairperson") {
+            $chairperson_1_e = $chairperson_1_e + 1;
+        }
+        if ($item_1_e['attendance_type'] == "Panel") {
+            $panel_1_e = $panel_1_e + 1;
+        }
+        if ($item_1_e['attendance_type'] == "Moderator") {
+            $moderator_1_e = $moderator_1_e + 1;
+        }
+        if ($item_1_e['attendance_type'] == "Organizer") {
+            $organizer_1_e = $organizer_1_e + 1;
+        }
+        if ($item_1_e['attendance_type'] == "Preceptor") {
+            $preceptor_1_e = $preceptor_1_e + 1;
+        }
+        if ($item_1_e['attendance_type'] == "Press") {
+            $press_1_e = $press_1_e + 1;
+        }
+        if ($item_1_e['attendance_type'] == "Participant" || $item_1_e['attendance_type'] == "Satellite Attendee" || $item_1_e['attendance_type'] == "Oral Presenter" || $item_1_e['attendance_type'] == "Poster Oral Presenter") {
+            $participant_1_e = $participant_1_e + 1;
+        }
+        if ($ititem_1_eem['attendance_type'] == "Staff" || $item_1_e['attendance_type'] == "Exhibitor") {
+            $others_1_e = $others_1_e + 1;
+        }
     }
 }
 
 foreach ($day_2 as $item_2) {
-    // print_r($item['attendance_type']);
-    $speaker_2 = 0;
-    $chairperson_2 = 0;
-    $panel_2 = 0;
-    $moderator_2 = 0;
-    $organizer_2 = 0;
-    $preceptor_2 = 0;
-    $press_2 = 0;
-    $participant_2 = 0;
-    $others_2 = 0;
-    if ($item['attendance_type'] == "Speaker") {
-        $speaker_2 = $speaker_2 + 1;
+    if ($item_2['onsite_reg'] === "On-site registratoin") {
+        // print_r($item['attendance_type']);
+
+        if ($item_2['attendance_type'] == "Speaker") {
+            $on_speaker_2 = $on_speaker_2 + 1;
+        }
+        if ($item_2['attendance_type'] == "Chairperson") {
+            $on_chairperson_2 = $on_chairperson_2 + 1;
+        }
+        if ($item_2['attendance_type'] == "Panel") {
+            $on_panel_2 = $on_panel_2 + 1;
+        }
+        if ($item_2['attendance_type'] == "Moderator") {
+            $on_moderator_2 = $on_moderator_2 + 1;
+        }
+        if ($item_2['attendance_type'] == "Organizer") {
+            $on_organizer_2 = $on_organizer_2 + 1;
+        }
+        if ($item_2['attendance_type'] == "Preceptor") {
+            $on_preceptor_2 = $on_preceptor_2 + 1;
+        }
+        if ($item_2['attendance_type'] == "Press") {
+            $on_press_2 = $on_press_2 + 1;
+        }
+        if ($item_2['attendance_type'] == "Participant" || $item_2['attendance_type'] == "Satellite Attendee" || $item_2['attendance_type'] == "Oral Presenter" || $item_2['attendance_type'] == "Poster Oral Presenter") {
+            $on_participant_2 = $on_participant_2 + 1;
+        }
+        if ($item_2['attendance_type'] == "Staff" || $item_2['attendance_type'] == "Exhibitor") {
+            $on_others_2 = $on_others_2 + 1;
+        }
+    } else {
+        // print_r($item['attendance_type']);
+
+        if ($item_2['attendance_type'] == "Speaker") {
+            $speaker_2 = $speaker_2 + 1;
+        }
+        if ($item_2['attendance_type'] == "Chairperson") {
+            $chairperson_2 = $chairperson_2 + 1;
+        }
+        if ($item_2['attendance_type'] == "Panel") {
+            $panel_2 = $panel_2 + 1;
+        }
+        if ($item_2['attendance_type'] == "Moderator") {
+            $moderator_2 = $moderator_2 + 1;
+        }
+        if ($item_2['attendance_type'] == "Organizer") {
+            $organizer_2 = $organizer_2 + 1;
+        }
+        if ($item_2['attendance_type'] == "Preceptor") {
+            $preceptor_2 = $preceptor_2 + 1;
+        }
+        if ($item_2['attendance_type'] == "Press") {
+            $press_2 = $press_2 + 1;
+        }
+        if ($item_2['attendance_type'] == "Participant" || $item_2['attendance_type'] == "Satellite Attendee" || $item_2['attendance_type'] == "Oral Presenter" || $item_2['attendance_type'] == "Poster Oral Presenter") {
+            $participant_2 = $participant_2 + 1;
+        }
+        if ($item_2['attendance_type'] == "Staff" || $item_2['attendance_type'] == "Exhibitor") {
+            $others_2 = $others_2 + 1;
+        }
     }
-    if ($item['attendance_type'] == "Chairperson") {
-        $chairperson_1 = $chairperson_1 + 1;
-    }
-    if ($item['attendance_type'] == "Panel") {
-        $panel_1 = $panel_1 + 1;
-    }
-    if ($item['attendance_type'] == "Moderator") {
-        $moderator_1 = $moderator_1 + 1;
-    }
-    if ($item['attendance_type'] == "Organizer") {
-        $organizer_1 = $organizer_1 + 1;
-    }
-    if ($item['attendance_type'] == "Preceptor") {
-        $preceptor_1 = $preceptor_1 + 1;
-    }
-    if ($item['attendance_type'] == "Press") {
-        $press_1 = $press_1 + 1;
-    }
-    if ($item['attendance_type'] == "Participant" || $item['attendance_type'] == "Satellite Attendee" || $item['attendance_type'] == "Oral Presenter" || $item['attendance_type'] == "Poster Oral Presenter") {
-        $participant_1 = $participant_1 + 1;
-    }
-    if ($item['attendance_type'] == "Staff" || $item['attendance_type'] == "Exhibitor") {
-        $others_1 = $others_1 + 1;
+}
+
+foreach ($day_2_e as $item_2_e) {
+    if ($item_2_e['onsite_reg'] === "On-site registratoin") {
+        // print_r($item['attendance_type']);
+
+        if ($item_2_e['attendance_type'] == "Speaker") {
+            $on_speaker_2_e = $on_speaker_2_e + 1;
+        }
+        if ($item_2_e['attendance_type'] == "Chairperson") {
+            $on_chairperson_2_e = $on_chairperson_2_e + 1;
+        }
+        if ($item_2_e['attendance_type'] == "Panel") {
+            $on_panel_2_e = $on_panel_2_e + 1;
+        }
+        if ($item_2_e['attendance_type'] == "Moderator") {
+            $on_moderator_2_e = $moderatoron_moderator_2_e_2_e + 1;
+        }
+        if ($item_2_e['attendance_type'] == "Organizer") {
+            $on_organizer_2_e = $on_organizer_2_e + 1;
+        }
+        if ($item_2_e['attendance_type'] == "Preceptor") {
+            $on_preceptor_2_e = $on_preceptor_2_e + 1;
+        }
+        if ($item_2_e['attendance_type'] == "Press") {
+            $on_press_2_e = $on_press_2_e + 1;
+        }
+        if ($item_2_e['attendance_type'] == "Participant" || $item_2_e['attendance_type'] == "Satellite Attendee" || $item_2_e['attendance_type'] == "Oral Presenter" || $item_2_e['attendance_type'] == "Poster Oral Presenter") {
+            $on_participant_2_e = $on_participant_2_e + 1;
+        }
+        if ($item_2_e['attendance_type'] == "Staff" || $item_2_e['attendance_type'] == "Exhibitor") {
+            $on_others_2_e = $on_others_2_e + 1;
+        }
+    } else {
+        // print_r($item['attendance_type']);
+
+        if ($item_2_e['attendance_type'] == "Speaker") {
+            $speaker_2_e = $speaker_2_e + 1;
+        }
+        if ($item_2_e['attendance_type'] == "Chairperson") {
+            $chairperson_2_e = $chairperson_2_e + 1;
+        }
+        if ($item_2_e['attendance_type'] == "Panel") {
+            $panel_2_e = $panel_2_e + 1;
+        }
+        if ($item_2_e['attendance_type'] == "Moderator") {
+            $moderator_2_e = $moderator_2_e + 1;
+        }
+        if ($item_2_e['attendance_type'] == "Organizer") {
+            $organizer_2_e = $organizer_2_e + 1;
+        }
+        if ($item_2_e['attendance_type'] == "Preceptor") {
+            $preceptor_2_e = $preceptor_2_e + 1;
+        }
+        if ($item_2_e['attendance_type'] == "Press") {
+            $press_2_e = $press_2_e + 1;
+        }
+        if ($item_2_e['attendance_type'] == "Participant" || $item_2_e['attendance_type'] == "Satellite Attendee" || $item_2_e['attendance_type'] == "Oral Presenter" || $item_2_e['attendance_type'] == "Poster Oral Presenter") {
+            $participant_2_e = $participant_2_e + 1;
+        }
+        if ($item_2_e['attendance_type'] == "Staff" || $item_2_e['attendance_type'] == "Exhibitor") {
+            $others_2_e = $others_2_e + 1;
+        }
     }
 }
 
 foreach ($day_3 as $item_3) {
-    // print_r($item['attendance_type']);
+    if ($item_3['onsite_reg'] === "On-site registratoin") {
+        // print_r($item['attendance_type']);
+
+        if ($item_3['attendance_type'] == "Speaker") {
+            $on_speaker_3 = $on_speaker_3 + 1;
+        }
+        if ($item_3['attendance_type'] == "Chairperson") {
+            $on_chairperson_3 = $on_chairperson_3 + 1;
+        }
+        if ($item_3['attendance_type'] == "Panel") {
+            $on_panel_3 = $on_panel_3 + 1;
+        }
+        if ($item_3['attendance_type'] == "Moderator") {
+            $on_moderator_3 = $on_moderator_3 + 1;
+        }
+        if ($item_3['attendance_type'] == "Organizer") {
+            $on_organizer_3 = $on_organizer_3 + 1;
+        }
+        if ($item_3['attendance_type'] == "Preceptor") {
+            $on_preceptor_3 = $on_preceptor_3 + 1;
+        }
+        if ($item_3['attendance_type'] == "Press") {
+            $on_press_3 = $on_press_3 + 1;
+        }
+        if ($item_3['attendance_type'] == "Participant" || $item_3['attendance_type'] == "Satellite Attendee" || $item_3['attendance_type'] == "Oral Presenter" || $item_3['attendance_type'] == "Poster Oral Presenter") {
+            $on_participant_3 = $on_participant_3 + 1;
+        }
+        if ($item_3['attendance_type'] == "Staff" || $item_3['attendance_type'] == "Exhibitor") {
+            $on_others_3 = $on_others_3 + 1;
+        }
+    } else {
+        // print_r($item['attendance_type']);
+
+        if ($item_3['attendance_type'] == "Speaker") {
+            $speaker_3 = $speaker_3 + 1;
+        }
+        if ($item_3['attendance_type'] == "Chairperson") {
+            $chairperson_3 = $chairperson_3 + 1;
+        }
+        if ($item_3['attendance_type'] == "Panel") {
+            $panel_3 = $panel_3 + 1;
+        }
+        if ($item_3['attendance_type'] == "Moderator") {
+            $moderator_3 = $moderator_3 + 1;
+        }
+        if ($item_3['attendance_type'] == "Organizer") {
+            $organizer_3 = $organizer_3 + 1;
+        }
+        if ($item_3['attendance_type'] == "Preceptor") {
+            $preceptor_3 = $preceptor_3 + 1;
+        }
+        if ($item_3['attendance_type'] == "Press") {
+            $press_3 = $press_3 + 1;
+        }
+        if ($item_3['attendance_type'] == "Participant" || $item_3['attendance_type'] == "Satellite Attendee" || $item_3['attendance_type'] == "Oral Presenter" || $item_3['attendance_type'] == "Poster Oral Presenter") {
+            $participant_3 = $participant_3 + 1;
+        }
+        if ($item_3['attendance_type'] == "Staff" || $item_3['attendance_type'] == "Exhibitor") {
+            $others_3 = $others_3 + 1;
+        }
+    }
+}
+
+foreach ($day_3_e as $item_3_e) {
+    if ($item_3_e['onsite_reg'] === "On-site registratoin") {
+        // print_r($item['attendance_type']);
+
+        if ($item_3_e['attendance_type'] == "Speaker") {
+            $on_speaker_3_e = $on_speaker_3_e + 1;
+        }
+        if ($item_3_e['attendance_type'] == "Chairperson") {
+            $on_chairperson_3_e = $on_chairperson_3_e + 1;
+        }
+        if ($item_3_e['attendance_type'] == "Panel") {
+            $on_panel_3_e = $on_panel_3_e + 1;
+        }
+        if ($item_3_e['attendance_type'] == "Moderator") {
+            $on_moderator_3_e = $on_moderator_3_e + 1;
+        }
+        if ($item_3_e['attendance_type'] == "Organizer") {
+            $on_organizer_3_e = $on_organizer_3_e + 1;
+        }
+        if ($item_3_e['attendance_type'] == "Preceptor") {
+            $on_preceptor_3_e = $on_preceptor_3_e + 1;
+        }
+        if ($item_3_e['attendance_type'] == "Press") {
+            $on_press_3_e = $on_press_3_e + 1;
+        }
+        if ($item_3_e['attendance_type'] == "Participant" || $item_3_e['attendance_type'] == "Satellite Attendee" || $item_3_e['attendance_type'] == "Oral Presenter" || $item_3_e['attendance_type'] == "Poster Oral Presenter") {
+            $on_participant_3_e = $on_participant_3_e + 1;
+        }
+        if ($item_3_e['attendance_type'] == "Staff" || $item_3_e['attendance_type'] == "Exhibitor") {
+            $on_others_3_e = $on_others_3_e + 1;
+        }
+    } else {
+        // print_r($item['attendance_type']);
+
+        if ($item_3_e['attendance_type'] == "Speaker") {
+            $speaker_3_e = $speaker_3_e + 1;
+        }
+        if ($item_3_e['attendance_type'] == "Chairperson") {
+            $chairperson_3_e = $chairperson_3_e + 1;
+        }
+        if ($item_3_e['attendance_type'] == "Panel") {
+            $panel_3_e = $panel_3_e + 1;
+        }
+        if ($item_3_e['attendance_type'] == "Moderator") {
+            $moderator_3_e = $moderator_3_e + 1;
+        }
+        if ($item_3_e['attendance_type'] == "Organizer") {
+            $organizer_3_e = $organizer_3_e + 1;
+        }
+        if ($item_3_e['attendance_type'] == "Preceptor") {
+            $preceptor_3_e = $preceptor_3_e + 1;
+        }
+        if ($item_3_e['attendance_type'] == "Press") {
+            $press_3_e = $press_3_e + 1;
+        }
+        if ($item_3_e['attendance_type'] == "Participant" || $item_3_e['attendance_type'] == "Satellite Attendee" || $item_3_e['attendance_type'] == "Oral Presenter" || $item_3_e['attendance_type'] == "Poster Oral Presenter") {
+            $participant_3_e = $participant_3_e + 1;
+        }
+        if ($item_3_e['attendance_type'] == "Staff" || $item_3_e['attendance_type'] == "Exhibitor") {
+            $others_3_e = $others_3_e + 1;
+        }
+    }
 }
 
 /**총 user 수 */
 // print_r(count($users));
 
 /**미출결 유저 수 */
-// $non_qr = count($users) - count($item);
+$non_qr = count($users) - count($item);
 
 /** day 1 출결 유저 수 */
 $day_1_users = count($day_1) + count($day_1_e);
+
 
 /** day 2 출결 유저 수 */
 $day_2_users = count($day_2) + count($day_2_e);
@@ -173,14 +553,14 @@ $day_2_users = count($day_2) + count($day_2_e);
 $day_3_users = count($day_3) + count($day_3_e);
 
 
-
 ?>
 <div class="text-center flex flex-col items-center justify-center">
     <h1 class="text-6xl font-semibold text-orange-600 my-10">SICEM 2023</h1>
     <h6 class="text-3xl font-semibold mb-20 ">현장 참석자 데이터</h6>
     <h6 class="text-3xl font-semibold mb-20 ">현장 QR 출결 :
-        <!-- <?php echo count($item) ?> -->명 / 미출결:
-        <!-- <?php echo $non_qr ?> -->명
+        <?php echo count($item) ?> 명 / 미출결:
+        <?php echo $non_qr ?>
+        명
     </h6>
 
     <table>
@@ -221,154 +601,222 @@ $day_3_users = count($day_3) + count($day_3_e);
             <th class="bg-red-100" rowspan="9">사전등록</th>
             <th class="bg-red-100">Speaker</th>
             <td>
-                <!-- <?php echo isset($statistics[1]['A_01']) ? $statistics[1]['A_01'] : 0; ?> -->
+                <?php echo isset($speaker_1_e) ? $speaker_1_e : 0; ?>
             </td>
             <td>
-                <!-- <?php echo isset($statistics[1]['AK_01']) ? $statistics[1]['AK_01'] : 0; ?> -->
+                <?php echo isset($speaker_1) ?  $speaker_1  : 0; ?>
             </td>
             <td>
-                <!-- <?php echo isset($statistics[1]['A_02']) ? $statistics[1]['A_02'] : 0; ?> -->
+                <?php echo isset($speaker_2_e) ? $speaker_2_e  : 0; ?>
             </td>
             <td>
-                <!-- <?php echo isset($statistics[1]['AK_02']) ? $statistics[1]['AK_02'] : 0; ?> -->
+                <?php echo isset($speaker_2) ?  $speaker_2 : 0; ?>
             </td>
             <td>
-                <!-- <?php echo isset($statistics[1]['A_03']) ? $statistics[1]['A_03'] : 0; ?> -->
+                <?php echo isset($speaker_3_e) ? $speaker_3_e : 0; ?>
             </td>
             <td>
-                <!-- <?php echo isset($statistics[1]['AK_03']) ? $statistics[1]['AK_03'] : 0; ?> -->
+                <?php echo isset($speaker_3) ? $speaker_3 : 0; ?>
             </td>
-            <td></td>
+            <td>
+                <!-- <?php echo  $speaker_1_e + $speaker_1 + $speaker_2_e + $speaker_3_e + $speaker_3  ?> -->
+            </td>
+
         </tr>
         <tr>
             <th class="bg-red-100">Chairperson</th>
-            <td><?php echo isset($statistics[6]['A_01']) ? $statistics[6]['A_01'] : 0; ?>
+            <td>
+                <?php echo isset($chairperson_1_e) ? $chairperson_1_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[6]['AK_01']) ? $statistics[6]['AK_01'] : 0; ?>
+            <td>
+                <?php echo isset($chairperson_1) ?  $chairperson_1  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[6]['A_02']) ? $statistics[6]['A_02'] : 0; ?>
+            <td>
+                <?php echo isset($chairperson_2_e) ? $chairperson_2_e  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[6]['AK_02']) ? $statistics[6]['AK_02'] : 0; ?>
+            <td>
+                <?php echo isset($chairperson_2) ?  $chairperson_2 : 0; ?>
             </td>
-            <td><?php echo isset($statistics[6]['A_03']) ? $statistics[6]['A_03'] : 0; ?>
+            <td>
+                <?php echo isset($chairperson_3_e) ? $chairperson_3_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[6]['AK_03']) ? $statistics[6]['AK_03'] : 0; ?>
+            <td>
+                <?php echo isset($chairperson_3) ? $chairperson_3 : 0; ?>
             </td>
-            <td></td>
+            <td>
+                <!-- <?php echo  $chairperson_1_e + $chairperson_1 + $chairperson_2_e + $chairperson_2 + $chairperson_3_e + $chairperson_3  ?> -->
+            </td>
+
         </tr>
         <tr>
             <th class="bg-red-100">Panel</th>
-            <td><?php echo isset($statistics[4]['A_01']) ? $statistics[4]['A_01'] : 0; ?>
+            <td>
+                <?php echo isset($panel_1_e) ? $panel_1_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[4]['AK_01']) ? $statistics[4]['AK_01'] : 0; ?>
+            <td>
+                <?php echo isset($panel_1) ?  $panel_1  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[4]['A_02']) ? $statistics[4]['A_02'] : 0; ?>
+            <td>
+                <?php echo isset($panel_2_e) ? $panel_2_e  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[4]['AK_02']) ? $statistics[4]['AK_02'] : 0; ?>
+            <td>
+                <?php echo isset($panel_2) ?  $panel_2 : 0; ?>
             </td>
-            <td><?php echo isset($statistics[4]['A_03']) ? $statistics[4]['A_03'] : 0; ?>
+            <td>
+                <?php echo isset($panel_3_e) ? $panel_3_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[4]['AK_03']) ? $statistics[4]['AK_03'] : 0; ?>
+            <td>
+                <?php echo isset($panel_3) ? $panel_3 : 0; ?>
             </td>
-            <td></td>
+            <td>
+                <!-- <?php echo  $panel_1_e + $panel_1 + $panel_2_e + $panel_2 + $panel_3_e + $panel_3  ?> -->
+            </td>
         </tr>
         <tr>
             <th class="bg-red-100">Moderator</th>
-            <td><?php echo isset($statistics[2]['A_01']) ? $statistics[2]['A_01'] : 0; ?>
+            <td>
+                <?php echo isset($moderator_1_e) ? $moderator_1_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[2]['AK_01']) ? $statistics[2]['AK_01'] : 0; ?>
+            <td>
+                <?php echo isset($moderator_1) ?  $moderator_1  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[2]['A_02']) ? $statistics[2]['A_02'] : 0; ?>
+            <td>
+                <?php echo isset($moderator_2_e) ? $moderator_2_e  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[2]['AK_02']) ? $statistics[2]['AK_02'] : 0; ?>
+            <td>
+                <?php echo isset($moderator_2) ?  $moderator_2 : 0; ?>
             </td>
-            <td><?php echo isset($statistics[2]['A_03']) ? $statistics[2]['A_03'] : 0; ?>
+            <td>
+                <?php echo isset($moderator_3_e) ? $moderator_3_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[2]['AK_03']) ? $statistics[2]['AK_03'] : 0; ?>
+            <td>
+                <?php echo isset($moderator_3) ? $moderator_3 : 0; ?>
             </td>
-            <td></td>
+            <td>
+                <!-- <?php echo  $moderator_1_e + $moderator_1 + $moderator_2_e + $moderator_2 + $moderator_3_e + $moderator_3  ?> -->
+            </td>
         </tr>
         <tr>
             <th class="bg-red-100">Organizer</th>
-            <td><?php echo isset($statistics[5]['A_01']) ? $statistics[5]['A_01'] : 0; ?>
+            <td>
+                <?php echo isset($organizer_1_e) ? $organizer_1_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[5]['AK_01']) ? $statistics[5]['AK_01'] : 0; ?>
+            <td>
+                <?php echo isset($organizer_1) ?  $organizer_1  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[5]['A_02']) ? $statistics[5]['A_02'] : 0; ?>
+            <td>
+                <?php echo isset($organizer_2_e) ? $organizer_2_e  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[5]['AK_02']) ? $statistics[5]['AK_02'] : 0; ?>
+            <td>
+                <?php echo isset($organizer_2) ?  $organizer_2 : 0; ?>
             </td>
-            <td><?php echo isset($statistics[5]['A_03']) ? $statistics[5]['A_03'] : 0; ?>
+            <td>
+                <?php echo isset($organizer_3_e) ? $organizer_3_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[5]['AK_03']) ? $statistics[5]['AK_03'] : 0; ?>
+            <td>
+                <?php echo isset($organizer_3) ? $organizer_3 : 0; ?>
             </td>
-            <td></td>
+            <td>
+                <!-- <?php echo  $organizer_1_e + $organizer_1 + $organizer_2_e + $organizer_2 + $organizer_3_e + $organizer_3  ?> -->
+            </td>
         </tr>
 
         </tr>
         <tr>
             <th class="bg-red-100">Preceptor</th>
-            <td><?php echo isset($statistics[7]['A_01']) ? $statistics[7]['A_01'] : 0; ?>
+            <td>
+                <?php echo isset($preceptor_1_e) ? $preceptor_1_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[7]['AK_01']) ? $statistics[7]['AK_01'] : 0; ?>
+            <td>
+                <?php echo isset($preceptor_1) ?  $preceptor_1  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[7]['A_02']) ? $statistics[7]['A_02'] : 0; ?>
+            <td>
+                <?php echo isset($preceptor_2_e) ? $preceptor_2_e  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[7]['AK_02']) ? $statistics[7]['AK_02'] : 0; ?>
+            <td>
+                <?php echo isset($preceptor_2) ?  $preceptor_2 : 0; ?>
             </td>
-            <td><?php echo isset($statistics[7]['A_03']) ? $statistics[7]['A_03'] : 0; ?>
+            <td>
+                <?php echo isset($preceptor_3_e) ? $preceptor_3_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[7]['AK_03']) ? $statistics[7]['AK_03'] : 0; ?>
+            <td>
+                <?php echo isset($preceptor_3) ? $preceptor_3 : 0; ?>
             </td>
-            <td></td>
+            <td>
+                <!-- <?php echo  $preceptor_1_e + $preceptor_1 + $preceptor_2_e + $preceptor_2 + $preceptor_3_e + $preceptor_3  ?> -->
+            </td>
         </tr>
         <tr>
             <th class="bg-red-100">Press</th>
-            <td><?php echo isset($statistics[3]['A_01']) ? $statistics[3]['A_01'] : 0; ?>
+            <td>
+                <?php echo isset($press_1_e) ? $press_1_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['AK_01']) ? $statistics[3]['AK_01'] : 0; ?>
+            <td>
+                <?php echo isset($press_1) ?  $press_1  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['A_02']) ? $statistics[3]['A_02'] : 0; ?>
+            <td>
+                <?php echo isset($press_2_e) ? $press_2_e  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['AK_02']) ? $statistics[3]['AK_02'] : 0; ?>
+            <td>
+                <?php echo isset($press_2) ?  $press_2 : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['A_03']) ? $statistics[3]['A_03'] : 0; ?>
+            <td>
+                <?php echo isset($press_3_e) ? $press_3_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['AK_03']) ? $statistics[3]['AK_03'] : 0; ?>
+            <td>
+                <?php echo isset($press_3) ? $press_3 : 0; ?>
             </td>
-            <td></td>
+            <td>
+                <!-- <?php echo  $press_1_e + $press_1 + $press_2_e + $press_2 + $press_3_e + $press_3  ?> -->
+            </td>
         </tr>
         <tr>
             <th class="bg-red-100">Participant</th>
-            <td><?php echo isset($statistics[3]['A_01']) ? $statistics[3]['A_01'] : 0; ?>
+            <td>
+                <?php echo isset($participant_1_e) ? $participant_1_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['AK_01']) ? $statistics[3]['AK_01'] : 0; ?>
+            <td>
+                <?php echo isset($participant_1) ?  $participant_1  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['A_02']) ? $statistics[3]['A_02'] : 0; ?>
+            <td>
+                <?php echo isset($participant_2_e) ? $participant_2_e  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['AK_02']) ? $statistics[3]['AK_02'] : 0; ?>
+            <td>
+                <?php echo isset($participant_2) ?  $participant_2 : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['A_03']) ? $statistics[3]['A_03'] : 0; ?>
+            <td>
+                <?php echo isset($participant_3_e) ? $participant_3_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['AK_03']) ? $statistics[3]['AK_03'] : 0; ?>
+            <td>
+                <?php echo isset($participant_3) ? $participant_3 : 0; ?>
             </td>
-            <td></td>
+            <td>
+                <!-- <?php echo  $participant_1_e + $participant_1 + $participant_2_e + $participant_2 + $participant_3_e + $participant_3  ?> -->
+            </td>
         </tr>
         <tr>
             <th class="bg-red-100">Others</th>
-            <td><?php echo isset($statistics[3]['A_01']) ? $statistics[3]['A_01'] : 0; ?>
+            <td>
+                <?php echo isset($others_1_e) ? $others_1_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['AK_01']) ? $statistics[3]['AK_01'] : 0; ?>
+            <td>
+                <?php echo isset($others_1) ?  $others_1  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['A_02']) ? $statistics[3]['A_02'] : 0; ?>
+            <td>
+                <?php echo isset($others_2_e) ? $others_2_e  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['AK_02']) ? $statistics[3]['AK_02'] : 0; ?>
+            <td>
+                <?php echo isset($others_2) ?  $others_2 : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['A_03']) ? $statistics[3]['A_03'] : 0; ?>
+            <td>
+                <?php echo isset($others_3_e) ? $others_3_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['AK_03']) ? $statistics[3]['AK_03'] : 0; ?>
+            <td>
+                <?php echo isset($others_3) ? $others_3 : 0; ?>
             </td>
-            <td></td>
+            <td>
+                <!-- <?php echo  $others_1_e + $others_1 + $others_2_e + $others_2 + $others_3_e + $others_3  ?> -->
+            </td>
         </tr>
 
         <tr>
@@ -391,138 +839,220 @@ $day_3_users = count($day_3) + count($day_3_e);
         <tr>
             <th class="bg-blue-100" rowspan="9">현장등록</th>
             <th class="bg-blue-100">Speaker</th>
-            <td><?php echo isset($statistics[1]['R_01']) ? $statistics[1]['R_01'] : 0; ?>
+            <td>
+                <?php echo isset($on_speaker_1_e) ? $on_speaker_1_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[1]['RK_01']) ? $statistics[1]['RK_01'] : 0; ?>
+            <td>
+                <?php echo isset($on_speaker_1) ?  $on_speaker_1  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[1]['R_02']) ? $statistics[1]['R_02'] : 0; ?>
+            <td>
+                <?php echo isset($on_speaker_2_e) ? $on_speaker_2_e  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[1]['RK_02']) ? $statistics[1]['RK_02'] : 0; ?>
+            <td>
+                <?php echo isset($on_speaker_2) ?  $on_speaker_2 : 0; ?>
             </td>
-            <td><?php echo isset($statistics[1]['R_03']) ? $statistics[1]['R_03'] : 0; ?>
+            <td>
+                <?php echo isset($on_speaker_3_e) ? $on_speaker_3_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[1]['RK_03']) ? $statistics[1]['RK_03'] : 0; ?>
+            <td>
+                <?php echo isset($on_speaker_3) ? $on_speaker_3 : 0; ?>
+            </td>
+            <td>
+                <!-- <?php echo  $on_speaker_1_e + $on_speaker_1 + $on_speaker_2_e + $on_speaker_3_e + $on_speaker_3  ?> -->
             </td>
         </tr>
         <tr>
             <th class="bg-blue-100">Chairperson</th>
-            <td><?php echo isset($statistics[6]['R_01']) ? $statistics[6]['R_01'] : 0; ?>
+            <td>
+                <?php echo isset($on_chairperson_1_e) ? $on_chairperson_1_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[6]['RK_01']) ? $statistics[6]['RK_01'] : 0; ?>
+            <td>
+                <?php echo isset($on_chairperson_1) ?  $on_chairperson_1  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[6]['R_02']) ? $statistics[6]['R_02'] : 0; ?>
+            <td>
+                <?php echo isset($on_chairperson_2_e) ? $on_chairperson_2_e  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[6]['RK_02']) ? $statistics[6]['RK_02'] : 0; ?>
+            <td>
+                <?php echo isset($on_chairperson_2) ?  $on_chairperson_2 : 0; ?>
             </td>
-            <td><?php echo isset($statistics[6]['R_03']) ? $statistics[6]['R_03'] : 0; ?>
+            <td>
+                <?php echo isset($on_chairperson_3_e) ? $on_chairperson_3_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[6]['RK_03']) ? $statistics[6]['RK_03'] : 0; ?>
+            <td>
+                <?php echo isset($on_chairperson_3) ? $on_chairperson_3 : 0; ?>
             </td>
+            <td>
+                <!-- <?php echo  $on_chairperson_1_e + $on_chairperson_1 + $on_chairperson_2_e + $on_chairperson_2 + $on_chairperson_3_e + $on_chairperson_3  ?> -->
+            </td>
+
         </tr>
         <tr>
             <th class="bg-blue-100">Panel</th>
-            <td><?php echo isset($statistics[4]['R_01']) ? $statistics[4]['R_01'] : 0; ?>
+            <td>
+                <?php echo isset($on_panel_1_e) ? $on_panel_1_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[4]['RK_01']) ? $statistics[4]['RK_01'] : 0; ?>
+            <td>
+                <?php echo isset($on_panel_1) ?  $on_panel_1  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[4]['R_02']) ? $statistics[4]['R_02'] : 0; ?>
+            <td>
+                <?php echo isset($on_panel_2_e) ? $on_panel_2_e  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[4]['RK_02']) ? $statistics[4]['RK_02'] : 0; ?>
+            <td>
+                <?php echo isset($on_panel_2) ?  $on_panel_2 : 0; ?>
             </td>
-            <td><?php echo isset($statistics[4]['R_03']) ? $statistics[4]['R_03'] : 0; ?>
+            <td>
+                <?php echo isset($on_panel_3_e) ? $on_panel_3_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[4]['RK_03']) ? $statistics[4]['RK_03'] : 0; ?>
+            <td>
+                <?php echo isset($on_panel_3) ? $on_panel_3 : 0; ?>
+            </td>
+            <td>
+                <!-- <?php echo  $on_panel_1_e + $on_panel_1 + $on_panel_2_e + $on_panel_2 + $on_panel_3_e + $on_panel_3  ?> -->
             </td>
         </tr>
         <tr>
             <th class="bg-blue-100">Moderator</th>
-            <td><?php echo isset($statistics[2]['R_01']) ? $statistics[2]['R_01'] : 0; ?>
+            <td>
+                <?php echo isset($on_moderator_1_e) ? $on_moderator_1_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[2]['RK_01']) ? $statistics[2]['RK_01'] : 0; ?>
+            <td>
+                <?php echo isset($on_moderator_1) ?  $on_moderator_1  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[2]['R_02']) ? $statistics[2]['R_02'] : 0; ?>
+            <td>
+                <?php echo isset($on_moderator_2_e) ? $on_moderator_2_e  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[2]['RK_02']) ? $statistics[2]['RK_02'] : 0; ?>
+            <td>
+                <?php echo isset($on_moderator_2) ?  $on_moderator_2 : 0; ?>
             </td>
-            <td><?php echo isset($statistics[2]['R_03']) ? $statistics[2]['R_03'] : 0; ?>
+            <td>
+                <?php echo isset($on_moderator_3_e) ? $on_moderator_3_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[2]['RK_03']) ? $statistics[2]['RK_03'] : 0; ?>
+            <td>
+                <?php echo isset($on_moderator_3) ? $on_moderator_3 : 0; ?>
+            </td>
+            <td>
+                <!-- <?php echo  $on_moderator_1_e + $on_moderator_1 + $on_moderator_2_e + $on_moderator_2 + $on_moderator_3_e + $on_moderator_3  ?> -->
             </td>
         </tr>
         <tr>
             <th class="bg-blue-100">Organizer</th>
-            <td><?php echo isset($statistics[5]['R_01']) ? $statistics[5]['R_01'] : 0; ?>
+            <td>
+                <?php echo isset($on_organizer_1_e) ? $on_organizer_1_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[5]['RK_01']) ? $statistics[5]['RK_01'] : 0; ?>
+            <td>
+                <?php echo isset($on_organizer_1) ?  $on_organizer_1  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[5]['R_02']) ? $statistics[5]['R_02'] : 0; ?>
+            <td>
+                <?php echo isset($on_organizer_2_e) ? $on_organizer_2_e  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[5]['RK_02']) ? $statistics[5]['RK_02'] : 0; ?>
+            <td>
+                <?php echo isset($on_organizer_2) ?  $on_organizer_2 : 0; ?>
             </td>
-            <td><?php echo isset($statistics[5]['R_03']) ? $statistics[5]['R_03'] : 0; ?>
+            <td>
+                <?php echo isset($on_organizer_3_e) ? $on_organizer_3_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[5]['RK_03']) ? $statistics[5]['RK_03'] : 0; ?>
+            <td>
+                <?php echo isset($on_organizer_3) ? $on_organizer_3 : 0; ?>
+            </td>
+            <td>
+                <!-- <?php echo  $on_organizer_1_e + $on_organizer_1 + $on_organizer_2_e + $on_organizer_2 + $on_organizer_3_e + $on_organizer_3  ?> -->
             </td>
         </tr>
 
         <tr>
             <th class="bg-blue-100">Preceptor</th>
-            <td><?php echo isset($statistics[7]['R_01']) ? $statistics[7]['R_01'] : 0; ?>
+            <td>
+                <?php echo isset($on_preceptor_1_e) ? $on_preceptor_1_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[7]['RK_01']) ? $statistics[7]['RK_01'] : 0; ?>
+            <td>
+                <?php echo isset($on_preceptor_1) ?  $on_preceptor_1  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[7]['R_02']) ? $statistics[7]['R_02'] : 0; ?>
+            <td>
+                <?php echo isset($on_preceptor_2_e) ? $on_preceptor_2_e  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[7]['RK_02']) ? $statistics[7]['RK_02'] : 0; ?>
+            <td>
+                <?php echo isset($on_preceptor_2) ?  $on_preceptor_2 : 0; ?>
             </td>
-            <td><?php echo isset($statistics[7]['R_03']) ? $statistics[7]['R_03'] : 0; ?>
+            <td>
+                <?php echo isset($on_preceptor_3_e) ? $on_preceptor_3_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[7]['RK_03']) ? $statistics[7]['RK_03'] : 0; ?>
+            <td>
+                <?php echo isset($on_preceptor_3) ? $on_preceptor_3 : 0; ?>
+            </td>
+            <td>
+                <!-- <?php echo  $on_preceptor_1_e + $on_preceptor_1 + $on_preceptor_2_e + $on_preceptor_2 + $on_preceptor_3_e + $on_preceptor_3  ?> -->
             </td>
         </tr>
         <tr>
             <th class="bg-blue-100">Press</th>
-            <td><?php echo isset($statistics[3]['R_01']) ? $statistics[3]['R_01'] : 0; ?>
+            <td>
+                <?php echo isset($on_press_1_e) ? $on_press_1_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['RK_01']) ? $statistics[3]['RK_01'] : 0; ?>
+            <td>
+                <?php echo isset($on_press_1) ?  $on_press_1  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['R_02']) ? $statistics[3]['R_02'] : 0; ?>
+            <td>
+                <?php echo isset($on_press_2_e) ? $on_press_2_e  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['RK_02']) ? $statistics[3]['RK_02'] : 0; ?>
+            <td>
+                <?php echo isset($on_press_2) ?  $on_press_2 : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['R_03']) ? $statistics[3]['R_03'] : 0; ?>
+            <td>
+                <?php echo isset($on_press_3_e) ? $on_press_3_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['RK_03']) ? $statistics[3]['RK_03'] : 0; ?>
+            <td>
+                <?php echo isset($on_press_3) ? $on_press_3 : 0; ?>
+            </td>
+            <td>
+                <!-- <?php echo  $on_press_1_e + $on_press_1 + $on_press_2_e + $on_press_2 + $on_press_3_e + $on_press_3  ?> -->
             </td>
         </tr>
         <tr>
             <th class="bg-blue-100">Participant</th>
-            <td><?php echo isset($statistics[3]['R_01']) ? $statistics[3]['R_01'] : 0; ?>
+            <td>
+                <?php echo isset($on_participant_1_e) ? $on_participant_1_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['RK_01']) ? $statistics[3]['RK_01'] : 0; ?>
+            <td>
+                <?php echo isset($on_participant_1) ?  $on_participant_1  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['R_02']) ? $statistics[3]['R_02'] : 0; ?>
+            <td>
+                <?php echo isset($on_participant_2_e) ? $on_participant_2_e  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['RK_02']) ? $statistics[3]['RK_02'] : 0; ?>
+            <td>
+                <?php echo isset($on_participant_2) ?  $on_participant_2 : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['R_03']) ? $statistics[3]['R_03'] : 0; ?>
+            <td>
+                <?php echo isset($on_participant_3_e) ? $on_participant_3_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['RK_03']) ? $statistics[3]['RK_03'] : 0; ?>
+            <td>
+                <?php echo isset($on_participant_3) ? $on_participant_3 : 0; ?>
+            </td>
+            <td>
+                <!-- <?php echo  $on_participant_1_e + $on_participant_1 + $on_participant_2_e + $on_participant_2 + $on_participant_3_e + $on_participant_3  ?> -->
             </td>
         </tr>
         <tr>
             <th class="bg-blue-100">Others</th>
-            <td><?php echo isset($statistics[3]['R_01']) ? $statistics[3]['R_01'] : 0; ?>
+            <td>
+                <?php echo isset($on_others_1_e) ? $on_others_1_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['RK_01']) ? $statistics[3]['RK_01'] : 0; ?>
+            <td>
+                <?php echo isset($on_others_1) ?  $on_others_1  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['R_02']) ? $statistics[3]['R_02'] : 0; ?>
+            <td>
+                <?php echo isset($on_others_2_e) ? $on_others_2_e  : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['RK_02']) ? $statistics[3]['RK_02'] : 0; ?>
+            <td>
+                <?php echo isset($on_others_2) ?  $on_others_2 : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['R_03']) ? $statistics[3]['R_03'] : 0; ?>
+            <td>
+                <?php echo isset($on_others_3_e) ? $on_others_3_e : 0; ?>
             </td>
-            <td><?php echo isset($statistics[3]['RK_03']) ? $statistics[3]['RK_03'] : 0; ?>
+            <td>
+                <?php echo isset($on_others_3) ? $on_others_3 : 0; ?>
+            </td>
+            <td>
+                <!-- <?php echo  $on_others_1_e + $on_others_1 + $on_others_2_e + $on_others_2 + $on_others_3_e + $on_others_3  ?> -->
             </td>
         </tr>
         <tr>
@@ -541,22 +1071,7 @@ $day_3_users = count($day_3) + count($day_3_e);
             <td colspan="2"></td>
             <td colspan="2"></td>
         </tr>
-        <!-- <tr class="bg-green-300 text-black">
-            <th colspan="2" rowspan="2">합계</th>
-            <th><?php echo $total_1; ?></th>
-            <th><?php echo $total_2; ?></th>
-            <th><?php echo $total_3; ?></th>
-            <th><?php echo $total_4; ?></th>
-            <th><?php echo $total_5; ?></th>
-            <th><?php echo $total_6; ?></th>
-        </tr>
-        <tr class="bg-green-300 text-black">
 
-            <th colspan="2"><?php echo $total_7; ?></th>
-            <th colspan="2"> <?php echo $total_8; ?></th>
-            <th colspan="2"><?php echo $total_9; ?></th>
-
-        </tr> -->
     </table>
 </div>
 </div>
