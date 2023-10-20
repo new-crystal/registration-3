@@ -1,56 +1,81 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-th,
-td {
-    text-align: center !important;
-    border: 2px solid rgb(163 163 163);
-    font-weight: 600;
-    font-size: 1.5rem;
-    line-height: 2rem;
-}
+    th,
+    td {
+        text-align: center !important;
+        border: 2px solid rgb(163 163 163);
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
 
-tr {
-    height: 4.5rem;
-    border: 2px solid rgb(163 163 163);
-    font-weight: 600;
-    font-size: 1.5rem;
-    line-height: 2rem;
-}
+    tr {
+        height: 4.5rem;
+        border: 2px solid rgb(163 163 163);
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
 
-.total_table {
-    width: 240px;
-}
+    .total_table {
+        width: 240px;
+    }
 </style>
 <?php
-// print_r($statistics);
+foreach ($day_1 as $item_1) {
+    print_r($item['attendance_type']);
+    $speaker_1 = 0;
+    $chairperson_1 = 0;
+    $panel_1 = 0;
+    $moderator_1 = 0;
+    $organizer_1 = 0;
+    $preceptor_1 = 0;
+    $press_1 = 0;
+    $others_1 = 0;
+    if ($item['attendance_type'] == "Speaker") {
+        $speaker_1 = $speaker_1 + 1;
+    }
+}
+foreach ($day_1_e as $item_1) {
+    print_r($item['attendance_type']);
+    $speaker_1 = 0;
+    $chairperson_1 = 0;
+    $panel_1 = 0;
+    $moderator_1 = 0;
+    $organizer_1 = 0;
+    $preceptor_1 = 0;
+    $press_1 = 0;
+    $others_1 = 0;
+    if ($item['attendance_type'] == "Speaker") {
+        $speaker_1 = $speaker_1 + 1;
+    }
+}
+
+foreach ($day_2 as $item_2) {
+    print_r($item['attendance_type']);
+}
+
+foreach ($day_3 as $item_3) {
+    print_r($item['attendance_type']);
+}
+
 /**총 user 수 */
 // print_r(count($users));
 
 /**미출결 유저 수 */
 // $non_qr = count($users) - count($item);
 
+/** day 1 출결 유저 수 */
+$day_1_users = count($day_1) + count($day_1_e);
+
+/** day 2 출결 유저 수 */
+$day_2_users = count($day_2) + count($day_2_e);
+
+/** day 3 출결 유저 수 */
+$day_3_users = count($day_3) + count($day_3_e);
 
 
-// $total_1 = 0;
-// $total_2 = 0;
-// $total_3 = 0;
-// $total_4 = 0;
-// $total_5 = 0;
-// $total_6 = 0;
-// $total_7 = 0;
-// $total_8 = 0;
-// $total_9 = 0;
-// for ($i = 0; $i <= 7; $i++) {
-//     $total_1 += $statistics[$i]['A_01'] + $statistics[$i]['R_01'];
-//     $total_2 += $statistics[$i]['AK_01'] + $statistics[$i]['RK_01'];
-//     $total_3 += $statistics[$i]['A_02'] + $statistics[$i]['R_02'];
-//     $total_4 += $statistics[$i]['AK_02'] + $statistics[$i]['RK_02'];
-//     $total_5 += $statistics[$i]['A_03'] + $statistics[$i]['R_03'];
-//     $total_6 += $statistics[$i]['AK_03'] + $statistics[$i]['RK_03'];
-// }
-// $total_7 = $total_1 + $total_2;
-// $total_8 = $total_3 + $total_4;
-// $total_9 = $total_5 + $total_6;
+
 ?>
 <div class="text-center flex flex-col items-center justify-center">
     <h1 class="text-6xl font-semibold text-orange-600 my-10">SICEM 2023</h1>
@@ -71,9 +96,9 @@ tr {
             <td class="total_table bg-green-200">10월 28일(토)</td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td> <?php echo $day_1_users ?></td>
+            <td> <?php echo $day_2_users ?></td>
+            <td> <?php echo $day_3_users ?></td>
         </tr>
     </table>
 
@@ -266,8 +291,8 @@ tr {
         </tr>
 
         <tr>
-            <th class="bg-blue-100" rowspan="7">현장등록</th>
-            <th class="bg-blue-100">Chairperson</th>
+            <th class="bg-blue-100" rowspan="9">현장등록</th>
+            <th class="bg-blue-100">Speaker</th>
             <td><?php echo isset($statistics[1]['R_01']) ? $statistics[1]['R_01'] : 0; ?>
             </td>
             <td><?php echo isset($statistics[1]['RK_01']) ? $statistics[1]['RK_01'] : 0; ?>
@@ -282,7 +307,7 @@ tr {
             </td>
         </tr>
         <tr>
-            <th class="bg-blue-100">Speakers</th>
+            <th class="bg-blue-100">Chairperson</th>
             <td><?php echo isset($statistics[6]['R_01']) ? $statistics[6]['R_01'] : 0; ?>
             </td>
             <td><?php echo isset($statistics[6]['RK_01']) ? $statistics[6]['RK_01'] : 0; ?>
@@ -312,7 +337,7 @@ tr {
             </td>
         </tr>
         <tr>
-            <th class="bg-blue-100">Committee</th>
+            <th class="bg-blue-100">Moderator</th>
             <td><?php echo isset($statistics[2]['R_01']) ? $statistics[2]['R_01'] : 0; ?>
             </td>
             <td><?php echo isset($statistics[2]['RK_01']) ? $statistics[2]['RK_01'] : 0; ?>
@@ -327,7 +352,7 @@ tr {
             </td>
         </tr>
         <tr>
-            <th class="bg-blue-100">Participants</th>
+            <th class="bg-blue-100">Organizer</th>
             <td><?php echo isset($statistics[5]['R_01']) ? $statistics[5]['R_01'] : 0; ?>
             </td>
             <td><?php echo isset($statistics[5]['RK_01']) ? $statistics[5]['RK_01'] : 0; ?>
@@ -343,7 +368,7 @@ tr {
         </tr>
 
         <tr>
-            <th class="bg-blue-100">Sponsor</th>
+            <th class="bg-blue-100">Preceptor</th>
             <td><?php echo isset($statistics[7]['R_01']) ? $statistics[7]['R_01'] : 0; ?>
             </td>
             <td><?php echo isset($statistics[7]['RK_01']) ? $statistics[7]['RK_01'] : 0; ?>
@@ -355,6 +380,36 @@ tr {
             <td><?php echo isset($statistics[7]['R_03']) ? $statistics[7]['R_03'] : 0; ?>
             </td>
             <td><?php echo isset($statistics[7]['RK_03']) ? $statistics[7]['RK_03'] : 0; ?>
+            </td>
+        </tr>
+        <tr>
+            <th class="bg-blue-100">Press</th>
+            <td><?php echo isset($statistics[3]['R_01']) ? $statistics[3]['R_01'] : 0; ?>
+            </td>
+            <td><?php echo isset($statistics[3]['RK_01']) ? $statistics[3]['RK_01'] : 0; ?>
+            </td>
+            <td><?php echo isset($statistics[3]['R_02']) ? $statistics[3]['R_02'] : 0; ?>
+            </td>
+            <td><?php echo isset($statistics[3]['RK_02']) ? $statistics[3]['RK_02'] : 0; ?>
+            </td>
+            <td><?php echo isset($statistics[3]['R_03']) ? $statistics[3]['R_03'] : 0; ?>
+            </td>
+            <td><?php echo isset($statistics[3]['RK_03']) ? $statistics[3]['RK_03'] : 0; ?>
+            </td>
+        </tr>
+        <tr>
+            <th class="bg-blue-100">Participant</th>
+            <td><?php echo isset($statistics[3]['R_01']) ? $statistics[3]['R_01'] : 0; ?>
+            </td>
+            <td><?php echo isset($statistics[3]['RK_01']) ? $statistics[3]['RK_01'] : 0; ?>
+            </td>
+            <td><?php echo isset($statistics[3]['R_02']) ? $statistics[3]['R_02'] : 0; ?>
+            </td>
+            <td><?php echo isset($statistics[3]['RK_02']) ? $statistics[3]['RK_02'] : 0; ?>
+            </td>
+            <td><?php echo isset($statistics[3]['R_03']) ? $statistics[3]['R_03'] : 0; ?>
+            </td>
+            <td><?php echo isset($statistics[3]['RK_03']) ? $statistics[3]['RK_03'] : 0; ?>
             </td>
         </tr>
         <tr>
