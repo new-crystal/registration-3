@@ -1338,7 +1338,7 @@ class Admin extends CI_Controller
             $data['users'] = $this->users->get_users();
 
             /**qr access 총 유저 */
-            $data['item'] = $this->users->get_user($wheres);
+            $data['item'] = $this->users->get_qr_print_user($wheres);
 
             /**day1 ~ day3 access 각각 유저 */
             $data['day_1'] = $this->users->get_access_statistics_k_1();

@@ -816,7 +816,7 @@ td {
                         <input name="kes_id" class="kes_id_input border p-2 mt-4 w-6/12" placeholder="KES ID를 입력해주세요" />
                         <button class="kes_check_btn bg-blue-700 text-white px-4 font-semibold" type="button">Check
                             ID</button>
-                        <p class="kes_email_text" style="color: #c1121f; font-weight:600;">KES ID 를 입력해주세요.</p>
+                        <p class="kes_email_text" style="color: #c1121f; font-weight:600;">Please enter your KES ID.</p>
 
                     </div>
                 </td>
@@ -1243,10 +1243,14 @@ member.addEventListener("click", () => {
 })
 
 kes_check_btn.addEventListener("click", () => {
-    kes_check_email = true;
-    kes_email_text.innerText = "확인되었습니다."
-    kes_email_text.style.color = "blue"
-    calRegiFee()
+    if (kes_id_input.value !== "") {
+        kes_check_email = true;
+        kes_email_text.innerText = "Checked. "
+        kes_email_text.style.color = "blue"
+        calRegiFee()
+    } else {
+        alert("Please enter your KES ID.")
+    }
 })
 
 
