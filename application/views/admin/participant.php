@@ -1,29 +1,29 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-    th,
-    td {
-        text-align: center !important;
-        border: 2px solid rgb(163 163 163);
-        font-weight: 600;
-        font-size: 1.5rem;
-        line-height: 2rem;
-    }
+th,
+td {
+    text-align: center !important;
+    border: 2px solid rgb(163 163 163);
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
 
-    tr {
-        height: 4.5rem;
-        border: 2px solid rgb(163 163 163);
-        font-weight: 600;
-        font-size: 1.5rem;
-        line-height: 2rem;
-    }
+tr {
+    height: 4.5rem;
+    border: 2px solid rgb(163 163 163);
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
 
-    .total_table {
-        width: 240px;
-    }
+.total_table {
+    width: 240px;
+}
 </style>
 <?php
 foreach ($day_1 as $item_1) {
-    print_r($item['attendance_type']);
+    // print_r($item['attendance_type']);
     $speaker_1 = 0;
     $chairperson_1 = 0;
     $panel_1 = 0;
@@ -37,7 +37,7 @@ foreach ($day_1 as $item_1) {
     }
 }
 foreach ($day_1_e as $item_1) {
-    print_r($item['attendance_type']);
+    // print_r($item['attendance_type']);
     $speaker_1 = 0;
     $chairperson_1 = 0;
     $panel_1 = 0;
@@ -52,11 +52,11 @@ foreach ($day_1_e as $item_1) {
 }
 
 foreach ($day_2 as $item_2) {
-    print_r($item['attendance_type']);
+    // print_r($item['attendance_type']);
 }
 
 foreach ($day_3 as $item_3) {
-    print_r($item['attendance_type']);
+    // print_r($item['attendance_type']);
 }
 
 /**총 user 수 */
