@@ -1,27 +1,39 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-th,
-td {
-    text-align: center !important;
-    border: 2px solid rgb(163 163 163);
-    font-weight: 600;
-    font-size: 1.5rem;
-    line-height: 2rem;
-}
+    th,
+    td {
+        text-align: center !important;
+        border: 2px solid rgb(163 163 163);
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
 
-tr {
-    height: 4.5rem;
-    border: 2px solid rgb(163 163 163);
-    font-weight: 600;
-    font-size: 1.5rem;
-    line-height: 2rem;
-}
+    tr {
+        height: 4.5rem;
+        border: 2px solid rgb(163 163 163);
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
 
-.total_table {
-    width: 240px;
-}
+    .total_table {
+        width: 240px;
+    }
 </style>
 <?php
+
+/**
+ * $attendancd_type_1 => day 1 국내 
+ * $attendancd_type_1_e => day 1 국외 
+ * 
+ * $attendancd_type_2 => day 2 국내 
+ * $attendancd_type_2_e => day 2 국외
+ * 
+ * $attendancd_type_3 => day 3 국내 
+ * $attendancd_type_3_e => day 3 국외
+ */
+
 foreach ($day_1 as $item_1) {
     // print_r($item['attendance_type']);
     $speaker_1 = 0;
@@ -31,28 +43,114 @@ foreach ($day_1 as $item_1) {
     $organizer_1 = 0;
     $preceptor_1 = 0;
     $press_1 = 0;
+    $participant_1 = 0;
     $others_1 = 0;
     if ($item['attendance_type'] == "Speaker") {
         $speaker_1 = $speaker_1 + 1;
     }
+    if ($item['attendance_type'] == "Chairperson") {
+        $chairperson_1 = $chairperson_1 + 1;
+    }
+    if ($item['attendance_type'] == "Panel") {
+        $panel_1 = $panel_1 + 1;
+    }
+    if ($item['attendance_type'] == "Moderator") {
+        $moderator_1 = $moderator_1 + 1;
+    }
+    if ($item['attendance_type'] == "Organizer") {
+        $organizer_1 = $organizer_1 + 1;
+    }
+    if ($item['attendance_type'] == "Preceptor") {
+        $preceptor_1 = $preceptor_1 + 1;
+    }
+    if ($item['attendance_type'] == "Press") {
+        $press_1 = $press_1 + 1;
+    }
+    if ($item['attendance_type'] == "Participant" || $item['attendance_type'] == "Satellite Attendee" || $item['attendance_type'] == "Oral Presenter" || $item['attendance_type'] == "Poster Oral Presenter") {
+        $participant_1 = $participant_1 + 1;
+    }
+    if ($item['attendance_type'] == "Staff" || $item['attendance_type'] == "Exhibitor") {
+        $others_1 = $others_1 + 1;
+    }
 }
-foreach ($day_1_e as $item_1) {
+foreach ($day_1_e as $item_1_e) {
     // print_r($item['attendance_type']);
-    $speaker_1 = 0;
-    $chairperson_1 = 0;
-    $panel_1 = 0;
-    $moderator_1 = 0;
-    $organizer_1 = 0;
-    $preceptor_1 = 0;
-    $press_1 = 0;
-    $others_1 = 0;
+    $speaker_1_e = 0;
+    $chairperson_1_e = 0;
+    $panel_1_e = 0;
+    $moderator_1_e = 0;
+    $organizer_1_e = 0;
+    $preceptor_1_e = 0;
+    $press_1_e = 0;
+    $participant_1_e = 0;
+    $others_1_e = 0;
     if ($item['attendance_type'] == "Speaker") {
-        $speaker_1 = $speaker_1 + 1;
+        $speaker_1_e = $speaker_1_e + 1;
+    }
+    if ($item['attendance_type'] == "Chairperson") {
+        $chairperson_1_e = $chairperson_1_e + 1;
+    }
+    if ($item['attendance_type'] == "Panel") {
+        $panel_1_e = $panel_1_e + 1;
+    }
+    if ($item['attendance_type'] == "Moderator") {
+        $moderator_1_e = $moderator_1_e + 1;
+    }
+    if ($item['attendance_type'] == "Organizer") {
+        $organizer_1_e = $organizer_1_e + 1;
+    }
+    if ($item['attendance_type'] == "Preceptor") {
+        $preceptor_1_e = $preceptor_1_e + 1;
+    }
+    if ($item['attendance_type'] == "Press") {
+        $press_1_e = $press_1_e + 1;
+    }
+    if ($item['attendance_type'] == "Participant" || $item['attendance_type'] == "Satellite Attendee" || $item['attendance_type'] == "Oral Presenter" || $item['attendance_type'] == "Poster Oral Presenter") {
+        $participant_1_e = $participant_1_e + 1;
+    }
+    if ($item['attendance_type'] == "Staff" || $item['attendance_type'] == "Exhibitor") {
+        $others_1_e = $others_1_e + 1;
     }
 }
 
 foreach ($day_2 as $item_2) {
     // print_r($item['attendance_type']);
+    $speaker_2 = 0;
+    $chairperson_2 = 0;
+    $panel_2 = 0;
+    $moderator_2 = 0;
+    $organizer_2 = 0;
+    $preceptor_2 = 0;
+    $press_2 = 0;
+    $participant_2 = 0;
+    $others_2 = 0;
+    if ($item['attendance_type'] == "Speaker") {
+        $speaker_2 = $speaker_2 + 1;
+    }
+    if ($item['attendance_type'] == "Chairperson") {
+        $chairperson_1 = $chairperson_1 + 1;
+    }
+    if ($item['attendance_type'] == "Panel") {
+        $panel_1 = $panel_1 + 1;
+    }
+    if ($item['attendance_type'] == "Moderator") {
+        $moderator_1 = $moderator_1 + 1;
+    }
+    if ($item['attendance_type'] == "Organizer") {
+        $organizer_1 = $organizer_1 + 1;
+    }
+    if ($item['attendance_type'] == "Preceptor") {
+        $preceptor_1 = $preceptor_1 + 1;
+    }
+    if ($item['attendance_type'] == "Press") {
+        $press_1 = $press_1 + 1;
+    }
+    if ($item['attendance_type'] == "Participant" || $item['attendance_type'] == "Satellite Attendee" || $item['attendance_type'] == "Oral Presenter" || $item['attendance_type'] == "Poster Oral Presenter") {
+        $participant_1 = $participant_1 + 1;
+    }
+    if ($item['attendance_type'] == "Staff" || $item['attendance_type'] == "Exhibitor") {
+        $others_1 = $others_1 + 1;
+    }
 }
 
 foreach ($day_3 as $item_3) {
