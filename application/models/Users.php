@@ -245,31 +245,75 @@ class Users extends CI_Model
 		return $this->db->get($this->users)->result_array();
 	}
 
-	public function get_access_statistics()
+	/**day 1 access & korean */
+	public function get_access_statistics_k_1()
 	{
-		//etc 3이 0 -> 사전등록/ 1 -> 현장등록 
 		$query = $this->db->query("
-		SELECT
-		u.attendance_type,
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-26' AND u.onsite_reg != 'On-site registration' AND u.nation = 'Korea' THEN u.registration_no END) AS 'AK_01',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-26' AND u.onsite_reg != 'On-site registration' AND u.nation != 'Korea' THEN u.registration_no END) AS 'A_01',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-26' AND u.onsite_reg = 'On-site registration' AND u.nation = 'Korea' THEN u.registration_no END) AS 'RK_01',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-26' AND u.onsite_reg = 'On-site registration' AND u.nation != 'Korea' THEN u.registration_no END) AS 'R_01',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-27' AND u.onsite_reg != 'On-site registration' AND u.nation = 'Korea' THEN u.registration_no END) AS 'AK_02',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-27' AND u.onsite_reg != 'On-site registration' AND u.nation != 'Korea' THEN u.registration_no END) AS 'A_02',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-27' AND u.onsite_reg = 'On-site registration' AND u.nation != 'Korea' THEN u.registration_no END) AS 'R_02',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-27' AND u.onsite_reg = 'On-site registration' AND u.nation = 'Korea' THEN u.registration_no END) AS 'RK_02',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-28' AND u.onsite_reg != 'On-site registration' AND u.nation = 'Korea' THEN u.registration_no END) AS 'AK_03',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-28' AND u.onsite_reg != 'On-site registration' AND u.nation != 'Korea' THEN u.registration_no END) AS 'A_03',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-28' AND u.onsite_reg = 'On-site registration' AND u.nation = 'Korea' THEN u.registration_no END) AS 'RK_03',
-		COUNT(DISTINCT CASE WHEN DATE(a.time) = '2023-10-28' AND u.onsite_reg = 'On-site registration' AND u.nation != 'Korea' THEN u.registration_no END) AS 'R_03'
-	FROM
-		users u
-	 LEFT JOIN
-		  access a ON u.registration_no = a.registration_no AND (DATE(a.time) = '2023-10-26' OR DATE(a.time) = '2023-10-27' OR DATE(a.time) = '2023-10-28')
-	
-	GROUP BY
-		u.attendance_type;");
+	SELECT *
+	FROM users a
+	WHERE a.qr_chk_day_1 = 'Y' AND a.nation = 'Korea'
+	ORDER BY a.id ASC
+	");
+		return $query->result_array();
+	}
+
+	/**day 1 access & no korean */
+	public function get_access_statistics_e_1()
+	{
+		$query = $this->db->query("
+		SELECT *
+		FROM users a
+		WHERE a.qr_chk_day_1 = 'Y' AND a.nation != 'Korea'
+		ORDER BY a.id ASC
+	");
+		return $query->result_array();
+	}
+
+	/**day 2 access & korean */
+	public function get_access_statistics_k_2()
+	{
+		$query = $this->db->query("
+	SELECT *
+	FROM users a
+	WHERE a.qr_chk_day_2 = 'Y' AND a.nation = 'Korea'
+	ORDER BY a.id ASC
+	");
+		return $query->result_array();
+	}
+
+	/**day 2 access & no korean */
+	public function get_access_statistics_e_2()
+	{
+		$query = $this->db->query("
+	SELECT *
+	FROM users a
+	WHERE a.qr_chk_day_2 = 'Y' AND a.nation != 'Korea'
+	ORDER BY a.id ASC
+	");
+		return $query->result_array();
+	}
+
+	/**day 3 access & korean */
+	public function get_access_statistics_k_3()
+	{
+		$query = $this->db->query("
+	SELECT *
+	FROM users a
+	WHERE a.qr_chk_day_3 = 'Y' AND a.nation = 'Korea'
+	ORDER BY a.id ASC
+	");
+		return $query->result_array();
+	}
+
+	/**day 3 access & no korean */
+	public function get_access_statistics_e_3()
+	{
+		$query = $this->db->query("
+	SELECT *
+	FROM users a
+	WHERE a.qr_chk_day_3 = 'Y' AND a.nation != 'Korea'
+	ORDER BY a.id ASC
+	");
 		return $query->result_array();
 	}
 }

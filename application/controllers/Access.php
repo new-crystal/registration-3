@@ -476,6 +476,31 @@ class Access extends CI_Controller
                     'registration_no' => $qrcode
                 );
 
+
+                /** day1 ~ day3 access 기록*/
+                $qr_time = date("Y-m-d");
+                if ($qr_time == '2023-10-20') {
+                    $infoqr = array(
+                        'qr_chk_day_1' => 'Y',
+                        'qr_chk' => 'Y'
+                    );
+                    $this->users->update_qr_status($infoqr, $where);
+                }
+                if ($qr_time == '2023-10-27') {
+                    $infoqr = array(
+                        'qr_chk_day_2' =>  'Y',
+                        'qr_chk' => 'Y'
+                    );
+                    $this->users->update_qr_status($infoqr, $where);
+                }
+                if ($qr_time == '2023-10-28') {
+                    $infoqr = array(
+                        'qr_chk_day_3' =>  'Y',
+                        'qr_chk' => 'Y'
+                    );
+                    $this->users->update_qr_status($infoqr, $where);
+                }
+
                 if ($this->entrance->record($info)) {
                     $userName = $this->users->get_user($where);
                     //                  var_dump($userName['nick_name']);
@@ -698,6 +723,30 @@ class Access extends CI_Controller
                 $where = array(
                     'registration_no' => $qrcode
                 );
+
+                /** day1 ~ day3 access 기록*/
+                $qr_time = date("Y-m-d");
+                if ($qr_time == '2023-10-20') {
+                    $infoqr = array(
+                        'qr_chk_day_1' => 'Y',
+                        'qr_chk' => 'Y'
+                    );
+                    $this->users->update_qr_status($infoqr, $where);
+                }
+                if ($qr_time == '2023-10-27') {
+                    $infoqr = array(
+                        'qr_chk_day_2' =>  'Y',
+                        'qr_chk' => 'Y'
+                    );
+                    $this->users->update_qr_status($infoqr, $where);
+                }
+                if ($qr_time == '2023-10-28') {
+                    $infoqr = array(
+                        'qr_chk_day_3' =>  'Y',
+                        'qr_chk' => 'Y'
+                    );
+                    $this->users->update_qr_status($infoqr, $where);
+                }
 
                 if ($this->entrance->record($info)) {
                     $userName = $this->users->get_user($where);
