@@ -329,25 +329,25 @@ class OnSite extends CI_Controller
                             if ($nation == "Korea") {
                                 $fee = "KRW 250,000";
                             } else {
-                                $fee = "USD 250";
+                                $fee = "USD 250(KRW 337,500)";
                             }
                         } else if ($member_type == "Trainee" || $member_type == "Student") {
                             if ($nation == "Korea") {
                                 $fee = "KRW 125,000";
                             } else {
-                                $fee = "USD 125";
+                                $fee = "USD 125(KRW 168,750)";
                             }
                         } else if ($member_type == "Corporate" || $member_type == "Other") {
                             if ($nation === "Korea") {
                                 $fee = "KRW 200,000";
                             } else {
-                                $fee = "USD 200";
+                                $fee = "USD 200(KRW 270,000)";
                             }
                         } else {
                             if ($nation == "Korea") {
                                 $fee = "KRW 200,000";
                             } else {
-                                $fee = "USD 200";
+                                $fee = "USD 200(KRW 270,000)";
                             }
                         }
                     }
@@ -357,7 +357,7 @@ class OnSite extends CI_Controller
                         if ($nation == "Korea") {
                             $fee = "KRW 200,000";
                         } else {
-                            $fee = "USD 200";
+                            $fee = "USD 200(KRW 270,000)";
                         }
                     }
                 } else if ($kes_member_status == 'N') {
@@ -368,25 +368,25 @@ class OnSite extends CI_Controller
                             if ($nation == "Korea") {
                                 $fee = "KRW 350,000";
                             } else {
-                                $fee = "USD 350";
+                                $fee = "USD 350(KRW 472,500)";
                             }
                         } else if ($member_type == "Trainee" ||  $member_type == "Student") {
                             if ($nation == "Korea") {
                                 $fee = "KRW 175,000";
                             } else {
-                                $fee = "USD 175";
+                                $fee = "USD 175(KRW 236,250)";
                             }
                         } else if ($member_type == "Corporate" || $member_type == "Other") {
                             if ($nation == "Korea") {
                                 $fee = "KRW 250,000";
                             } else {
-                                $fee = "USD 250";
+                                $fee = "USD 250(KRW 337,500)";
                             }
                         } else {
                             if ($nation == "Korea") {
                                 $fee = "KRW 250,000";
                             } else {
-                                $fee = "USD 250";
+                                $fee = "USD 250(KRW 337,500)";
                             }
                         }
                     }
@@ -396,7 +396,7 @@ class OnSite extends CI_Controller
                         if ($nation == "Korea") {
                             $fee = "KRW 230,000";
                         } else {
-                            $fee = "USD 230";
+                            $fee = "USD 230(KRW 310,500)";
                         }
                     }
                 }
