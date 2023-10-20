@@ -244,7 +244,7 @@ foreach ($day_1_e as $item_1_e) {
         if ($item_1_e['attendance_type'] == "Participant" || $item_1_e['attendance_type'] == "Satellite Attendee" || $item_1_e['attendance_type'] == "Oral Presenter" || $item_1_e['attendance_type'] == "Poster Oral Presenter") {
             $on_participant_1_e = $on_participant_1_e + 1;
         }
-        if ($ititem_1_eem['attendance_type'] == "Staff" || $item_1_e['attendance_type'] == "Exhibitor") {
+        if ($item_1_e['attendance_type'] == "Staff" || $item_1_e['attendance_type'] == "Exhibitor") {
             $on_others_1_e = $on_others_1_e + 1;
         }
     } else {
@@ -358,7 +358,7 @@ foreach ($day_2_e as $item_2_e) {
             $on_panel_2_e = $on_panel_2_e + 1;
         }
         if ($item_2_e['attendance_type'] == "Moderator") {
-            $on_moderator_2_e = $moderatoron_moderator_2_e_2_e + 1;
+            $on_moderator_2_e = $on_moderator_2_e + 1;
         }
         if ($item_2_e['attendance_type'] == "Organizer") {
             $on_organizer_2_e = $on_organizer_2_e + 1;
