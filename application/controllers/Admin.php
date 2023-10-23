@@ -594,6 +594,7 @@ class Admin extends CI_Controller
                 $remark7 = $this->input->post('remark7');
                 $remark8 = $this->input->post('remark8');
                 $first_time_yn = $this->input->post('first_time_yn');
+                $deposit_method = $this->input->post('deposit_method');
                 // $remark5 = $this->input->post('remark5');
                 $special_request_food = $this->input->post('special_request_food');
                 $fee = 0;
@@ -638,6 +639,7 @@ class Admin extends CI_Controller
                     'remark8' => $remark8,
                     'first_time_yn' => $first_time_yn,
                     'special_request_food' => $special_request_food,
+                    'deposit_method' => $deposit_method
                 );
                 //                var_dump($info);
                 $this->users->add_onsite_user($info);
