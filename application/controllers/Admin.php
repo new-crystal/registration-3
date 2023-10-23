@@ -568,6 +568,9 @@ class Admin extends CI_Controller
             if ($this->form_validation->run() === FALSE) {
                 $this->load->view('admin/add_user');
             } else {
+                $attendance_type = $this->input->post('attendance_type');
+                $member_type = $this->input->post('member_type');
+                $member_other_type = $this->input->post('member_other_type');
                 $name_kor = $this->input->post('name_kor');
                 $license = $this->input->post('licence_number');
                 $affiliation = $this->input->post('affiliation');
@@ -575,21 +578,22 @@ class Admin extends CI_Controller
                 $department = $this->input->post('department');
                 $phone = $this->input->post('phone');
                 $email = $this->input->post('email');
-                $member_type = $this->input->post('member_type');
                 $kes_member_status = $this->input->post('kes_member_status');
                 // $deposit_date = $this->input->post('deposit_date');
                 // $deposit_name = $this->input->post('deposit_name');
                 $deposit = '미결제';
                 $memo = $this->input->post('memo');
-                $attendance_type = $this->input->post('attendance_type');
                 $specialty_number = $this->input->post('specialty_number');
                 $first_name = $this->input->post('first_name');
                 $last_name = $this->input->post('last_name');
                 $nation = $this->input->post('nation');
                 $remark1 = $this->input->post('remark1');
                 $remark2 = $this->input->post('remark2');
+                $copy_yn = $this->input->post('copy_yn');
                 $remark6 = $this->input->post('remark6');
                 $remark7 = $this->input->post('remark7');
+                $remark8 = $this->input->post('remark8');
+                $first_time_yn = $this->input->post('first_time_yn');
                 // $remark5 = $this->input->post('remark5');
                 $special_request_food = $this->input->post('special_request_food');
                 $fee = 0;
@@ -614,6 +618,7 @@ class Admin extends CI_Controller
                     // 'addr' => trim($addr),
                     // 'type' => trim($type),
                     'member_type' => trim($member_type),
+                    'member_other_type' => trim($member_other_type),
                     'kes_member_status' => $kes_member_status,
                     'fee' => $fee,
                     'time' => $time,
@@ -627,8 +632,11 @@ class Admin extends CI_Controller
                     'nation' => $nation,
                     'remark1' => $remark1,
                     'remark2' => $remark2,
+                    'copy_yn' => $copy_yn,
                     'remark6' => $remark6,
                     'remark7' => $remark7,
+                    'remark8' => $remark8,
+                    'first_time_yn' => $first_time_yn,
                     'special_request_food' => $special_request_food,
                 );
                 //                var_dump($info);

@@ -151,12 +151,13 @@
                                     <input id="dp1" type="text" size="16" class="form-control" name="deposit_date">
                                 </div>
                             </div> -->
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">메모</label>
+                            <div class="form-group" style="display:none">
+                                <label class="col-sm-2 control-label">remark1(명찰케이스)</label>
                                 <div class="col-sm-10">
-                                    <input id="dp1" type="text" size="16" class="form-control" name="memo">
+                                    <input id="dp1" type="text" size="16" class="form-control">
                                 </div>
                             </div>
+
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">remark1(명찰케이스)</label>
                                 <div class="col-sm-10">
@@ -167,6 +168,24 @@
                                 <label class="col-sm-2 control-label">remark2(리본)</label>
                                 <div class="col-sm-10">
                                     <input id="dp1" type="text" size="16" class="form-control" name="remark2">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">첫번째 참석 유무</label>
+                                <div class="col-sm-10">
+                                    <input id="dp1" type="text" size="16" class="form-control" name="first_time_yn">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">remark4(Abstract book copy)</label>
+                                <div class="col-sm-10">
+                                    <input id="dp1" type="text" size="16" class="form-control" name="copy_yn">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> Special Request for Food</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="special_request_food" id="special_request_food">
                                 </div>
                             </div>
                             <!-- <div class="form-group">
@@ -185,6 +204,18 @@
                                 <label class="col-sm-2 control-label">remark7(Gala dinner Table number)</label>
                                 <div class="col-sm-10">
                                     <input id="dp1" type="text" size="16" class="form-control" name="remark7">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">remark8(Presidential Dinner)</label>
+                                <div class="col-sm-10">
+                                    <input id="dp1" type="text" size="16" class="form-control" name="remark8">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">메모</label>
+                                <div class="col-sm-10">
+                                    <input id="dp1" type="text" size="16" class="form-control" name="memo">
                                 </div>
                             </div>
                             <!-- <div class="form-group">
@@ -229,12 +260,7 @@
                                         name="date_of_birth" id="deposit_name">
                                 </div>
                             </div> -->
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"> Special Request for Food</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="text" name="special_request_food" id="special_request_food">
-                                </div>
-                            </div>
+
                             <div clss="btn_group" style="float: right;">
                                 <button type="submit" class="btn btn-primary">등록</button>
                             </div>
