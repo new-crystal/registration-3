@@ -91,12 +91,12 @@
 
     .tag_name {
         position: relative;
-        top: 280px;
+        top: 285px;
     }
 
     .tag_price {
         position: relative;
-        top: 245px;
+        top: 265px;
     }
 
     .long_tag>.tag_name {
@@ -104,7 +104,7 @@
     }
 
     .long_tag>.tag_price {
-        top: 250px;
+        top: 270px;
     }
 
     .three {
