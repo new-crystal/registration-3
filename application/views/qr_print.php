@@ -64,7 +64,8 @@
 
     .small {
         font-size: 34px !important;
-        line-height: 64px !important;
+        line-height: 50px !important;
+        padding: 30px 10px 0 10px !important;
     }
 
     .org_small {
