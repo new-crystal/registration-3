@@ -40,6 +40,7 @@
  * $attendancd_type_3_e => day 3 국외 사전등록
  */
 
+/**day 1 korean onsite */
 $on_speaker_1 = 0;
 $on_chairperson_1 = 0;
 $on_panel_1 = 0;
@@ -50,6 +51,7 @@ $on_press_1 = 0;
 $on_participant_1 = 0;
 $on_others_1 = 0;
 
+/**day1 korean pre-registration */
 $speaker_1 = 0;
 $chairperson_1 = 0;
 $panel_1 = 0;
@@ -60,6 +62,7 @@ $press_1 = 0;
 $participant_1 = 0;
 $others_1 = 0;
 
+/**day1 eng onsite*/
 $on_speaker_1_e = 0;
 $on_chairperson_1_e = 0;
 $on_panel_1_e = 0;
@@ -70,6 +73,7 @@ $on_press_1_e = 0;
 $on_participant_1_e = 0;
 $on_others_1_e = 0;
 
+/**day1 eng pre-regi*/
 $speaker_1_e = 0;
 $chairperson_1_e = 0;
 $panel_1_e = 0;
@@ -80,6 +84,7 @@ $press_1_e = 0;
 $participant_1_e = 0;
 $others_1_e = 0;
 
+/**day 2 korean onsite */
 $on_speaker_2 = 0;
 $on_chairperson_2 = 0;
 $on_panel_2 = 0;
@@ -90,6 +95,7 @@ $on_press_2 = 0;
 $on_participant_2 = 0;
 $on_others_2 = 0;
 
+/**day2 korean pre-registration */
 $speaker_2 = 0;
 $chairperson_2 = 0;
 $panel_2 = 0;
@@ -100,6 +106,7 @@ $press_2 = 0;
 $participant_2 = 0;
 $others_2 = 0;
 
+/**day2 eng onsite*/
 $on_speaker_2_e = 0;
 $on_chairperson_2_e = 0;
 $on_panel_2_e = 0;
@@ -110,6 +117,20 @@ $on_press_2_e = 0;
 $on_participant_2_e = 0;
 $on_others_2_e = 0;
 
+
+/**day2 eng pre-regi*/
+$speaker_2_e = 0;
+$chairperson_2_e = 0;
+$panel_2_e = 0;
+$moderator_2_e = 0;
+$organizer_2_e = 0;
+$preceptor_2_e = 0;
+$press_2_e = 0;
+$participant_2_e = 0;
+$others_2_e = 0;
+
+
+/**day 3 korean onsite */
 $on_speaker_3 = 0;
 $on_chairperson_3 = 0;
 $on_panel_3 = 0;
@@ -120,6 +141,7 @@ $on_press_3 = 0;
 $on_participant_3 = 0;
 $on_others_3 = 0;
 
+/**day3 korean pre-registration */
 $speaker_3 = 0;
 $chairperson_3 = 0;
 $panel_3 = 0;
@@ -130,7 +152,7 @@ $press_3 = 0;
 $participant_3 = 0;
 $others_3 = 0;
 
-
+/**day3 eng onsite*/
 $on_speaker_3_e = 0;
 $on_chairperson_3_e = 0;
 $on_panel_3_e = 0;
@@ -141,6 +163,7 @@ $on_press_3_e = 0;
 $on_participant_3_e = 0;
 $on_others_3_e = 0;
 
+/**day3 eng pre-regi*/
 $speaker_3_e = 0;
 $chairperson_3_e = 0;
 $panel_3_e = 0;
@@ -150,6 +173,8 @@ $preceptor_3_e = 0;
 $press_3_e = 0;
 $participant_3_e = 0;
 $others_3_e = 0;
+
+
 foreach ($day_1 as $item_1) {
 
     /**현장등록 & day1 & 국내 */
@@ -821,19 +846,31 @@ $day_3_users = count($day_3) + count($day_3_e);
 
         <tr>
             <th class="bg-red-100" colspan="2">계</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td rowspan="2"></td>
+            <td class="day_1_e">
+                <?php echo  $speaker_1_e + $chairperson_1_e + $panel_1_e + $moderator_1_e + $organizer_1_e + $preceptor_1_e + $press_1_e + $participant_1_e + $others_1_e   ?>
+            </td>
+            <td class="day_1">
+                <?php echo  $speaker_1 + $chairperson_1 + $panel_1 + $moderator_1 + $organizer_1 + $preceptor_1 + $press_1 + $participant_1 + $others_1   ?>
+            </td>
+            <td class="day_2_e">
+                <?php echo  $speaker_2_e + $chairperson_2_e + $panel_2_e + $moderator_2_e + $organizer_2_e + $preceptor_2_e + $press_2_e + $participant_2_e + $others_2_e   ?>
+            </td>
+            <td class="day_2">
+                <?php echo  $speaker_2 + $chairperson_2 + $panel_2 + $moderator_2 + $organizer_2 + $preceptor_2 + $press_2 + $participant_2 + $others_2   ?>
+            </td>
+            <td class="day_3_e">
+                <?php echo  $speaker_3_e + $chairperson_3_e + $panel_3_e + $moderator_3_e + $organizer_3_e + $preceptor_3_e + $press_3_e + $participant_3_e + $others_3_e   ?>
+            </td>
+            <td class="day_3">
+                <?php echo  $speaker_3 + $chairperson_3 + $panel_3 + $moderator_3 + $organizer_3 + $preceptor_3 + $press_3 + $participant_3 + $others_3   ?>
+            </td>
+            <td rowspan="2" class="count_7"></td>
         </tr>
         <tr>
             <th class="bg-red-100" colspan="2">합계</th>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
+            <td colspan="2" class="count_1"></td>
+            <td colspan="2" class="count_2"></td>
+            <td colspan="2" class="count_3"></td>
         </tr>
 
         <tr>
@@ -1057,19 +1094,31 @@ $day_3_users = count($day_3) + count($day_3_e);
         </tr>
         <tr>
             <th class="bg-blue-100" colspan="2">계</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td rowspan="2"></td>
+            <td class="on_day_1_e">
+                <?php echo  $on_speaker_1_e + $on_chairperson_1_e + $on_panel_1_e + $on_moderator_1_e + $on_organizer_1_e + $on_preceptor_1_e + $on_press_1_e + $on_participant_1_e + $on_others_1_e   ?>
+            </td>
+            <td class="on_day_1">
+                <?php echo  $on_speaker_1 + $on_chairperson_1 + $on_panel_1 + $on_moderator_1 + $on_organizer_1 + $on_preceptor_1 + $on_press_1 + $on_participant_1 + $on_others_1   ?>
+            </td>
+            <td class="on_day_2_e">
+                <?php echo  $on_speaker_2_e + $on_chairperson_2_e + $on_panel_2_e + $on_moderator_2_e + $on_organizer_2_e + $on_preceptor_2_e + $on_press_2_e + $on_participant_2_e + $on_others_2_e   ?>
+            </td>
+            <td class="on_day_2">
+                <?php echo  $on_speaker_2 + $on_chairperson_2 + $on_panel_2 + $on_moderator_2 + $on_organizer_2 + $on_preceptor_2 + $on_press_2 + $on_participant_2 + $on_others_2   ?>
+            </td>
+            <td class="on_day_3_e">
+                <?php echo  $on_speaker_3_e + $on_chairperson_3_e + $on_panel_3_e + $on_moderator_3_e + $on_organizer_3_e + $on_preceptor_3_e + $on_press_3_e + $on_participant_3_e + $on_others_3_e   ?>
+            </td>
+            <td class="on_day_3">
+                <?php echo  $on_speaker_3 + $on_chairperson_3 + $on_panel_3 + $on_moderator_3 + $on_organizer_3 + $on_preceptor_3 + $on_press_3 + $on_participant_3 + $on_others_3   ?>
+            </td>
+            <td rowspan="2" class="count_8"></td>
         </tr>
         <tr>
             <th class="bg-blue-100" colspan="2">합계</th>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
+            <td colspan="2" class="count_4"></td>
+            <td colspan="2" class="count_5"></td>
+            <td colspan="2" class="count_6"></td>
         </tr>
 
     </table>
@@ -1079,3 +1128,46 @@ $day_3_users = count($day_3) + count($day_3_e);
 
 </div>
 <!-- /page container -->
+
+<script>
+    const day_1_e = document.querySelector(".day_1_e")
+    const day_1 = document.querySelector(".day_1")
+    const on_day_1_e = document.querySelector(".on_day_1_e")
+    const on_day_1 = document.querySelector(".on_day_1_e")
+
+    const day_2_e = document.querySelector(".day_2_e")
+    const day_2 = document.querySelector(".day_2")
+    const on_day_2_e = document.querySelector(".on_day_2_e")
+    const on_day_2 = document.querySelector(".on_day_2")
+
+    const day_3_e = document.querySelector(".day_3_e")
+    const day_3 = document.querySelector(".day_3")
+    const on_day_3_e = document.querySelector(".on_day_3_e")
+    const on_day_3 = document.querySelector(".on_day_3")
+
+    const count_1 = document.querySelector(".count_1")
+    const count_2 = document.querySelector(".count_2")
+    const count_3 = document.querySelector(".count_3")
+    const count_4 = document.querySelector(".count_4")
+    const count_5 = document.querySelector(".count_5")
+    const count_6 = document.querySelector(".count_6")
+
+    const count_7 = document.querySelector(".count_7")
+    const count_8 = document.querySelector(".count_8")
+
+    const addNum = () => {
+        count_1.innerText = Number(day_1_e.innerText) + Number(day_1.innerText);
+        count_2.innerText = Number(day_2_e.innerText) + Number(day_2.innerText);
+        count_3.innerText = Number(day_3_e.innerText) + Number(day_3.innerText);
+        count_4.innerText = Number(on_day_1_e.innerText) + Number(on_day_1.innerText);
+        count_5.innerText = Number(on_day_2_e.innerText) + Number(on_day_2.innerText);
+        count_6.innerText = Number(on_day_3_e.innerText) + Number(on_day_3.innerText);
+
+        count_7.innerText = Number(count_1.innerText) + Number(count_2.innerText) + Number(count_3.innerText)
+        count_8.innerText = Number(count_4.innerText) + Number(count_5.innerText) + Number(count_6.innerText)
+    }
+
+
+
+    addNum()
+</script>
