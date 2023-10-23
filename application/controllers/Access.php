@@ -479,7 +479,7 @@ class Access extends CI_Controller
 
                 /** day1 ~ day3 access 기록*/
                 $qr_time = date("Y-m-d");
-                if ($qr_time == '2023-10-20') {
+                if ($qr_time == '2023-10-26') {
                     $infoqr = array(
                         'qr_chk_day_1' => 'Y',
                         'qr_chk' => 'Y'
@@ -726,7 +726,7 @@ class Access extends CI_Controller
 
                 /** day1 ~ day3 access 기록*/
                 $qr_time = date("Y-m-d");
-                if ($qr_time == '2023-10-20') {
+                if ($qr_time == '2023-10-26') {
                     $infoqr = array(
                         'qr_chk_day_1' => 'Y',
                         'qr_chk' => 'Y'
