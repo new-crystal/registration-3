@@ -82,7 +82,7 @@ if ($item['kes_member_status'] != "Non-Member" && $item['first_time_yn'] == 'Y')
                                     <td style="background-color:#fafafa;"> <input class="form-control" type="text" value="<?php echo $item['registration_no']; ?>" name="registration_no" id="registration_no" readonly></td>
                                 </tr>
                                 <tr>
-                                    <th>국적구분</th>
+                                    <th>국적구분<br>(수정불가)</th>
                                     <td> <input class="form-control" type="text" value="<?php echo $contry;  ?>" name="contry" id="contry" disabled></td>
                                 </tr>
                                 <tr>
@@ -95,8 +95,8 @@ if ($item['kes_member_status'] != "Non-Member" && $item['first_time_yn'] == 'Y')
                                     <td> <input class="form-control" type="text" value="<?php echo $item['onsite_reg'];  ?>" name="onsite_reg" id="onsite_reg"></td>
                                 </tr>
                                 <tr>
-                                    <th>Attendance date<br>(Full / One)</th>
-                                    <td> <input class="form-control" type="text" value="<?php echo $date; ?>" name="date" id="date"></td>
+                                    <th>Attendance date<br>(Full / One)<br>(수정불가)</th>
+                                    <td> <input class="form-control" type="text" value="<?php echo $date; ?>" name="date" id="date" disabled></td>
                                 </tr>
                                 <tr>
                                     <th>KES Membership Check-up</th>
@@ -111,7 +111,10 @@ if ($item['kes_member_status'] != "Non-Member" && $item['first_time_yn'] == 'Y')
                                     <td>
                                         <div style="display: flex; align-items: center;"><span>firstname:</span> <input class="form-control" type="text" value="<?php echo $item['first_name']; ?>" name="first_name" id="nick_name"></div>
                                         <div style="display: flex; align-items: center;"><span>lastname:</span> <input class="form-control" type="text" value="<?php echo $item['last_name']; ?>" name="last_name" id="nick_name"></div>
-                                        <div style="display: flex; align-items: center;"><span> fullname:</span> <input class="form-control" type="text" value="<?php echo $item['first_name'] . " " . $item['last_name']; ?>" name="fullname" id="nick_name" disabled></div>
+                                        <div style="display: flex; align-items: center;"><span>
+                                                fullname<br>(수정불가):</span>
+                                            <input class="form-control" type="text" value="<?php echo $item['first_name'] . " " . $item['last_name']; ?>" name="fullname" id="nick_name" disabled>
+                                        </div>
                                         <div style="display: flex; align-items: center;">
                                             <p>성함(국문):</p> <input class="form-control" type="text" style="width:230px" value="<?php echo $item['name_kor']; ?>" name="name_kor" id="nick_name">
                                         </div>
@@ -173,7 +176,7 @@ if ($item['kes_member_status'] != "Non-Member" && $item['first_time_yn'] == 'Y')
                                     <td> <input class="form-control" type="text" value="<?php echo $item['attendance_type']; ?>" name="attendance_type" id="attendance_type"></td>
                                 </tr>
                                 <tr>
-                                    <th>참석자구분1</th>
+                                    <th>참석자구분1<br>(수정불가)</th>
                                     <td> <input class="form-control" type="text" value="<?php echo $type1; ?>" name="type1" id="type1" disabled></td>
                                 </tr>
 
@@ -189,13 +192,10 @@ if ($item['kes_member_status'] != "Non-Member" && $item['first_time_yn'] == 'Y')
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>참석날짜</th>
-                                    <td> <input class="form-control" type="text" value="<?php echo $date; ?>" name="date" id="date"></td>
+                                    <th>참석날짜(수정용)</th>
+                                    <td> <input class="form-control" type="text" value="<?php echo $item['attendance_date']; ?>" name="attendance_date" id="date"></td>
                                 </tr>
-                                <tr>
-                                    <th>참석날짜2</th>
-                                    <td> <input class="form-control" type="text" value="<?php if ($item['attendance_date'] !== 'Full registration') echo $item['attendance_date']; ?>" name="attendance_date" id="date"></td>
-                                </tr>
+
                                 <tr>
                                     <th>E-mail</th>
                                     <td><input class="form-control" type="text" value="<?php echo $item['email']; ?>" name="email" id="email"></td>
@@ -314,7 +314,7 @@ if ($item['kes_member_status'] != "Non-Member" && $item['first_time_yn'] == 'Y')
                                 </tr>
                                 <tr>
                                     <th style="background-color: #fb8500">Remarks 3<br>(First Time Attendee (KES
-                                        Member))</th>
+                                        Member))<br>(수정불가)</th>
                                     <td><input class="form-control" type="text" name="remark" value="<?php echo $remark3; ?>" id="remark3" disabled>
                                     </td>
                                 </tr>
