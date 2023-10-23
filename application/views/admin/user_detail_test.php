@@ -113,7 +113,7 @@ if ($item['kes_member_status'] != "Non-Member" && $item['first_time_yn'] == 'Y')
                                         <div style="display: flex; align-items: center;"><span>lastname:</span> <input class="form-control" type="text" value="<?php echo $item['last_name']; ?>" name="last_name" id="nick_name"></div>
                                         <div style="display: flex; align-items: center;"><span> fullname:</span> <input class="form-control" type="text" value="<?php echo $item['first_name'] . " " . $item['last_name']; ?>" name="fullname" id="nick_name" disabled></div>
                                         <div style="display: flex; align-items: center;">
-                                            <p>name:</p> <input class="form-control" type="text" value="<?php echo $item['name_kor']; ?>" name="name_kor" id="nick_name">
+                                            <p>성함(국문):</p> <input class="form-control" type="text" style="width:230px" value="<?php echo $item['name_kor']; ?>" name="name_kor" id="nick_name">
                                         </div>
 
                                     </td>

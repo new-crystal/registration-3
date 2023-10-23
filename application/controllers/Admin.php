@@ -569,6 +569,7 @@ class Admin extends CI_Controller
                 $this->load->view('admin/add_user');
             } else {
                 $attendance_type = $this->input->post('attendance_type');
+                $attendance_date = $this->input->post('attendance_date');
                 $member_type = $this->input->post('member_type');
                 $member_other_type = $this->input->post('member_other_type');
                 $name_kor = $this->input->post('name_kor');
@@ -595,9 +596,13 @@ class Admin extends CI_Controller
                 $remark8 = $this->input->post('remark8');
                 $first_time_yn = $this->input->post('first_time_yn');
                 $deposit_method = $this->input->post('deposit_method');
+                $fee = $this->input->post('fee');
+                $etc4 = $this->input->post('etc4');
+                $etc2 = $this->input->post('etc2');
+                $etc1 = $this->input->post('etc1');
                 // $remark5 = $this->input->post('remark5');
                 $special_request_food = $this->input->post('special_request_food');
-                $fee = 0;
+                // $fee = 0;
 
                 // $addr = $address . " " . $detailAddress . " " . $extraAddress;
 
@@ -627,6 +632,7 @@ class Admin extends CI_Controller
                     'deposit' => $deposit,
                     'memo' => $memo,
                     'attendance_type' => $attendance_type,
+                    'attendance_date' => $attendance_date,
                     'specialty_number' => $specialty_number,
                     'first_name' => $first_name,
                     'last_name' => $last_name,
@@ -639,7 +645,10 @@ class Admin extends CI_Controller
                     'remark8' => $remark8,
                     'first_time_yn' => $first_time_yn,
                     'special_request_food' => $special_request_food,
-                    'deposit_method' => $deposit_method
+                    'deposit_method' => $deposit_method,
+                    'etc1' => $etc1,
+                    'etc2' => $etc2,
+                    'etc4' => $etc4
                 );
                 //                var_dump($info);
                 $this->users->add_onsite_user($info);
