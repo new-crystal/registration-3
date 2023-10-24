@@ -238,10 +238,11 @@ class Admin extends CI_Controller
                 'registration_no' => $value
             );
             $this->users->update_deposit_status($info, $where);
-
+            $time = date("Y-m-d H:i:s");
             /* QR생성 */
             $info = array(
-                'qr_generated' =>  'Y'
+                'qr_generated' =>  'Y',
+                'deposit_date' =>  $time
             );
             $where = array(
                 'registration_no' => $value
@@ -609,7 +610,6 @@ class Admin extends CI_Controller
                 $uagent = $this->agent->agent_string();
 
                 //            error_log(print_r($name, TRUE), 3, '/tmp/errors.log');
-
                 $info = array(
                     'name_kor' => preg_replace("/\s+/", "", $name_kor),
                     'licence_number' => preg_replace("/\s+/", "", $license),
