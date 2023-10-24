@@ -235,8 +235,7 @@ class Admin extends CI_Controller
                 'deposit' =>  '결제완료'
             );
             $where = array(
-                'registration_no' => $value,
-                'deposit' => '미결제'
+                'registration_no' => $value
             );
             $this->users->update_deposit_status($info, $where);
 
@@ -1821,7 +1820,7 @@ class Admin extends CI_Controller
 
                 $notice = $this->input->post('notice');
 
-                if ($memo === "") {
+                if ($notice === "") {
                     $info = array("notice" => null);
                 } else {
                     $info = array(

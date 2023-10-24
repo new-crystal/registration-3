@@ -49,7 +49,7 @@ if ($err) {
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_POSTFIELDS => array(
                 'phone' =>  $item['phone'],
-                'callback' => '01090224867',
+                'callback' => '01030098530',
                 'message' =>  '
 안녕하십니까,
 SICEM 2023에 등록해 주셔서 감사드리며, SICEM 사무국에서 참석 안내를 하기와 같이 드립니다. 함께 보내 드리는 등록 QR코드를 등록데스크에 제시해주시면 빠르고 원활한 등록이 가능하니 해당 QR코드를 저장하여 방문 부탁드립니다. 
