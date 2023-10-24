@@ -47,8 +47,8 @@ table {
                     usemap="#image-map">
                 <map name="image-map" id="#image-map">
                     <area target="_blank" alt="" title=""
-                        href="https://image.webeon.net/SICEM/1026/SICEM_2023_Abstract.pdf" coords="198,981,548,1045"
-                        shape="rect">
+                        href="https://186e4e806bf2d560.kinxzone.com/SICEM/abstract/SICEM_2023_Abstract.pdf"
+                        coords="198,981,548,1045" shape="rect">
                 </map>
             </td>
         </tr>
