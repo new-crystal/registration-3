@@ -158,7 +158,7 @@
 
                 /**닉네임 조건식 */
                 /**1. 총 글자 수 17글자 이하 */
-                if ($nicknameLength < 17 && $participant !== "Press") {
+                if ($nicknameLength < 17 && $nicknameLength > 4) {
                     echo '<div class="nick_name lang_en" id="first_name">' .  $users['first_name'] . '</div>';
                     echo '<div class="nick_name lang_en" id="last_name">' .  $users['last_name'] . '</div>';
                 }
@@ -177,15 +177,15 @@
                     echo '</div>';
                 }
                 /**3. 기자일때 */
-                else if ($participant === "Press") {
+                else if ($nicknameLength <= 4) {
                     echo '<div class="nick_name lang_en three" id="first_name">' .  $users['first_name'] .  $users['last_name'] .  '</div>';
                 }
                 /**1. 기자 아닐 때*/
-                if ($participant !== "Press") {
+                if ($nicknameLength > 4) {
                     echo '<div class="org" id="org">' . $users['org_nametag'] . ',' . ' ' . $users['nation'] . '</div>';
                 }
                 /**2. 기자일때 */
-                else if ($participant === "Press") {
+                else if ($nicknameLength <= 4) {
                     echo '<div class="org" id="org" style="height:70px;">' . $users['org_nametag'] . '</div>';
                 }
                 echo '<div id="qrcode" class=""><img src="/assets/images/QR/qrcode_' . $users['registration_no'] . '.jpg"></div>';
