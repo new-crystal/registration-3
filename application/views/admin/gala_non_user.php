@@ -21,6 +21,16 @@ table th {
     transform: translate(-50%, -50%);
 }
 </style>
+<?php
+$count = 0;
+foreach ($users as $item) {
+if($item['etc5'] !== 'Y'){
+    $count++;
+}
+}
+
+?>
+
 <!-- Main content -->
 <div class="content-wrapper">
     <!-- Page header -->
@@ -58,7 +68,7 @@ table th {
         <!-- Basic datatable -->
         <div class="panel panel-flat">
             <div class="panel-heading">
-                <h5 class="panel-title">등록 인원(<?php echo count($users) ?>)</h5>
+                <h5 class="panel-title">등록 인원(<?php echo $count ?>)</h5>
                 <div class="heading-elements">
                     <a class="btn btn-primary pull-right" href="/admin/qr_excel_gala_download"><i
                             class="icon-add"></i>Excel
@@ -83,44 +93,47 @@ table th {
                 </thead>
                 <tbody>
                     <?php
-                    $index = 1;
+                    $index = 0;
                     foreach ($users as $item) {
-                        $index++;
-                        if ($index % 2 === 0) {
-                            echo '<tr style="background-color:#eee">';
-                        } else {
-                            echo '<tr>';
+                        if ($item['etc5'] !== 'Y') {
+
+                            $index++;
+                            if ($index % 2 === 0) {
+                                echo '<tr style="background-color:#eee">';
+                            } else {
+                                echo '<tr>';
+                            }
+                            echo '<td style="text-align: center;"><input type="checkbox" name="depositChk" class="depositChk" value="' .  $item['registration_no'] . '"></td>';
+                            // echo '<td>' . $index++ . '</td>';
+                            // echo '<td>' . $item['type3'] . '</td>';
+                            // echo '<td>' . substr($item['time'], 0, 10) . '</td>';
+                            echo '<td class="user_d"><a href="/admin/user_detail?n=' . $item['registration_no'] . '" target="_self">' . $item['registration_no'] . '</a></td>';
+                            echo '<td>' . $item['attendance_type'] . '</td>';
+                            echo '<td>' . $item['first_name']  . " " .  $item['last_name'] . '</td>';
+                            echo '<td>' . $item['name_kor'] . '</td>';
+                            echo '<td>' . $item['org_nametag'] . '</td>';
+                            echo '<td class="user_d"><a href="/admin/user_detail?n=' . $item['registration_no'] . '" target="_self">' . $item['email'] . '</a></td>';
+                            echo '<td>' . $item['phone'] . '</td>';
+                            echo '<td style="text-align: center;">' . $item['remark7'] . '</td>';
+
+
+                            // echo $item['deposit'] . '</td>';
+                            // if ($item['qr_chk'] == "N") {
+                            //     echo '<td style="color:red;">';
+                            //     echo '<a href="/admin/qr_generate?n=' . $item['phone'] . '"><div class="btn btn-danger qr_btn" >QR 생성</div></a>';
+                            //     echo '</td>';
+                            // } else {
+                            //     echo '<td style="color:red;">';
+                            //     echo '<a href="/admin/qr_layout?n=' . $item['phone'] . '"><div class="btn btn-success" >QR 보기</div></a>';
+                            //     echo '</td>';
+                            // }
+
+
+                            // echo '<td>' . $item['mintime'] . '</td>';
+                            // echo '<td>' . $item['maxtime'] . '</td>';
+                            // echo '<td>' . $item['memo'] . '</td>';
+                            echo '</tr>';
                         }
-                        echo '<td style="text-align: center;"><input type="checkbox" name="depositChk" class="depositChk" value="' .  $item['registration_no'] . '"></td>';
-                        // echo '<td>' . $index++ . '</td>';
-                        // echo '<td>' . $item['type3'] . '</td>';
-                        // echo '<td>' . substr($item['time'], 0, 10) . '</td>';
-                        echo '<td class="user_d"><a href="/admin/user_detail?n=' . $item['registration_no'] . '" target="_self">' . $item['registration_no'] . '</a></td>';
-                        echo '<td>' . $item['attendance_type'] . '</td>';
-                        echo '<td>' . $item['first_name']  . " " .  $item['last_name'] . '</td>';
-                        echo '<td>' . $item['name_kor'] . '</td>';
-                        echo '<td>' . $item['org_nametag'] . '</td>';
-                        echo '<td class="user_d"><a href="/admin/user_detail?n=' . $item['registration_no'] . '" target="_self">' . $item['email'] . '</a></td>';
-                        echo '<td>' . $item['phone'] . '</td>';
-                        echo '<td style="text-align: center;">' . $item['remark7'] . '</td>';
-
-
-                        // echo $item['deposit'] . '</td>';
-                        // if ($item['qr_chk'] == "N") {
-                        //     echo '<td style="color:red;">';
-                        //     echo '<a href="/admin/qr_generate?n=' . $item['phone'] . '"><div class="btn btn-danger qr_btn" >QR 생성</div></a>';
-                        //     echo '</td>';
-                        // } else {
-                        //     echo '<td style="color:red;">';
-                        //     echo '<a href="/admin/qr_layout?n=' . $item['phone'] . '"><div class="btn btn-success" >QR 보기</div></a>';
-                        //     echo '</td>';
-                        // }
-
-
-                        // echo '<td>' . $item['mintime'] . '</td>';
-                        // echo '<td>' . $item['maxtime'] . '</td>';
-                        // echo '<td>' . $item['memo'] . '</td>';
-                        echo '</tr>';
                     }
                     ?>
 
