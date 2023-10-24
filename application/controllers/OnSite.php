@@ -428,6 +428,7 @@ class OnSite extends CI_Controller
                 'org_nametag' => trim($affiliation),
                 'phone' => preg_replace("/\s+/", "", $phone),
                 'email' => preg_replace("/\s+/", "", $email),
+                'time' => $time,
                 'nation' => $nation,
                 'first_name' => $first_name,
                 'last_name' => $last_name,
