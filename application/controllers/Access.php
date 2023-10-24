@@ -960,8 +960,12 @@ class Access extends CI_Controller
                 $where = array(
                     'registration_no' => $qrcode
                 );
+                $info = array(
+                    'etc5' => "Y"
+                );
                 $data['users'] = $this->users->get_user($where);
                 $this->load->view('gala_table', $data);
+                $this->users->update_user($info, $where);
             } else {
                 $this->load->view('gala_table');
             }
