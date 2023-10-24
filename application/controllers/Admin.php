@@ -238,10 +238,11 @@ class Admin extends CI_Controller
                 'registration_no' => $value
             );
             $this->users->update_deposit_status($info, $where);
-
+            $time = date("Y-m-d H:i:s");
             /* QR생성 */
             $info = array(
-                'qr_generated' =>  'Y'
+                'qr_generated' =>  'Y',
+                'deposit_date' =>  $time
             );
             $where = array(
                 'registration_no' => $value
@@ -609,7 +610,6 @@ class Admin extends CI_Controller
                 $uagent = $this->agent->agent_string();
 
                 //            error_log(print_r($name, TRUE), 3, '/tmp/errors.log');
-
                 $info = array(
                     'name_kor' => preg_replace("/\s+/", "", $name_kor),
                     'licence_number' => preg_replace("/\s+/", "", $license),
@@ -1486,24 +1486,26 @@ class Admin extends CI_Controller
         else {
             $userId = $this->input->post('userId');
             // $data['users'] = array(); // 배열로 초기화
-            $wheres = array(
-                'nation' => 'Korea',
-                'qr_generated' =>  'Y'
+            foreach ($userId as $value) {
+                $wheres = array(
+                    'nation' => 'Korea',
+                    'qr_generated' =>  'Y',
+                    'registration_no' => $value
+                );
+                $data['users'] = $this->users->get_msm_user($wheres);
+                // $data['users'] = array_merge($data['users'], $users);
+                foreach ($data['users'] as $users) {
+                    $where = array(
+                        'registration_no' => $users['registration_no'],
+                    );
+                    $info = array(
+                        'QR_SMS_SEND_YN' =>  'Y'
+                    );
+                    $this->users->update_msm_status($info, $where);
+                }
 
-            );
-            $data['users'] = $this->users->get_msm_user($wheres);
-            // $data['users'] = array_merge($data['users'], $users);
-            foreach ($data['users'] as $users) {
-                $where = array(
-                    'registration_no' => $users['registration_no'],
-                );
-                $info = array(
-                    'QR_SMS_SEND_YN' =>  'Y'
-                );
-                $this->users->update_msm_status($info, $where);
+                $this->load->view('admin/send_all_msm', $data);
             }
-
-            $this->load->view('admin/send_all_msm', $data);
         }
     }
 
@@ -1513,51 +1515,56 @@ class Admin extends CI_Controller
             $this->load->view('admin/login');
         else {
             $userId = $this->input->post('userId');
-            $data['users'] = $this->users->get_mail_user();
-            foreach ($data['users'] as $users) {
-                // var_dump($value);
-                $where = array(
-                    'registration_no' => $users['registration_no'],
-                    'qr_generated' =>  'Y'
+            foreach ($userId as $value) {
+                $wheres = array(
+                    'registration_no' => $value,
                 );
-                $info = array(
-                    'QR_MAIL_SEND_YN' =>  'Y'
-                );
-                $this->users->update_msm_status($info, $where);
-                $postdata = http_build_query(
-                    array(
-                        'CATEGORY_D_1'      => 'QrSystem',
-                        'CATEGORY_D_2'      => 'sicem',
-                        'CATEGORY_D_3'      => '231026',
-                        'SEND_ADDRESS'      => 'info@sicem-secretariat.kr',
-                        'SEND_NAME'         => 'SICEM 2023',
-                        'RECV_ADDRESS'      =>  $users['email'],
-                        'RECV_NAME'         =>  $users['first_name'] . ' ' . $users['last_name'],
-                        'REPLY_ADDRESS'     => 'info@sicem-secretariat.kr',
-                        'REPLY_NAME'        => 'SICEM 2023',
-                        'EMAIL_SUBJECT'     => '[SICEM 2023] Registration and On-Site Attendance Details (Oct 26 - 28, Lotte Hotel World (Jamsil), Seoul, Republic of Korea)',
-                        'EMAIL_ALTBODY'     => 'SICEM 2023',
-                        'EMAIL_TEMPLETE_ID' => 'Qr_sicem_231026',
-                        'EMBED_IMAGE_GRID'  => 'null',
-                        'INSERT_TEXT_GRID'    => "{" .
-                            '"$text1" : ' . '"' .  $users['name_kor'] . '",' .
-                            '"$text2" : ' . '"' . $users['affiliation'] . '",' .
-                            '"$text3" : ' . '"' .  $users['registration_no'] . '",' .
-                            '"$text4" : ' . '"' . base64_encode(file_get_contents(getcwd() . '/assets/images/QR/qrcode_' .  $users['registration_no'] . '.jpg')) . '"' .
-                            "}"
-                    )
-                );
+                $data['users'] = $this->users->get_msm_user($wheres);
+                foreach ($data['users'] as $users) {
+                    // var_dump($value);
+                    $where = array(
+                        'registration_no' => $users['registration_no'],
+                        'qr_generated' =>  'Y'
+                    );
+                    $info = array(
+                        'QR_MAIL_SEND_YN' =>  'Y'
+                    );
+                    $this->users->update_msm_status($info, $where);
+                    $postdata = http_build_query(
+                        array(
+                            'CATEGORY_D_1'      => 'QrSystem',
+                            'CATEGORY_D_2'      => 'sicem',
+                            'CATEGORY_D_3'      => '231026',
+                            'SEND_ADDRESS'      => 'info@sicem-secretariat.kr',
+                            'SEND_NAME'         => 'SICEM 2023',
+                            'RECV_ADDRESS'      =>  $users['email'],
+                            'RECV_NAME'         =>  $users['first_name'] . ' ' . $users['last_name'],
+                            'REPLY_ADDRESS'     => 'info@sicem-secretariat.kr',
+                            'REPLY_NAME'        => 'SICEM 2023',
+                            'EMAIL_SUBJECT'     => '[SICEM 2023] Registration and On-Site Attendance Details (Oct 26 - 28, Lotte Hotel World (Jamsil), Seoul, Republic of Korea)',
+                            'EMAIL_ALTBODY'     => 'SICEM 2023',
+                            'EMAIL_TEMPLETE_ID' => 'Qr_sicem_231026',
+                            'EMBED_IMAGE_GRID'  => 'null',
+                            'INSERT_TEXT_GRID'    => "{" .
+                                '"$text1" : ' . '"' .  $users['name_kor'] . '",' .
+                                '"$text2" : ' . '"' . $users['affiliation'] . '",' .
+                                '"$text3" : ' . '"' .  $users['registration_no'] . '",' .
+                                '"$text4" : ' . '"' . base64_encode(file_get_contents(getcwd() . '/assets/images/QR/qrcode_' .  $users['registration_no'] . '.jpg')) . '"' .
+                                "}"
+                        )
+                    );
 
-                $opts = array(
-                    'http' =>
-                    array(
-                        'method' => 'POST',
-                        'header' => 'Content-type: application/x-www-form-urlencoded',
-                        'content' => $postdata
-                    )
-                );
-                $context = stream_context_create($opts);
-                $result = file_get_contents('http://www.into-webinar.com/MailSenderApi', false, $context);
+                    $opts = array(
+                        'http' =>
+                        array(
+                            'method' => 'POST',
+                            'header' => 'Content-type: application/x-www-form-urlencoded',
+                            'content' => $postdata
+                        )
+                    );
+                    $context = stream_context_create($opts);
+                    $result = file_get_contents('http://www.into-webinar.com/MailSenderApi', false, $context);
+                }
             }
             $this->load->view('admin/send_all_mail', $data);
         }

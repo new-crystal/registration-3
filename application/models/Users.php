@@ -99,12 +99,13 @@ class Users extends CI_Model
 		return $query->result_array();
 	}
 
-	public function get_mail_user()
+	public function get_mail_user($where)
 	{
-		$query = $this->db->query("
+		$query = $this->db->query(`
 		SELECT *
 		FROM users a
-		");
+		WHERE a.registration_no = $where
+		`);
 
 		return $query->result_array();
 	}
