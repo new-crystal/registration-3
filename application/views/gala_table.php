@@ -124,7 +124,8 @@ input {
     <div id="container" class="w-full h-full flex items-center overflow-hidden">
         <div class="h-full">
             <div>
-                <div><img src="../../assets/images/gala_table.png" onclick="window.location.replace()"
+                <div>
+                    <img src="../../assets/images/gala_table.png" onclick="window.location.replace()"
                         style="position: absolute;z-index: -999;width: 1920px;" />
                     <dl>
                         <script type="text/javascript">
