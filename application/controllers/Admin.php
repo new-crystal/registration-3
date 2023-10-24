@@ -1486,24 +1486,26 @@ class Admin extends CI_Controller
         else {
             $userId = $this->input->post('userId');
             // $data['users'] = array(); // 배열로 초기화
-            $wheres = array(
-                'nation' => 'Korea',
-                'qr_generated' =>  'Y'
+            foreach ($userId as $value) {
+                $wheres = array(
+                    'nation' => 'Korea',
+                    'qr_generated' =>  'Y',
+                    'registration_no' => $value
+                );
+                $data['users'] = $this->users->get_msm_user($wheres);
+                // $data['users'] = array_merge($data['users'], $users);
+                foreach ($data['users'] as $users) {
+                    $where = array(
+                        'registration_no' => $users['registration_no'],
+                    );
+                    $info = array(
+                        'QR_SMS_SEND_YN' =>  'Y'
+                    );
+                    $this->users->update_msm_status($info, $where);
+                }
 
-            );
-            $data['users'] = $this->users->get_msm_user($wheres);
-            // $data['users'] = array_merge($data['users'], $users);
-            foreach ($data['users'] as $users) {
-                $where = array(
-                    'registration_no' => $users['registration_no'],
-                );
-                $info = array(
-                    'QR_SMS_SEND_YN' =>  'Y'
-                );
-                $this->users->update_msm_status($info, $where);
+                $this->load->view('admin/send_all_msm', $data);
             }
-
-            $this->load->view('admin/send_all_msm', $data);
         }
     }
 
