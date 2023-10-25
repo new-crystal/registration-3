@@ -1184,7 +1184,7 @@ class Admin extends CI_Controller
         }
 
         header('Content-Type: application/vnd.ms-excel');
-        header('Content-Disposition: attachment;filename="QR_History.xlsx"');
+        header('Content-Disposition: attachment;filename="registraion.xlsx"');
 
         header('Cache-Control: max-age=0');
 
