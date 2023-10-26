@@ -16,6 +16,16 @@ class Users extends CI_Model
 		return $this->db->get($this->users)->result_array();
 	}
 
+	public function get_users_order_index()
+	{
+		$query = $this->db->query("
+		SELECT *
+		FROM users a
+		ORDER BY a.time DESC
+");
+		return $query->result_array();
+	}
+
 	public function get_users_time()
 	{
 		$query = $this->db->query("
