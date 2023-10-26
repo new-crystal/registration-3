@@ -1037,7 +1037,7 @@ class Admin extends CI_Controller
         $object = new PHPExcel();
         $object->setActiveSheetIndex(0);
 
-        $table_columns = array("NO.", "국적구분", "등록일", "Reg_Num", "e-mail", "등록구분(Early / Pre / On-site)", "Attendance date(Full / One)", "KES Membership Check-up", "Country", "Full Name", "First Name", "Last Name", "이름", "Affiliation", "Name Badge_affiliation", "소속", "부서", "평점신청여부", "면허번호", "전문의번호", "직책", "연락처", "참가유형
+        $table_columns = array("NO.", "참석여부", "QR 프린트 여부", "국적구분", "등록일", "Reg_Num", "e-mail", "등록구분(Early / Pre / On-site)", "Attendance date(Full / One)", "KES Membership Check-up", "Country", "Full Name", "First Name", "Last Name", "이름", "Affiliation", "Name Badge_affiliation", "소속", "부서", "평점신청여부", "면허번호", "전문의번호", "직책", "연락처", "참가유형
         (Participant, Satellite Attendee, Chairperson, Moderator, Speaker, Panel, Preceptor, Organizer, Oral Presenter, Poster Oral Presenter,  Press, Staff, Exhibitor)", "참석자구분1", "참석자구분1", "참석자구분2(Other 선택 시)", "참석날짜", "등록비", "Invitation Code Discount", "How did you get your invitation code?", "결제수단", "결제수단은행 (계좌번호)", "결제상태", "결제일", "Breakfast Symposium", "Satellite(10/26)", "Satellite(10/27)", "welcome reception", "Is this your first time attending SICEM?", "How many SICEMs have you attended before?", "Where did you get the information about the conference?", "구분택 1
         (명찰케이스)", "구분택 1(리본)", "First Time Attendee & KES Member", "Abstract book copy", "Special meal request", "Gala dinner", "Gala dinner
         테이블넘버", "Presidential Dinner", "Memo");
@@ -1130,55 +1130,58 @@ class Admin extends CI_Controller
             $object->getActiveSheet()->getStyle("H" . $excel_row)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
 
             $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $excel_row - 1);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $contry);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row['time']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row['registration_no']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row['email']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $row['onsite_reg']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $date);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row['kes_member_status']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $row['nation']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $row['first_name'] . ' ' . $row['last_name']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(10, $excel_row, $row['first_name']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(11, $excel_row, $row['last_name']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(12, $excel_row, $row['name_kor']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(13, $excel_row, $row['affiliation']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(14, $excel_row, $row['org_nametag']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(15, $excel_row, $row['affiliation_kor']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(16, $excel_row, $row['department']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(17, $excel_row, $row['is_score']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(18, $excel_row, $row['licence_number']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(19, $excel_row, $row['specialty_number']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(20, $excel_row, $row['etc3']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(21, $excel_row, $row['phone']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(22, $excel_row, $row['attendance_type']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(23, $excel_row,  $type1);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(24, $excel_row, $row['member_type']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(25, $excel_row, $row['member_other_type']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(26, $excel_row, $row['attendance_date']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(27, $excel_row, $row['fee']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(28, $excel_row, $row['etc1']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(29, $excel_row, $row['etc2']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(30, $excel_row, $row['deposit_method']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(31, $excel_row, $row['etc4']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(32, $excel_row, $row['deposit']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(33, $excel_row, $row['deposit_date']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(34, $excel_row, $row['day3_breakfast_yn']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(35, $excel_row, $row['day1_satellite_yn']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(36, $excel_row, $row['day2_satellite_yn']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(37, $excel_row, $row['welcome_reception_yn']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(38, $excel_row, $row['first_time_yn']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(39, $excel_row, $row['first_time']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(40, $excel_row, $row['conference_info']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(41, $excel_row, $row['remark1']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(42, $excel_row, $row['remark2']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(43, $excel_row, $remark3);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(44, $excel_row, $row['copy_yn']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(45, $excel_row, $row['special_request_food']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(46, $excel_row, $row['remark6']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(47, $excel_row, $row['remark7']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(48, $excel_row, $row['remark8']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(49, $excel_row, $row['memo']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $chk);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row['qr_print']);
+
+            $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $contry);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row['time']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $row['registration_no']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $row['email']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row['onsite_reg']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $date);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $row['kes_member_status']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(10, $excel_row, $row['nation']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(11, $excel_row, $row['first_name'] . ' ' . $row['last_name']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(12, $excel_row, $row['first_name']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(13, $excel_row, $row['last_name']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(14, $excel_row, $row['name_kor']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(15, $excel_row, $row['affiliation']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(16, $excel_row, $row['org_nametag']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(17, $excel_row, $row['affiliation_kor']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(18, $excel_row, $row['department']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(19, $excel_row, $row['is_score']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(20, $excel_row, $row['licence_number']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(21, $excel_row, $row['specialty_number']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(22, $excel_row, $row['etc3']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(23, $excel_row, $row['phone']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(24, $excel_row, $row['attendance_type']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(25, $excel_row,  $type1);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(26, $excel_row, $row['member_type']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(27, $excel_row, $row['member_other_type']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(28, $excel_row, $row['attendance_date']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(29, $excel_row, $row['fee']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(30, $excel_row, $row['etc1']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(31, $excel_row, $row['etc2']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(32, $excel_row, $row['deposit_method']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(33, $excel_row, $row['etc4']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(34, $excel_row, $row['deposit']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(35, $excel_row, $row['deposit_date']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(36, $excel_row, $row['day3_breakfast_yn']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(37, $excel_row, $row['day1_satellite_yn']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(38, $excel_row, $row['day2_satellite_yn']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(39, $excel_row, $row['welcome_reception_yn']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(40, $excel_row, $row['first_time_yn']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(41, $excel_row, $row['first_time']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(42, $excel_row, $row['conference_info']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(43, $excel_row, $row['remark1']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(44, $excel_row, $row['remark2']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(45, $excel_row, $remark3);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(46, $excel_row, $row['copy_yn']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(47, $excel_row, $row['special_request_food']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(48, $excel_row, $row['remark6']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(49, $excel_row, $row['remark7']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(50, $excel_row, $row['remark8']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(51, $excel_row, $row['memo']);
 
             $excel_row++;
         }
