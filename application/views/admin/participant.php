@@ -1,25 +1,25 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-    th,
-    td {
-        text-align: center !important;
-        border: 2px solid rgb(163 163 163);
-        font-weight: 600;
-        font-size: 1.5rem;
-        line-height: 2rem;
-    }
+th,
+td {
+    text-align: center !important;
+    border: 2px solid rgb(163 163 163);
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
 
-    tr {
-        height: 4.5rem;
-        border: 2px solid rgb(163 163 163);
-        font-weight: 600;
-        font-size: 1.5rem;
-        line-height: 2rem;
-    }
+tr {
+    height: 4.5rem;
+    border: 2px solid rgb(163 163 163);
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
 
-    .total_table {
-        width: 240px;
-    }
+.total_table {
+    width: 240px;
+}
 </style>
 <?php
 
@@ -178,7 +178,7 @@ $others_3_e = 0;
 foreach ($day_1 as $item_1) {
 
     /**현장등록 & day1 & 국내 */
-    if ($item_1['onsite_reg'] === "On-site registratoin") {
+    if ($item_1['onsite_reg'] === "On-site registration") {
         // print_r($item['attendance_type']);
 
         if ($item_1['attendance_type'] == "Speaker") {
@@ -242,8 +242,8 @@ foreach ($day_1 as $item_1) {
 }
 foreach ($day_1_e as $item_1_e) {
 
-    if ($item_1_e['onsite_reg'] === "On-site registratoin") {
-        // print_r($item['attendance_type']);
+    print_r($item_1_e['onsite_reg']);
+    if ($item_1_e['onsite_reg'] === "On-site registration") {
 
         if ($item_1_e['attendance_type'] == "Speaker") {
             $on_speaker_1_e = $on_speaker_1_e + 1;
@@ -306,7 +306,7 @@ foreach ($day_1_e as $item_1_e) {
 }
 
 foreach ($day_2 as $item_2) {
-    if ($item_2['onsite_reg'] === "On-site registratoin") {
+    if ($item_2['onsite_reg'] === "On-site registration") {
         // print_r($item['attendance_type']);
 
         if ($item_2['attendance_type'] == "Speaker") {
@@ -370,7 +370,7 @@ foreach ($day_2 as $item_2) {
 }
 
 foreach ($day_2_e as $item_2_e) {
-    if ($item_2_e['onsite_reg'] === "On-site registratoin") {
+    if ($item_2_e['onsite_reg'] === "On-site registration") {
         // print_r($item['attendance_type']);
 
         if ($item_2_e['attendance_type'] == "Speaker") {
@@ -434,7 +434,7 @@ foreach ($day_2_e as $item_2_e) {
 }
 
 foreach ($day_3 as $item_3) {
-    if ($item_3['onsite_reg'] === "On-site registratoin") {
+    if ($item_3['onsite_reg'] === "On-site registration") {
         // print_r($item['attendance_type']);
 
         if ($item_3['attendance_type'] == "Speaker") {
@@ -498,7 +498,7 @@ foreach ($day_3 as $item_3) {
 }
 
 foreach ($day_3_e as $item_3_e) {
-    if ($item_3_e['onsite_reg'] === "On-site registratoin") {
+    if ($item_3_e['onsite_reg'] === "On-site registration") {
         // print_r($item['attendance_type']);
 
         if ($item_3_e['attendance_type'] == "Speaker") {
@@ -1367,51 +1367,51 @@ $day_3_users = count($day_3) + count($day_3_e);
 <!-- /page container -->
 
 <script>
-    const day_1_e = document.querySelector(".day_1_e")
-    const day_1 = document.querySelector(".day_1")
-    const on_day_1_e = document.querySelector(".on_day_1_e")
-    const on_day_1 = document.querySelector(".on_day_1_e")
+const day_1_e = document.querySelector(".day_1_e")
+const day_1 = document.querySelector(".day_1")
+const on_day_1_e = document.querySelector(".on_day_1_e")
+const on_day_1 = document.querySelector(".on_day_1_e")
 
-    const day_2_e = document.querySelector(".day_2_e")
-    const day_2 = document.querySelector(".day_2")
-    const on_day_2_e = document.querySelector(".on_day_2_e")
-    const on_day_2 = document.querySelector(".on_day_2")
+const day_2_e = document.querySelector(".day_2_e")
+const day_2 = document.querySelector(".day_2")
+const on_day_2_e = document.querySelector(".on_day_2_e")
+const on_day_2 = document.querySelector(".on_day_2")
 
-    const day_3_e = document.querySelector(".day_3_e")
-    const day_3 = document.querySelector(".day_3")
-    const on_day_3_e = document.querySelector(".on_day_3_e")
-    const on_day_3 = document.querySelector(".on_day_3")
+const day_3_e = document.querySelector(".day_3_e")
+const day_3 = document.querySelector(".day_3")
+const on_day_3_e = document.querySelector(".on_day_3_e")
+const on_day_3 = document.querySelector(".on_day_3")
 
-    const count_1 = document.querySelector(".count_1")
-    const count_2 = document.querySelector(".count_2")
-    const count_3 = document.querySelector(".count_3")
-    const count_4 = document.querySelector(".count_4")
-    const count_5 = document.querySelector(".count_5")
-    const count_6 = document.querySelector(".count_6")
+const count_1 = document.querySelector(".count_1")
+const count_2 = document.querySelector(".count_2")
+const count_3 = document.querySelector(".count_3")
+const count_4 = document.querySelector(".count_4")
+const count_5 = document.querySelector(".count_5")
+const count_6 = document.querySelector(".count_6")
 
-    const count_7 = document.querySelector(".count_7")
-    const count_8 = document.querySelector(".count_8")
+const count_7 = document.querySelector(".count_7")
+const count_8 = document.querySelector(".count_8")
 
-    const count_9 = document.querySelector(".count_9")
-    const count_10 = document.querySelector(".count_10")
-    const count_11 = document.querySelector(".count_11")
-    const total = document.querySelector(".total")
+const count_9 = document.querySelector(".count_9")
+const count_10 = document.querySelector(".count_10")
+const count_11 = document.querySelector(".count_11")
+const total = document.querySelector(".total")
 
-    const addNum = () => {
-        count_1.innerText = Number(day_1_e.innerText) + Number(day_1.innerText);
-        count_2.innerText = Number(day_2_e.innerText) + Number(day_2.innerText);
-        count_3.innerText = Number(day_3_e.innerText) + Number(day_3.innerText);
-        count_4.innerText = Number(on_day_1_e.innerText) + Number(on_day_1.innerText);
-        count_5.innerText = Number(on_day_2_e.innerText) + Number(on_day_2.innerText);
-        count_6.innerText = Number(on_day_3_e.innerText) + Number(on_day_3.innerText);
+const addNum = () => {
+    count_1.innerText = Number(day_1_e.innerText) + Number(day_1.innerText);
+    count_2.innerText = Number(day_2_e.innerText) + Number(day_2.innerText);
+    count_3.innerText = Number(day_3_e.innerText) + Number(day_3.innerText);
+    count_4.innerText = Number(on_day_1_e.innerText) + Number(on_day_1.innerText);
+    count_5.innerText = Number(on_day_2_e.innerText) + Number(on_day_2.innerText);
+    count_6.innerText = Number(on_day_3_e.innerText) + Number(on_day_3.innerText);
 
-        count_7.innerText = Number(count_1.innerText) + Number(count_2.innerText) + Number(count_3.innerText)
-        count_8.innerText = Number(count_4.innerText) + Number(count_5.innerText) + Number(count_6.innerText)
+    count_7.innerText = Number(count_1.innerText) + Number(count_2.innerText) + Number(count_3.innerText)
+    count_8.innerText = Number(count_4.innerText) + Number(count_5.innerText) + Number(count_6.innerText)
 
-        total.innerText = Number(count_9.innerText) + Number(count_10.innerText) + Number(count_11.innerText);
-    }
+    total.innerText = Number(count_9.innerText) + Number(count_10.innerText) + Number(count_11.innerText);
+}
 
 
 
-    addNum()
+addNum()
 </script>
