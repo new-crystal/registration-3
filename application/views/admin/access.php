@@ -84,10 +84,10 @@ $en_name = $firstName . " " . $lastName
             <div class="panel panel-flat">
                 <div>
                     <div id="notice">
-                        <?php
+                        <!-- <?php
                         foreach ($notice as $item) {
                             echo '<input class="notice" value="' .  $item['notice'] . '" readonly/>';
-                        } ?>
+                        } ?> -->
 
                     </div>
                     <button class="w-[150px] h-[40px] bg-slate-300 mt-20 hover:bg-slate-400 active:bg-slate-500"
