@@ -68,49 +68,6 @@
                                         </span>
                                     </a>
                                 </li>
-                                <!-- <li style="margin-bottom: 2rem;">
-                                    <a href="/admin/qr_layout_all?type=02" target="_blank">
-                                        <i class="icon-printer2"></i>
-                                        <span>임원 QR생성
-                                        </span>
-                                    </a>
-                                </li>
-                                <li style="margin-bottom: 2rem;">
-                                    <a href="/admin/qr_layout_all?type=06" target="_blank">
-                                        <i class="icon-printer2"></i>
-                                        <span>좌장 QR생성
-                                        </span>
-                                    </a>
-                                </li>
-
-                                <li style="margin-bottom: 2rem;">
-                                    <a href="/admin/qr_layout_all?type=05" target="_blank">
-                                        <i class="icon-printer2"></i>
-                                        <span>연자 QR생성
-                                        </span>
-                                    </a>
-                                </li>
-                                <li style="margin-bottom: 2rem;">
-                                    <a href="/admin/qr_layout_all?type=04" target="_blank">
-                                        <i class="icon-printer2"></i>
-                                        <span>패널 QR생성
-                                        </span>
-                                    </a>
-                                </li>
-                                <li style="margin-bottom: 2rem;">
-                                    <a href="/admin/qr_layout_all?type=01" target="_blank">
-                                        <i class="icon-printer2"></i>
-                                        <span>일반참가자 QR생성
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/admin/qr_layout_all?type=07" target="_blank">
-                                        <i class="icon-printer2"></i>
-                                        <span>후원사 QR생성
-                                        </span>
-                                    </a>
-                                </li> -->
                                 <li style="margin-bottom: 2rem;"
                                     <?php if ($primary_menu == 'participant') echo 'class="active"' ?>>
                                     <a href="/admin/participant">
@@ -119,30 +76,20 @@
                                         </span>
                                     </a>
                                 </li>
-                                <li style="margin-bottom: 2rem;"
-                                    <?php if ($primary_menu == 'notice') echo 'class="active"' ?>>
-                                    <a href="/admin/notice">
-                                        <i class="icon-list-unordered"></i>
-                                        <span>공지사항
-                                        </span>
-                                    </a>
-                                </li>
-                                <li style="margin-bottom: 2rem;"
-                                    <?php if ($primary_menu == 'gala_user') echo 'class="active"' ?>>
+                                <!-- <li style="margin-bottom: 2rem;" <?php if ($primary_menu == 'gala_user') echo 'class="active"' ?>>
                                     <a href="/admin/gala_user">
                                         <i class="icon-list-unordered"></i>
                                         <span>Gala Users
                                         </span>
                                     </a>
                                 </li>
-                                <li style="margin-bottom: 2rem;"
-                                    <?php if ($primary_menu == 'gala_non_user') echo 'class="active"' ?>>
+                                <li style="margin-bottom: 2rem;" <?php if ($primary_menu == 'gala_non_user') echo 'class="active"' ?>>
                                     <a href="/admin/gala_non_user">
                                         <i class="icon-list-unordered"></i>
                                         <span>Gala 미출결 Users
                                         </span>
                                     </a>
-                                </li>
+                                </li> -->
                                 <li>
                                     <a href="/admin/sicem_qr_excel_download" target="_blank">
                                         <i class="icon-download4"></i>
