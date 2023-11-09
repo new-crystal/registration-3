@@ -96,20 +96,20 @@ table td {
                 <thead>
                     <tr>
                         <th style="width: 30px;"></th>
-                        <th style="width:131px;">Registration No.</th>
-                        <th style="width:60px;">결제상태</th>
-                        <th style="width:90px;">등록시간</th>
+                        <th>Registration No.</th>
+                        <th>결제상태</th>
+                        <!-- <th style="width:90px;">등록시간</th> -->
                         <!-- <th style="width:60px;">KES <br>회원여부</th> -->
-                        <th style="width:60px;">Type of Participation</th>
-                        <th style="width:200px;">Full Name</th>
-                        <th style="width:52px;">성함</th>
-                        <th style="width:200px;">네임택용 Affiliation </th>
-                        <th style="width:100px;">Country</th>
-                        <th style="width:80px;">Phone Number</th>
-                        <th style="width:160px;">ID(E-mail)</th>
-                        <th style="width:100px;">Category</th>
-                        <th style="width:60px;">등록비</th>
-                        <th style="width:90px;">결제일</th>
+                        <th>Type of Participation</th>
+                        <th>Full Name</th>
+                        <th>성함</th>
+                        <th>네임택용 Affiliation </th>
+                        <th>Country</th>
+                        <th>Phone Number</th>
+                        <th>ID(E-mail)</th>
+                        <!-- <th style="width:100px;">Category</th> -->
+                        <th>등록비</th>
+                        <!-- <th style="width:90px;">결제일</th> -->
                         <!-- <th style="width:80px;">결제 방식</th> -->
                         <th>메모</th>
                     </tr>
@@ -126,7 +126,7 @@ table td {
                         }
                         echo '<td style="text-align: center;"><input type="checkbox" name="depositChk" class="depositChk" value="' .  $item['registration_no'] . '"></td>';
                         // echo '<td>' . $index++ . '</td>';
-                        echo '<td class="user_d"><a href="/admin/user_detail?n=' . $item['registration_no'] . '" target="_self">' . $item['registration_no'] . '</a></td>';
+                        echo '<td class="user_d" onclick="copy(\'' . $item['registration_no'] . '\')">' . $item['registration_no'] . '</td>';
                         // echo '<td style="text-align: center;">' . number_format($item['fee']) . '</td>';
                         if ($item['deposit'] != "결제완료") {
                             echo '<td style="color:red;">';
@@ -135,7 +135,7 @@ table td {
                         }
                         echo '' . $item['deposit'] . '</td>';
                         echo '</td>';
-                        echo '<td>' . $item['time'] . '</td>';
+                        // echo '<td>' . $item['time'] . '</td>';
                         // echo '<td>' . $item['kes_member_status'] . '</td>';
                         echo '<td>' . $item['attendance_type'] . '</td>';
 
@@ -145,9 +145,9 @@ table td {
                         echo '<td>' . $item['nation'] . '</td>';
                         echo '<td>' . $item['phone'] . '</td>';
                         echo '<td class="user_d"><a href="/admin/user_detail?n=' . $item['registration_no'] . '" target="_self">' . $item['email'] . '</a></td>';
-                        echo '<td>' . $item['member_type']  . '</td>';
+                        // echo '<td>' . $item['member_type']  . '</td>';
                         echo '<td>' . $item['fee']  . '</td>';
-                        echo '<td>' . $item['deposit_date']  . '</td>';
+                        // echo '<td>' . $item['deposit_date']  . '</td>';
                         // echo '<td>' . $item['deposit_method']  . '</td>';
                         if ($item['memo'] != "" && $item['memo'] != 'null') {
                             echo '<td>';
@@ -188,6 +188,18 @@ table td {
 //            }
 //        })
 
+function copy(text) {
+    if (navigator.clipboard) {
+        navigator.clipboard
+            .writeText(text)
+            .then(() => {
+                alert('클립보드에 복사되었습니다.');
+            })
+            .catch(() => {
+                alert('복사를 다시 시도해주세요.');
+            });
+    }
+}
 
 function onClickMemo(id) {
     const url = `/admin/memo?n=${id}`;

@@ -4,296 +4,330 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
 
 <style>
-body {
-    font-family: 'Roboto', sans-serif;
-}
-
-input[type=text] {
-    border: 1px solid #ddd;
-    padding: 8px 16px;
-    height: 2.5rem;
-    /* width: 300px; */
-}
-
-input[type=checkbox] {
-    width: 18px;
-    height: 18px;
-    margin-right: 10px;
-    transform: translateY(2.5px);
-}
-
-input[type=radio] {
-    width: 18px;
-    height: 18px;
-    margin-right: 10px;
-    transform: translateY(2.5px);
-}
-
-span {
-    color: #c1121f;
-    font-weight: 600;
-}
-
-label {
-    /* font-weight: 600; */
-    font-size: 1rem;
-    margin-right: 1rem;
-}
-
-textarea {
-    height: 150px;
-    background-color: #fff;
-}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-p {
-    margin: 0;
-}
-
-.tbl_type01 {
-    border: 1px solid #ccc;
-    border-top: 2px solid #ccc;
-    /* text-align: center; */
-    border-collapse: collapse;
-}
-
-.tbl_type01 th,
-.tbl_type01 td {
-    border: 1px solid #ccc;
-    font-size: 1rem;
-    /* font-weight: 600; */
-}
-
-.tbl_type01 th,
-.tbl_type01 td {
-    border: 1px solid #ccc;
-}
-
-th {
-    height: 50px;
-    border: 1px solid #ccc;
-    background-color: #EBF2F9;
-    text-align: left;
-    padding: 16px;
-}
-
-td {
-    border: 1px solid #ccc;
-    padding: 16px;
-}
-
-.container {
-    width: 1300px;
-    padding: 0;
-    margin: 20px auto;
-}
-
-.confirm_box {
-    width: 100%;
-    height: 200px;
-    text-align: center;
-    border: 1px solid #eee;
-}
-
-.confirm_box_title {
-    text-align: center;
-    background-color: rgb(186 230 253);
-}
-
-.all_checkbox {
-    display: flex;
-    width: 100%;
-    height: 100px;
-    align-items: center;
-    justify-content: center;
-}
-
-.personal_checkbox {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 50px;
-}
-
-.personal_checkbox>div {
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-}
-
-.next_btn_box,
-.final_btn_box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.next_btn_box>button,
-.final_btn {
-    width: 30%;
-    height: 50px;
-    font-size: 24px;
-    border: 1px solid #7d8597;
-    margin: 20px;
-}
-
-.full_input {
-    width: 70%;
-}
-
-.tbl_type01 td {
-    padding: 16px;
-    text-align: left;
-}
-
-.wrap_2_2>table {
-    border: none;
-}
-
-.category {
-    height: 80px;
-}
-
-.select_category {
-    width: 95%;
-    height: 40px;
-    border: 1px solid #ddd;
-}
-
-.member {
-    height: 40px;
-    display: flex;
-    align-items: center;
-}
-
-.submit_btn {
-    width: 150px;
-    height: 50px;
-    background-color: #e1e1e1;
-}
-
-.survey th {
-    text-align: left;
-    padding: 16px;
-}
-
-#addForm {
-    width: 60%;
-    margin: 0 auto;
-}
-
-#Email3 {
-    width: 100px;
-    height: 40px;
-}
-
-@media screen and (max-width:480px) {
-    #addForm {
-        width: 80%;
+    body {
+        font-family: 'Roboto', sans-serif;
     }
 
-    .number {
-        display: none;
-    }
-
-    th,
-    td,
-    .tbl_type01 th,
-    .tbl_type01 td {
-        font-size: 0.7rem;
-        padding: 8px;
-    }
-
-    label {
-        font-size: 0.7rem;
+    input[type=text] {
+        border: 1px solid #ddd;
+        padding: 8px 16px;
+        height: 2.5rem;
+        /* width: 300px; */
     }
 
     input[type=checkbox] {
-        width: 11px;
-        height: 11px;
+        width: 18px;
+        height: 18px;
         margin-right: 10px;
         transform: translateY(2.5px);
     }
 
     input[type=radio] {
-        width: 12px;
-        height: 12px;
+        width: 18px;
+        height: 18px;
+        margin-right: 10px;
+        transform: translateY(2.5px);
+    }
+
+    span {
+        color: #c1121f;
+        font-weight: 600;
+    }
+
+    label {
+        /* font-weight: 600; */
+        font-size: 1rem;
+        margin-right: 1rem;
+    }
+
+    textarea {
+        height: 150px;
+        background-color: #fff;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .tbl_type01 {
+        border: 1px solid #ccc;
+        border-top: 2px solid #ccc;
+        /* text-align: center; */
+        border-collapse: collapse;
+    }
+
+    .tbl_type01 th,
+    .tbl_type01 td {
+        border: 1px solid #ccc;
+        font-size: 1rem;
+        /* font-weight: 600; */
+    }
+
+    .tbl_type01 th,
+    .tbl_type01 td {
+        border: 1px solid #ccc;
+    }
+
+    th {
+        height: 50px;
+        border: 1px solid #ccc;
+        background-color: #EBF2F9;
+        text-align: left;
+        padding: 16px;
+    }
+
+    td {
+        border: 1px solid #ccc;
+        padding: 16px;
+    }
+
+    .container {
+        width: 1300px;
+        padding: 0;
+        margin: 20px auto;
+    }
+
+    .confirm_box {
+        width: 100%;
+        height: 200px;
+        text-align: center;
+        border: 1px solid #eee;
+    }
+
+    .confirm_box_title {
+        text-align: center;
+        background-color: rgb(186 230 253);
+    }
+
+    .all_checkbox {
+        display: flex;
+        width: 100%;
+        height: 100px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .personal_checkbox {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+
+    .personal_checkbox>div {
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+    }
+
+    .next_btn_box,
+    .final_btn_box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .next_btn_box>button,
+    .final_btn {
+        width: 30%;
+        height: 50px;
+        font-size: 24px;
+        border: 1px solid #7d8597;
+        margin: 20px;
+    }
+
+    .full_input {
+        width: 70%;
+    }
+
+    .tbl_type01 td {
+        padding: 16px;
+        text-align: left;
+    }
+
+    .wrap_2_2>table {
+        border: none;
+    }
+
+    .category {
+        height: 80px;
+    }
+
+    .select_category {
+        width: 95%;
+        height: 40px;
+        border: 1px solid #ddd;
+    }
+
+    .member {
+        height: 40px;
+        display: flex;
+        align-items: center;
+    }
+
+    .submit_btn {
+        width: 150px;
+        height: 50px;
+        background-color: #e1e1e1;
+    }
+
+    .survey th {
+        text-align: left;
+        padding: 16px;
+    }
+
+    #addForm {
+        width: 60%;
+        margin: 0 auto;
     }
 
     #Email3 {
-        width: 20px;
+        width: 100px;
+        height: 40px;
+    }
+
+    @media screen and (max-width:480px) {
+        #addForm {
+            width: 80%;
+        }
+
+        .number {
+            display: none;
+        }
+
+        th,
+        td,
+        .tbl_type01 th,
+        .tbl_type01 td {
+            font-size: 0.7rem;
+            padding: 8px;
+        }
+
+        label {
+            font-size: 0.7rem;
+        }
+
+        input[type=checkbox] {
+            width: 11px;
+            height: 11px;
+            margin-right: 10px;
+            transform: translateY(2.5px);
+        }
+
+        input[type=radio] {
+            width: 12px;
+            height: 12px;
+        }
+
+        #Email3 {
+            width: 20px;
+        }
+
+        .check_btn {
+            display: block;
+        }
+    }
+
+    .sign_up {
+        height: 2.8em;
+        padding: 4px 8px;
+        border: 1px solid #ccc;
+        /* background-color: #EBF2F9 !important; */
+        font-weight: 600;
+        margin: 4px;
+    }
+
+    .sign_up:hover {
+        background-color: #EBF2F9
+    }
+
+    .email_box {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
     }
 
     .check_btn {
-        display: block;
+        /* background-color: #EBF2F9 !important; */
+        border: 1px solid #CCC;
+        padding: 0px 12px;
+        height: 40px;
+        /* margin-top: 1rem; */
     }
-}
 
-.sign_up {
-    height: 2.8em;
-    padding: 4px 8px;
-    border: 1px solid #ccc;
-    /* background-color: #EBF2F9 !important; */
-    font-weight: 600;
-    margin: 4px;
-}
+    .kes_check_btn {
+        padding: 0px 12px;
+        height: 40px;
+    }
 
-.sign_up:hover {
-    background-color: #EBF2F9
-}
+    .check_btn:hover {
+        background-color: rgb(147 197 253);
+    }
 
-.email_box {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
+    .button_text_box {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
 
-.check_btn {
-    /* background-color: #EBF2F9 !important; */
-    border: 1px solid #CCC;
-    padding: 0px 12px;
-    height: 40px;
-    /* margin-top: 1rem; */
-}
+    .email_text {
+        transform: translate(10px, 10px);
+        color: #c1121f;
+    }
 
-.kes_check_btn {
-    padding: 0px 12px;
-    height: 40px;
-}
+    .justify-between {
+        justify-content: space-between !important;
+    }
 
-.check_btn:hover {
-    background-color: rgb(147 197 253);
-}
 
-.button_text_box {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-}
+    .term_wrap .term_box {
+        max-height: 200px;
+        overflow-y: scroll;
+    }
 
-.email_text {
-    transform: translate(10px, 10px);
-    color: #c1121f;
-}
-
-.justify-between {
-    justify-content: space-between !important;
-}
+    .term_label {
+        text-align: right;
+    }
 </style>
 <script src="https://cdn.tailwindcss.com"></script>
 <?php echo form_open('/onSite/sicem', 'id="addForm" name="addForm" ') ?>
 <!-- <form action="/onSite/sicem" class="w-3/5 mx-auto"> -->
 <!-- <img src="./mail_header.png" alt="header" class="w-full h-96" /> -->
 <div class="wrap_1">
-    <img class="onsite_header" src="../../assets/images/SICEM_onsite.png" />
+    <img class="onsite_header" src="../../assets/images/ISCP_onsite.png" />
     <div class="flex justify-left items-center w-8/12 h-12 mx-auto mt-5 text-4xl sm:text-3xl font-semibold w-full">
         <img src="../../assets/images/subTit_bl.png" />
         <h1>On-site Registration</h1>
+    </div>
+
+    <div class="term_wrap">
+        <img src="../../assets/images/circle.png" class="inline" />
+        <h1 class="text-sky-900 font-bold text-xl mt-10 mb-5 inline-block">Use of Personal Information</h1>
+        <div class="term_box border p-5">
+            <strong>Purpose</strong>
+            <p class="mb-3">International Society of Cardiovascular Pharmacotherapy(ISCP) with KSCVP & KSCP provides
+                online on-site
+                registration services for ISCP 2023. Based on your personal information, you can sign up for the
+                conference and complete the payment for registration.</p>
+            <strong>Collecting Personal Information</strong>
+            <p class="mb-3">ISCP 2023 requires you to provide your personal information to complete on-site registration
+                online. You
+                will be asked to enter your name, ID (email), password, date of birth, institution/organization,
+                department, mobile, and telephone number.</p>
+            <strong>Storing Personal Information</strong>
+            <p>ISCP 2023 will continue to store your personal information to provide you with useful services, such as
+                conference updates and newsletters.</p>
+        </div>
+        <div class="term_label">
+            <input type="checkbox" class="checkbox input required" id="terms" name="terms" value="Y">
+            <label for="terms1">I agree to the collection and use of my personal information. </label>
+        </div>
     </div>
     <div>
         <img src="../../assets/images/circle.png" class="inline" />
@@ -343,7 +377,7 @@ td {
                 <th>Country<br> (국가)<span class="hit">*</span></th>
                 <td>
                     <select id="nation_no" name="nation" class="px-2 py-1 w-11/12 h-10 border" disabled>
-                        <option data-nt="82" value="Korea" selected="">Korea</option>
+                        <option data-nt="82" value="Republic of Korea" selected="">Republic of Korea</option>
                         <option data-nt="93" value="Afghanistan">Afghanistan</option>
                         <!-- <option data-nt="358" value="Aland Islands">Aland Islands</option> -->
                         <option data-nt="335" value="Albania">Albania</option>
@@ -413,7 +447,8 @@ td {
                         <option data-nt="291" value="Eritrea">Eritrea</option>
                         <option data-nt="372" value="Estonia">Estonia</option>
                         <option data-nt="251" value="Ethiopia">Ethiopia</option>
-                        <option data-nt="500" value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option>
+                        <option data-nt="500" value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)
+                        </option>
                         <option data-nt="298" value="Faroe Islands">Faroe Islands</option>
                         <option data-nt="679" value="Fiji">Fiji</option>
                         <option data-nt="358" value="Finland">Finland</option>
@@ -462,7 +497,8 @@ td {
                         <option data-nt="686" value="Kiribati">Kiribati</option>
                         <option data-nt="965" value="Kuwait">Kuwait</option>
                         <option data-nt="7" value="Kyrgyzstan">Kyrgyzstan</option>
-                        <option data-nt="856" value="Lao People's Democratic Republic">Lao People's Democratic Republic
+                        <option data-nt="856" value="Lao People's Democratic Republic">Lao People's Democratic
+                            Republic
                         </option>
                         <option data-nt="371" value="Latvia">Latvia</option>
                         <option data-nt="961" value="Lebanon">Lebanon</option>
@@ -486,7 +522,8 @@ td {
                         <option data-nt="230" value="Mauritius">Mauritius</option>
                         <option data-nt="269-6" value="Mayotte">Mayotte</option>
                         <option data-nt="52" value="Mexico">Mexico</option>
-                        <option data-nt="691" value="Micronesia, Federated States of">Micronesia, Federated States of
+                        <option data-nt="691" value="Micronesia, Federated States of">Micronesia, Federated States
+                            of
                         </option>
                         <option data-nt="373" value="Moldova, Republic of">Moldova, Republic of</option>
                         <option data-nt="377" value="Monaco">Monaco</option>
@@ -557,7 +594,8 @@ td {
                         <option data-nt="963" value="Syrian Arab Republic">Syrian Arab Republic</option>
                         <option data-nt="886" value="Taiwan">Taiwan</option>
                         <option data-nt="7" value="Tajikistan">Tajikistan</option>
-                        <option data-nt="255" value="Tanzania, United Republic of">Tanzania, United Republic of</option>
+                        <option data-nt="255" value="Tanzania, United Republic of">Tanzania, United Republic of
+                        </option>
                         <option data-nt="66" value="Thailand">Thailand</option>
                         <option data-nt="228" value="Togo">Togo</option>
                         <option data-nt="690" value="Tokelau">Tokelau</option>
@@ -594,13 +632,10 @@ td {
                 <td>
                     <div class="w-11/12 flex flex-col">
                         <div class="flex w-full justify-between  mb-3">
-                            <input type="text" id="firstName" name="first_name" placeholder="First Name (ex. Gildong) "
-                                class="w-6/12" disabled />
-                            <input type="text" id="lastName" placeholder="Last name (ex. Hong) " id="lastName"
-                                name="last_name" type="text" class="w-6/12" disabled />
+                            <input type="text" id="firstName" name="first_name" placeholder="First Name (ex. Gildong) " class="w-6/12" disabled />
+                            <input type="text" id="lastName" placeholder="Last name (ex. Hong) " id="lastName" name="last_name" type="text" class="w-6/12" disabled />
                         </div>
-                        <input id="koreanName" name="name_kor" id="koreanName" placeholder="국문 이름 (ex. 홍길동)" type="text"
-                            class="w-full" disabled>
+                        <input id="koreanName" name="name_kor" id="koreanName" placeholder="국문 이름 (ex. 홍길동)" type="text" class="w-full" disabled>
                     </div>
                 </td>
             </tr>
@@ -610,10 +645,8 @@ td {
                     <span class="hit">*</span>
                 </th>
                 <td>
-                    <input type="text" id="affiliation" name="affiliation" class="w-11/12  mb-3"
-                        placeholder="Affiliation (ex. Korea University, Korea Hospital) " disabled />
-                    <input type="text" id="affiliation_kor" name="affiliation_kor" class="w-11/12"
-                        placeholder="국문 소속 (ex. 한국대학교, 한국대병원)" disabled />
+                    <input type="text" id="affiliation" name="affiliation" class="w-11/12  mb-3" placeholder="Affiliation (ex. Korea University, Korea Hospital) " disabled />
+                    <input type="text" id="affiliation_kor" name="affiliation_kor" class="w-11/12" placeholder="국문 소속 (ex. 한국대학교, 한국대병원)" disabled />
                 </td>
             </tr>
             <tr>
@@ -622,8 +655,8 @@ td {
                     <span class="hit">*</span>
                 </th>
                 <td>
-                    <input type="text" id="department" name="department" class="w-11/12  mb-3" placeholder="Department"
-                        disabled />
+                    <input type="text" id="department" name="department" class="w-11/12  mb-3" placeholder="Department" disabled />
+                    <input type="text" id="department_kor" name="department_kor" class="w-11/12  mb-3" placeholder="부서" disabled />
                 </td>
             </tr>
             <tr>
@@ -634,51 +667,13 @@ td {
                 </th>
                 <td>
                     <div class="flex w-11/12">
-                        <input type="text" id="contryNum" name="phone1" class="w-1/6" placeholder="contry number"
-                            value="82" />
-                        <input type="text" id="phoneNumber" name="phone2" class="w-5/6" placeholder="ex)01012345678"
-                            disabled />
+                        <input type="text" id="contryNum" name="phone1" class="w-1/6" placeholder="contry number" value="82" />
+                        <input type="text" id="phoneNumber" name="phone2" class="w-5/6" placeholder="ex)01012345678" disabled />
                     </div>
                 </td>
             </tr>
 
-            <tr class="ln">
-                <th>
-                    평점신청 여부<br>(Only Korean)
-                    <span class="hit">*</span>
-                </th>
-                <td>
-                    <div class="h-12">
-                        <input id="is_score" name="is_score" hidden />
-                        <input type="radio" id="need" disabled />
-                        <label for="need">필요</label>
-                        <input type="radio" id="non_need" disabled />
-                        <label for="non_need">불필요</label>
-                    </div>
-                    <div class="flex items-center w-12/12 justify-left flex-wrap" id="ln_box" style="display: none;">
-                        <div class="flex items-center ">
-                            <p class="mx-2 number">의사면허번호</p>
-                            <input name="licence_number" id="doctor" type="text" class="mx-2" placeholder="123456"
-                                disabled />
-                        </div>
-                        <div class="flex items-center">
-                            <p class="mx-4 number"> 전문의번호 </p>
-                            <input name="specialty_number" id="specialist" class="mx-2" type="text" placeholder="123456"
-                                disabled />
-                        </div>
-                        <div class="flex items-center">
-                            <p class="mx-4 number"> 직책 </p>
-                            <select class="px-2 py-1 h-10 border" name="etc3">
-                                <option value="교수" selected="">교수</option>
-                                <option value="전문의">전문의</option>
-                                <option value="전공의">전공의</option>
-                                <option value="기타">기타</option>
-                            </select>
-                        </div>
 
-                    </div>
-                </td>
-            </tr>
         </table>
         <img src="../../assets/images/circle.png" class="inline" />
         <h1 class="text-sky-900 font-bold text-xl mt-10 mb-5 inline-block">Survey</h1>
@@ -688,80 +683,43 @@ td {
                 <col width="*">
             </colgroup>
             <tr>
-                <th>Is this your first time attending SICEM? (참석 횟수 조사) <span class="hit">*</span></th>
-                <td>
-                    <div>
-                        <input id="first_time_yn" name="first_time_yn" hidden />
-                        <input type="checkbox" id="attend_yes" />
-                        <label for="attend_yes">Yes</label>
-                        <input type="checkbox" id="attend_no" />
-                        <label for="attend_no">No</label>
-
-                    </div>
-                </td>
-            </tr>
-            <tr class="time_num" style="display:none">
-                <th>How many SICEMs have you attended before?</th>
-                <td>
-                    <div>
-                        <input id="first_time" name="first_time" hidden />
-
-                        <input type="radio" id="three" />
-                        <label for="three">1-3</label>
-                        <input type="radio" id="six" />
-                        <label for="six">4-6</label>
-                        <input type="radio" id="nine" />
-                        <label for="nine">7-9</label>
-                        <input type="radio" id="ten" />
-                        <label for="ten">10+</label>
-
-                    </div>
-                </td>
-            </tr>
-            <tr>
                 <th>Where did you get the information about the conference?(가입 경로) <span class="hit">*</span></th>
                 <td>
                     <div>
                         <input name="conference_info" id="conference_info" hidden />
                         <div>
-                            <input type="checkbox" id="conference_email" data-id="Email" class="confer" />
-                            <label for="conference_email">Email</label>
+                            <input type="checkbox" id="conference_email" data-id="Website or newletter of KSCP or KSCVP" class="confer" />
+                            <label for="conference_email">Website or newletter of KSCP or KSCVP</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="conference_tel" data-id="Telephone text" class="confer" />
-                            <label for="conference_tel">Telephone text</label>
+                            <input type="checkbox" id="conference_tel" data-id="Website or notice of related society" class="confer" />
+                            <label for="conference_tel">Website or notice of related society</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="conference_letter" data-id="Letter from Korean" class="confer" />
-                            <label for="conference_letter">Letter from Korean</label>
+                            <input type="checkbox" id="conference_letter" data-id="Went to the last ISCP" class="confer" />
+                            <label for="conference_letter">Went to the last ISCP</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="conference_medi" data-id="Medical Association" class="confer" />
-                            <label for="conference_medi">Medical Association</label>
+                            <input type="checkbox" id="conference_medi" data-id="Invitation for speaker or chair" class="confer" />
+                            <label for="conference_medi">Invitation for speaker or chair</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="conference_colleague" data-id="Colleague" class="confer" />
-                            <label for="conference_colleague">Colleague</label>
+                            <input type="checkbox" id="conference_colleague" data-id="Friend / Colleague" class="confer" />
+                            <label for="conference_colleague">Friend / Colleague</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="conference_colleague" data-id="Medical corporate" class="confer" />
+                            <label for="conference_colleague">Medical corporate</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="conference_colleague" data-id="Internet banner ads or search" class="confer" />
+                            <label for="conference_colleague">Internet banner ads or search</label>
                         </div>
                         <div>
                             <input type="checkbox" id="cofer_other" class="confer" />
                             <label for="cofer_other">Other</label>
-                            <input type="text" class="w-9/12 mt-3" placeholder="other" id="conference_other"
-                                style="display:none" />
+                            <input type="text" class="w-9/12 mt-3" placeholder="other" id="conference_other" style="display:none" />
                         </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th>Would you like to apply for an abstract book copy? <br>(초록집 요청) <span class="hit">*</span></th>
-                <td>
-                    <div>
-                        <input id="copy_yn" name="copy_yn" hidden />
-                        <input type="checkbox" id="abstract_yes" />
-                        <label for="abstract_yes">Yes (Hard copy)</label>
-                        <br>
-                        <input type="checkbox" id="abstract_no" />
-                        <label for="abstract_no">No (PDF file)</label>
                     </div>
                 </td>
             </tr>
@@ -791,55 +749,7 @@ td {
                 <col width="20%">
                 <col width="*">
             </colgroup>
-            <tr>
-                <th>
-                    Member<br>(학회 회원 여부)
-                    <span class="hit">*</span>
-                </th>
-                <td>
-                    <input id="kes_member_status" name="kes_member_status" hidden />
-                    <input type="radio" id="member" />
-                    <label for="member">Member (회원)</label>
-                    <br>
-                    <input type="radio" id="non_member" />
-                    <label for="non_member">Non-Member (비회원)</label>
-                    <div class="sign_up_btn_box" style="display: none;">
-                        <br>
-                        <a target="_blank" href="https://www.endocrinology.or.kr/member/info.php"><button type="button"
-                                class="sign_up bg-blue-300 hover:bg-blue-100">KES 회원가입 (Korean only)</button></a>
-                        <a target="_blank"
-                            href="https://docs.google.com/forms/d/e/1FAIpQLSeST6AvFwdi3EvAyudol6PeD7evWTcNEH7oh-weHNGORk2izg/viewform"><button
-                                type="button" class="sign_up bg-blue-300 hover:bg-blue-100">KES Sign up (For
-                                foreigner)</button></a>
-                    </div>
-                    <div class="kes_id" style="display: none;">
-                        <input name="kes_id" class="kes_id_input border p-2 mt-4 w-6/12" placeholder="KES ID를 입력해주세요" />
-                        <button class="kes_check_btn bg-blue-700 text-white px-4 font-semibold" type="button">Check
-                            ID</button>
-                        <p class="kes_email_text" style="color: #c1121f; font-weight:600;">Please enter your KES ID.</p>
 
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th>Attendance Date<br>(참석 날짜)
-                    <span class="hit">*</span>
-                </th>
-                <td>
-                    <input id="attendance_date" name="attendance_date" hidden />
-                    <input type="checkbox" id="full" class="day" />
-                    <label for="full">Full registration </label>
-                    <br>
-                    <input type="checkbox" id="thursday" class="day" />
-                    <label for="thursday">Thursday, October 26 </label>
-                    <br>
-                    <input type="checkbox" id="friday" class="day" />
-                    <label for="friday">Friday, October 27</label>
-                    <br>
-                    <input type="checkbox" id="saturday" class="day" />
-                    <label for="saturday">Saturday, October 28</label>
-                </td>
-            </tr>
             <tr>
                 <th>
                     Type of Participation<br>(참석유형)
@@ -847,8 +757,7 @@ td {
                 </th>
                 <td>
                     <div class="flex w-11/12 justify-between items-center">
-                        <select id="Participation_1" style="background-color:#ffffff;"
-                            class="px-2 py-1 w-full h-10 border" name="attendance_type">
+                        <select id="Participation_1" style="background-color:#ffffff;" class="px-2 py-1 w-full h-10 border" name="attendance_type">
                             <option value="" selected="selected">선택사항</option>
                             <option value="Participant">Participant</option>
                             <option value="Speaker">Speaker</option>
@@ -857,8 +766,6 @@ td {
                             <option value="Panel">Panel</option>
                             <option value="Preceptor">Preceptor</option>
                             <option value="Organizer">Organizer</option>
-                            <!-- <option value="Oral Presenter">Oral Presenter</option> -->
-                            <!-- <option value="Poster Oral Presenter">Poster Oral Presenter</option> -->
                             <option value="Satellite Attendee">Satellite Attendee</option>
                             <option value="Press">Press</option>
                             <option value="Exhibitior">Exhibitior</option>
@@ -872,41 +779,21 @@ td {
                 </th>
                 <td>
                     <div class="flex w-11/12 justify-between items-center border">
-                        <select id="Category_1" style="background-color:#ffffff;" class="px-2 py-1 w-full h-10"
-                            name="member_type">
+                        <select id="Category_1" style="background-color:#ffffff;" class="px-2 py-1 w-full h-10" name="member_type">
                             <option value="" selected="selected">선택사항</option>
-                            <option value="Medical Doctor">Medical Doctor</option>
+                            <option value="Specialist">Specialist</option>
                             <option value="Professor">Professor</option>
-                            <option value="Trainee">Trainee</option>
-                            <option value="Student">Student</option>
-                            <option value="Other">Other</option>
-                            <option value="Corporate">Corporate</option>
-                        </select>
-                    </div>
-
-                    <div class="flex w-11/12 justify-between items-center ">
-                        <select name="member_other_type" id="category_2" style="background-color:#ffffff; display:none"
-                            class="px-2 py-1 w-full h-10 border">
                             <option value="Fellow">Fellow</option>
-                            <option value="Resident">Resident</option>
-                            <option value="Graduate">Graduate</option>
-                            <option value="Individual Researcher">Individual Researcher</option>
-                        </select>
-                    </div>
-
-                    <div class="flex w-11/12 justify-between items-center">
-                        <select name="member_other_type" id="category_3" style="background-color:#ffffff;display:none"
-                            class="px-2 py-1 w-full h-10 border">
-                            <option value="Public Health Doctor">Public Health Doctor</option>
-                            <option value="Military Doctor">Military Doctor</option>
+                            <option value="Researcher">Researcher</option>
                             <option value="Nurse">Nurse</option>
                             <option value="Nutritionist">Nutritionist</option>
-                            <option value="Pharmacist">Pharmacist</option>
-                            <option value="Exercise Specialist">Exercise Specialist</option>
-                            <option value="Researcher">Researcher</option>
-                            <option value="Other">Other</option>
-                            <input type="text" id="category_others" name="member_other_type"
-                                style="display: none;width:140%;" placeholder="category" />
+                            <option value="Pharmacists">Pharmacists</option>
+                            <option value="Corporate member">Corporate member</option>
+                            <option value="Military medical officer">Military medical officer</option>
+                            <option value="Student">Student</option>
+                            <option value="Resident">Resident</option>
+                            <option value="Others">Others</option>
+                            <input type="text" id="category_others" name="member_other_type" style="display: none;width:140%;" placeholder="category" />
                         </select>
                     </div>
                 </td>
@@ -952,829 +839,508 @@ td {
 
 </html> -->
 
-<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-    crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 <script>
-const wrap_1 = document.querySelector(".wrap_1")
+    const wrap_1 = document.querySelector(".wrap_1")
 
-const firstName = document.querySelector("#firstName");
-const LastName = document.querySelector("#lastName");
-const KoreanName = document.querySelector("#koreanName");
+    const terms = document.querySelector("#terms")
 
-const contry = document.querySelector("#nation_no");
+    const firstName = document.querySelector("#firstName");
+    const LastName = document.querySelector("#lastName");
+    const KoreanName = document.querySelector("#koreanName");
 
-const affilation = document.querySelector("#affiliation");
-const koreanAffiliation = document.querySelector("#affiliation_kor")
-const department = document.querySelector("#department")
+    const contry = document.querySelector("#nation_no");
 
-const contryNumber = document.querySelector("#contryNum");
-const phone = document.querySelector("#phoneNumber")
+    const affilation = document.querySelector("#affiliation");
+    const koreanAffiliation = document.querySelector("#affiliation_kor")
+    const department = document.querySelector("#department")
+    const department_kor = document.querySelector("#department_kor")
 
-const email_1 = document.querySelector("#Email1")
-const email_2 = document.querySelector("#Email2")
-const email_3 = document.querySelector("#Email3")
-const check_btn = document.querySelector(".check_btn")
-const email_text = document.querySelector(".email_text")
+    const contryNumber = document.querySelector("#contryNum");
+    const phone = document.querySelector("#phoneNumber")
 
-const member = document.querySelector("#member");
-const nonMember = document.querySelector("#non_member")
-const kes_member_status = document.querySelector("#kes_member_status")
-const sign_up_btn_box = document.querySelector(".sign_up_btn_box")
-const kes_id = document.querySelector(".kes_id")
-const kes_id_input = document.querySelector(".kes_id_input")
-const kes_check_btn = document.querySelector(".kes_check_btn")
-const kes_email_text = document.querySelector(".kes_email_text")
-
-// const participation = document.querySelector("#Participation");
-const participationSelect = document.querySelector("#Participation_1")
-
-// const category = document.querySelector("#Category")
-const categorySelect = document.querySelector("#Category_1")
-const categoryOthers = document.querySelector("#category_others")
-const category_2 = document.querySelector("#category_2")
-const category_3 = document.querySelector("#category_3")
-
-const need = document.querySelector("#need");
-const nonNeed = document.querySelector("#non_need")
-const ln_box = document.querySelector("#ln_box")
-
-const doctor = document.querySelector("#doctor");
-const specialist = document.querySelector("#specialist")
-
-const attendance_date = document.querySelector("#attendance_date")
-const full = document.querySelector("#full");
-const thursday = document.querySelector("#thursday");
-const friday = document.querySelector("#friday");
-const saturday = document.querySelector("#saturday");
-const dayList = document.querySelectorAll(".day")
-
-const card = document.querySelector("#card");
-const transfer = document.querySelector("#transfer")
-const deposit_method = document.querySelector("#deposit_method")
-const bank = document.querySelector(".bank");
-const account = document.querySelector(".account")
-const transfer_box = document.querySelector("#transfer_box")
-const etc4 = document.querySelector("#etc4")
-
-const participationRadios = document.querySelectorAll('.session_radio');
-const checkboxes = document.querySelectorAll('.checkbox');
-const allCheck = document.querySelector("#all_check");
-const checkedbox2 = document.querySelectorAll('.check');
-const firstCheck = document.querySelector("#first_check");
-const secondCheck = document.querySelector("#second_check");
-const thirdCheck = document.querySelector("#third_check");
-const fourthCheck = document.querySelector("#fourth_check");
-
-const total = document.querySelector("#total")
-
-const submitButton = document.querySelector("#Submit")
-const finalButton = document.querySelector(".next_btn")
-const preButton = document.querySelector(".pre_btn")
-const conference_other = document.querySelector("#conference_other")
-const cofer_other = document.querySelector("#cofer_other")
-const conference_info = document.querySelector("#conference_info")
-const conferList = document.querySelectorAll(".confer")
-
-const attend_yes = document.querySelector("#attend_yes");
-const attend_no = document.querySelector("#attend_no")
-
-const abstract_yes = document.querySelector("#abstract_yes");
-const abstract_no = document.querySelector("#abstract_no")
-const copy_yn = document.querySelector("#copy_yn")
-
-const is_score = document.querySelector("#is_score")
-
-const first_time_yn = document.querySelector("#first_time_yn")
-const time_num = document.querySelector(".time_num")
-const first_time = document.querySelector("#first_time")
-const three = document.querySelector("#three")
-const six = document.querySelector("#six")
-const nine = document.querySelector("#nine")
-const ten = document.querySelector("#ten")
-
-const special_request_food = document.querySelector("#special_request_food")
-const special_no = document.querySelector("#special_no");
-const special_halal = document.querySelector("#special_halal");
-const special_vege = document.querySelector("#special_vege")
-
-const fee_input = document.querySelector("#fee")
-
-const ln = document.querySelector(".ln")
-const header = document.querySelector(".onsite_header")
-
-let fee;
-let member_other_type;
-let check_email = false;
-let kes_check_email = false;
-
-/**header 새로고침 */
-header.addEventListener("click", () => {
-    window.location.reload()
-})
-
-/**영어 유효성 검사 */
-firstName.addEventListener("input", (event) => {
-    englishInput(event)
-})
-LastName.addEventListener("input", (event) => {
-    englishInput(event)
-})
-
-affilation.addEventListener("input", (event) => {
-    englishInput(event)
-})
-
-function englishInput(event) {
-    const inputValue = event.target.value;
-    const onlyEnglish = /^[A-Za-z\s\-_,.]+$/;
-
-    if (!onlyEnglish.test(inputValue)) {
-        event.target.value = inputValue.replace(/[^A-Za-z\s\-_,.]+/g, '');
-    }
-}
-
-/**email 유효성 검사 */
-kes_id_input.addEventListener("input", (event) => {
-    const inputValue = event.target.value;
-    const emailPattern = /^[A-Za-z0-9\s\-_,.@]+$/;
-
-    if (!emailPattern.test(inputValue)) {
-        event.target.value = inputValue.replace(/[^A-Za-z0-9\-_,.@]+/g, '');
-    }
-});
+    const email_1 = document.querySelector("#Email1")
+    const email_2 = document.querySelector("#Email2")
+    const email_3 = document.querySelector("#Email3")
+    const check_btn = document.querySelector(".check_btn")
+    const email_text = document.querySelector(".email_text")
 
 
-/**한국어 유효성 검사 */
-KoreanName.addEventListener('input', (event) => {
-    const inputValue = event.target.value;
-    const onlyHangul = /^[ㄱ-ㅎㅏ-ㅣ가-힣\s\-_,]+$/;
+    const participationSelect = document.querySelector("#Participation_1")
+
+    // const category = document.querySelector("#Category")
+    const categorySelect = document.querySelector("#Category_1")
+    const categoryOthers = document.querySelector("#category_others")
 
 
-    if (!onlyHangul.test(inputValue)) {
-        event.target.value = inputValue.replace(/[^\uAC00-\uD7AF\u1100-\u11FF\u3130-\u318F\s\-_,]+/g, '');
-    }
-});
+    const card = document.querySelector("#card");
+    const transfer = document.querySelector("#transfer")
+    const deposit_method = document.querySelector("#deposit_method")
+    const bank = document.querySelector(".bank");
+    const account = document.querySelector(".account")
+    const transfer_box = document.querySelector("#transfer_box")
+    const etc4 = document.querySelector("#etc4")
 
-koreanAffiliation.addEventListener("input", (event) => {
-    const inputValue = event.target.value;
-    const onlyHangul = /^[ㄱ-ㅎㅏ-ㅣ가-힣\s\-_,]+$/;
+    const participationRadios = document.querySelectorAll('.session_radio');
+    const checkboxes = document.querySelectorAll('.checkbox');
+    const allCheck = document.querySelector("#all_check");
+    const checkedbox2 = document.querySelectorAll('.check');
+    const firstCheck = document.querySelector("#first_check");
+    const secondCheck = document.querySelector("#second_check");
+    const thirdCheck = document.querySelector("#third_check");
+    const fourthCheck = document.querySelector("#fourth_check");
 
-    if (!onlyHangul.test(inputValue)) {
-        event.target.value = inputValue.replace(/[^\uAC00-\uD7AF\u1100-\u11FF\u3130-\u318F\s\-_,]+/g, '');
-    }
-})
+    const total = document.querySelector("#total")
 
-/**email 유효성 검사 */
-email_1.addEventListener("input", (event) => {
-    const inputValue = event.target.value;
-    const emailreg = /^[a-zA-Z0-9\-_,.]*$/;
+    const submitButton = document.querySelector("#Submit")
+    const finalButton = document.querySelector(".next_btn")
+    const preButton = document.querySelector(".pre_btn")
+    const conference_other = document.querySelector("#conference_other")
+    const cofer_other = document.querySelector("#cofer_other")
+    const conference_info = document.querySelector("#conference_info")
+    const conferList = document.querySelectorAll(".confer")
 
-    if (!emailreg.test(inputValue)) {
-        event.target.value = inputValue.replace(/[^A-Za-z0-9\-_,.]+/g, '');
-    }
-});
+    const attend_yes = document.querySelector("#attend_yes");
+    const attend_no = document.querySelector("#attend_no")
 
-email_2.addEventListener("input", (event) => {
-    const inputValue = event.target.value;
-    const emailreg = /^[a-zA-Z0-9\-_,]*$/;
+    const abstract_yes = document.querySelector("#abstract_yes");
+    const abstract_no = document.querySelector("#abstract_no")
+    const copy_yn = document.querySelector("#copy_yn")
 
-    if (!emailreg.test(inputValue)) {
-        event.target.value = inputValue.replace(/[^A-Za-z0-9\-_,.]+/g, '');
-    }
-});
+    const is_score = document.querySelector("#is_score")
 
-/**휴대폰 유효성 검사 */
-phone.addEventListener('input', (event) => {
-    const inputValue = event.target.value;
-    const onlyNumbers = /^[0-9]+$/;
+    const first_time_yn = document.querySelector("#first_time_yn")
+    const time_num = document.querySelector(".time_num")
+    const first_time = document.querySelector("#first_time")
+    const three = document.querySelector("#three")
+    const six = document.querySelector("#six")
+    const nine = document.querySelector("#nine")
+    const ten = document.querySelector("#ten")
 
-    if (!onlyNumbers.test(inputValue)) {
-        event.target.value = inputValue.replace(/\D/g, '');
-    }
-});
+    const special_request_food = document.querySelector("#special_request_food")
+    const special_no = document.querySelector("#special_no");
+    const special_halal = document.querySelector("#special_halal");
+    const special_vege = document.querySelector("#special_vege")
 
-/**국적 -> 한국인만 한국이름 작성 */
-contry.addEventListener("click", () => {
-    contryNumber.value = contry.options[contry.selectedIndex].dataset.nt
-    if (contry.value !== "Korea") {
-        KoreanName.style.display = "none"
-        koreanAffiliation.style.display = "none"
-        ln.style.display = "none"
-    } else if (contry.value === "Korea") {
-        KoreanName.style.display = "";
-        koreanAffiliation.style.display = "";
-        ln.style.display = ""
-    }
-})
+    const fee_input = document.querySelector("#fee")
 
-/**email selectbox */
-email_3.addEventListener("click", () => {
-    email_2.value = email_3.options[email_3.selectedIndex].value
-})
+    const header = document.querySelector(".onsite_header")
 
-email_1.addEventListener("change", () => {
-    check_email = false;
-})
+    let fee;
+    let member_other_type;
+    let check_email = false;
+    let kes_check_email = false;
 
-email_2.addEventListener("change", () => {
-    check_email = false;
-    email_text.innerText = "Please check the availability of this E-mail"
-    email_text.style.color = "#c1121f"
-})
-
-/**중복확인 버튼 */
-check_btn.addEventListener("click", () => {
-    if (!email_1.value || !email_2.value) {
-        alert("Please enter your ID(E-mail)");
-        email_1.focus()
-        return;
-    }
-    checkEmail()
-})
-
-/**이메일 중복검사 */
-async function checkEmail() {
-    const email = `${email_1.value}@${email_2.value}`
-    const url = `/onSite/check_email?n=${email}`
-    const personalInfoList = [firstName, LastName, KoreanName, contry, affilation, koreanAffiliation, department,
-        phone, need,
-        nonNeed, doctor, specialist
-    ]
-
-    const response = await fetch(url, {
-        method: "GET"
+    /**header 새로고침 */
+    header.addEventListener("click", () => {
+        window.location.reload()
     })
 
-    const data = await response.json()
+    /**영어 유효성 검사 */
+    firstName.addEventListener("input", (event) => {
+        englishInput(event)
+    })
+    LastName.addEventListener("input", (event) => {
+        englishInput(event)
+    })
 
-    if (data.user) {
-        alert("This email address is already taken")
+    affilation.addEventListener("input", (event) => {
+        englishInput(event)
+    })
+
+    function englishInput(event) {
+        const inputValue = event.target.value;
+        const onlyEnglish = /^[A-Za-z\s\-_,.]+$/;
+
+        if (!onlyEnglish.test(inputValue)) {
+            event.target.value = inputValue.replace(/[^A-Za-z\s\-_,.]+/g, '');
+        }
+    }
+
+
+    /**한국어 유효성 검사 */
+    KoreanName.addEventListener('input', (event) => {
+        const inputValue = event.target.value;
+        const onlyHangul = /^[ㄱ-ㅎㅏ-ㅣ가-힣\s\-_,]+$/;
+
+        if (!onlyHangul.test(inputValue)) {
+            event.target.value = inputValue.replace(/[^\uAC00-\uD7AF\u1100-\u11FF\u3130-\u318F\s\-_,]+/g, '');
+        }
+    });
+
+    koreanAffiliation.addEventListener("input", (event) => {
+        const inputValue = event.target.value;
+        const onlyHangul = /^[ㄱ-ㅎㅏ-ㅣ가-힣\s\-_,]+$/;
+
+        if (!onlyHangul.test(inputValue)) {
+            event.target.value = inputValue.replace(/[^\uAC00-\uD7AF\u1100-\u11FF\u3130-\u318F\s\-_,]+/g, '');
+        }
+    })
+
+    /**email 유효성 검사 */
+    email_1.addEventListener("input", (event) => {
+        const inputValue = event.target.value;
+        const emailreg = /^[a-zA-Z0-9\-_,.]*$/;
+
+        if (!emailreg.test(inputValue)) {
+            event.target.value = inputValue.replace(/[^A-Za-z0-9\-_,.]+/g, '');
+        }
+    });
+
+    email_2.addEventListener("input", (event) => {
+        const inputValue = event.target.value;
+        const emailreg = /^[a-zA-Z0-9\-_,]*$/;
+
+        if (!emailreg.test(inputValue)) {
+            event.target.value = inputValue.replace(/[^A-Za-z0-9\-_,.]+/g, '');
+        }
+    });
+
+    /**휴대폰 유효성 검사 */
+    phone.addEventListener('input', (event) => {
+        const inputValue = event.target.value;
+        const onlyNumbers = /^[0-9]+$/;
+
+        if (!onlyNumbers.test(inputValue)) {
+            event.target.value = inputValue.replace(/\D/g, '');
+        }
+    });
+
+    /**국적 -> 한국인만 한국이름 작성 */
+    contry.addEventListener("click", () => {
+        contryNumber.value = contry.options[contry.selectedIndex].dataset.nt
+        if (contry.value !== "Republic of Korea") {
+            KoreanName.style.display = "none"
+            koreanAffiliation.style.display = "none"
+            department_kor.style.display = "none"
+
+        } else if (contry.value === "Republic of Korea") {
+            KoreanName.style.display = "";
+            koreanAffiliation.style.display = ""
+            department_kor.style.display = ""
+        }
+    })
+
+    /**email selectbox */
+    email_3.addEventListener("click", () => {
+        email_2.value = email_3.options[email_3.selectedIndex].value
+    })
+
+    email_1.addEventListener("change", () => {
         check_email = false;
-        email_text.innerText = "This email address is already taken"
+    })
+
+    email_2.addEventListener("change", () => {
+        check_email = false;
+        email_text.innerText = "Please check the availability of this E-mail"
         email_text.style.color = "#c1121f"
-    } else {
-        alert("This email address is available")
-        check_email = true;
-        email_text.innerText = "This email address is available"
-        email_text.style.color = "blue"
+    })
 
-        personalInfoList.map((info) => {
-            removeDisabled(info)
+    /**중복확인 버튼 */
+    check_btn.addEventListener("click", () => {
+        if (!email_1.value || !email_2.value) {
+            alert("Please enter your ID(E-mail)");
+            email_1.focus()
+            return;
+        }
+        checkEmail()
+    })
+
+    /**이메일 중복검사 */
+    async function checkEmail() {
+        const email = `${email_1.value}@${email_2.value}`
+        const url = `/onSite/check_email?n=${email}`
+        const personalInfoList = [firstName, LastName, KoreanName, contry, affilation, koreanAffiliation,
+            department, department_kor,
+            phone
+        ]
+
+        const response = await fetch(url, {
+            method: "GET"
         })
+
+        const data = await response.json()
+
+        if (data.user) {
+            alert("This email address is already taken")
+            check_email = false;
+            email_text.innerText = "This email address is already taken"
+            email_text.style.color = "#c1121f"
+        } else {
+            alert("This email address is available")
+            check_email = true;
+            email_text.innerText = "This email address is available"
+            email_text.style.color = "blue"
+
+            personalInfoList.map((info) => {
+                removeDisabled(info)
+            })
+        }
     }
-}
 
-/**disabled 지우기 */
-function removeDisabled(content) {
-    content.disabled = false;
-}
-
-/**회원 여부 checkbox */
-member.addEventListener("click", () => {
-    kes_check_email = false;
-    if (member.checked) {
-        kes_id.style.display = ""
-        nonMember.checked = false;
-        kes_member_status.value = "Y"
-        sign_up_btn_box.style.display = "none"
-    } else {
-        member.checked = true;
+    /**disabled 지우기 */
+    function removeDisabled(content) {
+        content.disabled = false;
     }
-})
-
-kes_check_btn.addEventListener("click", () => {
-    if (kes_id_input.value !== "") {
-        kes_check_email = true;
-        kes_email_text.innerText = "Checked. "
-        kes_email_text.style.color = "blue"
-        calRegiFee()
-    } else {
-        alert("Please enter your KES ID.")
-    }
-})
 
 
-nonMember.addEventListener("click", () => {
-    if (nonMember.checked) {
-        kes_id.style.display = "none"
-        member.checked = false;
-        kes_member_status.value = "N"
-        sign_up_btn_box.style.display = ""
-    } else {
-        nonMember.checked = true;
-    }
-    calRegiFee()
-})
-
-
-/**참석 횟수 checkbox */
-attend_yes.addEventListener("click", () => {
-    if (attend_yes.checked) {
-        attend_no.checked = false;
-        first_time_yn.value = "Y"
-        time_num.style.display = "none"
-        first_time.value = null
-    }
-})
-
-attend_no.addEventListener("click", () => {
-    if (attend_no.checked) {
-        attend_yes.checked = false;
-        first_time_yn.value = "N"
-        time_num.style.display = "";
-    }
-})
-
-/**참석 횟수 */
-
-three.addEventListener("click", () => {
-    six.checked = false;
-    nine.checked = false;
-    ten.checked = false;
-    first_time.value = "1-3"
-})
-
-six.addEventListener("click", () => {
-    three.checked = false;
-    nine.checked = false;
-    ten.checked = false;
-    first_time.value = "4-6"
-})
-
-nine.addEventListener("click", () => {
-    three.checked = false;
-    six.checked = false;
-    ten.checked = false;
-    first_time.value = "7-9"
-})
-
-ten.addEventListener("click", () => {
-    three.checked = false;
-    six.checked = false;
-    nine.checked = false;
-    first_time.value = "10+"
-})
-
-/** 가입 경로 other input*/
-cofer_other.addEventListener("click", () => {
-    if (cofer_other.checked) {
-        conference_other.style.display = "";
-        conference_info.value = conference_other.value
-    } else {
-        conference_other.style.display = "none";
-    }
-})
-
-/**가입 경로 */
-conferList.forEach((checkbox) => {
-    checkbox.addEventListener("change", (e) => {
-        conferList.forEach((otherCheckbox) => {
-            if (otherCheckbox !== checkbox) {
-                otherCheckbox.checked = false;
-            }
-        });
-        if (e.target.dataset.id) {
+    /** 가입 경로 other input*/
+    cofer_other.addEventListener("click", () => {
+        if (cofer_other.checked) {
+            conference_other.style.display = "";
+            conference_info.value = conference_other.value
+        } else {
             conference_other.style.display = "none";
         }
-        conference_info.value = e.target.dataset.id
-    });
-});
-
-/**참석 날짜 checkbox */
-full.addEventListener("click", () => {
-    attendance_date.value = "Full registration"
-    dayCheck("full")
-})
-
-thursday.addEventListener("click", () => {
-    attendance_date.value = "Thursday, October 26"
-    dayCheck("thursday")
-})
-
-friday.addEventListener("click", () => {
-    attendance_date.value = "Friday, October 27"
-    dayCheck("friday")
-})
-
-saturday.addEventListener("click", () => {
-    attendance_date.value = "Saturday, October 28"
-    dayCheck("saturday")
-})
-
-function dayCheck(selected) {
-    dayList.forEach((day) => {
-        if (day.id !== selected) {
-            day.checked = false;
-        } else {
-            day.checked = true;
-        }
     })
-    calRegiFee()
-}
 
-/**지불방법 checkbox */
-card.addEventListener("click", () => {
-    transfer.checked = false;
-    deposit_method.value = "Credit card"
-    transfer_box.style.display = "none"
-    calRegiFee()
-})
-
-transfer.addEventListener("click", () => {
-    card.checked = false;
-    deposit_method.value = "transfer"
-    transfer_box.style.display = ""
-    calRegiFee()
-})
-
-
-
-/**category select */
-categorySelect.addEventListener("change", () => {
-    const categoryValue = categorySelect.options[categorySelect.selectedIndex].value;
-    member_other_type = "";
-
-    if (categoryValue === "Trainee") {
-        category_2.style.display = "";
-        category_3.style.display = "none";
-        categoryOthers.style.display = "none"
-    }
-    if (categoryValue !== "Trainee" && categoryValue !== "Other") {
-        category_2.style.display = "none";
-        category_3.style.display = "none";
-        categoryOthers.style.display = "none"
-    }
-    if (categoryValue === "Other") {
-        category_2.style.display = "none";
-        category_3.style.display = "";
-    }
-    calRegiFee()
-})
-
-category_2.addEventListener("click", () => {
-    member_other_type = category_2.options[category_2.selectedIndex].value;
-    calRegiFee()
-})
-
-category_3.addEventListener("click", () => {
-    const categoryOtherInput = category_3.options[category_3.selectedIndex].value;
-    member_other_type = categoryOtherInput
-    if (categoryOtherInput === "Other") {
-        categoryOthers.style.display = ""
-        categoryOtherInput = categoryOthers.value
-    } else {
-        categoryOthers.style.display = "none"
-    }
-    calRegiFee()
-})
-
-
-
-
-/**평점 신청 X -> input disabled */
-nonNeed.addEventListener("click", () => {
-    if (nonNeed.checked) {
-        ln_box.style.display = "none"
-        need.checked = false;
-        doctor.disabled = true;
-        specialist.disabled = true;
-        is_score.value = "N"
-    } else {
-        need.checked = true
-        doctor.disabled = false;
-        specialist.disabled = false;
-    }
-})
-
-
-/**평점 신청 O -> input disabled X */
-need.addEventListener("click", () => {
-    if (need.checked) {
-        ln_box.style.display = ""
-        nonNeed.checked = false;
-        doctor.disabled = false;
-        specialist.disabled = false;
-        is_score.value = "Y"
-    }
-})
-
-/**면허 번호 유효성 검사 */
-
-doctor.addEventListener("input", () => {
-    const inputValue = event.target.value;
-    const onlyNumbers = /^[0-9]+$/;
-
-    if (!onlyNumbers.test(inputValue)) {
-        event.target.value = inputValue.replace(/\D/g, '');
-    }
-})
-
-specialist.addEventListener("input", () => {
-    const inputValue = event.target.value;
-    const onlyNumbers = /^[0-9]+$/;
-
-    if (!onlyNumbers.test(inputValue)) {
-        event.target.value = inputValue.replace(/\D/g, '');
-    }
-})
-
-
-/**abstract book */
-abstract_yes.addEventListener("click", () => {
-    if (abstract_yes.checked) {
-        abstract_no.checked = false;
-        copy_yn.value = "Y"
-    }
-})
-
-abstract_no.addEventListener("click", () => {
-    if (abstract_no.checked) {
-        abstract_yes.checked = false;
-        copy_yn.value = "N"
-    }
-})
-
-/**special request food */
-special_no.addEventListener("click", () => {
-    special_request_food.value = "None"
-    special_halal.checked = false;
-    special_vege.checked = false;
-})
-
-special_halal.addEventListener("click", () => {
-    special_vege.checked = false;
-    special_no.checked = false;
-    special_request_food.value = "Halal"
-})
-
-special_vege.addEventListener("click", () => {
-    special_halal.checked = false;
-    special_no.checked = false;
-    special_request_food.value = "Vegetarian"
-})
-
-
-participationSelect.addEventListener("change", () => {
-    calRegiFee()
-})
-// submitButton.addEventListener("click", (e) => {
-//     e.preventDefault()
-//     onSubmit()
-// })
-
-/**은행명과 계좌번호 합치기 */
-function addBankAccount() {
-    etc4.value = bank.value + "/" + account.value
-}
-
-$(function() {
-    $("#Submit").click(function(e) {
-        const submit = onSubmit(e)
-        if (submit) {
-
-            $("#addForm").submit();
-        } else {
-
-            e.preventDefault();
-        }
+    /**가입 경로 */
+    conferList.forEach((checkbox) => {
+        checkbox.addEventListener("change", (e) => {
+            conferList.forEach((otherCheckbox) => {
+                if (otherCheckbox !== checkbox) {
+                    otherCheckbox.checked = false;
+                }
+            });
+            if (e.target.dataset.id) {
+                conference_other.style.display = "none";
+            }
+            conference_info.value = e.target.dataset.id
+        });
     });
-});
 
-function onSubmit(e) {
-    e.preventDefault()
-    /** Personal Information */
-    if (!email_1.value || !email_2.value) {
-        alert("invaild email");
-        email_1.focus()
-        return;
-    }
-    if (check_email === false) {
-        alert("invaild Check for Duplicate");
-        email_1.focus()
-        return;
-    }
-    if (!firstName.value || !LastName.value) {
-        alert("invaild Name");
-        firstName.focus()
-        return;
-    }
-    if (!contry.value) {
-        alert("invaild contry");
-        contry.focus()
-        return;
-    }
-    if (!affilation.value) {
-        alert("invaild affilation");
-        affilation.focus()
-        return;
-    }
-    if (!department.value) {
-        alert("invaild department")
-        department.focus()
-        return;
-    }
-    if (!phone.value) {
-        alert("invaild phone");
-        phone.focus()
-        return;
-    }
-    if (contry.value === "Korea" && !need.checked && !nonNeed.checked) {
-        alert("invaild grade");
-        need.focus()
-        return;
-    }
-    if (need.checked && !doctor.value && !specialist.value) {
-        alert("invaild grade");
-        need.focus()
-        return;
-    }
 
-    /** Survey */
-
-    if (!attend_yes.checked && !attend_no.checked) {
-        alert("invaild attend");
-        attend_yes.focus()
-        return;
-    }
-    let conferCheck = false
-    conferList.forEach((confer) => {
-        if (confer.checked) {
-            conferCheck = true;
-        }
+    /**지불방법 checkbox */
+    card.addEventListener("click", () => {
+        transfer.checked = false;
+        deposit_method.value = "Credit card"
+        transfer_box.style.display = "none"
+        calRegiFee()
     })
-    if (!conferCheck) {
-        alert("invaild conference");
-        conference_other.focus()
-        return;
-    }
-    if (!abstract_yes.checked && !abstract_no.checked) {
-        alert("invaild abstract");
-        abstract_yes.focus()
-        return;
-    }
 
-    // if (!special_no.checked && !special_halal.checked && !special_vege.checked) {
-    //     alert("invaild special food");
-    //     special_no.focus()
-    //     return;
-    // }
+    transfer.addEventListener("click", () => {
+        card.checked = false;
+        deposit_method.value = "transfer"
+        transfer_box.style.display = ""
+        calRegiFee()
+    })
 
 
 
-    /** Registration Fees */
-    if (!member.checked && !nonMember.checked) {
-        alert("invaild member");
-        member.focus()
-        return;
-    }
-    if (member.checked && !kes_id_input.value) {
-        alert("invaild member");
-        kes_id_input.focus()
-        return;
-    }
-    if (member.checked && !kes_check_email) {
-        alert("invaild member");
-        kes_id_input.focus()
-        return;
-    }
-    if (!participationSelect.options[participationSelect.selectedIndex].value) {
-        alert("invaild participation");
-        participationSelect.focus()
-        return;
-    }
-    if (!categorySelect.options[categorySelect.selectedIndex].value) {
-        alert("invaild category");
-        categorySelect.focus()
-        return;
-    }
-    if (categorySelect.options[categorySelect.selectedIndex].value === "Others" && !categoryOthers.value) {
-        alert("invaild category");
-        categoryOthers.focus()
-        return;
-    }
-    if (!full.checked && !thursday.checked && !friday.checked && !saturday.checked) {
-        alert("invaild Attendance Date");
-        full.focus()
-        return;
-    }
-    if (!card.checked && !transfer.checked) {
-        alert("invaild Payment Method");
-        card.focus()
-        return;
-    }
-    if (transfer.checked && !bank.value && !account.value) {
-        alert("invaild Payment Method");
-        bank.focus()
-        return;
-    }
-    addBankAccount()
-    return true;
-}
-
-
-
-/**금액 계산 */
-function calRegiFee() {
-
-    /**fee = 0*/
-    if (participationSelect.value === "Speaker" || participationSelect.value === "Chairperson" ||
-        participationSelect.value === "Moderator" || participationSelect.value === "Panel" || participationSelect
-        .value === "Preceptor" || participationSelect.value === "Organizer" || participationSelect.value ===
-        "Press" || participationSelect.value === "Satellite Attendee"
-    ) {
-        if (contry.value === "Korea") {
-            fee = "KRW 0"
+    /**category select */
+    categorySelect.addEventListener("change", () => {
+        const categoryValue = categorySelect.options[categorySelect.selectedIndex].value;
+        member_other_type = "";
+        if (categoryValue === "Others") {
+            categoryOthers.style.display = "";
         } else {
-            fee = "USD 0"
+            categoryOthers.style.display = "none";
         }
+        calRegiFee()
+    })
+
+
+    /**special request food */
+    special_no.addEventListener("click", () => {
+        special_request_food.value = "None"
+        special_halal.checked = false;
+        special_vege.checked = false;
+    })
+
+    special_halal.addEventListener("click", () => {
+        special_vege.checked = false;
+        special_no.checked = false;
+        special_request_food.value = "Halal"
+    })
+
+    special_vege.addEventListener("click", () => {
+        special_halal.checked = false;
+        special_no.checked = false;
+        special_request_food.value = "Vegetarian"
+    })
+
+
+    participationSelect.addEventListener("change", () => {
+        calRegiFee()
+    })
+    // submitButton.addEventListener("click", (e) => {
+    //     e.preventDefault()
+    //     onSubmit()
+    // })
+
+    /**은행명과 계좌번호 합치기 */
+    function addBankAccount() {
+        etc4.value = bank.value + "/" + account.value
     }
-    /**fee != 0*/
-    else {
-        if (member.checked) {
-            /**full day & member*/
-            if (full.checked) {
-                if (categorySelect.value === "Medical Doctor" || categorySelect.value === "Professor") {
-                    if (contry.value === "Korea") {
-                        fee = "KRW 250,000"
-                    } else {
-                        fee = "USD 250(KRW 337,500)"
-                    }
-                } else if (categorySelect.value === "Student" || categorySelect.value === "Trainee") {
-                    if (contry.value === "Korea") {
-                        fee = "KRW 125,000"
-                    } else {
-                        fee = "USD 125(KRW 168,750)"
-                    }
-                } else if (categorySelect.value === "Corporate" || categorySelect.value === "Other") {
-                    if (contry.value === "Korea") {
-                        fee = "KRW 200,000"
-                    } else {
-                        fee = "USD 200(KRW 270,000)"
-                    }
-                } else {
-                    if (contry.value === "Korea") {
-                        fee = "KRW 200,000"
-                    } else {
-                        fee = "USD 200(KRW 270,000)"
-                    }
-                }
+
+    $(function() {
+        $("#Submit").click(function(e) {
+            const submit = onSubmit(e)
+            if (submit) {
+
+                $("#addForm").submit();
+            } else {
+
+                e.preventDefault();
+            }
+        });
+    });
+
+    function onSubmit(e) {
+        e.preventDefault()
+
+        if (!terms.checked) {
+            alert("Please check the Terms section.")
+            terms.focus()
+            return;
+        }
+
+        /** Personal Information */
+
+        if (!email_1.value || !email_2.value) {
+            alert("invaild email");
+            email_1.focus()
+            return;
+        }
+        if (check_email === false) {
+            alert("invaild Check for Duplicate");
+            email_1.focus()
+            return;
+        }
+        if (!firstName.value || !LastName.value) {
+            alert("invaild Name");
+            firstName.focus()
+            return;
+        }
+        if (!contry.options[contry.selectedIndex].value) {
+            alert("invaild contry");
+            contry.focus()
+            return;
+        }
+        if (!affilation.value) {
+            alert("invaild affilation");
+            affilation.focus()
+            return;
+        }
+        if (!department.value) {
+            alert("invaild department")
+            department.focus()
+            return;
+        }
+        if (!phone.value) {
+            alert("invaild phone");
+            phone.focus()
+            return;
+        }
+
+        if (contry.options[contry.selectedIndex].value === "Republic of Korea") {
+            if (!KoreanName.value) {
+                alert("invaild Name");
+                KoreanName.focus()
+                return;
             }
 
-            /** one day & member */
-            else {
-                if (contry.value === "Korea") {
-                    fee = "KRW 200,000"
-                } else {
-                    fee = "USD 200(KRW 270,000)"
-                }
+            if (!koreanAffiliation.value) {
+                alert("invaild affilation");
+                koreanAffiliation.focus()
+                return;
             }
 
-
-
-        } else if (!member.checked) {
-
-            /**full day & non-member */
-            if (full.checked) {
-                if (categorySelect.value === "Medical Doctor" || categorySelect.value === "Professor") {
-                    if (contry.value === "Korea") {
-                        fee = "KRW 350,000"
-                    } else {
-                        fee = "USD 350(KRW 472,500)"
-                    }
-                } else if (categorySelect
-                    .value === "Trainee" || categorySelect
-                    .value === "Student") {
-                    if (contry.value === "Korea") {
-                        fee = "KRW 175,000"
-                    } else {
-                        fee = "USD 175(KRW 236,250)"
-                    }
-                } else if (categorySelect.value === "Corporate" || categorySelect.value === "Other") {
-                    if (contry.value === "Korea") {
-                        fee = "KRW 250,000"
-                    } else {
-                        fee = "USD 250(KRW 337,500)"
-                    }
-                } else {
-                    if (contry.value === "Korea") {
-                        fee = "KRW 250,000"
-                    } else {
-                        fee = "USD 250(KRW 337,500)"
-                    }
-                }
-            }
-
-            /** one day  & non-member */
-            else {
-                if (contry.value === "Korea") {
-                    fee = "KRW 230,000"
-                } else {
-                    fee = "USD 230(KRW 310,500)"
-                }
+            if (!department_kor.value) {
+                alert("invaild Department");
+                department_kor.focus()
+                return;
             }
         }
+
+
+        /** Survey */
+
+        let conferCheck = false
+        conferList.forEach((confer) => {
+            if (confer.checked) {
+                conferCheck = true;
+            }
+        })
+        if (!conferCheck) {
+            alert("invaild conference");
+            conference_other.focus()
+            return;
+        }
+
+
+        // if (!special_no.checked && !special_halal.checked && !special_vege.checked) {
+        //     alert("invaild special food");
+        //     special_no.focus()
+        //     return;
+        // }
+
+
+
+        /** Registration Fees */
+
+        if (!participationSelect.options[participationSelect.selectedIndex].value) {
+            alert("invaild participation");
+            participationSelect.focus()
+            return;
+        }
+        if (!categorySelect.options[categorySelect.selectedIndex].value) {
+            alert("invaild category");
+            categorySelect.focus()
+            return;
+        }
+        if (categorySelect.options[categorySelect.selectedIndex].value === "Others" && !categoryOthers.value) {
+            alert("invaild category");
+            categoryOthers.focus()
+            return;
+        }
+
+        if (!card.checked && !transfer.checked) {
+            alert("invaild Payment Method");
+            card.focus()
+            return;
+        }
+        if (transfer.checked && !bank.value && !account.value) {
+            alert("invaild Payment Method");
+            bank.focus()
+            return;
+        }
+        addBankAccount()
+        return true;
     }
-    total.innerText = fee;
-    fee_input.value = fee;
-}
+
+
+
+    /**금액 계산 */
+    function calRegiFee() {
+        const categoryValue = categorySelect.options[categorySelect.selectedIndex].value;
+        const contryValue = contry.options[contry.selectedIndex].value
+        if (contryValue === "Republic of Korea") {
+            if (categoryValue === "Specialist" || categoryValue === "Professor") {
+                fee = "70,000";
+            } else if (categoryValue === "Fellow" || categoryValue === "Researcher" || categoryValue === "Nurses" ||
+                categoryValue === "Nutritionists" || categoryValue === "Corporate member" || categoryValue ===
+                "Military medical officer") {
+                fee = "30,000";
+            } else if (categoryValue === "Resident" || categoryValue === "Student") {
+                fee = "0"
+            }
+        } else {
+            if (categoryValue === "Specialist" || categoryValue === "Professor") {
+                fee = "USD 300";
+            } else if (categoryValue === "Fellow" || categoryValue === "Researcher" || categoryValue === "Nurses" ||
+                categoryValue === "Nutritionists" || categoryValue === "Corporate member" || categoryValue ===
+                "Military medical officer") {
+                fee = "USD 150";
+            } else if (categoryValue === "Resident" || categoryValue === "Student") {
+                fee = "0"
+            }
+        }
+        if (contryValue === "Republic of Korea" && fee !== undefined) {
+            total.innerText = `￦${fee}`
+        } else if (fee !== undefined) {
+            total.innerText = fee;
+        }
+        fee_input.value = fee;
+    }
 </script>

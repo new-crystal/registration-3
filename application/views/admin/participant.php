@@ -580,7 +580,7 @@ $day_3_users = count($day_3) + count($day_3_e);
 
 ?>
 <div class="text-center flex flex-col items-center justify-center">
-    <h1 class="text-6xl font-semibold text-orange-600 my-10">SICEM 2023</h1>
+    <h1 class="text-6xl font-semibold text-orange-600 my-10">ISCP 2023</h1>
     <h6 class="text-3xl font-semibold mb-20 ">현장 참석자 데이터</h6>
     <h6 class="text-3xl font-semibold mb-20 ">현장 QR 출결 :
         <?php echo count($item) ?> 명 / 미출결:
@@ -594,9 +594,9 @@ $day_3_users = count($day_3) + count($day_3_e);
             <th rowspan=2 class="total_table bg-slate-300 total">
 
             </th>
-            <td class="total_table bg-sky-200">10월 26일(목)</td>
-            <td class="total_table bg-amber-200">10월 27일(금)</td>
-            <td class="total_table bg-green-200">10월 28일(토)</td>
+            <td class="total_table bg-sky-200">11월 23일(목)</td>
+            <td class="total_table bg-amber-200">11월 24일(금)</td>
+            <td class="total_table bg-green-200">11월 25일(토)</td>
         </tr>
         <tr>
             <td class="count_9"> <?php echo $day_1_users ?></td>
@@ -608,9 +608,9 @@ $day_3_users = count($day_3) + count($day_3_e);
     <table class="w-9/12 text-2xl mb-20 mt-20">
         <tr class="text-black">
             <th colspan="2" rowspan="2" class="bg-sky-950 text-white">등록구분</th>
-            <th colspan="2" class="bg-sky-200">10월 26일(목)</th>
-            <th colspan="2" class="bg-amber-200">10월 27일(금)</th>
-            <th colspan="2" class="bg-green-200">10월 28일(토)</th>
+            <th colspan="2" class="bg-sky-200">11월 23일(목)</th>
+            <th colspan="2" class="bg-amber-200">11월 24일(금)</th>
+            <th colspan="2" class="bg-green-200">11월 25일(토)</th>
             <th rowspan="2" class=" bg-slate-300">Total</th>
         </tr>
         <tr class="text-black">

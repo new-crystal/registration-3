@@ -117,11 +117,28 @@
 }
 
 #printThis .txt_con{
-  height: 526px;
+  height: 340px;
   position: relative;
   width: 100%;
-  margin-top: 170px;
+  margin-top: 555px;
 }
+
+#printThis .reg {
+  text-align: right !important;
+  transform: translate(-16px, -100px);
+}
+
+#printThis .number_box {
+  width: 8cm;
+  transform: rotate(0.5turn) translateY(501px);
+  display: flex !important;
+}
+
+.reg_1, .reg_2{
+  width: 48%;
+}
+
+
 
 #printThis .org{
   font-size: 18px;
@@ -6540,10 +6557,10 @@ h6.panel-title,
 }
 
 #printThis .txt_con{
-  height: 526px;
+  height: 340px;
   position: relative;
   width: 100%;
-  margin-top: 150px;
+  margin-top: 555px;
 }
 
 #printThis .org{

@@ -39,90 +39,8 @@ body {
     padding: 0;
 }
 
-.receipt {
-    transform: rotate(0.5turn);
-}
-
-
-.text_box>.receipt_name {
-    left: -42px !important;
-}
-
 #last_name {
     padding: 0 !important;
-}
-
-.text_box {
-    position: absolute;
-    top: 302px;
-}
-
-.kor_box {
-    position: absolute;
-    top: 24px;
-}
-
-.small {
-    font-size: 33px !important;
-    line-height: 50px !important;
-
-}
-
-.org_small {
-    transform: translateY(7px) !important;
-}
-
-.small_box {
-    padding: 15px 10px 15px 10px !important;
-}
-
-.reg {
-    text-align: right !important;
-    transform: translate(-16px, -33px);
-}
-
-.tag_price,
-.tag_name {
-    transform: rotate(0.5turn);
-    width: 77%;
-    margin: 0 auto;
-    text-align: right !important;
-}
-
-.tag_name {
-    position: relative;
-    top: 280px;
-}
-
-.tag_price {
-    position: relative;
-    top: 265px;
-}
-
-.long_tag>.tag_name {
-    top: 285px;
-}
-
-.long_tag>.tag_price {
-    top: 270px;
-}
-
-.three {
-    line-height: 110px !important;
-    font-weight: 900 !important;
-    font-size: 77px !important;
-}
-
-.small_25 {
-    font-size: 32px !important;
-}
-
-.tag_long>.tag_name {
-    top: 255px;
-}
-
-.tag_long>.tag_price {
-    top: 240px;
 }
 </style>
 
@@ -152,65 +70,19 @@ body {
                 echo '<div class="a4_area">';
                 echo '<div class="bg_area">';
                 echo '<div class="txt_con">';
+                echo '<div class="number_box">';
+                echo '<div class="reg_1">' .  $users['registration_no'] . '</div>';
+                echo '<div class="reg_2">' .  $users['registration_no'] . '</div>';
+                echo '</div>';
                 echo '<div class="reg" id="reg">' .  $users['registration_no'] . '</div>';
                 if ($users['nt_info'] != '') {
                     echo '<div class="org" id="nt_info">' . $users['nt_info'] . '</div>';
                 }
 
-                /**닉네임 조건식 */
-                /**1. 총 글자 수 17글자 이하 */
-                if ($nicknameLength < 17 && $nicknameLength > 4) {
-                    echo '<div class="nick_name lang_en" id="first_name">' .  $users['first_name'] . '</div>';
-                    echo '<div class="nick_name lang_en" id="last_name">' .  $users['last_name'] . '</div>';
-                }
-                /**2. 총 글자 수 17글자 이상 */
-                else if ($nicknameLength >= 17 && $nicknameLength < 23 && $participant !== "Press") {
-                    echo '<div class="small_box">';
-                    echo '<div class="nick_name lang_en small" id="first_name">' .  $users['first_name'] . '</div>';
-                    echo '<div class="nick_name lang_en small" id="last_name">' .  $users['last_name'] . '</div>';
-                    echo '</div>';
-                }
-                /**2. 총 글자 수 23글자 이상 */
-                else if ($nicknameLength >= 23 && $participant !== "Press") {
-                    echo '<div class="small_box">';
-                    echo '<div class="nick_name lang_en small_25" id="first_name">' .  $users['first_name'] . '</div>';
-                    echo '<div class="nick_name lang_en small_25" id="last_name">' .  $users['last_name'] . '</div>';
-                    echo '</div>';
-                }
-                /**3. 기자일때 */
-                else if ($nicknameLength <= 4) {
-                    echo '<div class="nick_name lang_en three" id="first_name">' .  $users['first_name'] .  $users['last_name'] .  '</div>';
-                }
-                /**1. 기자 아닐 때*/
-                if ($nicknameLength > 4) {
-                    echo '<div class="org" id="org">' . $users['org_nametag'] . ',' . ' ' . $users['nation'] . '</div>';
-                }
-                /**2. 기자일때 */
-                else if ($nicknameLength <= 4) {
-                    echo '<div class="org" id="org" style="height:70px;">' . $users['org_nametag'] . '</div>';
-                }
+                echo '<div class="nick_name lang_en" id="first_name">' .  $users['first_name'] . '</div>';
+                echo '<div class="nick_name lang_en" id="last_name">' .  $users['last_name'] . '</div>';
+                echo '<div class="org" id="org">' . $users['org_nametag'] . ',' . ' ' . $users['nation'] . '</div>';
                 echo '<div id="qrcode" class=""><img src="/assets/images/QR/qrcode_' . $users['registration_no'] . '.jpg"></div>';
-
-
-                if ($nicknameLength < 19) {
-                    echo '<div class="long_tag">';
-                    echo '<div class="tag_price">' . $users['fee'] . '</div>';
-                    echo '<div class="tag_name">' . $users['first_name'] . ' ' . $users['last_name'] .   '</div>';
-                    echo '</div>';
-                }
-                /**2. 총 글자 수 19글자 이상 */
-                else if ($nicknameLength >= 19 && $nicknameLength < 23) {
-                    echo '<div class="tag_price">' . $users['fee'] . '</div>';
-                    echo '<div class="tag_name">' . $users['first_name'] . ' ' . $users['last_name'] .   '</div>';
-                }
-                /**2. 총 글자 수 25글자 이상 */
-                else if ($nicknameLength >= 23) {
-                    echo '<div class="tag_long">';
-                    echo '<div class="tag_price">' . $users['fee'] . '</div>';
-                    echo '<div class="tag_name">' . $users['first_name'] . ' ' . $users['last_name'] .   '</div>';
-                    echo '</div>';
-                }
-
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';
