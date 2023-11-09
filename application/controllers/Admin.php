@@ -730,66 +730,56 @@ class Admin extends CI_Controller
             $this->load->view('admin/left_side.php', $data);
 
             $this->form_validation->set_rules('registration_no', '등록번호', 'required');
-            // $this->form_validation->set_rules('name_kor', '이름', 'required');
-            // $this->form_validation->set_ru/les('phone', '전화번호', 'required');
-            // $this->form_validation->set_rules('org', '소속', 'required');
 
             if ($this->form_validation->run() === FALSE) {
                 //                $this->load->view('admin');
             } else {
-                $name_kor = $this->input->post('name_kor');
-                $license = $this->input->post('licence_number');
-                $org_nametag = $this->input->post('org_nametag');
-                $affiliation = $this->input->post('affiliation');
-                $affiliation_kor = $this->input->post('affiliation_kor');
-                // $department = $this->input->post('department');
-                // $department_kor = $this->input->post('department_kor');
-                $phone = $this->input->post('phone');
-                $email = $this->input->post('email');
-                $member_type = $this->input->post('member_type');
-                $member_other_type = $this->input->post('member_other_type');
-                $kes_member_status = $this->input->post('kes_member_status');
-                $postcode = $this->input->post('postcode');
-                $address = $this->input->post('address');
-                $deposit = $this->input->post('deposit');
-                $deposit_date = $this->input->post('deposit_date');
-                $deposit_method = $this->input->post('deposit_method');
-                // $deposit_name = $this->input->post('deposit_name');
-                $memo = $this->input->post('memo');
-                $attendance_type = $this->input->post('attendance_type');
-                $attendance_date = $this->input->post('attendance_date');
-                $specialty_number = $this->input->post('specialty_number');
-                // $nutritionist_number = $this->input->post('nutritionist_number');
-                // $dietitian_number = $this->input->post('dietitian_number');
+                $time = $this->input->post('time');
+                $nation = $this->input->post('nation');
                 $first_name = $this->input->post('first_name');
                 $last_name = $this->input->post('last_name');
-                $nation = $this->input->post('nation');
-                $welcome_reception_yn = $this->input->post('welcome_reception_yn');
-                $day1_satellite_yn = $this->input->post('day1_satellite_yn');
-                $day2_satellite_yn = $this->input->post('day2_satellite_yn');
-                $day3_breakfast_yn = $this->input->post('day3_breakfast_yn');
+                $name_kor = $this->input->post('name_kor');
+                $affiliation = $this->input->post('affiliation');
+                $affiliation_kor = $this->input->post('affiliation_kor');
+                $org_nametag = $this->input->post('org_nametag');
+                $department = $this->input->post('department');
+                $department_kor = $this->input->post('department_kor');
+                $license = $this->input->post('licence_number');
+                $specialty_number = $this->input->post('specialty_number');
+                $nutritionist_number = $this->input->post('nutritionist_number');
+                $phone = $this->input->post('phone');
+                $email = $this->input->post('email');
                 $fee = $this->input->post('fee');
-                $time = $this->input->post('time');
-                $is_score = $this->input->post('is_score');
-                $etc1 = $this->input->post('etc1');
-                $etc2 = $this->input->post('etc2');
-                $etc3 = $this->input->post('etc3');
+                $member_type = $this->input->post('member_type');
+                $deposit_method = $this->input->post('deposit_method');
                 $etc4 = $this->input->post('etc4');
-                $etc5 = $this->input->post('etc5');
-                $conference_info = $this->input->post('conference_info');
-                $remark1 = $this->input->post('remark1');
-                $remark2 = $this->input->post('remark2');
-                $remark6 = $this->input->post('remark6');
-                $remark7 = $this->input->post('remark7');
-                $remark8 = $this->input->post('remark8');
+                $deposit = $this->input->post('deposit');
+                $deposit_date = $this->input->post('deposit_date');
                 $special_request_food = $this->input->post('special_request_food');
+                $day2_breakfast_yn = $this->input->post('day2_breakfast_yn');
+                $day2_luncheon_yn = $this->input->post('day2_luncheon_yn');
+                $day3_breakfast_yn = $this->input->post('day3_breakfast_yn');
+                $day3_luncheon_yn = $this->input->post('day3_luncheon_yn');
+                $conference_info = $this->input->post('conference_info');
                 $qr_print = $this->input->post('qr_print');
-                $onsite_reg = $this->input->post('onsite_reg');
                 $qr_chk_day_1 = $this->input->post('qr_chk_day_1');
                 $qr_chk_day_2 = $this->input->post('qr_chk_day_2');
                 $qr_chk_day_3 = $this->input->post('qr_chk_day_3');
-                $first_time_yn = $this->input->post('first_time_yn');
-                $first_time = $this->input->post('first_time');
+
+                $memo = $this->input->post('memo');
+                $attendance_type = $this->input->post('attendance_type');
+
+
+                $etc1 = $this->input->post('etc1');
+                $etc2 = $this->input->post('etc2');
+                $etc3 = $this->input->post('etc3');
+                $etc5 = $this->input->post('etc5');
+                $remark1 = $this->input->post('remark1');
+                $remark2 = $this->input->post('remark2');
+                $remark3 = $this->input->post('remark3');
+                $remark4 = $this->input->post('remark4');
+                $remark5 = $this->input->post('remark5');
+
                 if ($memo == "") {
                     $memo = null;
                 }
@@ -808,12 +798,9 @@ class Admin extends CI_Controller
                     'org_nametag' => $org_nametag,
                     'phone' => preg_replace("/\s+/", "", $phone),
                     'email' => preg_replace("/\s+/", "", $email),
-                    'postcode' => trim($postcode),
-                    'addr' => trim($address),
+
                     // 'type' => trim($type),
                     'member_type' => trim($member_type),
-                    'member_other_type' => trim($member_other_type),
-                    'kes_member_status' => trim($kes_member_status),
                     'fee' => $fee,
                     // 'time' => $time,
                     // 'uagent' => $uagent,
@@ -822,35 +809,25 @@ class Admin extends CI_Controller
                     'deposit_method' => $deposit_method,
                     'memo' => $memo,
                     'attendance_type' => $attendance_type,
-                    'attendance_date' => $attendance_date,
                     'specialty_number' => $specialty_number,
                     'first_name' => $first_name,
                     'last_name' => $last_name,
                     'nation' => $nation,
-                    'welcome_reception_yn' => $welcome_reception_yn,
-                    'day1_satellite_yn' => $day1_satellite_yn,
-                    'day2_satellite_yn' => $day2_satellite_yn,
+                    'day2_breakfast_yn' => $day2_breakfast_yn,
+                    'day2_luncheon_yn' => $day2_luncheon_yn,
                     'day3_breakfast_yn' => $day3_breakfast_yn,
+                    'day3_luncheon_yn' => $day3_luncheon_yn,
                     'updatetime' => $updateTime,
                     'time' => $time,
-                    'is_score' => $is_score,
-                    'etc1' => $etc1,
-                    'etc2' => $etc2,
-                    'etc3' => $etc3,
-                    'etc4' => $etc4,
-                    'etc5' => $etc5,
                     'conference_info' => $conference_info,
                     'special_request_food' => $special_request_food,
 
                     'remark1' => $remark1,
                     'remark2' => $remark2,
-                    'remark6' => $remark6,
-                    'remark7' => $remark7,
-                    'remark8' => $remark8,
-                    'first_time_yn' => $first_time_yn,
-                    'first_time' => $first_time,
+                    'remark3' => $remark3,
+                    'remark4' => $remark4,
+                    'remark5' => $remark5,
                     'qr_print' => $qr_print,
-                    'onsite_reg' => $onsite_reg,
                     'qr_chk_day_1' => $qr_chk_day_1,
                     'qr_chk_day_2' => $qr_chk_day_2,
                     'qr_chk_day_3' => $qr_chk_day_3,

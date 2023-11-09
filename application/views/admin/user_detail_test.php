@@ -122,6 +122,30 @@ $remark3 = "";
                                         <input class="form-control" type="text" value="<?php echo $item['department_kor']; ?>" name="department_kor" id="org">
                                     </td>
                                 </tr>
+                                <tr>
+                                    <th>면허번호</th>
+                                    <td>
+                                        <div style="display:flex;  align-items: center;">
+                                            <input class="form-control" type="text" value="<?php echo $item['licence_number']; ?>" name="licence_number" id="phone">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>전문의번호</th>
+                                    <td>
+                                        <div style="display:flex;  align-items: center;">
+                                            <input class="form-control" type="text" value="<?php echo $item['specialty_number']; ?>" name="specialty_number" id="phone">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>영양사면허번호</th>
+                                    <td>
+                                        <div style="display:flex;  align-items: center;">
+                                            <input class="form-control" type="text" value="<?php echo $item['nutritionist_number']; ?>" name="nutritionist_number" id="phone">
+                                        </div>
+                                    </td>
+                                </tr>
 
                                 <tr>
                                     <th>연락처</th>
@@ -151,23 +175,25 @@ $remark3 = "";
                                         </select>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th>참석자구분1<br>(수정불가)</th>
-                                    <td> <input class="form-control" type="text" value="<?php echo $type1; ?>" name="type1" id="type1" style="background-color:#fafafa;" disabled></td>
-                                </tr>
 
                                 <tr>
-                                    <th>참석자구분1(수정용)</th>
+                                    <th>참석자구분</th>
                                     <td>
                                         <input class="form-control member_type" type="text" value="<?php echo $item['member_type']; ?>" name="member_type" id="type1">
                                         <select class="form-control input-lg m-bot15" id="member_type_select">
                                             <option value="" selected="selected">직접입력</option>
-                                            <option value="Medical Doctor">Medical Doctor</option>
+
+                                            <option value="Specialist">Specialist</option>
                                             <option value="Professor">Professor</option>
-                                            <option value="Trainee">Trainee</option>
+                                            <option value="Fellow">Fellow</option>
+                                            <option value="Researcher">Researcher</option>
+                                            <option value="Nurse">Nurse</option>
+                                            <option value="Nutritionist">Nutritionist</option>
+                                            <option value="Pharmacists">Pharmacists</option>
+                                            <option value="Corporate member">Corporate member</option>
+                                            <option value="Military medical officer">Military medical officer</option>
                                             <option value="Student">Student</option>
-                                            <option value="Other">Other</option>
-                                            <option value="Corporate">Corporate</option>
+                                            <option value="Resident">Resident</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -185,10 +211,8 @@ $remark3 = "";
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Invitation Code Discount</th>
-                                    <td> <input id="dp1" type="text" value="<?php echo $item['etc1']; ?>" size="16" class="form-control" name="etc1">
-
-                                    </td>
+                                    <th>결제수단</th>
+                                    <td> <input type="text" class="form-control" value="<?php echo $item['deposit_method']; ?>" name="deposit_method" id="etc4"></td>
                                 </tr>
 
                                 <tr>
@@ -206,7 +230,37 @@ $remark3 = "";
 
                                     </td>
                                 </tr>
+                                <tr>
+                                    <th>special request food</th>
+                                    <td> <input id="dp1" type="text" value="<?php echo $item['special_request_food']; ?>" size="16" class="form-control" name="special_request_food">
 
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>2일차 조식 여부</th>
+                                    <td> <input id="dp1" type="text" value="<?php echo $item['day2_breakfast_yn']; ?>" size="16" class="form-control" name="day2_breakfast_yn">
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>2일차 오찬 여부</th>
+                                    <td> <input id="dp1" type="text" value="<?php echo $item['day2_luncheon_yn']; ?>" size="16" class="form-control" name="day2_luncheon_yn">
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>3일차 조식 여부</th>
+                                    <td> <input id="dp1" type="text" value="<?php echo $item['day3_breakfast_yn']; ?>" size="16" class="form-control" name="day3_breakfast_yn">
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>3일차 오찬 여부</th>
+                                    <td> <input id="dp1" type="text" value="<?php echo $item['day3_luncheon_yn']; ?>" size="16" class="form-control" name="day3_luncheon_yn">
+
+                                    </td>
+                                </tr>
 
                                 <tr>
                                     <th>Where did you get the information about the conference?</th>
@@ -238,29 +292,28 @@ $remark3 = "";
                         <div class="detail_table">
                             <table>
                                 <tr>
-                                    <th style="background-color: #fb8500">Remarks 1<br>(명찰케이스)</th>
+                                    <th style="background-color: #fb8500">Remarks 1</th>
                                     <td><input class="form-control" type="text" name="remark1" id="remark1" value="<?php echo $item['remark1']; ?>">
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th style="background-color: #fb8500">Remarks 2<br>(리본)</th>
+                                    <th style="background-color: #fb8500">Remarks 2</th>
                                     <td>
                                         <input class="form-control" type="text" value="<?php echo $item['remark2']; ?>" name="remark2" id="remark2">
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th style="background-color: #fb8500">Remarks 3<br>(First Time Attendee (KES
-                                        Member))<br>(수정불가)</th>
-                                    <td><input class="form-control" type="text" name="remark" value="<?php echo $remark3; ?>" id="remark3" style="background-color:#fafafa;" disabled>
+                                    <th style="background-color: #fb8500">Remarks 3</th>
+                                    <td><input class="form-control" type="text" name="remark" value="<?php echo $item['remark3']; ?>" id="remark3" style="background-color:#fafafa;" disabled>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th style="background-color: #fb8500">Remarks 4<br>(Abstact)</th>
-                                    <td><input class="form-control" type="text" value="<?php echo $item['remark4']; ?>" name="copy_yn" id="remark4">
+                                    <th style="background-color: #fb8500">Remarks 4</th>
+                                    <td><input class="form-control" type="text" value="<?php echo $item['remark4']; ?>" name="remark4" id="remark4">
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th style="background-color: #fb8500">Remarks 5<br>(special request food)</th>
+                                    <th style="background-color: #fb8500">Remarks 5</th>
                                     <td>
                                         <input class="form-control" type="text" value="<?php echo $item['special_request_food']; ?>" name="special_request_food" id="remark5">
                                     </td>
@@ -276,7 +329,8 @@ $remark3 = "";
                         <div clss="btn_group" style="float: right;">
                             <button type="submit" data-toggle="modal" class="btn btn-primary">수정</button>
                             </form>
-                            <a href="/admin/delete_user?d=<?php echo $item['registration_no']; ?>" class="btn btn-danger">삭제</a>
+                            <button type="button" class="btn btn-danger" onclick="removeUser('<?php echo $item['registration_no']; ?>')">삭제</button>
+
                         </div>
                     </div>
             </div>
@@ -363,6 +417,12 @@ $remark3 = "";
     attendance_date_select.addEventListener("change", () => {
         attendance_date.value = attendance_date_select.options[attendance_date_select.selectedIndex].value;
     })
+
+    function removeUser(reg) {
+        if (window.confirm("삭제하시겠습니까?")) {
+            window.location.href = `/admin/delete_user?d=${reg}`
+        }
+    }
 </script>
 
 
