@@ -313,6 +313,8 @@ td {
 .term_wrap .term_box {
     max-height: 200px;
     overflow-y: scroll;
+    text-align: justify;
+    font-size: 0.7rem;
 }
 
 .term_label {
@@ -992,6 +994,10 @@ affilation.addEventListener("input", (event) => {
     englishInput(event)
 })
 
+department.addEventListener("input", (event) => {
+    englishInput(event)
+})
+
 function englishInput(event) {
     const inputValue = event.target.value;
     const onlyEnglish = /^[A-Za-z\s\-_,.]+$/;
@@ -1013,6 +1019,15 @@ KoreanName.addEventListener('input', (event) => {
 });
 
 koreanAffiliation.addEventListener("input", (event) => {
+    const inputValue = event.target.value;
+    const onlyHangul = /^[ㄱ-ㅎㅏ-ㅣ가-힣\s\-_,]+$/;
+
+    if (!onlyHangul.test(inputValue)) {
+        event.target.value = inputValue.replace(/[^\uAC00-\uD7AF\u1100-\u11FF\u3130-\u318F\s\-_,]+/g, '');
+    }
+})
+
+department_kor.addEventListener("input", (event) => {
     const inputValue = event.target.value;
     const onlyHangul = /^[ㄱ-ㅎㅏ-ㅣ가-힣\s\-_,]+$/;
 
