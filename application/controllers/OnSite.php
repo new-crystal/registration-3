@@ -140,7 +140,6 @@ class OnSite extends CI_Controller
     public function mobile()
     {
 
-
         $this->load->helper('form');
         $this->load->library('form_validation');
 
@@ -195,6 +194,37 @@ class OnSite extends CI_Controller
 
             if ($etc4 === "/") {
                 $etc4 = null;
+            }
+
+
+            if ($nation === "Republic of Korea") {
+                if ($member_type === "Specialist" || $member_type === "Professor") {
+                    $fee = "70,000";
+                } else if (
+                    $member_type === "Fellow" || $member_type === "Researcher" || $member_type === "Nurses" ||
+                    $member_type === "Nutritionists" || $member_type === "Corporate member" || $member_type ===
+                    "Military medical officer"
+                ) {
+                    $fee = "30,000";
+                } else if ($member_type === "Resident" || $member_type === "Student") {
+                    $fee = "0";
+                } else {
+                    $fee = "30,000";
+                }
+            } else {
+                if ($member_type === "Specialist" || $member_type === "Professor") {
+                    $fee = "USD 300(KRW 405,000)";
+                } else if (
+                    $member_type === "Fellow" || $member_type === "Researcher" || $member_type === "Nurses" ||
+                    $member_type === "Nutritionists" || $member_type === "Corporate member" || $member_type ===
+                    "Military medical officer"
+                ) {
+                    $fee = "USD 150(KRW 202,500)";
+                } else if ($member_type === "Resident" || $member_type === "Student") {
+                    $fee = "0";
+                } else {
+                    $fee = "USD 150(KRW 202,500)";
+                }
             }
 
             $info = array(
