@@ -11,9 +11,9 @@ if (substr($phone, 0, 2) == "82") {
 }
 if (substr($phone, 0, 2) == "10") {
     $phone = '0' . $phone;
+} else {
+    $phone = $phone;
 }
-
-echo $phone;
 
 
 curl_setopt_array($curl, array(
@@ -57,7 +57,7 @@ if ($err) {
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => "POST",
         CURLOPT_POSTFIELDS => array(
-            'phone' =>  $phone, 'callback' => '01030098530',
+            'phone' =>  $phone, 'callback' => '01065492506',
             'message' =>  '
 안녕하십니까,
 SICEM 2023에 등록해 주셔서 감사드리며, SICEM 사무국에서 참석 안내를 하기와 같이 드립니다. 함께 보내 드리는 등록 QR코드를 등록데스크에 제시해주시면 빠르고 원활한 등록이 가능하니 해당 QR코드를 저장하여 방문 부탁드립니다. 
@@ -102,7 +102,7 @@ T. +82-2-2039-7804 | E. info@sicem-secretariat.kr
         $error = $err;
         $error = json_decode($err, true);
     } else {
-        echo $response;
+        //echo $response;
         $responseData = json_decode($response, true);
         $code = $responseData['code'];
         // $after = $responseData['data']['AFTER_SMS_QTY'];
@@ -113,42 +113,42 @@ T. +82-2-2039-7804 | E. info@sicem-secretariat.kr
 <script src="https://cdn.tailwindcss.com"></script>
 <div class="w-full h-full flex items-center justify-center">
     <?php if ($code == "200" && isset($responseData['data'])) : ?>
-    <div class="w-2/4 h-2/4 bg-lime-500 flex flex-col items-center justify-center">
-        <h1 class="text-white font-semibold text-3xl">MMS 전송이 성공하였습니다.</h1>
-        <p class="text-xl font-semibold mt-5">문자 잔여량 : <?= $responseData['data']['AFTER_SMS_QTY'] ?> </p>
-        <button id="closed" class="bg-white text-lime-500 py-3 px-5 translate-y-32 font-semibold rounded">확인</button>
-    </div>
+        <div class="w-2/4 h-2/4 bg-lime-500 flex flex-col items-center justify-center">
+            <h1 class="text-white font-semibold text-3xl">MMS 전송이 성공하였습니다.</h1>
+            <p class="text-xl font-semibold mt-5">문자 잔여량 : <?= $responseData['data']['AFTER_SMS_QTY'] ?> </p>
+            <button id="closed" class="bg-white text-lime-500 py-3 px-5 translate-y-32 font-semibold rounded">확인</button>
+        </div>
 
 
     <?php endif; ?>
     <?php if ($code != "200") : ?>
-    <div class="w-2/4 h-3/4 bg-orange-500 flex flex-col items-center justify-center">
-        <h1 class="text-white font-semibold text-3xl">MMS 전송이 실패하였습니다.</h1>
-        <p class="text-xl font-semibold mt-5"><?= $error ? $error : null ?> </p>
-        <button class="bg-white bg-orange-500 p-3 font-semibold rounded">확인</button>
-    </div>
+        <div class="w-2/4 h-3/4 bg-orange-500 flex flex-col items-center justify-center">
+            <h1 class="text-white font-semibold text-3xl">MMS 전송이 실패하였습니다.</h1>
+            <p class="text-xl font-semibold mt-5"><?= $error ? $error : null ?> </p>
+            <button class="bg-white bg-orange-500 p-3 font-semibold rounded">확인</button>
+        </div>
     <?php endif; ?>
 </div>
 
 <script>
-const closed = document.querySelector("#closed");
+    const closed = document.querySelector("#closed");
 
-closed.addEventListener("click", () => {
-    window.close()
-})
+    closed.addEventListener("click", () => {
+        window.close()
+    })
 
-const parentWindow = window.opener;
-const buttons = parentWindow.document.querySelectorAll('.msm_btn');
-const id = window.location.search.split("=")[1]
-const code = <?php echo $code ?>;
+    const parentWindow = window.opener;
+    const buttons = parentWindow.document.querySelectorAll('.msm_btn');
+    const id = window.location.search.split("=")[1]
+    const code = <?php echo $code ?>;
 
-buttons.forEach((button) => {
-    if (code == "200") {
-        if (button.dataset.id === id) {
-            button.classList.remove('btn-non-success');
-            button.classList.add('btn-success');
-            console.log(button.classList)
+    buttons.forEach((button) => {
+        if (code == "200") {
+            if (button.dataset.id === id) {
+                button.classList.remove('btn-non-success');
+                button.classList.add('btn-success');
+                console.log(button.classList)
+            }
         }
-    }
-});
+    });
 </script>

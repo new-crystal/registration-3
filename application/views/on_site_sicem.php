@@ -191,7 +191,7 @@
         height: 40px;
     }
 
-    @media screen and (max-width:480px) {
+    @media screen and (max-width:600px) {
         #addForm {
             width: 80%;
         }
@@ -230,6 +230,24 @@
 
         .check_btn {
             display: block;
+        }
+
+        .onsite_title {
+            font-size: 25px;
+        }
+
+        .term_wrap .term_box {
+            max-height: 100px !important;
+        }
+
+        .term_label {
+            text-align: left;
+        }
+
+        .term_label>label {
+            margin: 0;
+            font-size: 0.6rem;
+
         }
     }
 
@@ -303,7 +321,7 @@
     <img class="onsite_header" src="../../assets/images/ISCP_onsite.png" />
     <div class="flex justify-left items-center w-8/12 h-12 mx-auto mt-5 text-4xl sm:text-3xl font-semibold w-full">
         <img src="../../assets/images/subTit_bl.png" />
-        <h1>On-site Registration</h1>
+        <h1 class="onsite_title">On-site Registration</h1>
     </div>
 
     <div class="term_wrap">
@@ -326,7 +344,7 @@
         </div>
         <div class="term_label">
             <input type="checkbox" class="checkbox input required" id="terms" name="terms" value="Y">
-            <label for="terms1">I agree to the collection and use of my personal information. </label>
+            <label for="terms">I agree to the collection and use of my personal information. </label>
         </div>
     </div>
     <div>
@@ -345,7 +363,7 @@
                 <td>
                     <div class="email_box w-11/12">
 
-                        <div class="flex items-center w-full justify-between p-1">
+                        <div class="flex items-center w-full justify-between p-1 flex-wrap">
                             <input type="text" name="email1" id="Email1" maxlength="64" value="" class="w-4/12">
                             <p class="mx-1">@</p>
                             <input type="text" name="email2" id="Email2" maxlength="64" value="" class="w-4/12">
@@ -758,7 +776,7 @@
                 <td>
                     <div class="flex w-11/12 justify-between items-center">
                         <select id="Participation_1" style="background-color:#ffffff;" class="px-2 py-1 w-full h-10 border" name="attendance_type">
-                            <option value="" selected="selected">선택사항</option>
+                            <option value="" selected="selected">Select</option>
                             <option value="Participant">Participant</option>
                             <option value="Speaker">Speaker</option>
                             <option value="Chairperson">Chairperson</option>
@@ -780,7 +798,7 @@
                 <td>
                     <div class="flex w-11/12 justify-between items-center border">
                         <select id="Category_1" style="background-color:#ffffff;" class="px-2 py-1 w-full h-10" name="member_type">
-                            <option value="" selected="selected">선택사항</option>
+                            <option value="" selected="selected">Select</option>
                             <option value="Specialist">Specialist</option>
                             <option value="Professor">Professor</option>
                             <option value="Fellow">Fellow</option>
@@ -1329,15 +1347,15 @@
             }
         } else {
             if (categoryValue === "Specialist" || categoryValue === "Professor") {
-                fee = "USD 300";
+                fee = "USD 300(KRW 405,000)";
             } else if (categoryValue === "Fellow" || categoryValue === "Researcher" || categoryValue === "Nurses" ||
                 categoryValue === "Nutritionists" || categoryValue === "Corporate member" || categoryValue ===
                 "Military medical officer") {
-                fee = "USD 150";
+                fee = "USD 150(KRW 202,500)";
             } else if (categoryValue === "Resident" || categoryValue === "Student") {
                 fee = "0"
             } else {
-                fee = "USD 150";
+                fee = "USD 150(KRW 202,500)";
             }
         }
         if (contryValue === "Republic of Korea" && fee !== undefined) {

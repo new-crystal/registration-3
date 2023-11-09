@@ -91,17 +91,17 @@ class OnSite extends CI_Controller
                 }
             } else {
                 if ($member_type === "Specialist" || $member_type === "Professor") {
-                    $fee = "USD 300";
+                    $fee = "USD 300(KRW 405,000)";
                 } else if (
                     $member_type === "Fellow" || $member_type === "Researcher" || $member_type === "Nurses" ||
                     $member_type === "Nutritionists" || $member_type === "Corporate member" || $member_type ===
                     "Military medical officer"
                 ) {
-                    $fee = "USD 150";
+                    $fee = "USD 150(KRW 202,500)";
                 } else if ($member_type === "Resident" || $member_type === "Student") {
                     $fee = "0";
                 } else {
-                    $fee = "USD 150";
+                    $fee = "USD 150(KRW 202,500)";
                 }
             }
 
@@ -147,7 +147,7 @@ class OnSite extends CI_Controller
         $this->form_validation->set_rules('first_name', '이름', 'required');
 
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('on_site_sicem', $this->data);
+            $this->load->view('on-site-mo', $this->data);
         } else {
             $email1 = $this->input->post('email1');
             $email2 = $this->input->post('email2');

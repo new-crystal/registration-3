@@ -80,7 +80,8 @@
 
                 echo '<div class="nick_name lang_en" id="first_name">' .  $users['first_name'] . '</div>';
                 echo '<div class="nick_name lang_en" id="last_name">' .  $users['last_name'] . '</div>';
-                echo '<div class="org" id="org">' . $users['org_nametag'] . ',' . ' ' . $users['nation'] . '</div>';
+                echo '<div class="org" id="org">' . $users['org_nametag'] . '</div>';
+                echo '<div class="org" id="org">' . $users['nation'] . '</div>';
                 echo '<div id="qrcode" class=""><img src="/assets/images/QR/qrcode_' . $users['registration_no'] . '.jpg"></div>';
                 echo '</div>';
                 echo '</div>';
@@ -111,7 +112,7 @@
     document.getElementById("btnPrint").onclick = function() {
         const id = "<?php echo $users['registration_no']; ?>";
 
-        // window.location.href = `https://reg3.webeon.net/qrcode/print_file?registration_no=${id}`
+        // window.location.href = `https://reg2.webeon.net/qrcode/print_file?registration_no=${id}`
         printElement(document.getElementById("printThis"));
     }
 
