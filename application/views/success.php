@@ -1,7 +1,7 @@
 <?php
 echo '<script type="text/javascript"> ';
 echo ' function goback(newurl) {';
-echo '  if (confirm("※ 등록 완료 되었습니다.")) {';
+echo '  if (confirm("※ Registration is complete.")) {';
 echo '    document.location.replace(newurl);';
 echo '  }';
 echo '}';
