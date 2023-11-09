@@ -734,11 +734,11 @@
                             <input type="checkbox" id="conference_colleague" data-id="Internet banner ads or search" class="confer" />
                             <label for="conference_colleague">Internet banner ads or search</label>
                         </div>
-                        <div>
+                        <!-- <div>
                             <input type="checkbox" id="cofer_other" class="confer" />
                             <label for="cofer_other">Other</label>
                             <input type="text" class="w-9/12 mt-3" placeholder="other" id="conference_other" style="display:none" />
-                        </div>
+                        </div> -->
                     </div>
                 </td>
             </tr>
@@ -1103,15 +1103,15 @@
     }
 
 
-    /** 가입 경로 other input*/
-    cofer_other.addEventListener("click", () => {
-        if (cofer_other.checked) {
-            conference_other.style.display = "";
-            conference_info.value = conference_other.value
-        } else {
-            conference_other.style.display = "none";
-        }
-    })
+    // /** 가입 경로 other input*/
+    // cofer_other.addEventListener("click", () => {
+    //     if (cofer_other.checked) {
+    //         conference_other.style.display = "";
+    //         conference_info.value = conference_other.value
+    //     } else {
+    //         conference_other.style.display = "none";
+    //     }
+    // })
 
     /**가입 경로 */
     conferList.forEach((checkbox) => {
@@ -1121,9 +1121,9 @@
                     otherCheckbox.checked = false;
                 }
             });
-            if (e.target.dataset.id) {
-                conference_other.style.display = "none";
-            }
+            // if (e.target.dataset.id) {
+            //     conference_other.style.display = "none";
+            // }
             conference_info.value = e.target.dataset.id
         });
     });
