@@ -87,17 +87,18 @@
 
     .alert {
         width: 500px;
-        height: 500px;
-        background-color: #FFF;
+        height: 200px;
+        background: rgb(151, 197, 239);
+        background: linear-gradient(125deg, rgba(151, 197, 239, 1) 0%, rgba(214, 235, 255, 1) 50%, rgba(214, 235, 255, 1) 100%);
         display: flex;
         justify-content: center;
         align-items: center;
-        color: blue;
+        color: #003366;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        border-radius: 8px;
+        border-radius: 32px;
     }
 
     .alert>p {
@@ -212,7 +213,8 @@
     const alert = document.querySelector(".alert")
     const alertText = document.querySelector(".alert_text")
     const name = document.querySelector(".name")
-    let clearTime;
+    let textTime;
+    let alertTime;
 
 
     body.addEventListener("click", () => {
@@ -241,11 +243,15 @@
     })
 
     window.onload = () => {
-        clearTimeout(clearTime)
-        checkAlert()
         qrcodeInput.focus()
-        clearTime = inputs.forEach((input) => {
-            setTimeout(() => {
+        clearTimeout(alertTime);
+        clearTimeout(textTime)
+        checkAlert()
+        alertTime = setTimeout(() => {
+            alert.style.display = "none";
+        }, 3000)
+        inputs.forEach((input) => {
+            textTime = setTimeout(() => {
                 input.value = "";
                 alert.style.display = "none";
             }, 10000)

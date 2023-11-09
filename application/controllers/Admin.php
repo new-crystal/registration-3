@@ -939,16 +939,7 @@ class Admin extends CI_Controller
             $spent3 = $this->time_spent->time_spentcalc($enter3, $leave3, $start, $end, $breaks);
             $date = "";
             $type1 = "";
-            if ($row['attendance_date'] == "Full registration") {
-                $date = "Full registration";
-            } else {
-                $date = "One-day registration";
-            }
-            if ($row['kes_member_status'] == "Non-Member") {
-                $type1 = $row['member_type'] . ' - ' . 'Non-member';
-            } else {
-                $type1 = $row['member_type'] . ' - ' . 'member';
-            }
+
 
 
 
@@ -968,7 +959,7 @@ class Admin extends CI_Controller
             $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $chk);
             $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row['qr_print']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $row['mintime']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $date);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, '-');
             $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row['nation']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $row['first_name'] . " " . $row['last_name']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $row['first_name']);
@@ -977,7 +968,7 @@ class Admin extends CI_Controller
             $object->getActiveSheet()->setCellValueByColumnAndRow(12, $excel_row, $row['org_nametag']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(13, $excel_row, $row['affiliation_kor']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(14, $excel_row, $row['department']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(15, $excel_row, $row['etc3']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(15, $excel_row, '-');
             $object->getActiveSheet()->setCellValueByColumnAndRow(16, $excel_row, $row['phone']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(17, $excel_row, $row['attendance_type']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(18, $excel_row, $type1);
@@ -1139,7 +1130,7 @@ class Admin extends CI_Controller
             $object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $row['email']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row['onsite_reg']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $date);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $row['kes_member_status']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, '-');
             $object->getActiveSheet()->setCellValueByColumnAndRow(10, $excel_row, $row['nation']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(11, $excel_row, $row['first_name'] . ' ' . $row['last_name']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(12, $excel_row, $row['first_name']);
@@ -1152,17 +1143,17 @@ class Admin extends CI_Controller
             $object->getActiveSheet()->setCellValueByColumnAndRow(19, $excel_row, $row['is_score']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(20, $excel_row, $row['licence_number']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(21, $excel_row, $row['specialty_number']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(22, $excel_row, $row['etc3']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(22, $excel_row, '-');
             $object->getActiveSheet()->setCellValueByColumnAndRow(23, $excel_row, $row['phone']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(24, $excel_row, $row['attendance_type']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(25, $excel_row,  $type1);
             $object->getActiveSheet()->setCellValueByColumnAndRow(26, $excel_row, $row['member_type']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(27, $excel_row, $row['member_other_type']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(28, $excel_row, $row['attendance_date']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(27, $excel_row, '-');
+            $object->getActiveSheet()->setCellValueByColumnAndRow(28, $excel_row, '-');
             $object->getActiveSheet()->setCellValueByColumnAndRow(29, $excel_row, $row['fee']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(30, $excel_row, $row['etc1']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(31, $excel_row, $row['etc2']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(32, $excel_row, $row['deposit_method']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(32, $excel_row, '-');
             $object->getActiveSheet()->setCellValueByColumnAndRow(33, $excel_row, $row['etc4']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(34, $excel_row, $row['deposit']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(35, $excel_row, $row['deposit_date']);

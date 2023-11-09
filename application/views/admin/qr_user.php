@@ -85,9 +85,9 @@
                         <th>Phone Number</th>
                         <th>QR 문자 전송</th>
                         <th>메일전송</th>
-                        <th>Print 여부</th>
-                        <th>입장시간</th>
-                        <th>퇴장시간</th>
+                        <!-- <th>Print 여부</th> -->
+                        <!-- <th>입장시간</th> -->
+                        <!-- <th>퇴장시간</th> -->
                         <th>QR 보기</th>
                     </tr>
                 </thead>
@@ -105,7 +105,7 @@
                         // echo '<td>' . $index++ . '</td>';
                         // echo '<td>' . $item['type3'] . '</td>';
                         // echo '<td>' . substr($item['time'], 0, 10) . '</td>';
-                        echo '<td class="user_d"><a href="/admin/user_detail?n=' . $item['registration_no'] . '" target="_self">' . $item['registration_no'] . '</a></td>';
+                        echo '<td class="user_d" onclick="copy(\'' . $item['registration_no'] . '\')">' . $item['registration_no'] . '</td>';
                         echo '<td>' . $item['attendance_type'] . '</td>';
                         echo '<td>' . $item['first_name']  . " " .  $item['last_name'] . '</td>';
                         echo '<td>' . $item['name_kor'] . '</td>';
@@ -113,7 +113,7 @@
                         echo '<td class="user_d"><a href="/admin/user_detail?n=' . $item['registration_no'] . '" target="_self">' . $item['email'] . '</a></td>';
                         echo '<td>' . $item['phone'] . '</td>';
                         echo '<td>';
-                        if ($item['nation'] == "Korea") {
+                        if ($item['nation'] == "Republic of Korea") {
                             if ($item['QR_SMS_SEND_YN'] == "Y") {
                                 echo '<button style="background:transparent;border:none" onclick="onClickMsm(\'' . $item['registration_no'] . '\')"><div class="msm_btn btn btn-success qr_btn"  data-id="' . $item['registration_no'] . '">문자발송</div></button>';
                             } else {
@@ -129,9 +129,9 @@
                         }
 
                         echo '</td>';
-                        echo '<td style="text-align: center;">' . $item['qr_print'] . '</td>';
-                        echo '<td style="text-align: center;">' . $item['mintime'] . '</td>';
-                        echo '<td style="text-align: center;">' . $item['maxtime'] . '</td>';
+                        // echo '<td style="text-align: center;">' . $item['qr_print'] . '</td>';
+                        // echo '<td style="text-align: center;">' . $item['mintime'] . '</td>';
+                        // echo '<td style="text-align: center;">' . $item['maxtime'] . '</td>';
                         echo '<td>';
                         echo '<a  href="/admin/qr_layout?n=' . $item['registration_no'] . '" target="_blank"><div class="btn btn-info qr_btn" >QR보기</div></a>';
                         echo '</td>';
@@ -175,6 +175,20 @@
 </div>
 <!-- /page container -->
 <script>
+    function copy(text) {
+        if (navigator.clipboard) {
+            navigator.clipboard
+                .writeText(text)
+                .then(() => {
+                    alert('클립보드에 복사되었습니다.');
+                })
+                .catch(() => {
+                    alert('복사를 다시 시도해주세요.');
+                });
+        }
+    }
+
+
     function onClickMsm(number) {
         const url = `/admin/send_msm?n=${number}`
         if (window.confirm("※ 문자 전송을 하시겠습니까?")) {
