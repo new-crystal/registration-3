@@ -125,7 +125,7 @@
 
 #printThis .reg {
   text-align: right !important;
-  transform: translate(-16px, -100px);
+  transform: translate(-18px, -103px);
 }
 
 #printThis .number_box {
@@ -134,10 +134,17 @@
   display: flex !important;
 }
 
-.reg_1, .reg_2{
-  width: 48%;
+#printThis .reg_1, #printThis .reg_2{
+  width: 25%;
 }
 
+#printThis .reg_1{
+  transform: translate(-6px, 1px);
+}
+
+#printThis .reg_2{
+  transform: translate(28px, 1px);
+}
 
 
 #printThis .org{

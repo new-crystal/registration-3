@@ -1442,7 +1442,7 @@ class Admin extends CI_Controller
             $userId = $_GET['n'];
             $where = array(
                 'registration_no' => $userId,
-                'nation' => 'Korea'
+                'nation' => 'Republic of Korea'
             );
             $info = array(
                 'QR_SMS_SEND_YN' =>  'Y'
@@ -1462,7 +1462,7 @@ class Admin extends CI_Controller
             // $data['users'] = array(); // 배열로 초기화
             foreach ($userId as $value) {
                 $wheres = array(
-                    'nation' => 'Korea',
+                    'nation' => 'Republic of Korea',
                     'qr_generated' =>  'Y',
                     'registration_no' => $value
                 );
@@ -1509,11 +1509,11 @@ class Admin extends CI_Controller
                             'CATEGORY_D_1'      => 'QrSystem',
                             'CATEGORY_D_2'      => 'sicem',
                             'CATEGORY_D_3'      => '231026',
-                            'SEND_ADDRESS'      => 'info@sicem-secretariat.kr',
+                            'SEND_ADDRESS'      => 'iscp@into-on.com',
                             'SEND_NAME'         => 'SICEM 2023',
                             'RECV_ADDRESS'      =>  $users['email'],
                             'RECV_NAME'         =>  $users['first_name'] . ' ' . $users['last_name'],
-                            'REPLY_ADDRESS'     => 'info@sicem-secretariat.kr',
+                            'REPLY_ADDRESS'     => 'iscp@into-on.com',
                             'REPLY_NAME'        => 'SICEM 2023',
                             'EMAIL_SUBJECT'     => '[SICEM 2023] Registration and On-Site Attendance Details (Oct 26 - 28, Lotte Hotel World (Jamsil), Seoul, Republic of Korea)',
                             'EMAIL_ALTBODY'     => 'SICEM 2023',
@@ -1656,12 +1656,12 @@ class Admin extends CI_Controller
                 //입장시간, 퇴장시간 기록
                 // $this->entrance->record($info);
 
-                // $data['notice'] = $this->schedule->get_notice();
+                $data['notice'] = $this->schedule->get_notice();
                 $data['user'] = $this->users->get_user($where);
 
                 $this->load->view('admin/access', $data);
             } else {
-                // $data['notice'] = $this->schedule->get_notice();
+                $data['notice'] = $this->schedule->get_notice();
                 $this->load->view('admin/access', $data);
             }
             // $this->load->view('footer');
