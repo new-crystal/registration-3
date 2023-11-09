@@ -903,9 +903,9 @@
     const attend_yes = document.querySelector("#attend_yes");
     const attend_no = document.querySelector("#attend_no")
 
-    const abstract_yes = document.querySelector("#abstract_yes");
-    const abstract_no = document.querySelector("#abstract_no")
-    const copy_yn = document.querySelector("#copy_yn")
+    // const abstract_yes = document.querySelector("#abstract_yes");
+    // const abstract_no = document.querySelector("#abstract_no")
+    // const copy_yn = document.querySelector("#copy_yn")
 
     const is_score = document.querySelector("#is_score")
 
@@ -1324,6 +1324,8 @@
                 fee = "30,000";
             } else if (categoryValue === "Resident" || categoryValue === "Student") {
                 fee = "0"
+            } else {
+                fee = "30,000";
             }
         } else {
             if (categoryValue === "Specialist" || categoryValue === "Professor") {
@@ -1334,6 +1336,8 @@
                 fee = "USD 150";
             } else if (categoryValue === "Resident" || categoryValue === "Student") {
                 fee = "0"
+            } else {
+                fee = "USD 150";
             }
         }
         if (contryValue === "Republic of Korea" && fee !== undefined) {

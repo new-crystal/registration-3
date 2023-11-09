@@ -74,6 +74,37 @@ class OnSite extends CI_Controller
                 $etc4 = null;
             }
 
+
+            if ($nation === "Republic of Korea") {
+                if ($member_type === "Specialist" || $member_type === "Professor") {
+                    $fee = "70,000";
+                } else if (
+                    $member_type === "Fellow" || $member_type === "Researcher" || $member_type === "Nurses" ||
+                    $member_type === "Nutritionists" || $member_type === "Corporate member" || $member_type ===
+                    "Military medical officer"
+                ) {
+                    $fee = "30,000";
+                } else if ($member_type === "Resident" || $member_type === "Student") {
+                    $fee = "0";
+                } else {
+                    $fee = "30,000";
+                }
+            } else {
+                if ($member_type === "Specialist" || $member_type === "Professor") {
+                    $fee = "USD 300";
+                } else if (
+                    $member_type === "Fellow" || $member_type === "Researcher" || $member_type === "Nurses" ||
+                    $member_type === "Nutritionists" || $member_type === "Corporate member" || $member_type ===
+                    "Military medical officer"
+                ) {
+                    $fee = "USD 150";
+                } else if ($member_type === "Resident" || $member_type === "Student") {
+                    $fee = "0";
+                } else {
+                    $fee = "USD 150";
+                }
+            }
+
             $info = array(
                 'name_kor' => preg_replace("/\s+/", "", $name),
                 'attendance_type' => trim($attendance_type),
