@@ -56,6 +56,31 @@ class Qrcode extends CI_Controller
         $info = array(
             'qr_print' =>  'Y'
         );
+
+        /** day1 ~ day3 access 기록*/
+        $qr_time = date("Y-m-d");
+        if ($qr_time == '2023-11-23') {
+            $infoqr = array(
+                'qr_chk_day_1' => 'Y',
+                'qr_chk' => 'Y'
+            );
+            $this->users->update_qr_status($infoqr, $where);
+        }
+        if ($qr_time == '2023-11-24') {
+            $infoqr = array(
+                'qr_chk_day_2' =>  'Y',
+                'qr_chk' => 'Y'
+            );
+            $this->users->update_qr_status($infoqr, $where);
+        }
+        if ($qr_time == '2023-11-25') {
+            $infoqr = array(
+                'qr_chk_day_3' =>  'Y',
+                'qr_chk' => 'Y'
+            );
+            $this->users->update_qr_status($infoqr, $where);
+        }
+
         $data['users'] = $this->users->get_user($where);
         $this->users->update_qr_status($info, $where);
         //                var_dump($data['users']);
