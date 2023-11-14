@@ -105,7 +105,7 @@
     }
 
     #qrcode {
-        transform: translate(-8px, -41px);
+        transform: translate(-15px, -169px);
     }
 
     .leave_time {
@@ -113,18 +113,17 @@
     }
 
     .name {
-        transform: translateY(-20px);
+        transform: translateY(-102px);
     }
 
     .alert {
         width: 500px;
         height: 200px;
-        background: rgb(151, 197, 239);
-        background: linear-gradient(125deg, rgba(151, 197, 239, 1) 0%, rgba(214, 235, 255, 1) 50%, rgba(214, 235, 255, 1) 100%);
+        background: #7c035f;
         display: flex;
         justify-content: center;
         align-items: center;
-        color: #003366;
+        color: #FFF;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -137,6 +136,10 @@
         font-weight: 700;
         position: relative;
         animation: fadeInUp 1s;
+    }
+
+    .entrance_time {
+        transform: translate(-13px, -62px);
     }
 </style>
 
@@ -188,10 +191,10 @@
                                         <div id="qr_entrance" class="qr_info_wrap">
 
                                             <div class="info_content">
-                                                <input type="text" style="margin-top:3px" class="qr_info input" value="<?php if (isset($enter)) {
-                                                                                                                            $enter = date("Y-m-d H:i", strtotime($enter));
-                                                                                                                            echo $enter;
-                                                                                                                        } ?>
+                                                <input type="text" style="margin-top:3px" class="qr_info input entrance_time" value="<?php if (isset($enter)) {
+                                                                                                                                            $enter = date("Y-m-d H:i", strtotime($enter));
+                                                                                                                                            echo $enter;
+                                                                                                                                        } ?>
                                                 " readonly>
                                             </div>
 
