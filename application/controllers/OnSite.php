@@ -65,6 +65,7 @@ class OnSite extends CI_Controller
             $day2_luncheon_yn = 'N';
             $day3_breakfast_yn = 'N';
             $day3_luncheon_yn = 'N';
+            $onsite_reg = '1';
 
             if ($special_request_food == "None") {
                 $special_request_food = 'N';
@@ -129,6 +130,7 @@ class OnSite extends CI_Controller
                 'deposit_method' => $deposit_method,
                 'special_request_food' => $special_request_food,
                 'fee' => $fee,
+                'onsite_reg' => $onsite_reg,
                 'etc4' => $etc4
                 // 'uagent' => $uagent,
             );
@@ -187,6 +189,7 @@ class OnSite extends CI_Controller
             $day2_luncheon_yn = 'N';
             $day3_breakfast_yn = 'N';
             $day3_luncheon_yn = 'N';
+            $onsite_reg = '1';
 
             if ($special_request_food == "None") {
                 $special_request_food = 'N';
@@ -251,6 +254,7 @@ class OnSite extends CI_Controller
                 'deposit_method' => $deposit_method,
                 'special_request_food' => $special_request_food,
                 'fee' => $fee,
+                'onsite_reg' => $onsite_reg,
                 'etc4' => $etc4
                 // 'uagent' => $uagent,
             );

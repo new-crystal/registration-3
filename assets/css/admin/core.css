@@ -265,7 +265,7 @@
 /*    float: left;*/
 /*    width: 100px;*/
     margin-bottom: 0px;
-    padding: 31px 10px;
+    padding: 10px 10px;
 }
 
 #qrcode img{
@@ -6575,7 +6575,7 @@ h6.panel-title,
   padding: 0 10px;
   top: 16%;
   word-break: keep-all;
-  height: 60px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6689,7 +6689,7 @@ h6.panel-title,
 /*    float: left;*/
 /*    width: 100px;*/
     margin-bottom: 0px;
-    padding: 31px 10px;
+    padding: 10px 10px;
 }
 
 #qrcode img{
