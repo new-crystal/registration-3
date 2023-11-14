@@ -125,7 +125,7 @@ input {
     align-items: center;
     color: #FFF;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 32px;
@@ -145,7 +145,7 @@ input {
 
 <body id="body" class="flex items-center justify-center">
     <div id="container" class="w-full h-full flex items-center">
-        <div class="alert" style="display:none">
+        <div class="alert">
             <p class="alert_text">Attendance Checked!</p>
         </div>
         <div class="h-full">
