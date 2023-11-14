@@ -563,48 +563,38 @@ class Admin extends CI_Controller
             $this->load->library('form_validation');
 
             $this->form_validation->set_rules('first_name', '이름', 'required');
-            // $this->form_validation->set_rules('phone', '전화번호', 'required');
 
             if ($this->form_validation->run() === FALSE) {
                 $this->load->view('admin/add_user');
             } else {
                 $attendance_type = $this->input->post('attendance_type');
-                $attendance_date = $this->input->post('attendance_date');
                 $member_type = $this->input->post('member_type');
-                $member_other_type = $this->input->post('member_other_type');
-                $name_kor = $this->input->post('name_kor');
+                $member_status = $this->input->post('member_status');
                 $license = $this->input->post('licence_number');
-                $affiliation = $this->input->post('affiliation');
-                $affiliation_kor = $this->input->post('affiliation_kor');
-                $department = $this->input->post('department');
-                $phone = $this->input->post('phone');
-                $email = $this->input->post('email');
-                $kes_member_status = $this->input->post('kes_member_status');
-                // $deposit_date = $this->input->post('deposit_date');
-                // $deposit_name = $this->input->post('deposit_name');
-                $deposit = '미결제';
-                $memo = $this->input->post('memo');
                 $specialty_number = $this->input->post('specialty_number');
                 $first_name = $this->input->post('first_name');
                 $last_name = $this->input->post('last_name');
+                $name_kor = $this->input->post('name_kor');
+                $phone = $this->input->post('phone');
+                $email = $this->input->post('email');
                 $nation = $this->input->post('nation');
+                $affiliation = $this->input->post('affiliation');
+                $affiliation_kor = $this->input->post('affiliation_kor');
+                $org_nametag = $this->input->post('org_nametag');
+                $department = $this->input->post('department');
+                $deposit = '미결제';
+                $memo = $this->input->post('memo');
                 $remark1 = $this->input->post('remark1');
                 $remark2 = $this->input->post('remark2');
-                $copy_yn = $this->input->post('copy_yn');
-                $remark6 = $this->input->post('remark6');
-                $remark7 = $this->input->post('remark7');
-                $remark8 = $this->input->post('remark8');
-                $first_time_yn = $this->input->post('first_time_yn');
+                $remark3 = $this->input->post('remark3');
+                $remark4 = $this->input->post('remark4');
                 $deposit_method = $this->input->post('deposit_method');
                 $fee = $this->input->post('fee');
                 $etc4 = $this->input->post('etc4');
-                $etc2 = $this->input->post('etc2');
-                $etc1 = $this->input->post('etc1');
                 // $remark5 = $this->input->post('remark5');
                 $special_request_food = $this->input->post('special_request_food');
                 // $fee = 0;
-
-                // $addr = $address . " " . $detailAddress . " " . $extraAddress;
+                $onsite_reg = "1";
 
                 $time = date("Y-m-d H:i:s");
                 $uagent = $this->agent->agent_string();
@@ -612,41 +602,32 @@ class Admin extends CI_Controller
                 //            error_log(print_r($name, TRUE), 3, '/tmp/errors.log');
                 $info = array(
                     'name_kor' => preg_replace("/\s+/", "", $name_kor),
+                    'member_status' => preg_replace("/\s+/", "", $member_status),
                     'licence_number' => preg_replace("/\s+/", "", $license),
                     'affiliation' => trim($affiliation),
                     'affiliation_kor' => trim($affiliation_kor),
                     'department' => trim($department),
-                    'org_nametag' => trim($affiliation),
+                    'org_nametag' => trim($org_nametag),
                     'phone' => preg_replace("/\s+/", "", $phone),
                     'email' => preg_replace("/\s+/", "", $email),
-                    // 'postcode' => trim($postcode),
-                    // 'addr' => trim($addr),
-                    // 'type' => trim($type),
                     'member_type' => trim($member_type),
-                    'member_other_type' => trim($member_other_type),
-                    'kes_member_status' => $kes_member_status,
                     'fee' => $fee,
                     'time' => $time,
                     'uagent' => $uagent,
                     'deposit' => $deposit,
                     'memo' => $memo,
                     'attendance_type' => $attendance_type,
-                    'attendance_date' => $attendance_date,
                     'specialty_number' => $specialty_number,
                     'first_name' => $first_name,
                     'last_name' => $last_name,
                     'nation' => $nation,
                     'remark1' => $remark1,
                     'remark2' => $remark2,
-                    'copy_yn' => $copy_yn,
-                    'remark6' => $remark6,
-                    'remark7' => $remark7,
-                    'remark8' => $remark8,
-                    'first_time_yn' => $first_time_yn,
+                    'remark3' => $remark3,
+                    'remark4' => $remark4,
                     'special_request_food' => $special_request_food,
                     'deposit_method' => $deposit_method,
-                    'etc1' => $etc1,
-                    'etc2' => $etc2,
+                    'onsite_reg' => $onsite_reg,
                     'etc4' => $etc4
                 );
                 //                var_dump($info);

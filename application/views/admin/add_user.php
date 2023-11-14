@@ -34,53 +34,28 @@
                                 <label class="col-sm-2 control-label">구분 2</label>
                                 <div class="col-sm-10">
                                     <select class="form-control input-lg m-bot15" name="member_type" id="type2">
-                                        <option value="Medical Doctor">Medical Doctor</option>
+                                        <option value="Specialist">Specialist</option>
                                         <option value="Professor">Professor</option>
-                                        <option value="Trainee">Trainee</option>
-                                        <option value="Student">Student</option>
-                                        <option value="Other">Other</option>
-                                        <option value="Corporate">Corporate</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group form-inline">
-                                <label class="col-sm-2 control-label">구분 3</label>
-                                <div class="col-sm-10">
-                                    <select class="form-control input-lg m-bot15" name="member_other_type" id="type2">
                                         <option value="Fellow">Fellow</option>
-                                        <option value="Resident">Resident</option>
-                                        <option value="Graduate">Graduate</option>
-                                        <option value="Individual Researcher">Individual Researcher</option>
-                                        <option value="Public Health Doctor">Public Health Doctor</option>
-                                        <option value="Military Doctor">Military Doctor</option>
+                                        <option value="Researcher">Researcher</option>
                                         <option value="Nurse">Nurse</option>
                                         <option value="Nutritionist">Nutritionist</option>
-                                        <option value="Pharmacist">Pharmacist</option>
-                                        <option value="Exercise Specialist">Exercise Specialist</option>
-                                        <option value="Researcher">Researcher</option>
-                                        <option value="Other">Other</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group form-inline">
-                                <label class="col-sm-2 control-label">참석날짜</label>
-                                <div class="col-sm-10">
-                                    <select class="form-control input-lg m-bot15" name="attendance_date" id="type2">
-                                        <option value="Full registration">Full registration</option>
-                                        <option value="Thursday, October 26">Thursday, October 26</option>
-                                        <option value="Friday, October 27">Friday, October 27</option>
-                                        <option value="Saturday, October 28">Saturday, October 28</option>
-
+                                        <option value="Pharmacists">Pharmacists</option>
+                                        <option value="Corporate member">Corporate member</option>
+                                        <option value="Military medical officer">Military medical officer</option>
+                                        <option value="Student">Student</option>
+                                        <option value="Resident">Resident</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="form-group form-inline">
-                                <label class="col-sm-2 control-label">KES 회원여부</label>
+                                <label class="col-sm-2 control-label">회원여부</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control input-lg m-bot15" name="kes_member_status" id="type3">
-                                        <option value="Member">회원</option>
-                                        <option value="Non-Member">비회원</option>
+                                    <select class="form-control input-lg m-bot15" name="member_status" id="type3">
+                                        <option value="0">비회원</option>
+                                        <option value="1">KSCVP</option>
+                                        <option value="2">KSCP</option>
                                     </select>
                                 </div>
                             </div>
@@ -102,30 +77,30 @@
                                 <div class="col-sm-10">
                                     <input class="form-control" type="text" placeholder="first name" name="first_name" />
                                     <input class="form-control" type="text" placeholder="last name" name="last_name" />
-                                    <input class="form-control" type="text" name="name_kor" id="nick_name" placeholder="*필수">
+                                    <input class="form-control" type="text" name="name_kor" id="nick_name" placeholder="한국 이름">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">전화번호 *</label>
+                                <label class="col-sm-2 control-label">전화번호</label>
                                 <div class="col-sm-10">
                                     <input class="form-control" type="text" name="phone" id="phone" placeholder="*필수 연락처 (외국인은 국가번호와 함께 입력해주세요 ex)01012345678)">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">E-mail *</label>
+                                <label class="col-sm-2 control-label">E-mail</label>
                                 <div class="col-sm-10">
                                     <input class="form-control" type="text" name="email" id="email">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">국가 *</label>
+                                <label class="col-sm-2 control-label">국가</label>
                                 <div class="col-sm-10">
                                     <input class="form-control" type="text" name="nation" id="email">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">소속 *</label>
+                                <label class="col-sm-2 control-label">소속</label>
                                 <div class="col-sm-10">
                                     <input class="form-control" type="text" name="affiliation" id="org" placeholder="*필수(영어)">
                                     <input class="form-control" type="text" name="affiliation_kor" id="org" placeholder="*필수(한글)">
@@ -133,101 +108,55 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">부서 *</label>
+                                <label class="col-sm-2 control-label">부서</label>
                                 <div class="col-sm-10">
                                     <input class="form-control" type="text" name="department" id="org" placeholder="*필수(영어)">
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
-
-                            <!-- <div class="form-group">
-                                <label class="col-sm-2 control-label">주소</label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="postcode" id="postcode" placeholder="*우편번호" readonly disabled style="display:none;">
-                                    <input class="form-control" type="text" name="address" id="address" placeholder="*주소" readonly disabled>
-                                    <input class="form-control" type="text" name="detailAddress" id="detailAddress" placeholder="*상세주소">
-                                    <input style="display:none;" type="text" name="extraAddress" id="extraAddress" placeholder="참고항목" readonly disabled>
-                                    <div clss="btn_group" style="float: right; margin-top: 20px;">
-                                        <input type="button" class="btn btn-warning" onclick="execDaumPostcode()" value="주소 찾기">
-                                    </div>
-                                </div>
-                            </div> -->
-                            <!-- <div class="form-group">
-                                <label class="col-sm-2 control-label">입금자명</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="text" name="deposit_name" id="deposit_name">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">입금예정일</label>
-                                <div class="col-sm-10">
-                                    <input id="dp1" type="text" size="16" class="form-control" name="deposit_date">
-                                </div>
-                            </div> -->
-
-
-                            <div class="form-group" style="display:none">
-                                <label class="col-sm-2 control-label">remark1(명찰케이스)</label>
-                                <div class="col-sm-10">
-                                    <input id="dp1" type="text" size="16" class="form-control">
-                                </div>
-                            </div>
-
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">등록비</label>
                                 <div class="col-sm-10">
-                                    <input id="dp1" type="text" size="16" class="form-control" name="fee">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">Invitation Code Discount</label>
-                                <div class="col-sm-10">
-                                    <input id="dp1" type="text" size="16" class="form-control" name="etc1">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">How did you get your invitation code?</label>
-                                <div class="col-sm-10">
-                                    <input id="dp1" type="text" size="16" class="form-control" name="etc2">
+                                    <input type="text" size="16" class="form-control" name="fee">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">결제 방법</label>
                                 <div class="col-sm-10">
-                                    <input id="dp1" type="text" size="16" class="form-control" name="deposit_method">
+                                    <input type="text" size="16" class="form-control" name="deposit_method">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">결제수단- 은행 / 계좌번호</label>
                                 <div class="col-sm-10">
-                                    <input id="dp1" type="text" size="16" class="form-control" name="etc4">
+                                    <input type="text" size="16" class="form-control" name="etc4">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">remark1(명찰케이스)</label>
+                                <label class="col-sm-2 control-label">remark1</label>
                                 <div class="col-sm-10">
-                                    <input id="dp1" type="text" size="16" class="form-control" name="remark1">
+                                    <input type="text" size="16" class="form-control" name="remark1">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">remark2(리본)</label>
+                                <label class="col-sm-2 control-label">remark2</label>
                                 <div class="col-sm-10">
-                                    <input id="dp1" type="text" size="16" class="form-control" name="remark2">
+                                    <input type="text" size="16" class="form-control" name="remark2">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">첫번째 참석 유무</label>
+                                <label class="col-sm-2 control-label">remark3</label>
                                 <div class="col-sm-10">
-                                    <input id="dp1" type="text" size="16" class="form-control" name="first_time_yn">
+                                    <input type="text" size="16" class="form-control" name="remark3">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">remark4(Abstract book copy)</label>
+                                <label class="col-sm-2 control-label">remark4</label>
                                 <div class="col-sm-10">
-                                    <input id="dp1" type="text" size="16" class="form-control" name="copy_yn">
+                                    <input type="text" size="16" class="form-control" name="remark4">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -236,78 +165,13 @@
                                     <input class="form-control" type="text" name="special_request_food" id="special_request_food">
                                 </div>
                             </div>
-                            <!-- <div class="form-group">
-                                <label class="col-sm-2 control-label">remark3</label>
-                                <div class="col-sm-10">
-                                    <input id="dp1" type="text" size="16" class="form-control" name="remark3">
-                                </div>
-                            </div> -->
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">remark6(Gala dinner)</label>
-                                <div class="col-sm-10">
-                                    <input id="dp1" type="text" size="16" class="form-control" name="remark6">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">remark7(Gala dinner Table number)</label>
-                                <div class="col-sm-10">
-                                    <input id="dp1" type="text" size="16" class="form-control" name="remark7">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">remark8(Presidential Dinner)</label>
-                                <div class="col-sm-10">
-                                    <input id="dp1" type="text" size="16" class="form-control" name="remark8">
-                                </div>
-                            </div>
+
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">메모</label>
                                 <div class="col-sm-10">
                                     <input id="dp1" type="text" size="16" class="form-control" name="memo">
                                 </div>
                             </div>
-                            <!-- <div class="form-group">
-                                <label class="col-sm-2 control-label">welcome reception </label>
-                                <div class="col-sm-10">
-                                    <input placeholder="Y/N" class="form-control" type="text"
-                                        name="welcome_reception_yn" id="deposit_name">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">day2_breakfast_yn</label>
-                                <div class="col-sm-10">
-                                    <input placeholder="Y/N" class="form-control" type="text" name="day2_breakfast_yn"
-                                        id="deposit_name">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">day2_luncheon_yn</label>
-                                <div class="col-sm-10">
-                                    <input placeholder="Y/N" class="form-control" type="text" name="day2_luncheon_yn"
-                                        id="deposit_name">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">day3_breakfast_yn</label>
-                                <div class="col-sm-10">
-                                    <input placeholder="Y/N" class="form-control" type="text" name="day3_breakfast_yn"
-                                        id="deposit_name">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">day3_luncheon_yn</label>
-                                <div class="col-sm-10">
-                                    <input placeholder="Y/N" class="form-control" type="text" name="day3_luncheon_yn"
-                                        id="deposit_name">
-                                </div>
-                            </div> -->
-                            <!-- <div class="form-group">
-                                <label class="col-sm-2 control-label">생년월일</label>
-                                <div class="col-sm-10">
-                                    <input placeholder="dd-mm-yyyy" class="form-control" type="text"
-                                        name="date_of_birth" id="deposit_name">
-                                </div>
-                            </div> -->
 
                             <div clss="btn_group" style="float: right;">
                                 <button type="submit" class="btn btn-primary">등록</button>
