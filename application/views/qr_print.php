@@ -24,12 +24,15 @@ body {
 }
 
 .org {
-    font-family: Arial_italic;
+    /* font-family: Arial_italic; */
 }
 
 .nick_name {
     font-family: Arial_bold;
-    font-size: 48px;
+}
+
+.small_nickname {
+    font-family: Arial_bold;
 }
 
 #printThis {
@@ -78,10 +81,29 @@ body {
                 if ($users['nt_info'] != '') {
                     echo '<div class="org" id="nt_info">' . $users['nt_info'] . '</div>';
                 }
-
-                echo '<div class="nick_name lang_en" id="first_name">' .  $users['first_name'] . '</div>';
-                echo '<div class="nick_name lang_en" id="last_name">' .  $users['last_name'] . '</div>';
-                echo '<div class="org" id="org">' . $users['org_nametag'] . ',' . ' ' . $users['nation'] . '</div>';
+                /**닉네임 조건식 17글자이상 24글자 미만 */
+                if ($nicknameLength >= 17 && $nicknameLength < 24) {
+                    echo '<div class="nick_name lang_en small_nickname" id="first_name">' .  $users['first_name'] . '</div>';
+                    echo '<div class="nick_name lang_en small_nickname" id="last_name">' .  $users['last_name'] . '</div>';
+                }
+                /**닉네임 조건식 24글자 이상 */
+                else if ($nicknameLength >= 24) {
+                    echo '<div class="nick_name lang_en small_small_nickname" id="first_name">' .  $users['first_name'] . '</div>';
+                    echo '<div class="nick_name lang_en small_small_nickname" id="last_name">' .  $users['last_name'] . '</div>';
+                }
+                /**닉네임 조건식 17글자 미만 */
+                else if ($nicknameLength < 17) {
+                    echo '<div class="nick_name lang_en" id="first_name">' .  $users['first_name'] . '</div>';
+                    echo '<div class="nick_name lang_en" id="last_name">' .  $users['last_name'] . '</div>';
+                }
+                /**소속 조건식 30글자 기준 */
+                if ($orgLength <= 30) {
+                    echo '<div class="org" id="org">' . $users['org_nametag'] . '</div>';
+                    echo '<div class="org" id="org">' . $users['nation'] . '</div>';
+                } else {
+                    echo '<div class="org" id="org" style="height:57px;">' . $users['org_nametag'] . '</div>';
+                    echo '<div class="org" id="org" style="height:33px;">' . $users['nation'] . '</div>';
+                }
                 echo '<div id="qrcode" class=""><img src="/assets/images/QR/qrcode_' . $users['registration_no'] . '.jpg"></div>';
                 echo '</div>';
                 echo '</div>';

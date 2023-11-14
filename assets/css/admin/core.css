@@ -13,6 +13,12 @@
   src: url('../css/icons/glyphicons/glyphicons-halflings-regular.eot');
   src: url('../css/icons/glyphicons/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../css/icons/glyphicons/glyphicons-halflings-regular.woff2') format('woff2'), url('../css/icons/glyphicons/glyphicons-halflings-regular.woff') format('woff'), url('../css/icons/glyphicons/glyphicons-halflings-regular.ttf') format('truetype'), url('../css/icons/glyphicons/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
+
+@font-face {
+  font-family: Arial_bold;
+  src: url("../../../assets/font/arial_bold.otf");
+}
+
 .glyphicon {
   font-size: 16px;
   vertical-align: middle;
@@ -162,18 +168,19 @@
 }
 
 #printThis .small_nickname{
-  line-height: 30px;
-  font-weight: 400;
-  font-size: 45px;
-  letter-spacing: 15px;
-  padding: 19px 40px 0 58px;
-  overflow: hidden;
+  font-size: 33px !important;
 }
 
+#printThis .small_small_nickname{
+  font-size: 27px !important;
+}
+
+
 #printThis .nick_name{
+  font-family: Arial_bold;
   line-height: 61px;
   font-weight: 400;
-  font-size: 52px;
+  font-size: 44px;
   letter-spacing: 20px;
   padding: 19px 40px 0 58px;
   overflow: hidden;
@@ -6596,7 +6603,7 @@ h6.panel-title,
 #printThis .nick_name{
   line-height: 61px;
   font-weight: 400;
-  font-size: 52px;
+  font-size: 44px;
   letter-spacing: 20px;
   padding: 19px 40px 0 58px;
   overflow: hidden;

@@ -85,9 +85,9 @@ $en_name = $firstName . " " . $lastName
                 <div>
                     <div id="notice">
                         <?php
-                                foreach ($notice as $item) {
-                                    echo '<input class="notice" value="' .  $item['notice'] . '" readonly/>';
-                                } ?>
+                        foreach ($notice as $item) {
+                            echo '<input class="notice" value="' .  $item['notice'] . '" readonly/>';
+                        } ?>
 
                     </div>
                     <button class="w-[150px] h-[40px] bg-slate-300 mt-20 hover:bg-slate-400 active:bg-slate-500"
@@ -119,7 +119,8 @@ $en_name = $firstName . " " . $lastName
                             </colgroup>
                             <tr>
                                 <th>등록번호</th>
-                                <td id="number" class="qr_text">
+                                <td id="number" class="qr_text"
+                                    onclick="copy(<?php if (isset($user['registration_no'])) echo $user['registration_no']  ?>)">
                                     <?php if (isset($user['registration_no'])) echo $user['registration_no'] ?>
                                 </td>
                             </tr>
@@ -144,11 +145,7 @@ $en_name = $firstName . " " . $lastName
                                 <td id="affiliation" class="qr_text">
                                     <?php if (isset($user['affiliation'])) echo $user['affiliation'] ?></td>
                             </tr>
-                            <tr>
-                                <th>소속(k)</th>
-                                <td id="affiliation_kor" class="qr_text">
-                                    <?php if (isset($user['affiliation_kor'])) echo $user['affiliation_kor'] ?></td>
-                            </tr>
+
                             <tr>
                                 <th>참가 유형</th>
                                 <td id="attendance_type" class="qr_text">
@@ -164,12 +161,6 @@ $en_name = $firstName . " " . $lastName
                                 <th>등록비</th>
                                 <td id="fee" class="qr_text">
                                     <?php if (isset($user['fee'])) echo $user['fee'] ?></td>
-                            </tr>
-                            <tr>
-                                <th class="memoHeader">참석날짜</th>
-                                <td id="attendance_date" class="qr_text">
-                                    <?php if (isset($user['attendance_date'])) echo $user['attendance_date'] ?>
-                                </td>
                             </tr>
                         </table>
                         <table class="qr-info-table mb-80 w-2/5" id="qrTable">
@@ -191,40 +182,15 @@ $en_name = $firstName . " " . $lastName
                                 </td>
                             </tr>
                             <tr>
-                                <th class="memoHeader">첫번째 참석& KES member</th>
-                                <td id="first_time_yn" class="qr_text">
-                                    <?php if (isset($user['first_time_yn'])) echo $user['first_time_yn'] . $user['kes_member_status'] ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="memoHeader">Abstract</th>
-                                <td id="remark4" class="qr_text">
-                                    <?php if (isset($user['copy_yn'])) echo $user['copy_yn'] ?>
-                                </td>
-                            </tr>
-                            <tr>
                                 <th class="memoHeader">Special meal request</th>
-                                <td id="remark5" class="qr_text">
+                                <td id="remark3" class="qr_text">
                                     <?php if (isset($user['special_request_food'])) echo $user['special_request_food'] ?>
                                 </td>
                             </tr>
                             <tr>
                                 <th class="memoHeader">Gala dinner</th>
-                                <td id="remark6" class="qr_text">
-                                    <?php if (isset($user['remark6'])) echo $user['remark6'] ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="memoHeader">Gala dinner
-                                    테이블넘버</th>
-                                <td id="remark7" class="qr_text">
-                                    <?php if (isset($user['remark7'])) echo $user['remark7'] ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="memoHeader">Presidential Dinner</th>
-                                <td id="remark8" class="qr_text">
-                                    <?php if (isset($user['remark8'])) echo $user['remark8'] ?>
+                                <td id="remark4" class="qr_text">
+                                    <?php if (isset($user['remark4'])) echo $user['remark4'] ?>
                                 </td>
                             </tr>
                             <tr>
@@ -276,12 +242,12 @@ const memo = document.querySelector("#memo")
 const number = document.querySelector("#number")
 const remark1 = document.querySelector("#remark1")
 const remark2 = document.querySelector("#remark2")
-const remark3 = document.querySelector("#first_time_yn")
+const remark3 = document.querySelector("#remark3")
 const remark4 = document.querySelector("#remark4")
-const remark5 = document.querySelector("#remark5")
-const remark6 = document.querySelector("#remark6")
-const remark7 = document.querySelector("#remark7")
-const remark8 = document.querySelector("#remark8")
+// const remark5 = document.querySelector("#remark5")
+// const remark6 = document.querySelector("#remark6")
+// const remark7 = document.querySelector("#remark7")
+// const remark8 = document.querySelector("#remark8")
 const memoBtn = document.querySelector("#memo_btn")
 const content = document.querySelector(".content")
 const notice = document.querySelector("#notice")
@@ -300,8 +266,21 @@ function whiteBackGrond() {
     memo.style.backgrond = "#FFF"
 }
 
+function copy(text) {
+    if (navigator.clipboard) {
+        navigator.clipboard
+            .writeText(text)
+            .then(() => {
+                alert('클립보드에 복사되었습니다.');
+            })
+            .catch(() => {
+                alert('복사를 다시 시도해주세요.');
+            });
+    }
+}
+
 function changeBackgroundColorIfNotEmpty(element) {
-    if (element.innerText !== "") {
+    if (element.innerText !== "" && element.innerText !== "N") {
         element.style.backgroundColor = "#ffe566";
     } else {
         element.style.backgroundColor = "#fff";
@@ -359,9 +338,6 @@ function fetchData(qrcode) {
                 affiliation.innerText = htmlDocument.querySelector("#affiliation").innerText.replace(/<br\s*\/?>/gi,
                         "")
                     .trim();
-                affiliation_kor.innerText = htmlDocument.querySelector("#affiliation_kor").innerText.replace(
-                        /<br\s*\/?>/gi, "")
-                    .trim();
                 attendance_type.innerText = htmlDocument.querySelector("#attendance_type").innerText.replace(
                         /<br\s*\/?>/gi, "")
                     .trim();
@@ -376,29 +352,12 @@ function fetchData(qrcode) {
                     .trim();
                 remark2.innerText = htmlDocument.querySelector("#remark2").innerText.replace(/<br\s*\/?>/gi, "")
                     .trim();
-                remark3.innerText = htmlDocument.querySelector("#first_time_yn").innerText.replace(/<br\s*\/?>/gi,
+                remark3.innerText = htmlDocument.querySelector("#remark3").innerText.replace(/<br\s*\/?>/gi,
                         "")
                     .trim();
                 remark4.innerText = htmlDocument.querySelector("#remark4").innerText.replace(/<br\s*\/?>/gi, "")
                     .trim();
-                remark5.innerText = htmlDocument.querySelector("#remark5").innerText.replace(/<br\s*\/?>/gi, "")
-                    .trim();
-                remark6.innerText = htmlDocument.querySelector("#remark6").innerText.replace(/<br\s*\/?>/gi, "")
-                    .trim();
-                remark7.innerText = htmlDocument.querySelector("#remark7").innerText.replace(/<br\s*\/?>/gi,
-                        "")
-                    .trim();
-                remark8.innerText = htmlDocument.querySelector("#remark8").innerText.replace(/<br\s*\/?>/gi,
-                        "")
-                    .trim();
                 notice.innerHTML = htmlDocument.querySelector("#notice").innerHTML
-                attendance_date.innerText = htmlDocument.querySelector("#attendance_date").innerText.replace(
-                        /<br\s*\/?>/gi,
-                        "")
-                    .trim();
-                // if (remark1.innerText !== "") {
-                //     popUp(number.innerText)
-                // }
             } else {
                 number.innerText = qrvalue
                 name.innerText = "없는 QR입니다."
@@ -410,35 +369,15 @@ function fetchData(qrcode) {
         }).then((data) => {
             executeFunctionInChildWindow(qrcode);
         }).then(() => {
-            window.open(`https://reg3.webeon.net/qrcode/print_file?registration_no=${qrvalue}`, "_blank")
+            window.open(`https://reg2.webeon.net/qrcode/print_file?registration_no=${qrvalue}`, "_blank")
         }).then(() => {
 
             changeBackgroundColorIfNotEmpty(memo);
             changeBackgroundColorIfNotEmpty(remark1);
             changeBackgroundColorIfNotEmpty(remark2);
-            changeBackgroundColorIfNotEmpty(remark7);
+            changeBackgroundColorIfNotEmpty(remark3);
+            changeBackgroundColorIfNotEmpty(remark4);
 
-            if (remark3.innerText.includes('N')) {
-                remark3.innerText = 'N';
-            } else {
-                remark3.innerText = 'Y'
-                changeBackgroundColorIfNotEmpty(remark3);
-            }
-            if (remark4.innerText.includes('Y')) {
-                changeBackgroundColorIfNotEmpty(remark4);
-            }
-            if (remark5.innerText.includes('Y')) {
-                changeBackgroundColorIfNotEmpty(remark5);
-            }
-            if (remark6.innerText.includes('Y')) {
-                changeBackgroundColorIfNotEmpty(remark6);
-            }
-            if (remark8.innerText.includes('Y')) {
-                changeBackgroundColorIfNotEmpty(remark8);
-            }
-            if (attendance_date.innerText !== 'Full registration') {
-                changeBackgroundColorIfNotEmpty(attendance_date);
-            }
         })
         .catch(error => {
             console.error('Error fetching data:', error);
