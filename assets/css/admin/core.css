@@ -138,7 +138,7 @@
 
 #printThis .number_box {
   width: 8cm;
-  transform: rotate(0.5turn) translateY(510px);
+  transform: rotate(0.5turn) translateY(515px);
   display: flex !important;
 }
 
