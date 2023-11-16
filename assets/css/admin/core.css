@@ -126,19 +126,19 @@
   height: 340px;
   position: relative;
   width: 100%;
-  margin-top: 555px;
+  margin-top: 535px;
 }
 
 #printThis .reg {
   width: 25%;
     text-align: right !important;
-    transform: translate(248px, -108px);
+    transform: translate(254px, -92px);
     margin: 0;
 }
 
 #printThis .number_box {
   width: 8cm;
-  transform: rotate(0.5turn) translateY(515px);
+  transform: rotate(0.5turn) translate(-4px,495px);
   display: flex !important;
 }
 
@@ -6576,7 +6576,7 @@ h6.panel-title,
   height: 340px;
   position: relative;
   width: 100%;
-  margin-top: 555px;
+  margin-top: 535px;
 }
 
 #printThis .org{
