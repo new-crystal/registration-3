@@ -115,7 +115,7 @@ class Admin extends CI_Controller
 
         foreach ($list as $row) {
             $luckynum = substr($row['registration_no'], 11, 4);
-            if ($row['nation'] == "Korea") {
+            if ($row['nation'] == "Republic of Korea") {
                 $contry = '국내';
             } else {
                 $contry = '국외';
@@ -1041,7 +1041,7 @@ class Admin extends CI_Controller
             $contry = "";
             $onsite = "";
 
-            if ($row['nation'] == "Korea") {
+            if ($row['nation'] == "Republic of Korea") {
                 $contry = "KOR";
             } else {
                 $contry = "ENG";
@@ -1201,7 +1201,7 @@ class Admin extends CI_Controller
             } else {
                 $type1 = $row['member_type'] . ' - ' . 'member';
             }
-            if ($row['nation'] == "Korea") {
+            if ($row['nation'] == "Republic of Korea") {
                 $contry = "KOR";
             } else {
                 $contry = "ENG";
