@@ -130,8 +130,10 @@
 }
 
 #printThis .reg {
-  text-align: right !important;
-  transform: translate(-18px, -103px);
+  width: 25%;
+    text-align: right !important;
+    transform: translate(248px, -103px);
+    margin: 0;
 }
 
 #printThis .number_box {
