@@ -79,7 +79,7 @@ class OnSite extends CI_Controller
 
 
             if ($nation === "Republic of Korea") {
-                if ($attendance_type === "Participant" || $attendance_type === "Other") {
+                if ($attendance_type === "Participant") {
                     if ($member_type === "Specialist" || $member_type === "Professor") {
                         $fee = "70,000";
                     } else if (
@@ -97,7 +97,7 @@ class OnSite extends CI_Controller
                     $fee = 0;
                 }
             } else {
-                if ($attendance_type === "Participant" || $attendance_type === "Other") {
+                if ($attendance_type === "Participant") {
                     if ($member_type === "Specialist" || $member_type === "Professor") {
                         $fee = "USD 300(KRW 405,000)";
                     } else if (
