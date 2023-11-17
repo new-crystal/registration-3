@@ -796,17 +796,23 @@ td {
                             class="px-2 py-1 w-full h-10 border" name="attendance_type">
                             <option value="" selected="selected">Select</option>
                             <option value="Participant">Participant</option>
-                            <option value="Speaker">Speaker</option>
+                            <option value="Sponsor">Sponsor</option>
                             <option value="Chairperson">Chairperson</option>
-                            <option value="Moderator">Moderator</option>
+                            <option value="Speaker">Speaker</option>
                             <option value="Panel">Panel</option>
-                            <option value="Preceptor">Preceptor</option>
+                            <option value="Other">Other</option>
+
+                            <!-- <option value="Preceptor">Preceptor</option>
                             <option value="Organizer">Organizer</option>
                             <option value="Satellite Attendee">Satellite Attendee</option>
                             <option value="Press">Press</option>
-                            <option value="Exhibitior">Exhibitior</option>
+                            <option value="Exhibitior">Exhibitior</option> -->
                         </select>
                     </div>
+                    <p class="email_text other_participation" style="display:none;">**Please visit the registration
+                        desk, and check your type
+                        of
+                        participation.</p>
                 </td>
             </tr>
             <tr>
@@ -906,6 +912,7 @@ const email_text = document.querySelector(".email_text")
 
 
 const participationSelect = document.querySelector("#Participation_1")
+const other_participation = document.querySelector(".other_participation")
 
 // const category = document.querySelector("#Category")
 const categorySelect = document.querySelector("#Category_1")
@@ -1177,6 +1184,15 @@ transfer.addEventListener("click", () => {
     calRegiFee()
 })
 
+participationSelect.addEventListener("change", () => {
+    const participationValue = participationSelect.options[participationSelect.selectedIndex].value;
+    if (participationValue === "Other") {
+        other_participation.style.display = "";
+    } else {
+        other_participation.style.display = "none";
+    }
+    calRegiFee()
+})
 
 
 /**category select */
@@ -1190,7 +1206,6 @@ categorySelect.addEventListener("change", () => {
     }
     calRegiFee()
 })
-
 
 /**special request food */
 special_no.addEventListener("click", () => {
