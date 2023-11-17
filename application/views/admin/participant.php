@@ -202,10 +202,10 @@ foreach ($day_1 as $item_1) {
         if ($item_1['attendance_type'] == "Press") {
             $on_press_1 = $on_press_1 + 1;
         }
-        if ($item_1['attendance_type'] == "Participant" || $item_1['attendance_type'] == "Satellite Attendee" || $item_1['attendance_type'] == "Oral Presenter" || $item_1['attendance_type'] == "Poster Oral Presenter") {
+        if ($item_1['attendance_type'] == "Participants") {
             $on_participant_1 = $on_participant_1 + 1;
         }
-        if ($item_1['attendance_type'] == "Staff" || $item_1['attendance_type'] == "Exhibitor") {
+        if ($item_1['attendance_type'] == "Other" || $item_1['attendance_type'] == "Exhibitor") {
             $on_others_1 = $on_others_1 + 1;
         }
     } else {
@@ -232,10 +232,10 @@ foreach ($day_1 as $item_1) {
         if ($item_1['attendance_type'] == "Press") {
             $press_1 = $press_1 + 1;
         }
-        if ($item_1['attendance_type'] == "Participant" || $item_1['attendance_type'] == "Satellite Attendee" || $item_1['attendance_type'] == "Oral Presenter" || $item_1['attendance_type'] == "Poster Oral Presenter") {
+        if ($item_1['attendance_type'] == "Participants") {
             $participant_1 = $participant_1 + 1;
         }
-        if ($item_1['attendance_type'] == "Staff" || $item_1['attendance_type'] == "Exhibitor") {
+        if ($item_1['attendance_type'] == "Other" || $item_1['attendance_type'] == "Exhibitor") {
             $others_1 = $others_1 + 1;
         }
     }
@@ -266,10 +266,10 @@ foreach ($day_1_e as $item_1_e) {
         if ($item_1_e['attendance_type'] == "Press") {
             $on_press_1_e = $on_press_1_e + 1;
         }
-        if ($item_1_e['attendance_type'] == "Participant" || $item_1_e['attendance_type'] == "Satellite Attendee" || $item_1_e['attendance_type'] == "Oral Presenter" || $item_1_e['attendance_type'] == "Poster Oral Presenter") {
+        if ($item_1_e['attendance_type'] == "Participants") {
             $on_participant_1_e = $on_participant_1_e + 1;
         }
-        if ($item_1_e['attendance_type'] == "Staff" || $item_1_e['attendance_type'] == "Exhibitor") {
+        if ($item_1_e['attendance_type'] == "Other" || $item_1_e['attendance_type'] == "Exhibitor") {
             $on_others_1_e = $on_others_1_e + 1;
         }
     } else {
@@ -296,10 +296,10 @@ foreach ($day_1_e as $item_1_e) {
         if ($item_1_e['attendance_type'] == "Press") {
             $press_1_e = $press_1_e + 1;
         }
-        if ($item_1_e['attendance_type'] == "Participant" || $item_1_e['attendance_type'] == "Satellite Attendee" || $item_1_e['attendance_type'] == "Oral Presenter" || $item_1_e['attendance_type'] == "Poster Oral Presenter") {
+        if ($item_1_e['attendance_type'] == "Participants") {
             $participant_1_e = $participant_1_e + 1;
         }
-        if ($item_1_e['attendance_type'] == "Staff" || $item_1_e['attendance_type'] == "Exhibitor") {
+        if ($item_1_e['attendance_type'] == "Other" || $item_1_e['attendance_type'] == "Exhibitor") {
             $others_1_e = $others_1_e + 1;
         }
     }
@@ -330,10 +330,10 @@ foreach ($day_2 as $item_2) {
         if ($item_2['attendance_type'] == "Press") {
             $on_press_2 = $on_press_2 + 1;
         }
-        if ($item_2['attendance_type'] == "Participant" || $item_2['attendance_type'] == "Satellite Attendee" || $item_2['attendance_type'] == "Oral Presenter" || $item_2['attendance_type'] == "Poster Oral Presenter") {
+        if ($item_2['attendance_type'] == "Participants") {
             $on_participant_2 = $on_participant_2 + 1;
         }
-        if ($item_2['attendance_type'] == "Staff" || $item_2['attendance_type'] == "Exhibitor") {
+        if ($item_2['attendance_type'] == "Other" || $item_2['attendance_type'] == "Exhibitor") {
             $on_others_2 = $on_others_2 + 1;
         }
     } else {
@@ -360,10 +360,10 @@ foreach ($day_2 as $item_2) {
         if ($item_2['attendance_type'] == "Press") {
             $press_2 = $press_2 + 1;
         }
-        if ($item_2['attendance_type'] == "Participant" || $item_2['attendance_type'] == "Satellite Attendee" || $item_2['attendance_type'] == "Oral Presenter" || $item_2['attendance_type'] == "Poster Oral Presenter") {
+        if ($item_2['attendance_type'] == "Participants") {
             $participant_2 = $participant_2 + 1;
         }
-        if ($item_2['attendance_type'] == "Staff" || $item_2['attendance_type'] == "Exhibitor") {
+        if ($item_2['attendance_type'] == "Other" || $item_2['attendance_type'] == "Exhibitor") {
             $others_2 = $others_2 + 1;
         }
     }
@@ -394,10 +394,10 @@ foreach ($day_2_e as $item_2_e) {
         if ($item_2_e['attendance_type'] == "Press") {
             $on_press_2_e = $on_press_2_e + 1;
         }
-        if ($item_2_e['attendance_type'] == "Participant" || $item_2_e['attendance_type'] == "Satellite Attendee" || $item_2_e['attendance_type'] == "Oral Presenter" || $item_2_e['attendance_type'] == "Poster Oral Presenter") {
+        if ($item_2_e['attendance_type'] == "Participants") {
             $on_participant_2_e = $on_participant_2_e + 1;
         }
-        if ($item_2_e['attendance_type'] == "Staff" || $item_2_e['attendance_type'] == "Exhibitor") {
+        if ($item_2_e['attendance_type'] == "Other" || $item_2_e['attendance_type'] == "Exhibitor") {
             $on_others_2_e = $on_others_2_e + 1;
         }
     } else {
@@ -424,10 +424,10 @@ foreach ($day_2_e as $item_2_e) {
         if ($item_2_e['attendance_type'] == "Press") {
             $press_2_e = $press_2_e + 1;
         }
-        if ($item_2_e['attendance_type'] == "Participant" || $item_2_e['attendance_type'] == "Satellite Attendee" || $item_2_e['attendance_type'] == "Oral Presenter" || $item_2_e['attendance_type'] == "Poster Oral Presenter") {
+        if ($item_2_e['attendance_type'] == "Participants") {
             $participant_2_e = $participant_2_e + 1;
         }
-        if ($item_2_e['attendance_type'] == "Staff" || $item_2_e['attendance_type'] == "Exhibitor") {
+        if ($item_2_e['attendance_type'] == "Other" || $item_2_e['attendance_type'] == "Exhibitor") {
             $others_2_e = $others_2_e + 1;
         }
     }
@@ -458,10 +458,10 @@ foreach ($day_3 as $item_3) {
         if ($item_3['attendance_type'] == "Press") {
             $on_press_3 = $on_press_3 + 1;
         }
-        if ($item_3['attendance_type'] == "Participant" || $item_3['attendance_type'] == "Satellite Attendee" || $item_3['attendance_type'] == "Oral Presenter" || $item_3['attendance_type'] == "Poster Oral Presenter") {
+        if ($item_3['attendance_type'] == "Participants") {
             $on_participant_3 = $on_participant_3 + 1;
         }
-        if ($item_3['attendance_type'] == "Staff" || $item_3['attendance_type'] == "Exhibitor") {
+        if ($item_3['attendance_type'] == "Other" || $item_3['attendance_type'] == "Exhibitor") {
             $on_others_3 = $on_others_3 + 1;
         }
     } else {
@@ -488,10 +488,10 @@ foreach ($day_3 as $item_3) {
         if ($item_3['attendance_type'] == "Press") {
             $press_3 = $press_3 + 1;
         }
-        if ($item_3['attendance_type'] == "Participant" || $item_3['attendance_type'] == "Satellite Attendee" || $item_3['attendance_type'] == "Oral Presenter" || $item_3['attendance_type'] == "Poster Oral Presenter") {
+        if ($item_3['attendance_type'] == "Participants") {
             $participant_3 = $participant_3 + 1;
         }
-        if ($item_3['attendance_type'] == "Staff" || $item_3['attendance_type'] == "Exhibitor") {
+        if ($item_3['attendance_type'] == "Other" || $item_3['attendance_type'] == "Exhibitor") {
             $others_3 = $others_3 + 1;
         }
     }
@@ -522,10 +522,10 @@ foreach ($day_3_e as $item_3_e) {
         if ($item_3_e['attendance_type'] == "Press") {
             $on_press_3_e = $on_press_3_e + 1;
         }
-        if ($item_3_e['attendance_type'] == "Participant" || $item_3_e['attendance_type'] == "Satellite Attendee" || $item_3_e['attendance_type'] == "Oral Presenter" || $item_3_e['attendance_type'] == "Poster Oral Presenter") {
+        if ($item_3_e['attendance_type'] == "Participants") {
             $on_participant_3_e = $on_participant_3_e + 1;
         }
-        if ($item_3_e['attendance_type'] == "Staff" || $item_3_e['attendance_type'] == "Exhibitor") {
+        if ($item_3_e['attendance_type'] == "Other" || $item_3_e['attendance_type'] == "Exhibitor") {
             $on_others_3_e = $on_others_3_e + 1;
         }
     } else {
@@ -552,10 +552,10 @@ foreach ($day_3_e as $item_3_e) {
         if ($item_3_e['attendance_type'] == "Press") {
             $press_3_e = $press_3_e + 1;
         }
-        if ($item_3_e['attendance_type'] == "Participant" || $item_3_e['attendance_type'] == "Satellite Attendee" || $item_3_e['attendance_type'] == "Oral Presenter" || $item_3_e['attendance_type'] == "Poster Oral Presenter") {
+        if ($item_3_e['attendance_type'] == "Participants") {
             $participant_3_e = $participant_3_e + 1;
         }
-        if ($item_3_e['attendance_type'] == "Staff" || $item_3_e['attendance_type'] == "Exhibitor") {
+        if ($item_3_e['attendance_type'] == "Other" || $item_3_e['attendance_type'] == "Exhibitor") {
             $others_3_e = $others_3_e + 1;
         }
     }
@@ -623,7 +623,7 @@ $day_3_users = count($day_3) + count($day_3_e);
 
         </tr>
         <tr>
-            <th class="bg-red-100" rowspan="6">사전등록</th>
+            <th class="bg-red-100" rowspan="5">사전등록</th>
             <th class="bg-red-100">Speaker</th>
             <td>
                 <?php echo isset($speaker_1_e) ? $speaker_1_e : 0; ?>
@@ -849,7 +849,7 @@ $day_3_users = count($day_3) + count($day_3_e);
                 ?>
             </td>
         </tr> -->
-        <tr>
+        <!-- <tr>
             <th class="bg-red-100">Press</th>
             <td>
                 <?php echo isset($press_1_e) ? $press_1_e : 0; ?>
@@ -886,7 +886,7 @@ $day_3_users = count($day_3) + count($day_3_e);
                 ?>
 
             </td>
-        </tr>
+        </tr> -->
         <tr>
             <th class="bg-red-100">Participant</th>
             <td>
@@ -992,7 +992,7 @@ $day_3_users = count($day_3) + count($day_3_e);
         </tr>
 
         <tr>
-            <th class="bg-blue-100" rowspan="6">현장등록</th>
+            <th class="bg-blue-100" rowspan="5">현장등록</th>
             <th class="bg-blue-100">Speaker</th>
             <td>
                 <?php echo isset($on_speaker_1_e) ? $on_speaker_1_e : 0; ?>
@@ -1218,7 +1218,7 @@ $day_3_users = count($day_3) + count($day_3_e);
                 ?>
             </td>
         </tr> -->
-        <tr>
+        <!-- <tr>
             <th class="bg-blue-100">Press</th>
             <td>
                 <?php echo isset($on_press_1_e) ? $on_press_1_e : 0; ?>
@@ -1254,7 +1254,7 @@ $day_3_users = count($day_3) + count($day_3_e);
                 }
                 ?>
             </td>
-        </tr>
+        </tr> -->
         <tr>
             <th class="bg-blue-100">Participant</th>
             <td>
