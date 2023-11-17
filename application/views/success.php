@@ -5,5 +5,5 @@ echo '  if (confirm("※ Registration is complete.")) {';
 echo '    document.location.replace(newurl);';
 echo '  }';
 echo '}';
-echo 'goback(\'/onSite/sicem\')';
+echo 'goback(\'/onSite\')';
 echo '</script>';

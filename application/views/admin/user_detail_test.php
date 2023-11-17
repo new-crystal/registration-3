@@ -307,16 +307,6 @@ $remark3 = "";
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th>영양사면허번호</th>
-                                    <td>
-                                        <div style="display:flex;  align-items: center;">
-                                            <input class="form-control" type="text"
-                                                value="<?php echo $item['nutritionist_number']; ?>"
-                                                name="nutritionist_number" id="phone">
-                                        </div>
-                                    </td>
-                                </tr>
 
                                 <tr>
                                     <th>연락처</th>
