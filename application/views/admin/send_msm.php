@@ -81,7 +81,7 @@ if ($err) {
 ISCP 2023 운영사무국 올림. 
 T. +82-2-6549-2506 | E. iscp@into-on.com
             
-', 'refkey' => 'RESTAPITEST1548722798', 'subject' => '[SICEM 2023] 등록 안내 (10.26 ~10.28, 롯데호텔월드(잠실)) ', 'image_cnt' =>
+', 'refkey' => 'RESTAPITEST1548722798', 'subject' => '[11/23-25_ISCP2023]등록자QR및행사정보안내(콘래드서울)', 'image_cnt' =>
             '1', '
              images0' => new CURLFILE('assets/images/QR/qrcode_' . $registration_no . '.jpg')
         ),
