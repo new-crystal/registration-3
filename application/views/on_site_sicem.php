@@ -315,7 +315,7 @@ td {
 }
 </style>
 <script src="https://cdn.tailwindcss.com"></script>
-<?php echo form_open('/onSite/sicem', 'id="addForm" name="addForm" ') ?>
+<?php echo form_open('/onSite', 'id="addForm" name="addForm" ') ?>
 <!-- <form action="/onSite/sicem" class="w-3/5 mx-auto"> -->
 <!-- <img src="./mail_header.png" alt="header" class="w-full h-96" /> -->
 <div class="wrap_1">
@@ -669,8 +669,8 @@ td {
                 <td>
                     <input type="text" id="affiliation" name="affiliation" class="w-11/12  mb-3"
                         placeholder="Affiliation (ex. Korea University, Korea Hospital) " disabled />
-                    <input type="text" id="affiliation_kor" name="affiliation_kor" class="w-11/12"
-                        placeholder="국문 소속 (ex. 한국대학교, 한국대병원)" disabled />
+                    <input style="display: none;" type="text" id="affiliation_kor" name="affiliation_kor"
+                        class="w-11/12" placeholder="국문 소속 (ex. 한국대학교, 한국대병원)" disabled />
                 </td>
             </tr>
             <tr>
@@ -681,8 +681,8 @@ td {
                 <td>
                     <input type="text" id="department" name="department" class="w-11/12  mb-3" placeholder="Department"
                         disabled />
-                    <input type="text" id="department_kor" name="department_kor" class="w-11/12  mb-3" placeholder="부서"
-                        disabled />
+                    <input style="display: none;" type="text" id="department_kor" name="department_kor"
+                        class="w-11/12  mb-3" placeholder="부서" disabled />
                 </td>
             </tr>
             <tr>
@@ -801,7 +801,8 @@ td {
                             <option value="Speaker">Speaker</option>
                             <option value="Panel">Panel</option>
                             <option value="Other">Other</option>
-
+                            <input type="text" id="participation_others" name="attendance_other_type"
+                                style="display: none;width:140%;" placeholder="please write type of Participation" />
                             <!-- <option value="Preceptor">Preceptor</option>
                             <option value="Organizer">Organizer</option>
                             <option value="Satellite Attendee">Satellite Attendee</option>
@@ -837,7 +838,7 @@ td {
                             <option value="Resident">Resident</option>
                             <option value="Others">Others</option>
                             <input type="text" id="category_others" name="member_other_type"
-                                style="display: none;width:140%;" placeholder="category" />
+                                style="display: none;width:140%;" placeholder="please write category" />
                         </select>
                     </div>
                 </td>
@@ -913,6 +914,7 @@ const email_text = document.querySelector(".email_text")
 
 const participationSelect = document.querySelector("#Participation_1")
 const other_participation = document.querySelector(".other_participation")
+const participation_others = document.querySelector("#participation_others")
 
 // const category = document.querySelector("#Category")
 const categorySelect = document.querySelector("#Category_1")
@@ -990,13 +992,13 @@ LastName.addEventListener("input", (event) => {
     englishInput(event)
 })
 
-affilation.addEventListener("input", (event) => {
-    englishInput(event)
-})
+// affilation.addEventListener("input", (event) => {
+//     englishInput(event)
+// })
 
-department.addEventListener("input", (event) => {
-    englishInput(event)
-})
+// department.addEventListener("input", (event) => {
+//     englishInput(event)
+// })
 
 function englishInput(event) {
     const inputValue = event.target.value;
@@ -1075,8 +1077,8 @@ contry.addEventListener("click", () => {
 
     } else if (contry.value === "Republic of Korea") {
         KoreanName.style.display = "";
-        koreanAffiliation.style.display = ""
-        department_kor.style.display = ""
+        koreanAffiliation.style.display = "none"
+        department_kor.style.display = "none"
     }
 })
 
@@ -1188,8 +1190,10 @@ participationSelect.addEventListener("change", () => {
     const participationValue = participationSelect.options[participationSelect.selectedIndex].value;
     if (participationValue === "Other") {
         other_participation.style.display = "";
+        participation_others.style.display = "";
     } else {
         other_participation.style.display = "none";
+        participation_others.style.display = "none";
     }
     calRegiFee()
 })
@@ -1244,7 +1248,6 @@ $(function() {
     $("#Submit").click(function(e) {
         const submit = onSubmit(e)
         if (submit) {
-
             $("#addForm").submit();
         } else {
 
@@ -1307,17 +1310,17 @@ function onSubmit(e) {
             return;
         }
 
-        if (!koreanAffiliation.value) {
-            alert("invaild affilation");
-            koreanAffiliation.focus()
-            return;
-        }
+        // if (!koreanAffiliation.value) {
+        //     alert("invaild affilation");
+        //     koreanAffiliation.focus()
+        //     return;
+        // }
 
-        if (!department_kor.value) {
-            alert("invaild Department");
-            department_kor.focus()
-            return;
-        }
+        // if (!department_kor.value) {
+        //     alert("invaild Department");
+        //     department_kor.focus()
+        //     return;
+        // }
     }
 
 
@@ -1381,30 +1384,40 @@ function onSubmit(e) {
 /**금액 계산 */
 function calRegiFee() {
     const categoryValue = categorySelect.options[categorySelect.selectedIndex].value;
-    const contryValue = contry.options[contry.selectedIndex].value
+    const contryValue = contry.options[contry.selectedIndex].value;
+    const participationValue = participationSelect.options[participationSelect.selectedIndex].value;
+
     if (contryValue === "Republic of Korea") {
-        if (categoryValue === "Specialist" || categoryValue === "Professor") {
-            fee = "70,000";
-        } else if (categoryValue === "Fellow" || categoryValue === "Researcher" || categoryValue === "Nurses" ||
-            categoryValue === "Nutritionists" || categoryValue === "Corporate member" || categoryValue ===
-            "Military medical officer") {
-            fee = "30,000";
-        } else if (categoryValue === "Resident" || categoryValue === "Student") {
-            fee = "0"
+        if (participationValue === "Participant" || participationValue === "Other") {
+            if (categoryValue === "Specialist" || categoryValue === "Professor") {
+                fee = "70,000";
+            } else if (categoryValue === "Fellow" || categoryValue === "Researcher" || categoryValue === "Nurses" ||
+                categoryValue === "Nutritionists" || categoryValue === "Corporate member" || categoryValue ===
+                "Military medical officer") {
+                fee = "30,000";
+            } else if (categoryValue === "Resident" || categoryValue === "Student") {
+                fee = "0"
+            } else {
+                fee = "30,000";
+            }
         } else {
-            fee = "30,000";
+            fee = 0;
         }
     } else {
-        if (categoryValue === "Specialist" || categoryValue === "Professor") {
-            fee = "USD 300(KRW 405,000)";
-        } else if (categoryValue === "Fellow" || categoryValue === "Researcher" || categoryValue === "Nurses" ||
-            categoryValue === "Nutritionists" || categoryValue === "Corporate member" || categoryValue ===
-            "Military medical officer") {
-            fee = "USD 150(KRW 202,500)";
-        } else if (categoryValue === "Resident" || categoryValue === "Student") {
-            fee = "0"
+        if (participationValue === "Participant" || participationValue === "Other") {
+            if (categoryValue === "Specialist" || categoryValue === "Professor") {
+                fee = "USD 300(KRW 405,000)";
+            } else if (categoryValue === "Fellow" || categoryValue === "Researcher" || categoryValue === "Nurses" ||
+                categoryValue === "Nutritionists" || categoryValue === "Corporate member" || categoryValue ===
+                "Military medical officer") {
+                fee = "USD 150(KRW 202,500)";
+            } else if (categoryValue === "Resident" || categoryValue === "Student") {
+                fee = "0"
+            } else {
+                fee = "USD 150(KRW 202,500)";
+            }
         } else {
-            fee = "USD 150(KRW 202,500)";
+            fee = 0;
         }
     }
     if (contryValue === "Republic of Korea" && fee !== undefined) {

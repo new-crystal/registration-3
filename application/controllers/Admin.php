@@ -95,93 +95,6 @@ class Admin extends CI_Controller
         redirect('admin');
     }
 
-    public function excel_download()
-    {
-        $object = new PHPExcel();
-        $object->setActiveSheetIndex(0);
-
-        $table_columns = array("Registration No.", "Registration No.(Lucky Draw)", "등록 시간", "Date of Registration", "Type of Participation", "국내/국외", "Country", "KSSO 회원 여부", "Full Name", "First Name", "Last Name", "네임택용 Name", "성함", "Affiliation(Institution)", "네임택용 Affiliation", "소속", "Affiliation(Department)", "부서", "ID(E-mail)", "Phone Number", "Occupation", "Occupation (Others)", "Category", "Category (Others)", "Date of Birth", "의사면허번호", "전문의번호", "영양사자격번호", "임상영양사자격번호", "운동사 신청(Y/N)", "결제상태", "등록비", "결제일", "결제 방식", "결제금액", "할인율", "Promotion Code", "추천인", "Welcome Reception", "Day 2 Breakfast", "Day 2 Luncheon", "Day 3 Breakfast", "Day 3 Luncheon", "Where did you get the information about the conference?", "Remarks 1(하단택)", "Remarks 2(Special Requst for Food)", "Remarks 3", "Remarks 4", "Remarks 5", "memo");
-
-        $column = 0;
-
-        foreach ($table_columns as $field) {
-            $object->getActiveSheet()->setCellValueByColumnAndRow($column, 1, $field);
-            $column++;
-        }
-
-        $excel_row = 2;
-
-        $list = $this->users->get_users();
-
-        foreach ($list as $row) {
-            $luckynum = substr($row['registration_no'], 11, 4);
-            if ($row['nation'] == "Republic of Korea") {
-                $contry = '국내';
-            } else {
-                $contry = '국외';
-            }
-            $day = explode(' ', $row['time'])[0];
-            $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $row['registration_no']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $luckynum);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row['time']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $day);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row['attendance_type']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $contry);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $row['nation']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row['ksso_member_status']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $row['first_name'] . " " . $row['last_name']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row,  $row['first_name']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(10, $excel_row, $row['last_name']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(11, $excel_row, $row['first_name'] . " " . $row['last_name']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(12, $excel_row, $row['name_kor']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(13, $excel_row, $row['affiliation']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(14, $excel_row, $row['org_nametag']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(15, $excel_row, $row['affiliation_kor']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(16, $excel_row, $row['department']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(17, $excel_row, $row['department_kor']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(18, $excel_row, $row['email']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(19, $excel_row, $row['phone']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(20, $excel_row, $row['occupation_type']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(21, $excel_row, $row['occupation_other_type']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(22, $excel_row, $row['member_type']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(23, $excel_row, $row['member_other_type']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(24, $excel_row, $row['date_of_birth']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(25, $excel_row, $row['licence_number']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(26, $excel_row, $row['specialty_number']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(27, $excel_row, $row['nutritionist_number']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(28, $excel_row, $row['dietitian_number']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(29, $excel_row, $row['nt_info']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(30, $excel_row, $row['deposit']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(31, $excel_row,  number_format($row['fee']));
-            $object->getActiveSheet()->setCellValueByColumnAndRow(32, $excel_row, $row['deposit_date']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(33, $excel_row, $row['etc1']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(34, $excel_row, $row['etc4']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(35, $excel_row, $row['etc1']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(36, $excel_row, $row['etc4']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(37, $excel_row, $row['etc4']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(38, $excel_row, $row['welcome_reception_yn']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(39, $excel_row, $row['day2_breakfast_yn']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(40, $excel_row, $row['day2_luncheon_yn']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(41, $excel_row, $row['day3_breakfast_yn']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(42, $excel_row, $row['day3_luncheon_yn']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(43, $excel_row, $row['conference_info']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(44, $excel_row, $row['remark1']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(45, $excel_row, $row['remark2']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(46, $excel_row, $row['remark3']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(47, $excel_row, $row['remark4']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(48, $excel_row, $row['remark5']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(49, $excel_row, $row['memo']);
-            $excel_row++;
-        }
-
-        header('Content-Type: application/vnd.ms-excel');
-        header('Content-Disposition: attachment;filename="학회등록명단.xlsx"');
-
-        header('Cache-Control: max-age=0');
-
-        $object_writer = PHPExcel_IOFactory::createWriter($object, 'Excel2007');
-        $object_writer->save('php://output');
-    }
 
     public function excel_download_abstract()
     {
@@ -727,7 +640,6 @@ class Admin extends CI_Controller
                 $department_kor = $this->input->post('department_kor');
                 $license = $this->input->post('licence_number');
                 $specialty_number = $this->input->post('specialty_number');
-                $nutritionist_number = $this->input->post('nutritionist_number');
                 $phone = $this->input->post('phone');
                 $email = $this->input->post('email');
                 $fee = $this->input->post('fee');
@@ -793,7 +705,6 @@ class Admin extends CI_Controller
                     'memo' => $memo,
                     'attendance_type' => $attendance_type,
                     'specialty_number' => $specialty_number,
-                    'nutritionist_number' => $nutritionist_number,
                     'first_name' => $first_name,
                     'last_name' => $last_name,
                     'nation' => $nation,
@@ -983,7 +894,7 @@ class Admin extends CI_Controller
         $object = new PHPExcel();
         $object->setActiveSheetIndex(0);
 
-        $table_columns = array("NO.", "참석여부", "QR 프린트 여부", "국적구분", "등록일", "Reg_Num", "e-mail", "등록구분", "Country", "Full Name", "First Name", "Last Name", "이름", "Affiliation", "Name Badge_affiliation", "소속", "Department", "부서", "연락처", "참가유형", "참석자구분", "등록비", "결제수단", "결제수단 (은행/계좌번호)", "결제상태", "결제일", "2일차 조식 여부", "2일차 오찬 여부", "3일차 조식 여부", "3일차 오찬 여부", "coference information", "remark1", "remark2", "remark3", "remark4", "Special meal request", "Memo");
+        $table_columns = array("NO.", "참석여부", "QR 프린트 여부", "국적구분", "등록일", "Reg_Num", "e-mail", "등록구분", "Country", "Full Name", "First Name", "Last Name", "이름", "Name Badge_affiliation", "Department", "연락처", "참가유형", "참석자구분", "등록비", "결제수단", "결제수단 (은행/계좌번호)", "결제상태", "결제일", "2일차 조식 여부", "2일차 오찬 여부", "3일차 조식 여부", "3일차 오찬 여부", "coference information1", "coference information2", "coference information3", "초록제출코드", "remark1", "remark2", "remark3", "remark4", "Special meal request", "Memo");
 
         $column = 0;
 
@@ -1042,9 +953,9 @@ class Admin extends CI_Controller
             $onsite = "";
 
             if ($row['nation'] == "Republic of Korea") {
-                $contry = "KOR";
+                $contry = "국내";
             } else {
-                $contry = "ENG";
+                $contry = "국외";
             }
             if ($row['onsite_reg'] == 0) {
                 $onsite = "사전등록";
@@ -1075,24 +986,25 @@ class Admin extends CI_Controller
             $object->getActiveSheet()->setCellValueByColumnAndRow(10, $excel_row, $row['first_name']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(11, $excel_row, $row['last_name']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(12, $excel_row, $row['name_kor']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(13, $excel_row, $row['affiliation']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(14, $excel_row, $row['org_nametag']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(15, $excel_row, $row['affiliation_kor']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(16, $excel_row, $row['department']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(17, $excel_row, $row['department_kor']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(18, $excel_row, $row['phone']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(19, $excel_row, $row['attendance_type']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(20, $excel_row, $row['member_type']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(21, $excel_row, $row['fee']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(22, $excel_row, $row['deposit_method']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(23, $excel_row, $row['etc4']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(24, $excel_row, $row['deposit']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(25, $excel_row, $row['deposit_date']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(26, $excel_row, $row['day2_breakfast_yn']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(27, $excel_row, $row['day2_luncheon_yn']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(28, $excel_row, $row['day3_breakfast_yn']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(29, $excel_row, $row['day3_luncheon_yn']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(30, $excel_row, $row['conference_info']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(13, $excel_row, $row['org_nametag']);;
+            $object->getActiveSheet()->setCellValueByColumnAndRow(14, $excel_row, $row['department']);
+
+            $object->getActiveSheet()->setCellValueByColumnAndRow(15, $excel_row, $row['phone']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(16, $excel_row, $row['attendance_type']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(17, $excel_row, $row['member_type']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(18, $excel_row, $row['fee']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(19, $excel_row, $row['deposit_method']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(20, $excel_row, $row['etc4']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(21, $excel_row, $row['deposit']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(22, $excel_row, $row['deposit_date']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(23, $excel_row, $row['day2_breakfast_yn']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(24, $excel_row, $row['day2_luncheon_yn']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(25, $excel_row, $row['day3_breakfast_yn']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(26, $excel_row, $row['day3_luncheon_yn']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(27, $excel_row, $row['conference_info']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(28, $excel_row, $row['etc2']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(29, $excel_row, $row['etc3']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(30, $excel_row, $row['etc5']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(31, $excel_row, $row['remark1']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(32, $excel_row, $row['remark2']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(33, $excel_row, $row['remark3']);
@@ -1187,24 +1099,13 @@ class Admin extends CI_Controller
             $leave3 = $row['maxtime_day3'];
             $spent3 = $this->time_spent->time_spentcalc($enter3, $leave3, $start, $end, $breaks);
 
-            $date = "";
-            $type1 = "";
             $contry = "";
             $remark3 = "";
-            if ($row['attendance_date'] == "Full registration") {
-                $date = "Full registration";
-            } else {
-                $date = "One-day registration";
-            }
-            if ($row['kes_member_status'] == "Non-Member") {
-                $type1 = $row['member_type'] . ' - ' . 'Non-member';
-            } else {
-                $type1 = $row['member_type'] . ' - ' . 'member';
-            }
+
             if ($row['nation'] == "Republic of Korea") {
-                $contry = "KOR";
+                $contry = "국내";
             } else {
-                $contry = "ENG";
+                $contry = "국외";
             }
             if ($row['kes_member_status'] != "Non-Member" && $row['first_time_yn'] == "Y") {
                 $remark3 = "Y";
