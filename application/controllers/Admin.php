@@ -634,10 +634,10 @@ class Admin extends CI_Controller
                 $last_name = $this->input->post('last_name');
                 $name_kor = $this->input->post('name_kor');
                 $affiliation = $this->input->post('affiliation');
-                $affiliation_kor = $this->input->post('affiliation_kor');
+                // $affiliation_kor = $this->input->post('affiliation_kor');
                 $org_nametag = $this->input->post('org_nametag');
                 $department = $this->input->post('department');
-                $department_kor = $this->input->post('department_kor');
+                // $department_kor = $this->input->post('department_kor');
                 $license = $this->input->post('licence_number');
                 $specialty_number = $this->input->post('specialty_number');
                 $phone = $this->input->post('phone');
@@ -658,6 +658,7 @@ class Admin extends CI_Controller
                 $qr_chk_day_1 = $this->input->post('qr_chk_day_1');
                 $qr_chk_day_2 = $this->input->post('qr_chk_day_2');
                 $qr_chk_day_3 = $this->input->post('qr_chk_day_3');
+                $member_status = $this->input->post('member_status');
 
                 $memo = $this->input->post('memo');
                 $attendance_type = $this->input->post('attendance_type');
@@ -687,7 +688,7 @@ class Admin extends CI_Controller
                     'name_kor' => preg_replace("/\s+/", "", $name_kor),
                     'licence_number' => preg_replace("/\s+/", "", $license),
                     'affiliation' => trim($affiliation),
-                    'affiliation_kor' => trim($affiliation_kor),
+                    // 'affiliation_kor' => trim($affiliation_kor),
                     'org_nametag' => $org_nametag,
                     'phone' => preg_replace("/\s+/", "", $phone),
                     'email' => preg_replace("/\s+/", "", $email),
@@ -695,10 +696,11 @@ class Admin extends CI_Controller
                     // 'type' => trim($type),
                     'member_type' => trim($member_type),
                     'fee' => $fee,
+                    'member_status' => $member_status,
                     // 'time' => $time,
                     // 'uagent' => $uagent,
                     'department' => $department,
-                    'department_kor' => $department_kor,
+                    // 'department_kor' => $department_kor,
                     'deposit' => $deposit,
                     'deposit_date' => $deposit_date,
                     'deposit_method' => $deposit_method,
