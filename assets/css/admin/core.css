@@ -156,7 +156,7 @@
 
 
 #printThis .org{
-  font-size: 15px;
+  font-size: 14px;
   padding: 0 10px;
   top: 16%;
   word-break: keep-all;
@@ -6580,7 +6580,7 @@ h6.panel-title,
 }
 
 #printThis .org{
-  font-size: 15px;
+  font-size: 14px;
   padding: 0 10px;
   top: 16%;
   word-break: keep-all;
