@@ -795,11 +795,12 @@ td {
                         <select id="Participation_1" style="background-color:#ffffff;"
                             class="px-2 py-1 w-full h-10 border" name="attendance_type">
                             <option value="" selected="selected">Select</option>
-                            <option value="Participant">Participant</option>
+                            <option value="Participants">Participants</option>
                             <option value="Sponsor">Sponsor</option>
                             <option value="Chairperson">Chairperson</option>
                             <option value="Speaker">Speaker</option>
                             <option value="Panel">Panel</option>
+                            <option value="ISCP full member">ISCP full member</option>
                             <option value="Other">Other</option>
                             <input type="text" id="participation_others" name="attendance_other_type"
                                 style="display: none;width:140%;" placeholder="please write type of Participation" />
@@ -1388,7 +1389,7 @@ function calRegiFee() {
     const participationValue = participationSelect.options[participationSelect.selectedIndex].value;
 
     if (contryValue === "Republic of Korea") {
-        if (participationValue === "Participant") {
+        if (participationValue === "Participants") {
             if (categoryValue === "Specialist" || categoryValue === "Professor") {
                 fee = "70,000";
             } else if (categoryValue === "Fellow" || categoryValue === "Researcher" || categoryValue === "Nurses" ||
@@ -1404,7 +1405,7 @@ function calRegiFee() {
             fee = 0;
         }
     } else {
-        if (participationValue === "Participant") {
+        if (participationValue === "Participants") {
             if (categoryValue === "Specialist" || categoryValue === "Professor") {
                 fee = "USD 300(KRW 405,000)";
             } else if (categoryValue === "Fellow" || categoryValue === "Researcher" || categoryValue === "Nurses" ||

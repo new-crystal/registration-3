@@ -68,6 +68,28 @@ $remark3 = "";
                                     </td>
                                 </tr>
                                 <tr>
+                                    <th style="background-color: #fb8500">하단 띠지</th>
+                                    <td> <input class="form-control attendance" type="text"
+                                            value="<?php echo $item['attendance_type']; ?>" name="attendance_type"
+                                            id="attendance_type">
+                                        <select class="form-control input-lg m-bot15" id="attendance_select">
+                                            <option value="" selected="selected">직접입력</option>
+                                            <option value="Participant">Participant</option>
+                                            <option value="Speaker">Speaker</option>
+                                            <option value="Chairperson">Chairperson</option>
+                                            <option value="Moderator">Moderator</option>
+                                            <option value="Panel">Panel</option>
+                                            <option value="Preceptor">Preceptor</option>
+                                            <option value="Organizer">Organizer</option>
+                                            <option value="Oral Presenter">Oral Presenter</option>
+                                            <option value="Poster Oral Presenter">Poster Oral Presenter</option>
+                                            <option value="Satellite Attendee">Satellite Attendee</option>
+                                            <option value="Press">Press</option>
+                                            <option value="Exhibitior">Exhibitior</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
                                     <th style="background-color: #fb8500">Remarks 1</th>
                                     <td><input class="form-control" type="text" name="remark1" id="remark1"
                                             value="<?php echo $item['remark1']; ?>">
@@ -93,7 +115,7 @@ $remark3 = "";
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th style="background-color: #fb8500">Remarks 5</th>
+                                    <th style="background-color: #fb8500">special_request_food</th>
                                     <td>
                                         <input class="form-control" type="text"
                                             value="<?php echo $item['special_request_food']; ?>"
@@ -155,28 +177,7 @@ $remark3 = "";
 
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th>참가유형</th>
-                                    <td> <input class="form-control attendance" type="text"
-                                            value="<?php echo $item['attendance_type']; ?>" name="attendance_type"
-                                            id="attendance_type">
-                                        <select class="form-control input-lg m-bot15" id="attendance_select">
-                                            <option value="" selected="selected">직접입력</option>
-                                            <option value="Participant">Participant</option>
-                                            <option value="Speaker">Speaker</option>
-                                            <option value="Chairperson">Chairperson</option>
-                                            <option value="Moderator">Moderator</option>
-                                            <option value="Panel">Panel</option>
-                                            <option value="Preceptor">Preceptor</option>
-                                            <option value="Organizer">Organizer</option>
-                                            <option value="Oral Presenter">Oral Presenter</option>
-                                            <option value="Poster Oral Presenter">Poster Oral Presenter</option>
-                                            <option value="Satellite Attendee">Satellite Attendee</option>
-                                            <option value="Press">Press</option>
-                                            <option value="Exhibitior">Exhibitior</option>
-                                        </select>
-                                    </td>
-                                </tr>
+
 
                                 <tr>
                                     <th>참석자구분</th>
@@ -265,13 +266,13 @@ $remark3 = "";
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>소속</th>
-                                    <td>
-                                        <input class="form-control" type="text"
-                                            value="<?php echo $item['affiliation_kor']; ?>" name="affiliation_kor"
-                                            id="org">
+                                    <th>회원유무</th>
+                                    <td> <input class="form-control" type="text"
+                                            value="<?php echo $item['member_status']; ?>" name="member_status"
+                                            id="member_status">
                                     </td>
                                 </tr>
+
                                 <tr>
                                     <th>Department</th>
                                     <td>
@@ -279,14 +280,7 @@ $remark3 = "";
                                             value="<?php echo $item['department']; ?>" name="department" id="org">
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th>부서</th>
-                                    <td>
-                                        <input class="form-control" type="text"
-                                            value="<?php echo $item['department_kor']; ?>" name="department_kor"
-                                            id="org">
-                                    </td>
-                                </tr>
+
                                 <tr>
                                     <th>면허번호</th>
                                     <td>
