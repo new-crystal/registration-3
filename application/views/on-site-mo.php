@@ -1372,30 +1372,40 @@ function onSubmit(e) {
 /**금액 계산 */
 function calRegiFee() {
     const categoryValue = categorySelect.options[categorySelect.selectedIndex].value;
-    const contryValue = contry.options[contry.selectedIndex].value
+    const contryValue = contry.options[contry.selectedIndex].value;
+    const participationValue = participationSelect.options[participationSelect.selectedIndex].value;
+
     if (contryValue === "Republic of Korea") {
-        if (categoryValue === "Specialist" || categoryValue === "Professor") {
-            fee = "70,000";
-        } else if (categoryValue === "Fellow" || categoryValue === "Researcher" || categoryValue === "Nurses" ||
-            categoryValue === "Nutritionists" || categoryValue === "Corporate member" || categoryValue ===
-            "Military medical officer") {
-            fee = "30,000";
-        } else if (categoryValue === "Resident" || categoryValue === "Student") {
-            fee = "0"
+        if (participationValue === "Participants") {
+            if (categoryValue === "Specialist" || categoryValue === "Professor") {
+                fee = "70,000";
+            } else if (categoryValue === "Fellow" || categoryValue === "Researcher" || categoryValue === "Nurses" ||
+                categoryValue === "Nutritionists" || categoryValue === "Corporate member" || categoryValue ===
+                "Military medical officer") {
+                fee = "30,000";
+            } else if (categoryValue === "Resident" || categoryValue === "Student") {
+                fee = "0"
+            } else {
+                fee = "30,000";
+            }
         } else {
-            fee = "30,000";
+            fee = 0;
         }
     } else {
-        if (categoryValue === "Specialist" || categoryValue === "Professor") {
-            fee = "USD 300(KRW 405,000)";
-        } else if (categoryValue === "Fellow" || categoryValue === "Researcher" || categoryValue === "Nurses" ||
-            categoryValue === "Nutritionists" || categoryValue === "Corporate member" || categoryValue ===
-            "Military medical officer") {
-            fee = "USD 150(KRW 202,500)";
-        } else if (categoryValue === "Resident" || categoryValue === "Student") {
-            fee = "0"
+        if (participationValue === "Participants") {
+            if (categoryValue === "Specialist" || categoryValue === "Professor") {
+                fee = "USD 300(KRW 405,000)";
+            } else if (categoryValue === "Fellow" || categoryValue === "Researcher" || categoryValue === "Nurses" ||
+                categoryValue === "Nutritionists" || categoryValue === "Corporate member" || categoryValue ===
+                "Military medical officer") {
+                fee = "USD 150(KRW 202,500)";
+            } else if (categoryValue === "Resident" || categoryValue === "Student") {
+                fee = "0"
+            } else {
+                fee = "USD 150(KRW 202,500)";
+            }
         } else {
-            fee = "USD 150(KRW 202,500)";
+            fee = 0;
         }
     }
     if (contryValue === "Republic of Korea" && fee !== undefined) {
