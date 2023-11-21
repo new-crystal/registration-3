@@ -1080,7 +1080,7 @@ contry.addEventListener("click", () => {
 })
 
 /**email selectbox */
-email_3.addEventListener("click", () => {
+email_3.addEventListener("change", () => {
     email_2.value = email_3.options[email_3.selectedIndex].value
 })
 
