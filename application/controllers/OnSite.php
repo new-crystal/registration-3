@@ -207,9 +207,7 @@ class OnSite extends CI_Controller
             if ($member_other_type) {
                 $member_type = $member_other_type;
             }
-            if ($attendance_other_type) {
-                $attendance_type = $attendance_other_type;
-            }
+
 
             $day2_breakfast_yn = 'N';
             $day2_luncheon_yn = 'N';
@@ -225,35 +223,54 @@ class OnSite extends CI_Controller
                 $etc4 = null;
             }
 
+            if ($attendance_type == "ISCP full member") {
+                $attendance_type = "Participants(ISCP full member)";
+                $member_status = "ISCP full member";
+            } else {
+                $member_status = "N/A";
+            }
+
 
             if ($nation === "Republic of Korea") {
-                if ($member_type === "Specialist" || $member_type === "Professor") {
-                    $fee = "70,000";
-                } else if (
-                    $member_type === "Fellow" || $member_type === "Researcher" || $member_type === "Nurses" ||
-                    $member_type === "Nutritionists" || $member_type === "Corporate member" || $member_type ===
-                    "Military medical officer"
-                ) {
-                    $fee = "30,000";
-                } else if ($member_type === "Resident" || $member_type === "Student") {
-                    $fee = "0";
+                if ($attendance_type === "Participants") {
+                    if ($member_type === "Specialist" || $member_type === "Professor") {
+                        $fee = "70,000";
+                    } else if (
+                        $member_type === "Fellow" || $member_type === "Researcher" || $member_type === "Nurses" ||
+                        $member_type === "Nutritionists" || $member_type === "Corporate member" || $member_type ===
+                        "Military medical officer"
+                    ) {
+                        $fee = "30,000";
+                    } else if ($member_type === "Resident" || $member_type === "Student") {
+                        $fee = "0";
+                    } else {
+                        $fee = "30,000";
+                    }
                 } else {
-                    $fee = "30,000";
+                    $fee = 0;
                 }
             } else {
-                if ($member_type === "Specialist" || $member_type === "Professor") {
-                    $fee = "USD 300(KRW 405,000)";
-                } else if (
-                    $member_type === "Fellow" || $member_type === "Researcher" || $member_type === "Nurses" ||
-                    $member_type === "Nutritionists" || $member_type === "Corporate member" || $member_type ===
-                    "Military medical officer"
-                ) {
-                    $fee = "USD 150(KRW 202,500)";
-                } else if ($member_type === "Resident" || $member_type === "Student") {
-                    $fee = "0";
+                if ($attendance_type === "Participants") {
+                    if ($member_type === "Specialist" || $member_type === "Professor") {
+                        $fee = "USD 300(KRW 405,000)";
+                    } else if (
+                        $member_type === "Fellow" || $member_type === "Researcher" || $member_type === "Nurses" ||
+                        $member_type === "Nutritionists" || $member_type === "Corporate member" || $member_type ===
+                        "Military medical officer"
+                    ) {
+                        $fee = "USD 150(KRW 202,500)";
+                    } else if ($member_type === "Resident" || $member_type === "Student") {
+                        $fee = "0";
+                    } else {
+                        $fee = "USD 150(KRW 202,500)";
+                    }
                 } else {
-                    $fee = "USD 150(KRW 202,500)";
+                    $fee = 0;
                 }
+            }
+
+            if ($attendance_other_type) {
+                $attendance_type = $attendance_other_type;
             }
 
             $info = array(
@@ -279,6 +296,7 @@ class OnSite extends CI_Controller
                 'day3_luncheon_yn' => $day3_luncheon_yn,
                 'deposit_method' => $deposit_method,
                 'special_request_food' => $special_request_food,
+                'member_status' =>  $member_status,
                 'fee' => $fee,
                 'onsite_reg' => $onsite_reg,
                 'etc4' => $etc4

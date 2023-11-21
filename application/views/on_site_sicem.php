@@ -804,11 +804,6 @@ td {
                             <option value="Other">Other</option>
                             <input type="text" id="participation_others" name="attendance_other_type"
                                 style="display: none;width:140%;" placeholder="please write type of Participation" />
-                            <!-- <option value="Preceptor">Preceptor</option>
-                            <option value="Organizer">Organizer</option>
-                            <option value="Satellite Attendee">Satellite Attendee</option>
-                            <option value="Press">Press</option>
-                            <option value="Exhibitior">Exhibitior</option> -->
                         </select>
                     </div>
                     <p class="email_text other_participation" style="display:none;">**Please visit the registration
@@ -1084,7 +1079,7 @@ contry.addEventListener("click", () => {
 })
 
 /**email selectbox */
-email_3.addEventListener("click", () => {
+email_3.addEventListener("change", () => {
     email_2.value = email_3.options[email_3.selectedIndex].value
 })
 
