@@ -1,25 +1,25 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-th,
-td {
-    text-align: center !important;
-    border: 2px solid rgb(163 163 163);
-    font-weight: 600;
-    font-size: 1.5rem;
-    line-height: 2rem;
-}
+    th,
+    td {
+        text-align: center !important;
+        border: 2px solid rgb(163 163 163);
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
 
-tr {
-    height: 4.5rem;
-    border: 2px solid rgb(163 163 163);
-    font-weight: 600;
-    font-size: 1.5rem;
-    line-height: 2rem;
-}
+    tr {
+        height: 4.5rem;
+        border: 2px solid rgb(163 163 163);
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
 
-.total_table {
-    width: 240px;
-}
+    .total_table {
+        width: 240px;
+    }
 </style>
 <?php
 
@@ -203,7 +203,7 @@ foreach ($day_1 as $item_1) {
         if ($item_1['attendance_type'] == "Press") {
             $on_press_1 = $on_press_1 + 1;
         }
-        if ($item_1['attendance_type'] == "Participants") {
+        if ($item_1['attendance_type'] == "Participants" || $item_3['attendance_type'] == "Participants(ISCP full member)") {
             $on_participant_1 = $on_participant_1 + 1;
         }
         if ($item_1['attendance_type'] == "Other" || $item_1['attendance_type'] == "Exhibitor") {
@@ -233,7 +233,7 @@ foreach ($day_1 as $item_1) {
         if ($item_1['attendance_type'] == "Press") {
             $press_1 = $press_1 + 1;
         }
-        if ($item_1['attendance_type'] == "Participants") {
+        if ($item_1['attendance_type'] == "Participants" || $item_3['attendance_type'] == "Participants(ISCP full member)") {
             $participant_1 = $participant_1 + 1;
         }
         if ($item_1['attendance_type'] == "Other" || $item_1['attendance_type'] == "Exhibitor") {
@@ -267,7 +267,7 @@ foreach ($day_1_e as $item_1_e) {
         if ($item_1_e['attendance_type'] == "Press") {
             $on_press_1_e = $on_press_1_e + 1;
         }
-        if ($item_1_e['attendance_type'] == "Participants") {
+        if ($item_1_e['attendance_type'] == "Participants" || $item_3['attendance_type'] == "Participants(ISCP full member)") {
             $on_participant_1_e = $on_participant_1_e + 1;
         }
         if ($item_1_e['attendance_type'] == "Other" || $item_1_e['attendance_type'] == "Exhibitor") {
@@ -297,7 +297,7 @@ foreach ($day_1_e as $item_1_e) {
         if ($item_1_e['attendance_type'] == "Press") {
             $press_1_e = $press_1_e + 1;
         }
-        if ($item_1_e['attendance_type'] == "Participants") {
+        if ($item_1_e['attendance_type'] == "Participants" || $item_3['attendance_type'] == "Participants(ISCP full member)") {
             $participant_1_e = $participant_1_e + 1;
         }
         if ($item_1_e['attendance_type'] == "Other" || $item_1_e['attendance_type'] == "Exhibitor") {
@@ -331,7 +331,7 @@ foreach ($day_2 as $item_2) {
         if ($item_2['attendance_type'] == "Press") {
             $on_press_2 = $on_press_2 + 1;
         }
-        if ($item_2['attendance_type'] == "Participants") {
+        if ($item_2['attendance_type'] == "Participants" || $item_3['attendance_type'] == "Participants(ISCP full member)") {
             $on_participant_2 = $on_participant_2 + 1;
         }
         if ($item_2['attendance_type'] == "Other" || $item_2['attendance_type'] == "Exhibitor") {
@@ -361,7 +361,7 @@ foreach ($day_2 as $item_2) {
         if ($item_2['attendance_type'] == "Press") {
             $press_2 = $press_2 + 1;
         }
-        if ($item_2['attendance_type'] == "Participants") {
+        if ($item_2['attendance_type'] == "Participants" || $item_3['attendance_type'] == "Participants(ISCP full member)") {
             $participant_2 = $participant_2 + 1;
         }
         if ($item_2['attendance_type'] == "Other" || $item_2['attendance_type'] == "Exhibitor") {
@@ -395,7 +395,7 @@ foreach ($day_2_e as $item_2_e) {
         if ($item_2_e['attendance_type'] == "Press") {
             $on_press_2_e = $on_press_2_e + 1;
         }
-        if ($item_2_e['attendance_type'] == "Participants") {
+        if ($item_2_e['attendance_type'] == "Participants" || $item_3['attendance_type'] == "Participants(ISCP full member)") {
             $on_participant_2_e = $on_participant_2_e + 1;
         }
         if ($item_2_e['attendance_type'] == "Other" || $item_2_e['attendance_type'] == "Exhibitor") {
@@ -425,7 +425,7 @@ foreach ($day_2_e as $item_2_e) {
         if ($item_2_e['attendance_type'] == "Press") {
             $press_2_e = $press_2_e + 1;
         }
-        if ($item_2_e['attendance_type'] == "Participants") {
+        if ($item_2_e['attendance_type'] == "Participants" || $item_3['attendance_type'] == "Participants(ISCP full member)") {
             $participant_2_e = $participant_2_e + 1;
         }
         if ($item_2_e['attendance_type'] == "Other" || $item_2_e['attendance_type'] == "Exhibitor") {
@@ -459,7 +459,7 @@ foreach ($day_3 as $item_3) {
         if ($item_3['attendance_type'] == "Press") {
             $on_press_3 = $on_press_3 + 1;
         }
-        if ($item_3['attendance_type'] == "Participants") {
+        if ($item_3['attendance_type'] == "Participants" || $item_3['attendance_type'] == "Participants(ISCP full member)") {
             $on_participant_3 = $on_participant_3 + 1;
         }
         if ($item_3['attendance_type'] == "Other" || $item_3['attendance_type'] == "Exhibitor") {
@@ -489,7 +489,7 @@ foreach ($day_3 as $item_3) {
         if ($item_3['attendance_type'] == "Press") {
             $press_3 = $press_3 + 1;
         }
-        if ($item_3['attendance_type'] == "Participants") {
+        if ($item_3['attendance_type'] == "Participants" || $item_3['attendance_type'] == "Participants(ISCP full member)") {
             $participant_3 = $participant_3 + 1;
         }
         if ($item_3['attendance_type'] == "Other" || $item_3['attendance_type'] == "Exhibitor") {
@@ -523,7 +523,7 @@ foreach ($day_3_e as $item_3_e) {
         if ($item_3_e['attendance_type'] == "Press") {
             $on_press_3_e = $on_press_3_e + 1;
         }
-        if ($item_3_e['attendance_type'] == "Participants") {
+        if ($item_3_e['attendance_type'] == "Participants" || $item_3['attendance_type'] == "Participants(ISCP full member)") {
             $on_participant_3_e = $on_participant_3_e + 1;
         }
         if ($item_3_e['attendance_type'] == "Other" || $item_3_e['attendance_type'] == "Exhibitor") {
@@ -553,7 +553,7 @@ foreach ($day_3_e as $item_3_e) {
         if ($item_3_e['attendance_type'] == "Press") {
             $press_3_e = $press_3_e + 1;
         }
-        if ($item_3_e['attendance_type'] == "Participants") {
+        if ($item_3_e['attendance_type'] == "Participants" || $item_3['attendance_type'] == "Participants(ISCP full member)") {
             $participant_3_e = $participant_3_e + 1;
         }
         if ($item_3_e['attendance_type'] == "Other" || $item_3_e['attendance_type'] == "Exhibitor") {
@@ -1143,51 +1143,51 @@ $day_3_users = count($day_3) + count($day_3_e);
 <!-- /page container -->
 
 <script>
-const day_1_e = document.querySelector(".day_1_e")
-const day_1 = document.querySelector(".day_1")
-const on_day_1_e = document.querySelector(".on_day_1_e")
-const on_day_1 = document.querySelector(".on_day_1")
+    const day_1_e = document.querySelector(".day_1_e")
+    const day_1 = document.querySelector(".day_1")
+    const on_day_1_e = document.querySelector(".on_day_1_e")
+    const on_day_1 = document.querySelector(".on_day_1")
 
-const day_2_e = document.querySelector(".day_2_e")
-const day_2 = document.querySelector(".day_2")
-const on_day_2_e = document.querySelector(".on_day_2_e")
-const on_day_2 = document.querySelector(".on_day_2")
+    const day_2_e = document.querySelector(".day_2_e")
+    const day_2 = document.querySelector(".day_2")
+    const on_day_2_e = document.querySelector(".on_day_2_e")
+    const on_day_2 = document.querySelector(".on_day_2")
 
-const day_3_e = document.querySelector(".day_3_e")
-const day_3 = document.querySelector(".day_3")
-const on_day_3_e = document.querySelector(".on_day_3_e")
-const on_day_3 = document.querySelector(".on_day_3")
+    const day_3_e = document.querySelector(".day_3_e")
+    const day_3 = document.querySelector(".day_3")
+    const on_day_3_e = document.querySelector(".on_day_3_e")
+    const on_day_3 = document.querySelector(".on_day_3")
 
-const count_1 = document.querySelector(".count_1")
-const count_2 = document.querySelector(".count_2")
-const count_3 = document.querySelector(".count_3")
-const count_4 = document.querySelector(".count_4")
-const count_5 = document.querySelector(".count_5")
-const count_6 = document.querySelector(".count_6")
+    const count_1 = document.querySelector(".count_1")
+    const count_2 = document.querySelector(".count_2")
+    const count_3 = document.querySelector(".count_3")
+    const count_4 = document.querySelector(".count_4")
+    const count_5 = document.querySelector(".count_5")
+    const count_6 = document.querySelector(".count_6")
 
-const count_7 = document.querySelector(".count_7")
-const count_8 = document.querySelector(".count_8")
+    const count_7 = document.querySelector(".count_7")
+    const count_8 = document.querySelector(".count_8")
 
-const count_9 = document.querySelector(".count_9")
-const count_10 = document.querySelector(".count_10")
-const count_11 = document.querySelector(".count_11")
-const total = document.querySelector(".total")
+    const count_9 = document.querySelector(".count_9")
+    const count_10 = document.querySelector(".count_10")
+    const count_11 = document.querySelector(".count_11")
+    const total = document.querySelector(".total")
 
-const addNum = () => {
-    count_1.innerText = Number(day_1_e.innerText) + Number(day_1.innerText);
-    count_2.innerText = Number(day_2_e.innerText) + Number(day_2.innerText);
-    count_3.innerText = Number(day_3_e.innerText) + Number(day_3.innerText);
-    count_4.innerText = Number(on_day_1_e.innerText) + Number(on_day_1.innerText);
-    count_5.innerText = Number(on_day_2_e.innerText) + Number(on_day_2.innerText);
-    count_6.innerText = Number(on_day_3_e.innerText) + Number(on_day_3.innerText);
+    const addNum = () => {
+        count_1.innerText = Number(day_1_e.innerText) + Number(day_1.innerText);
+        count_2.innerText = Number(day_2_e.innerText) + Number(day_2.innerText);
+        count_3.innerText = Number(day_3_e.innerText) + Number(day_3.innerText);
+        count_4.innerText = Number(on_day_1_e.innerText) + Number(on_day_1.innerText);
+        count_5.innerText = Number(on_day_2_e.innerText) + Number(on_day_2.innerText);
+        count_6.innerText = Number(on_day_3_e.innerText) + Number(on_day_3.innerText);
 
-    count_7.innerText = Number(count_1.innerText) + Number(count_2.innerText) + Number(count_3.innerText)
-    count_8.innerText = Number(count_4.innerText) + Number(count_5.innerText) + Number(count_6.innerText)
+        count_7.innerText = Number(count_1.innerText) + Number(count_2.innerText) + Number(count_3.innerText)
+        count_8.innerText = Number(count_4.innerText) + Number(count_5.innerText) + Number(count_6.innerText)
 
-    total.innerText = Number(count_9.innerText) + Number(count_10.innerText) + Number(count_11.innerText);
-}
+        total.innerText = Number(count_9.innerText) + Number(count_10.innerText) + Number(count_11.innerText);
+    }
 
 
 
-addNum()
+    addNum()
 </script>

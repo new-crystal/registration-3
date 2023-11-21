@@ -251,7 +251,7 @@ td {
     }
 
     .email_text {
-        transform: translate(-34px, 25px) !important;
+        transform: translate(0px, 1px) !important;
         margin: 0 !important;
     }
 }
@@ -395,8 +395,8 @@ td {
                         </div>
                         <button class="check_btn bg-blue-700 text-white px-4 font-semibold" type="button">Check
                             ID</button>
+                        </div>
                         <p class="email_text">Please enter your ID(E-mail)</p>
-                    </div>
                 </td>
             </tr>
             <tr>
@@ -802,16 +802,15 @@ td {
                         <select id="Participation_1" style="background-color:#ffffff;"
                             class="px-2 py-1 w-full h-10 border" name="attendance_type">
                             <option value="" selected="selected">Select</option>
-                            <option value="Participant">Participant</option>
-                            <option value="Speaker">Speaker</option>
+                            <option value="Participants">Participants</option>
+                            <option value="Sponsor">Sponsor</option>
                             <option value="Chairperson">Chairperson</option>
-                            <option value="Moderator">Moderator</option>
+                            <option value="Speaker">Speaker</option>
                             <option value="Panel">Panel</option>
-                            <option value="Preceptor">Preceptor</option>
-                            <option value="Organizer">Organizer</option>
-                            <option value="Satellite Attendee">Satellite Attendee</option>
-                            <option value="Press">Press</option>
-                            <option value="Exhibitior">Exhibitior</option>
+                            <option value="ISCP full member">ISCP full member</option>
+                            <option value="Other">Other</option>
+                            <input type="text" id="participation_others" name="attendance_other_type"
+                                style="display: none;width:140%;" placeholder="please write type of Participation" />
                         </select>
                     </div>
                 </td>
@@ -864,7 +863,7 @@ td {
             </tr>
             <tr>
                 <th>Total</th>
-                <td id="total" class="font-semibold underline underline-offset-8 text-2xl">
+                <td id="total" class="font-semibold underline underline-offset-8 text-2xl sm:text-base">
                     <input name="fee" id="fee" hidden />
                 </td>
             </tr>
