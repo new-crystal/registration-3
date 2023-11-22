@@ -71,7 +71,7 @@ $remark3 = "";
                                     <td> <input class="form-control attendance" type="text" value="<?php echo $item['attendance_type']; ?>" name="attendance_type" id="attendance_type">
                                         <select class="form-control input-lg m-bot15" id="attendance_select">
                                             <option value="" selected="selected">직접입력</option>
-                                            <option value="Participant">Participant</option>
+                                            <option value="Participants">Participants</option>
                                             <option value="Speaker">Speaker</option>
                                             <option value="Chairperson">Chairperson</option>
                                             <option value="Moderator">Moderator</option>
