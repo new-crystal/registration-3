@@ -177,7 +177,7 @@ $others_3_e = 0;
 
 
 foreach ($day_1 as $item_1) {
-
+    print_r($item_1['attendance_type']);
     /**현장등록 & day1 & 국내 */
     if ($item_1['onsite_reg'] === "1") {
         // print_r($item['attendance_type']);
@@ -587,6 +587,9 @@ $day_3_users = count($day_3) + count($day_3_e);
         <?php echo count($item) ?> 명 / 미출결:
         <?php echo $non_qr ?>
         명
+
+        <?php echo "eee". $participant_1_e; ?>
+        <?php echo "ddd". $participant_1; ?>
     </h6>
 
     <table>
