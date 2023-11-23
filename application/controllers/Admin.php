@@ -501,6 +501,7 @@ class Admin extends CI_Controller
                 $remark2 = $this->input->post('remark2');
                 $remark3 = $this->input->post('remark3');
                 $remark4 = $this->input->post('remark4');
+                
                 $deposit_method = $this->input->post('deposit_method');
                 $fee = $this->input->post('fee');
                 $etc4 = $this->input->post('etc4');
@@ -757,7 +758,7 @@ class Admin extends CI_Controller
         $object = new PHPExcel();
         $object->setActiveSheetIndex(0);
 
-        $table_columns = array("NO", "Registration No.", "등록유형", "등록일", "e-mail", "참석여부", "QR프린트여부", "방문일자", "국내/국외", "Country", "학회구분", "Full Name", "First Name", "Last Name", "이름", "Name Badge_affiliation",  "부서", "연락처", "하단띠지구분", "참석자구분", "등록비", "면허번호", "전문의 번호", "2일차 조식 여부", "2일차 오찬 여부", "3일차 조식 여부", "3일차 오찬 여부", "coference information1", "coference information2", "coference information3", "초록제출코드", "remark1", "remark2", "remark3", "remark4", "Special meal request", "Memo", "Day 1 참석여부", "Day 1 입실 시간", "Day 1 퇴실 시간", "체류시간", "Break 제외 시간", "Day 2 참석여부", "Day 2 입실 시간", "Day 2 퇴실 시간", "체류시간", "Break 제외 시간", "Day 3 참석여부", "Day 3 입실 시간", "Day 3 퇴실 시간", "체류시간", "Break 제외 시간");
+        $table_columns = array("NO", "Registration No.", "등록유형", "등록일", "e-mail", "참석여부", "QR프린트여부", "방문일자", "국내/국외", "Country", "학회구분", "Full Name", "First Name", "Last Name", "이름", "Name Badge_affiliation",  "부서", "연락처", "하단띠지구분", "참석자구분", "등록비", "면허번호", "전문의 번호", "2일차 조식 여부", "2일차 오찬 여부", "3일차 조식 여부", "3일차 오찬 여부", "coference information1", "coference information2", "coference information3", "초록제출코드", "remark1", "remark2", "remark3", "remark4", "remark5","Special meal request", "Memo", "Day 1 참석여부", "Day 1 입실 시간", "Day 1 퇴실 시간", "체류시간", "Break 제외 시간", "Day 2 참석여부", "Day 2 입실 시간", "Day 2 퇴실 시간", "체류시간", "Break 제외 시간", "Day 3 참석여부", "Day 3 입실 시간", "Day 3 퇴실 시간", "체류시간", "Break 제외 시간");
 
         $column = 0;
 
@@ -875,26 +876,27 @@ class Admin extends CI_Controller
             $object->getActiveSheet()->setCellValueByColumnAndRow(32, $excel_row, $row['remark2']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(33, $excel_row, $row['remark3']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(34, $excel_row, $row['remark4']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(35, $excel_row, $row['special_request_food']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(36, $excel_row, $row['memo']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(35, $excel_row, $row['remark5']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(36, $excel_row, $row['special_request_food']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(37, $excel_row, $row['memo']);
 
-            $object->getActiveSheet()->setCellValueByColumnAndRow(37, $excel_row,  $row['qr_chk_day_1']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(38, $excel_row, date("H:i", strtotime($row['mintime_day1'])));  //DAY1입실
-            $object->getActiveSheet()->setCellValueByColumnAndRow(39, $excel_row, date("H:i", strtotime($row['maxtime_day1'])));  //DAY1퇴실
-            $object->getActiveSheet()->setCellValueByColumnAndRow(40, $excel_row, $row['d_format_day1']);                //DAY1체류시간
-            $object->getActiveSheet()->setCellValueByColumnAndRow(41, $excel_row, hoursandmins($spent1));
+            $object->getActiveSheet()->setCellValueByColumnAndRow(38, $excel_row,  $row['qr_chk_day_1']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(39, $excel_row, date("H:i", strtotime($row['mintime_day1'])));  //DAY1입실
+            $object->getActiveSheet()->setCellValueByColumnAndRow(40, $excel_row, date("H:i", strtotime($row['maxtime_day1'])));  //DAY1퇴실
+            $object->getActiveSheet()->setCellValueByColumnAndRow(41, $excel_row, $row['d_format_day1']);                //DAY1체류시간
+            $object->getActiveSheet()->setCellValueByColumnAndRow(42, $excel_row, hoursandmins($spent1));
 
-            $object->getActiveSheet()->setCellValueByColumnAndRow(42, $excel_row,  $row['qr_chk_day_2']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(43, $excel_row, date("H:i", strtotime($row['mintime_day2'])));  //DAY2입실
-            $object->getActiveSheet()->setCellValueByColumnAndRow(44, $excel_row, date("H:i", strtotime($row['maxtime_day2'])));  //DAY2퇴실
-            $object->getActiveSheet()->setCellValueByColumnAndRow(45, $excel_row, $row['d_format_day2']);                          //DAY2체류시
-            $object->getActiveSheet()->setCellValueByColumnAndRow(46, $excel_row, hoursandmins($spent2));
+            $object->getActiveSheet()->setCellValueByColumnAndRow(43, $excel_row,  $row['qr_chk_day_2']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(44, $excel_row, date("H:i", strtotime($row['mintime_day2'])));  //DAY2입실
+            $object->getActiveSheet()->setCellValueByColumnAndRow(45, $excel_row, date("H:i", strtotime($row['maxtime_day2'])));  //DAY2퇴실
+            $object->getActiveSheet()->setCellValueByColumnAndRow(46, $excel_row, $row['d_format_day2']);                          //DAY2체류시
+            $object->getActiveSheet()->setCellValueByColumnAndRow(47, $excel_row, hoursandmins($spent2));
 
-            $object->getActiveSheet()->setCellValueByColumnAndRow(47, $excel_row,  $row['qr_chk_day_3']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(48, $excel_row, date("H:i", strtotime($row['mintime_day3'])));  //DAY3입실
-            $object->getActiveSheet()->setCellValueByColumnAndRow(49, $excel_row, date("H:i", strtotime($row['maxtime_day3'])));  //DAY3퇴실
-            $object->getActiveSheet()->setCellValueByColumnAndRow(50, $excel_row, $row['d_format_day3']);        //DAY3체류시간
-            $object->getActiveSheet()->setCellValueByColumnAndRow(51, $excel_row, hoursandmins($spent3));
+            $object->getActiveSheet()->setCellValueByColumnAndRow(48, $excel_row,  $row['qr_chk_day_3']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(49, $excel_row, date("H:i", strtotime($row['mintime_day3'])));  //DAY3입실
+            $object->getActiveSheet()->setCellValueByColumnAndRow(50, $excel_row, date("H:i", strtotime($row['maxtime_day3'])));  //DAY3퇴실
+            $object->getActiveSheet()->setCellValueByColumnAndRow(51, $excel_row, $row['d_format_day3']);        //DAY3체류시간
+            $object->getActiveSheet()->setCellValueByColumnAndRow(52, $excel_row, hoursandmins($spent3));
             //$object->getActiveSheet()->setCellValueByColumnAndRow(15, $excel_row, hoursandmins($spent));
             //$object->getActiveSheet()->setCellValueByColumnAndRow(16, $excel_row, $score);
             // $object->getActiveSheet()->setCellValueByColumnAndRow(24, $excel_row, '');
@@ -928,7 +930,7 @@ class Admin extends CI_Controller
         $object = new PHPExcel();
         $object->setActiveSheetIndex(0);
 
-        $table_columns = array("NO.", "참석여부", "QR 프린트 여부", "국적구분", "등록일", "Reg_Num", "e-mail", "등록구분", "Country", "Full Name", "First Name", "Last Name", "이름", "Name Badge_affiliation", "Department", "연락처", "참가유형", "참석자구분", "등록비", "결제수단", "결제수단 (은행/계좌번호)", "결제상태", "결제일", "2일차 조식 여부", "2일차 오찬 여부", "3일차 조식 여부", "3일차 오찬 여부", "coference information1", "coference information2", "coference information3", "초록제출코드", "remark1", "remark2", "remark3", "remark4", "Special meal request", "Memo");
+        $table_columns = array("NO.", "참석여부", "QR 프린트 여부", "국적구분", "등록일", "Reg_Num", "e-mail", "등록구분", "Country", "Full Name", "First Name", "Last Name", "이름", "Name Badge_affiliation", "Department", "연락처", "참가유형", "참석자구분", "등록비", "결제수단", "결제수단 (은행/계좌번호)", "결제상태", "결제일", "2일차 조식 여부", "2일차 오찬 여부", "3일차 조식 여부", "3일차 오찬 여부", "coference information1", "coference information2", "coference information3", "초록제출코드", "remark1", "remark2", "remark3", "remark4", "remark5","Special meal request", "Memo");
 
         $column = 0;
 
@@ -1043,8 +1045,9 @@ class Admin extends CI_Controller
             $object->getActiveSheet()->setCellValueByColumnAndRow(32, $excel_row, $row['remark2']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(33, $excel_row, $row['remark3']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(34, $excel_row, $row['remark4']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(35, $excel_row, $row['special_request_food']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(36, $excel_row, $row['memo']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(35, $excel_row, $row['remark5']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(36, $excel_row, $row['special_request_food']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(37, $excel_row, $row['memo']);
 
             $excel_row++;
         }

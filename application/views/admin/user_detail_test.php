@@ -108,6 +108,11 @@ $remark3 = "";
                                     </td>
                                 </tr>
                                 <tr>
+                                    <th style="background-color: #fb8500">Remarks 5(갈라)</th>
+                                    <td><input class="form-control" type="text" value="<?php echo $item['remark5']; ?>" name="remark45" id="remark5">
+                                    </td>
+                                </tr>
+                                <tr>
                                     <th style="background-color: #fb8500">special_request_food</th>
                                     <td>
                                         <input class="form-control" type="text" value="<?php echo $item['special_request_food']; ?>" name="special_request_food" id="remark5">

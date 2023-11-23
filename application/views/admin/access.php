@@ -190,6 +190,13 @@ $en_name = $firstName . " " . $lastName
                                     <?php if (isset($user['remark4'])) echo $user['remark4'] ?>
                                 </td>
                             </tr>
+                            
+                            <tr>
+                                <th class="memoHeader">remark5(갈라)</th>
+                                <td id="remark5" class="qr_text">
+                                    <?php if (isset($user['remark5'])) echo $user['remark5'] ?>
+                                </td>
+                            </tr>
                             <tr>
                                 <th class="memoHeader">메모</th>
                                 <td id="memo" class="qr_text"><?php
@@ -241,6 +248,7 @@ $en_name = $firstName . " " . $lastName
     const remark2 = document.querySelector("#remark2")
     const remark3 = document.querySelector("#remark3")
     const remark4 = document.querySelector("#remark4")
+    const remark5 = document.querySelector("#remark5")
     const special_request_food = document.querySelector("#special_request_food")
     // const remark6 = document.querySelector("#remark6")
     // const remark7 = document.querySelector("#remark7")
@@ -358,6 +366,8 @@ $en_name = $firstName . " " . $lastName
                         .trim();
                     remark4.innerText = htmlDocument.querySelector("#remark4").innerText.replace(/<br\s*\/?>/gi, "")
                         .trim();
+                    remark5.innerText = htmlDocument.querySelector("#remark5").innerText.replace(/<br\s*\/?>/gi, "")
+                        .trim();
                     notice.innerHTML = htmlDocument.querySelector("#notice").innerHTML
                 } else {
                     number.innerText = qrvalue
@@ -379,6 +389,7 @@ $en_name = $firstName . " " . $lastName
                 changeBackgroundColorIfNotEmpty(remark3);
                 changeBackgroundColorIfNotEmpty(remark4);
                 changeBackgroundColorIfNotEmpty(special_request_food);
+                changeBackgroundColorIfNotEmpty(remark5);
 
             })
             .catch(error => {
