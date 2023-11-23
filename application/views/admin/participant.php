@@ -203,7 +203,7 @@ foreach ($day_1 as $item_1) {
         if ($item_1['attendance_type'] == "Press") {
             $on_press_1 = $on_press_1 + 1;
         }
-        if ($item_1['attendance_type'] == "Participants" || $item_3['attendance_type'] == "Participants(ISCP full member)") {
+        if ($item_1['attendance_type'] == "Participants" || $item_1['attendance_type'] == "Participants(ISCP full member)") {
             $on_participant_1 = $on_participant_1 + 1;
         }
         if ($item_1['attendance_type'] == "Other" || $item_1['attendance_type'] == "Exhibitor") {
@@ -233,7 +233,7 @@ foreach ($day_1 as $item_1) {
         if ($item_1['attendance_type'] == "Press") {
             $press_1 = $press_1 + 1;
         }
-        if ($item_1['attendance_type'] == "Participants" || $item_3['attendance_type'] == "Participants(ISCP full member)") {
+        if ($item_1['attendance_type'] == "Participants" || $item_1['attendance_type'] == "Participants(ISCP full member)") {
             $participant_1 = $participant_1 + 1;
         }
         if ($item_1['attendance_type'] == "Other" || $item_1['attendance_type'] == "Exhibitor") {
@@ -267,7 +267,7 @@ foreach ($day_1_e as $item_1_e) {
         if ($item_1_e['attendance_type'] == "Press") {
             $on_press_1_e = $on_press_1_e + 1;
         }
-        if ($item_1_e['attendance_type'] == "Participants" || $item_3['attendance_type'] == "Participants(ISCP full member)") {
+        if ($item_1_e['attendance_type'] == "Participants" || $item_1_e['attendance_type'] == "Participants(ISCP full member)") {
             $on_participant_1_e = $on_participant_1_e + 1;
         }
         if ($item_1_e['attendance_type'] == "Other" || $item_1_e['attendance_type'] == "Exhibitor") {
@@ -297,7 +297,7 @@ foreach ($day_1_e as $item_1_e) {
         if ($item_1_e['attendance_type'] == "Press") {
             $press_1_e = $press_1_e + 1;
         }
-        if ($item_1_e['attendance_type'] == "Participants" || $item_3['attendance_type'] == "Participants(ISCP full member)") {
+        if ($item_1_e['attendance_type'] == "Participants" || $item_1_e['attendance_type'] == "Participants(ISCP full member)") {
             $participant_1_e = $participant_1_e + 1;
         }
         if ($item_1_e['attendance_type'] == "Other" || $item_1_e['attendance_type'] == "Exhibitor") {
@@ -331,7 +331,7 @@ foreach ($day_2 as $item_2) {
         if ($item_2['attendance_type'] == "Press") {
             $on_press_2 = $on_press_2 + 1;
         }
-        if ($item_2['attendance_type'] == "Participants" || $item_3['attendance_type'] == "Participants(ISCP full member)") {
+        if ($item_2['attendance_type'] == "Participants" || $item_2['attendance_type'] == "Participants(ISCP full member)") {
             $on_participant_2 = $on_participant_2 + 1;
         }
         if ($item_2['attendance_type'] == "Other" || $item_2['attendance_type'] == "Exhibitor") {
@@ -361,7 +361,7 @@ foreach ($day_2 as $item_2) {
         if ($item_2['attendance_type'] == "Press") {
             $press_2 = $press_2 + 1;
         }
-        if ($item_2['attendance_type'] == "Participants" || $item_3['attendance_type'] == "Participants(ISCP full member)") {
+        if ($item_2['attendance_type'] == "Participants" || $item_2['attendance_type'] == "Participants(ISCP full member)") {
             $participant_2 = $participant_2 + 1;
         }
         if ($item_2['attendance_type'] == "Other" || $item_2['attendance_type'] == "Exhibitor") {
@@ -395,7 +395,7 @@ foreach ($day_2_e as $item_2_e) {
         if ($item_2_e['attendance_type'] == "Press") {
             $on_press_2_e = $on_press_2_e + 1;
         }
-        if ($item_2_e['attendance_type'] == "Participants" || $item_3['attendance_type'] == "Participants(ISCP full member)") {
+        if ($item_2_e['attendance_type'] == "Participants" || $item_2_e['attendance_type'] == "Participants(ISCP full member)") {
             $on_participant_2_e = $on_participant_2_e + 1;
         }
         if ($item_2_e['attendance_type'] == "Other" || $item_2_e['attendance_type'] == "Exhibitor") {
@@ -425,7 +425,7 @@ foreach ($day_2_e as $item_2_e) {
         if ($item_2_e['attendance_type'] == "Press") {
             $press_2_e = $press_2_e + 1;
         }
-        if ($item_2_e['attendance_type'] == "Participants" || $item_3['attendance_type'] == "Participants(ISCP full member)") {
+        if ($item_2_e['attendance_type'] == "Participants" || $item_2_e['attendance_type'] == "Participants(ISCP full member)") {
             $participant_2_e = $participant_2_e + 1;
         }
         if ($item_2_e['attendance_type'] == "Other" || $item_2_e['attendance_type'] == "Exhibitor") {
@@ -523,7 +523,7 @@ foreach ($day_3_e as $item_3_e) {
         if ($item_3_e['attendance_type'] == "Press") {
             $on_press_3_e = $on_press_3_e + 1;
         }
-        if ($item_3_e['attendance_type'] == "Participants" || $item_3['attendance_type'] == "Participants(ISCP full member)") {
+        if ($item_3_e['attendance_type'] == "Participants" || $item_3_e['attendance_type'] == "Participants(ISCP full member)") {
             $on_participant_3_e = $on_participant_3_e + 1;
         }
         if ($item_3_e['attendance_type'] == "Other" || $item_3_e['attendance_type'] == "Exhibitor") {
@@ -553,7 +553,7 @@ foreach ($day_3_e as $item_3_e) {
         if ($item_3_e['attendance_type'] == "Press") {
             $press_3_e = $press_3_e + 1;
         }
-        if ($item_3_e['attendance_type'] == "Participants" || $item_3['attendance_type'] == "Participants(ISCP full member)") {
+        if ($item_3_e['attendance_type'] == "Participants" || $item_3_e['attendance_type'] == "Participants(ISCP full member)") {
             $participant_3_e = $participant_3_e + 1;
         }
         if ($item_3_e['attendance_type'] == "Other" || $item_3_e['attendance_type'] == "Exhibitor") {
