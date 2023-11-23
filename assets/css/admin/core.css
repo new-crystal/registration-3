@@ -132,13 +132,13 @@
 #printThis .reg {
   width: 25%;
     text-align: right !important;
-    transform: translate(263px, -88px);
+    transform: translate(263px, -91px);
     margin: 0;
 }
 
 #printThis .number_box {
   width: 8cm;
-  transform: rotate(0.5turn) translate(0px,497px);
+  transform: rotate(0.5turn) translate(0px,502px);
   display: flex !important;
 }
 
