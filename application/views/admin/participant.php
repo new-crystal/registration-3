@@ -177,7 +177,7 @@ $others_3_e = 0;
 
 
 foreach ($day_1 as $item_1) {
-    print_r($item_1['attendance_type']);
+    //print_r($item_1['attendance_type']);
     /**현장등록 & day1 & 국내 */
     if ($item_1['onsite_reg'] === "1") {
         // print_r($item['attendance_type']);
