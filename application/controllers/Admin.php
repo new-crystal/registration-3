@@ -818,6 +818,8 @@ class Admin extends CI_Controller
             $contry = "";
             $onsite = "";
 
+            $member_type = "";
+
             if ($row['nation'] == "Republic of Korea") {
                 $contry = "국내";
             } else {
@@ -829,6 +831,11 @@ class Admin extends CI_Controller
                 $onsite = "현장등록";
             }
 
+            if($row['member_type'] == "Paritipants"){
+                $member_type = "Participants";
+            }else{
+                $member_type = $row['member_type'];
+            }
 
 
 
@@ -860,7 +867,7 @@ class Admin extends CI_Controller
             $object->getActiveSheet()->setCellValueByColumnAndRow(16, $excel_row, $row['department']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(17, $excel_row, $row['phone']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(18, $excel_row, $row['attendance_type']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(19, $excel_row, $row['member_type']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(19, $excel_row, $member_type );
             $object->getActiveSheet()->setCellValueByColumnAndRow(20, $excel_row, $row['fee']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(21, $excel_row, $row['licence_number']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(22, $excel_row, $row['specialty_number']);
@@ -987,6 +994,7 @@ class Admin extends CI_Controller
 
             $contry = "";
             $onsite = "";
+            $member_type = "";
 
             if ($row['nation'] == "Republic of Korea") {
                 $contry = "국내";
@@ -998,6 +1006,13 @@ class Admin extends CI_Controller
             } else {
                 $onsite = "현장등록";
             }
+
+            if($row['member_type'] == "Paritipants"){
+                $member_type = "Participants";
+            }else{
+                $member_type = $row['member_type'];
+            }
+
 
 
             //  $score = floor($spent / 60);
@@ -1027,7 +1042,7 @@ class Admin extends CI_Controller
 
             $object->getActiveSheet()->setCellValueByColumnAndRow(15, $excel_row, $row['phone']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(16, $excel_row, $row['attendance_type']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(17, $excel_row, $row['member_type']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(17, $excel_row, $member_type);
             $object->getActiveSheet()->setCellValueByColumnAndRow(18, $excel_row, $row['fee']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(19, $excel_row, $row['deposit_method']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(20, $excel_row, $row['etc4']);
