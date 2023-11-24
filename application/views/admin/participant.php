@@ -308,7 +308,7 @@ foreach ($day_1_e as $item_1_e) {
 
 foreach ($day_2 as $item_2) {
     if ($item_2['onsite_reg'] === "1") {
-        // print_r($item['attendance_type']);
+         //print_r($item_2['attendance_type']);
 
         if ($item_2['attendance_type'] == "Speaker") {
             $on_speaker_2 = $on_speaker_2 + 1;
@@ -338,7 +338,7 @@ foreach ($day_2 as $item_2) {
             $on_others_2 = $on_others_2 + 1;
         }
     } else {
-        // print_r($item['attendance_type']);
+        //print_r($item_2['attendance_type']);
 
         if ($item_2['attendance_type'] == "Speaker") {
             $speaker_2 = $speaker_2 + 1;
@@ -372,7 +372,7 @@ foreach ($day_2 as $item_2) {
 
 foreach ($day_2_e as $item_2_e) {
     if ($item_2_e['onsite_reg'] === "1") {
-        // print_r($item['attendance_type']);
+        //print_r($item_2_e['attendance_type']);
 
         if ($item_2_e['attendance_type'] == "Speaker") {
             $on_speaker_2_e = $on_speaker_2_e + 1;
@@ -402,7 +402,7 @@ foreach ($day_2_e as $item_2_e) {
             $on_others_2_e = $on_others_2_e + 1;
         }
     } else {
-        // print_r($item['attendance_type']);
+         print_r($item_2_e['attendance_type']);
 
         if ($item_2_e['attendance_type'] == "Speaker") {
             $speaker_2_e = $speaker_2_e + 1;
@@ -587,6 +587,7 @@ $day_3_users = count($day_3) + count($day_3_e);
         <?php echo count($item) ?> 명 / 미출결:
         <?php echo $non_qr ?>
         명
+        <?php echo count($day_2_e) ?>
     </h6>
 
     <table>
