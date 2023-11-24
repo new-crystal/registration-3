@@ -587,7 +587,7 @@ $day_3_users = count($day_3) + count($day_3_e);
         <?php echo count($item) ?> 명 / 미출결:
         <?php echo $non_qr ?>
         명
-        <?php echo count($day_2_e) ?>
+        <!-- <?php echo count($day_2_e) ?> -->
     </h6>
 
     <table>
