@@ -402,7 +402,7 @@ foreach ($day_2_e as $item_2_e) {
             $on_others_2_e = $on_others_2_e + 1;
         }
     } else {
-         print_r($item_2_e['attendance_type']);
+         //print_r($item_2_e['attendance_type']);
 
         if ($item_2_e['attendance_type'] == "Speaker") {
             $speaker_2_e = $speaker_2_e + 1;
@@ -425,7 +425,7 @@ foreach ($day_2_e as $item_2_e) {
         if ($item_2_e['attendance_type'] == "Press") {
             $press_2_e = $press_2_e + 1;
         }
-        if ($item_2_e['attendance_type'] == "Paritipants" || $item_2_e['attendance_type'] == "Paritipants(ISCP full member)") {
+        if ($item_2_e['attendance_type'] == "Paritipants" || $item_2_e['attendance_type'] == "Participants(ISCP full member)") {
             $participant_2_e = $participant_2_e + 1;
         }
         if ($item_2_e['attendance_type'] == "Other" || $item_2_e['attendance_type'] == "Exhibitor") {
@@ -489,7 +489,7 @@ foreach ($day_3 as $item_3) {
         if ($item_3['attendance_type'] == "Press") {
             $press_3 = $press_3 + 1;
         }
-        if ($item_3['attendance_type'] == "Paritipants" || $item_3['attendance_type'] == "Paritipants(ISCP full member)") {
+        if ($item_3['attendance_type'] == "Paritipants" || $item_3['attendance_type'] == "Participants(ISCP full member)") {
             $participant_3 = $participant_3 + 1;
         }
         if ($item_3['attendance_type'] == "Other" || $item_3['attendance_type'] == "Exhibitor") {
@@ -553,7 +553,7 @@ foreach ($day_3_e as $item_3_e) {
         if ($item_3_e['attendance_type'] == "Press") {
             $press_3_e = $press_3_e + 1;
         }
-        if ($item_3_e['attendance_type'] == "Paritipants" || $item_3_e['attendance_type'] == "Paritipants(ISCP full member)") {
+        if ($item_3_e['attendance_type'] == "Paritipants" || $item_3_e['attendance_type'] == "Participants(ISCP full member)") {
             $participant_3_e = $participant_3_e + 1;
         }
         if ($item_3_e['attendance_type'] == "Other" || $item_3_e['attendance_type'] == "Exhibitor") {
