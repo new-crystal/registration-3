@@ -69,7 +69,11 @@ table th {
                         <th>성함</th>
                         <th>코드</th>
                         <th>소속</th>
-                        <th>평가 완료 여부</th>
+                        <th>평가 초록1</th>
+                        <th>평가 초록2</th>
+                        <th>평가 초록3</th>
+                        <th>평가 초록4</th>
+                        <th>평가 초록5</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -79,7 +83,11 @@ table th {
                         echo '<td><a href="/score/reviewer_detail?n=' . $item['idx'] . '"target="_top">' . $item['nick_name'] . '</a></td>';
                         echo '<td>' . $item['code'] . '</td>';
                         echo '<td>' . $item['org'] . '</td>';
-                        echo '<td>' . $item['has_score'] . '</td>';
+                        echo '<td>' . $item['abstract1'] . '</td>';
+                        echo '<td>' . $item['abstract2'] . '</td>';
+                        echo '<td>' . $item['abstract3'] . '</td>';
+                        echo '<td>' . $item['abstract4'] . '</td>';
+                        echo '<td>' . $item['abstract5'] . '</td>';
                         echo '</tr>';
                     }
                     ?>
