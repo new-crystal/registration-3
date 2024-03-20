@@ -45,12 +45,30 @@ class Rating extends CI_Model
         return $query->result_array();
     }
     
+    //기존 카테고리 1~10 출력
+    // public function get_abstract_category()
+    // {
+    //     $query = $this->db->query("SELECT category
+    //     FROM abstracts
+    //     GROUP BY category;");
+    //     return $query->result_array();
+    // }
 
+    //카테고리 다섯개만 출력
     public function get_abstract_category()
     {
-        $query = $this->db->query("SELECT category
-        FROM abstracts
-        GROUP BY category;");
+        $query = $this->db->query("SELECT 
+        CASE 
+            WHEN category IN (1, 6) THEN 'a'
+            WHEN category IN (2, 7) THEN 'b'
+            WHEN category IN (3, 8) THEN 'c'
+            WHEN category IN (4, 9) THEN 'd'
+            WHEN category IN (5, 10) THEN 'e'
+        END AS grouped_category
+    FROM 
+        abstracts
+    GROUP BY 
+        grouped_category;");
         return $query->result_array();
     }
 
@@ -225,14 +243,29 @@ class Rating extends CI_Model
     public function get_reviewer_check()
     {
         $query = $this->db->query("SELECT 
-        r.idx, r.nick_name, r.code, r.org,
-        CASE WHEN s.reviewer_idx IS NOT NULL THEN 'Y' ELSE 'N' END AS has_score
-            FROM 
-                abstract_reviewer r
-            LEFT JOIN 
-                abstract_score s ON r.idx = s.reviewer_idx
-            GROUP BY 
-                r.idx");
+        r.idx, 
+        r.nick_name, 
+        r.code, 
+        r.org, 
+        MAX(CASE WHEN s.abstract_idx IS NOT NULL THEN a.submission_code ELSE NULL END) AS abstract1,
+        MAX(CASE WHEN s.abstract_idx IS NOT NULL THEN a.submission_code ELSE NULL END) AS abstract2,
+        MAX(CASE WHEN s.abstract_idx IS NOT NULL THEN a.submission_code ELSE NULL END) AS abstract3,
+        MAX(CASE WHEN s.abstract_idx IS NOT NULL THEN a.submission_code ELSE NULL END) AS abstract4,
+        CASE 
+            WHEN COUNT(s.abstract_idx) = 5 THEN MAX(CASE WHEN s.abstract_idx IS NOT NULL THEN a.submission_code ELSE NULL END)
+            ELSE NULL
+        END AS abstract5
+    FROM 
+        abstract_reviewer r
+    LEFT JOIN 
+        abstract_score s ON r.idx = s.reviewer_idx
+    LEFT JOIN 
+        abstracts a ON s.abstract_idx = a.idx
+    GROUP BY 
+        r.idx, 
+        r.nick_name, 
+        r.code, 
+        r.org;");
         return $query->result_array();
     }
 

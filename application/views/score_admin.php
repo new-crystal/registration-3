@@ -100,40 +100,40 @@ table th {
                     <form action="/score/get_abstract_excel_plus" method="post">
                         <input type="hidden" id="typeInput" name="code1" value="PP1"/>
                         <input type="hidden" id="typeInput" name="code2" value="PP2"/>
-                        <button class="btn btn-primary pull-right"><i class="icon-download4"></i> PP1 + PP2 Excel</button>
+                        <button class="btn btn-success pull-right"><i class="icon-download4"></i> PP1 + PP2 Excel</button>
                     </form>
                     <form action="/score/abstract_excel" method="post">
                         <input type="hidden" id="typeInput" name="type" value="1"/>
-                        <button class="btn btn-primary pull-right"><i class="icon-download4"></i> Poster oral 1 Excel</button>
+                        <button class="btn btn-success pull-right"><i class="icon-download4"></i> Poster oral 1 Excel</button>
                     </form>
                     <?php } ?>
                     <?php if ($primary_menu == 'poster_2') { ?>
                     <form action="/score/get_abstract_excel_plus" method="post">
                             <input type="hidden" id="typeInput" name="code1" value="PP6"/>
                             <input type="hidden" id="typeInput" name="code2" value="PP7"/>
-                            <button class="btn btn-primary pull-right"><i class="icon-download4"></i> PP6 + PP7 Excel</button>
+                            <button class="btn btn-success pull-right"><i class="icon-download4"></i> PP6 + PP7 Excel</button>
                     </form>
                     <form action="/score/get_abstract_excel_plus" method="post">
                             <input type="hidden" id="typeInput" name="code1" value="PP3"/>
                             <input type="hidden" id="typeInput" name="code2" value="PP4"/>
-                            <button class="btn btn-primary pull-right"><i class="icon-download4"></i> PP3 + PP8 Excel</button>
+                            <button class="btn btn-success pull-right"><i class="icon-download4"></i> PP3 + PP8 Excel</button>
                     </form>
                     <form action="/score/get_abstract_excel_plus" method="post">
                             <input type="hidden" id="typeInput" name="code1" value="PP4"/>
                             <input type="hidden" id="typeInput" name="code2" value="PP9"/>
-                            <button class="btn btn-primary pull-right"><i class="icon-download4"></i> PP4 + PP9 Excel</button>
+                            <button class="btn btn-success pull-right"><i class="icon-download4"></i> PP4 + PP9 Excel</button>
                     </form>
                     <form action="/score/get_abstract_excel_plus" method="post">
                             <input type="hidden" id="typeInput" name="code1" value="PP5"/>
                             <input type="hidden" id="typeInput" name="code2" value="PP10"/>
-                            <button class="btn btn-primary pull-right"><i class="icon-download4"></i> PP5 + PP10 Excel</button>
+                            <button class="btn btn-success pull-right"><i class="icon-download4"></i> PP5 + PP10 Excel</button>
                     </form>
                     <form action="/score/get_abstract_excel_all" method="post">
-                            <button class="btn btn-primary pull-right"><i class="icon-download4"></i> PP3 ~ PP10 Excel</button>
+                            <button class="btn btn-success pull-right"><i class="icon-download4"></i> PP3 ~ PP10 Excel</button>
                     </form>
                     <form action="/score/abstract_excel" method="post">
                         <input type="hidden" id="typeInput" name="type" value="2"/>
-                        <button class="btn btn-primary pull-right"><i class="icon-download4"></i> Poster oral 2 Excel</button>
+                        <button class="btn btn-success pull-right"><i class="icon-download4"></i> Poster oral 2 Excel</button>
                     </form>
                     <?php } ?>
                 </div>
@@ -142,27 +142,27 @@ table th {
             // print_r($abstracts);
             foreach($abstracts_category as $category_num){
                         $category_text = "";
-                        $category = $category_num["category"] ?? "-";
+                        $category = $category_num["grouped_category"] ?? "-";
                         switch ($category) {
-                            case 1:
-                                case 6:
+                            case 'a':
                                     $category_text = "Diabetes/Obesity/Lipid (clinical)";
+                                    $category_num = array("1", "6");
                                     break;
-                                case 2:
-                                   case 7:
+                            case 'b':
                                     $category_text = "Diabetes/Obesity/Lipid (basic)";
+                                    $category_num = array("2", "7");
                                     break;
-                                case 3:
-                                   case 8:
+                            case 'c':
                                     $category_text = "Bone/Muscle";
+                                    $category_num = array("3", "8");
                                     break;
-                                case 4:
-                                   case 9:
+                            case 'd':
                                     $category_text = "Thyroid";
+                                    $category_num = array("4", "9");
                                     break;
-                                case 5:
-                                   case 10:
+                            case 'e':
                                     $category_text = "Pituitary/Adrenal/Gonad";
+                                    $category_num = array("5", "10");
                                     break;
                         } ?>
                 <h1><?php echo $category_text; ?></h1>
@@ -182,7 +182,7 @@ table th {
                     <?php
             
                     foreach($abstracts as $abstract){
-                            if($abstract['category'] == $category_num["category"]){
+                            if(in_array($abstract['category'], $category_num)){
                             echo '<tr>';
                             echo '<td><a href="/score/score_detail?n=' . $abstract['idx'] . '" target="_self">' .$abstract['submission_code'] . '</a></td>';
                             echo '<td>' . $abstract['nick_name'] . '</td>';
