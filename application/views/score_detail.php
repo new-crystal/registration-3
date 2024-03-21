@@ -146,8 +146,8 @@
                                 <tr>
                                     <td><?php echo $detail['reviewer_name']; ?></td>
                                     <td><?php echo $detail['reviewer_org']; ?></td>
-                                    <td><?php echo $detail['reviewer_org']; ?></td>
                                     <td><?php echo $detail['code']; ?></td>
+                                    <td><?php echo $detail['score1']; ?></td>
                                     <td><?php echo $detail['score2']; ?></td>
                                     <td><?php echo $detail['score3']; ?></td>
                                     <td><?php echo $detail['score4']; ?></td>
