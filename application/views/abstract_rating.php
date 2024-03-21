@@ -152,13 +152,34 @@
             submitStatus = false;
         }
 
+
         if(submitStatus === true){
            
             const n = code+ "-" + num
-            const data = {
-                code: n
+            const reviewerList = <?php echo json_encode($reviewer); ?>;
+
+            let foundMatch = false; // n과 일치하는 리뷰어를 찾았는지 여부를 추적하는 변수
+
+            reviewerList.forEach((reviewer) => {
+                if (reviewer.code === n) {
+                    foundMatch = true; // 일치하는 리뷰어를 찾음
+                    if (window.confirm("이미 존재하는 코드입니다. \n평가를 수정하시겠습니까?")) {
+                        window.location.href = `/score/abstract_reviewer?n=${n}`;
+                    } else {
+                        return; // 취소를 누르면 아무 동작도 하지 않음
+                    }
+                }
+            });
+
+            // 일치하는 리뷰어가 없을 때만 페이지 이동
+            if (!foundMatch) {
+                window.location.href = `/score/abstract_reviewer?n=${n}`;
             }
-            window.location.href = `/score/abstract_reviewer?n=${n}`;
+           
         }
     })
+
+    function searchList(code){
+       
+    }
 </script>

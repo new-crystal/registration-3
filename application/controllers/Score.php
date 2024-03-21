@@ -20,7 +20,10 @@ class Score extends CI_Controller
     public function index()
     {
         $this->load->view('admin/header');
-        $this->load->view('abstract_rating');
+
+        $data['reviewer'] = $this->rating->get_reviewers();
+        
+        $this->load->view('abstract_rating', $data);
     }
 
     public function abstract_reviewer()
