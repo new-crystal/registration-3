@@ -55,7 +55,10 @@
         position: absolute;
         z-index: 9999999999;
         right: 0;
-        top: -20px;
+        top: -25px;
+        color: #000;
+        font-weight: 700;
+        font-size:18px;
     }
 </style>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -497,18 +500,30 @@ switch ($category) {
         }
    }
 
+   let showPdf = false
+
    //pdf 뷰어 보이는 함수
    function showPdfViwer(e){
         const url = e.target.dataset.id;
         modalBackground.style.display = "";
         pdfViewer.style.display = "";
         iframe.setAttribute("src", url)
+        showPdf = true;
 
         closedPdf.addEventListener("click", ()=>{
         modalBackground.style.display = "none";
         pdfViewer.style.display = "none";
-   })
+        showPdf = false;
+    })
    }
+
+   modalBackground.addEventListener("click", ()=>{
+        if(showPdf){
+            modalBackground.style.display = "none";
+            pdfViewer.style.display = "none";
+            showPdf = false;
+        }
+   })
 
    //평균 구하는 함수 -> COI가 Y(sum이 0)일 경우 제외
    function calculateAverage(arr) {
