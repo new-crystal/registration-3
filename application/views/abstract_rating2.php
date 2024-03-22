@@ -507,9 +507,10 @@ switch ($category) {
 
    //pdf 뷰어 보이는 함수
    function showPdfViwer(e){
-        const url = e.target.dataset.id;
+        const url = `https://docs.google.com/gview?url=${e.target.dataset.id}&embedded=true`;
         modalBackground.style.display = "";
         pdfViewer.style.display = "";
+
         iframe.setAttribute("src", url)
         showPdf = true;
 
