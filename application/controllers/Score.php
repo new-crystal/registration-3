@@ -64,7 +64,6 @@ class Score extends CI_Controller
         if(!$found){
             $this->rating->add_reviewer($info);
         }
-
     }
 
     public function abstarct_rating()
@@ -86,6 +85,25 @@ class Score extends CI_Controller
         $data['reviewer'] = $this->rating->get_reviewer($reviewer_where);
 
         $this->load->view('abstract_rating2', $data);
+    }
+
+    public function review()
+    {
+        $this->load->view('admin/header');
+        $idx = $_GET['n'];
+
+        $where = array(
+            'idx' => $idx
+        );
+
+        $data['reviewer'] = $this->rating-> get_reviewer_detail($where);
+        $this->load->view('rating_review', $data);
+    }
+
+    public function notice()
+    {
+        $this->load->view('admin/header');
+        $this->load->view('abstract_notice');
     }
 
     public function add_sum(){

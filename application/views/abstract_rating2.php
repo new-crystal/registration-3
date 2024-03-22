@@ -56,7 +56,7 @@
         z-index: 9999999999;
         right: 0;
         top: -25px;
-        color: #000;
+        color: #FFF;
         font-weight: 700;
         font-size:18px;
     }
@@ -246,6 +246,7 @@ switch ($category) {
             <p class="p-2">2. 각 심사 항목은 각각 10점 만점입니다. 각 항목의 중간 점수를 5점으로 고려하시어 심사를 진행하여 주십시오.</p>
             <p class="p-2">3. 동점자 최소화를 위해 변별력 있게 점수를 부여해 주십시오.</p>
             <p class="p-2">4. Poster oral 수상 예정 인원: 30명 (양일 기준, 5개 분야별 10인 발표)</p>
+            <p class="p-2">5. 채점을 완료하시면 반드시 <span class="font-semibold">제출완료</span>를 눌러주십시오.</p>
         </div>
     </div>
 
@@ -286,6 +287,7 @@ switch ($category) {
     const btnFlags4 = [false, false, false, false];
 
     let btnFlags = [];
+    let closeModal = false;
 
     //채점하기 버튼 클릭 이벤트
    rateBtnList.forEach((btn)=>{
@@ -305,7 +307,8 @@ switch ($category) {
 
    //modal 채점 완료 버튼 이벤트
    completedBtn.addEventListener("click", async ()=>{
- 
+        closeModal = false;
+
         saveData(modal.dataset.index)
     
         modal.style.display = "none";
@@ -326,7 +329,6 @@ switch ($category) {
         if (allTrue) {
             submitBtn.style.background = "rgb(59 130 246)";
         }
-        console.log(btnFlags)
 
     sumList[modal.dataset.index] = sumTd.innerText * 1;
    })
@@ -402,8 +404,9 @@ switch ($category) {
         data[index]['etc1'] = score;
     });
     
-    // console.log(sumList);
-     console.log(data);
+     // console.log(sumList);
+     //console.log(data);
+    const idx = <?php echo $reviewer['idx']; ?>
 
     $.ajax({
 		type: "POST",
@@ -411,7 +414,7 @@ switch ($category) {
 		data: data,
 		success: function(result){
             alert("채점을 해주셔서 감사합니다.");
-            window.location.href = "/score";
+            window.location.href = `/score/review?n=${idx}`;
         },
 		error:function(e){  
             console.log(e)
@@ -429,7 +432,7 @@ switch ($category) {
 
    //modal 보이는 함수
    function showModal(e){
-
+        closeModal = true;
         modal.style.display = "";
         modalBackground.style.display = "";
         modal.dataset.id = e.target.dataset.id;
@@ -500,7 +503,7 @@ switch ($category) {
         }
    }
 
-   let showPdf = false
+   let showPdf = false;
 
    //pdf 뷰어 보이는 함수
    function showPdfViwer(e){
@@ -518,10 +521,13 @@ switch ($category) {
    }
 
    modalBackground.addEventListener("click", ()=>{
-        if(showPdf){
+        if(showPdf && !closeModal){
             modalBackground.style.display = "none";
             pdfViewer.style.display = "none";
             showPdf = false;
+        }
+        else if(!showPdf && closeModal){
+            alert("채점완료 버튼을 눌러주세요.")
         }
    })
 
