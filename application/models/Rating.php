@@ -247,25 +247,31 @@ class Rating extends CI_Model
         r.nick_name, 
         r.code, 
         r.org, 
-        MAX(CASE WHEN s.abstract_idx IS NOT NULL THEN a.submission_code ELSE NULL END) AS abstract1,
-        MAX(CASE WHEN s.abstract_idx IS NOT NULL THEN a.submission_code ELSE NULL END) AS abstract2,
-        MAX(CASE WHEN s.abstract_idx IS NOT NULL THEN a.submission_code ELSE NULL END) AS abstract3,
-        MAX(CASE WHEN s.abstract_idx IS NOT NULL THEN a.submission_code ELSE NULL END) AS abstract4,
-        CASE 
-            WHEN COUNT(s.abstract_idx) = 5 THEN MAX(CASE WHEN s.abstract_idx IS NOT NULL THEN a.submission_code ELSE NULL END)
-            ELSE NULL
-        END AS abstract5
+        MAX(CASE WHEN a.ranking = 1 THEN a.submission_code ELSE NULL END) AS abstract1,
+        MAX(CASE WHEN a.ranking = 2 THEN a.submission_code ELSE NULL END) AS abstract2,
+        MAX(CASE WHEN a.ranking = 3 THEN a.submission_code ELSE NULL END) AS abstract3,
+        MAX(CASE WHEN a.ranking = 4 THEN a.submission_code ELSE NULL END) AS abstract4,
+        MAX(CASE WHEN a.ranking = 5 THEN a.submission_code ELSE NULL END) AS abstract5
     FROM 
         abstract_reviewer r
     LEFT JOIN 
-        abstract_score s ON r.idx = s.reviewer_idx
-    LEFT JOIN 
-        abstracts a ON s.abstract_idx = a.idx
+        (
+            SELECT 
+                s.reviewer_idx,
+                a.idx,
+                a.submission_code,
+                (SELECT COUNT(*) FROM abstract_score s2 WHERE s2.reviewer_idx = s.reviewer_idx AND s2.abstract_idx <= s.abstract_idx) AS ranking
+            FROM 
+                abstract_score s
+            LEFT JOIN 
+                abstracts a ON s.abstract_idx = a.idx
+        ) a ON r.idx = a.reviewer_idx
     GROUP BY 
         r.idx, 
         r.nick_name, 
         r.code, 
-        r.org;");
+        r.org;
+    ");
         return $query->result_array();
     }
 
