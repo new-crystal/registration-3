@@ -37,13 +37,15 @@
     }
 
     #pdf_viewer{
-        width: 500px;
+        width: 630px;
         height: 800px;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 9999999999;
+        /* overflow: hidden; */
+        /* padding-top: 56.25%; */
     }
 
     #pdf_viewer iframe{
@@ -61,17 +63,19 @@
         font-size:18px;
     }
 </style>
+<script src="<?php echo base_url('../libraries/pdfjs'); ?>"></script>
 <script src="https://cdn.tailwindcss.com"></script>
 <?php
 $type_text = "";
 $category_text = "";
 
-// print_r($abstract);
+ //print_r($abstract[0]['type']);
 // print_r($reviewer);
 
 $sliced_code = explode("-", $reviewer['code'])[0];
 
-$type = $sliced_code[0];
+// $type = $sliced_code[0];
+$type = $abstract[0]['type'];
 switch ($type) {
 	case 0:
 		$type_text = "Oral";
@@ -109,6 +113,7 @@ switch ($category) {
 }
 
 ?>
+
 <div class="w-full h-screen flex items-center justify-center flex-col px-10">
     <h1 class="font-semibold text-2xl font-sans"><?php echo $type_text; ?> 채점표</h1>
     <div class="mt-10">
@@ -142,7 +147,8 @@ switch ($category) {
             </tr>
             <?php 
             $index = 0;
-            foreach($abstract as $item){ ?>
+            foreach($abstract as $item){ 
+                ?>
                 <tr>
                     <td class="border border-solid p-2"><?php echo $index + 1 ?></td>
                     <td class="border border-solid p-2"><?php echo $item['submission_code'];?></td>
@@ -252,7 +258,7 @@ switch ($category) {
 
     <div id="pdf_viewer" style="display: none;">
         <button class="close_pdf"><i class="icon-cross2"></i>창닫기</button>
-       <iframe class="iframe" frameborder="0" width="500" height="800"></iframe>      
+       <iframe class="iframe" frameborder="0" style="width:100%; height:650px;"></iframe>      
     </div>
     
     <input name="etc1" class="etc1" hidden/>
@@ -507,7 +513,8 @@ switch ($category) {
 
    //pdf 뷰어 보이는 함수
    function showPdfViwer(e){
-        const url = `https://docs.google.com/gview?url=${e.target.dataset.id}&embedded=true`;
+        const url = e.target.dataset.id;
+        // const url = `https://docs.google.com/gview?url=${e.target.dataset.id}&embedded=true`;
         modalBackground.style.display = "";
         pdfViewer.style.display = "";
 
@@ -551,5 +558,7 @@ switch ($category) {
 
     return sum / count;
 }
+
+
 
 </script>

@@ -301,11 +301,11 @@ class Score extends CI_Controller
         $object = new PHPExcel();
         $object->setActiveSheetIndex(0);
     
-        //페이지별 type 받아오기
+        //페이지별 code 받아오기
         $code1 =  $this->input->post('code1');
         $code2 =  $this->input->post('code2');
         
-            // 카테고리별로 데이터 가져오기
+            // 카테고리별로 code 가져오기
             $where = array(
                 'code1' => $code1,
                 'code2' => $code2
@@ -636,18 +636,23 @@ class Score extends CI_Controller
         // 카테고리에 따라 다른 이름을 반환
         switch ($category) {
             case 1:
+            case 6:
                 return "Diabetes/Obesity/Lipid (clinical)";
                 break;
             case 2:
+            case 7:
                 return "Diabetes/Obesity/Lipid (basic)";
                 break;
             case 3:
+            case 8:
                 return "Thyroid";
                 break;
             case 4:
+            case 9:
                 return "Bone/Muscle";
                 break;
             case 5:
+            case 10:
                 return "Pituitary/Adrenal/Gonad";
                 break;
         }
