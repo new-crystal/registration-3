@@ -1,3 +1,4 @@
+
 <style>
     #modal{
         background-color: #FFF;
@@ -560,7 +561,5 @@ switch ($category) {
 
     return sum / count;
 }
-
-
 
 </script>

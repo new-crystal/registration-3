@@ -1,4 +1,5 @@
 
+
 <script type="text/javascript" src="/assets/js/admin/lecture_history.js"></script>
 <!-- <script type="text/javascript" src="../../assets/js/admin/lecture_history.js"></script> -->
 <script type="text/javascript" src="/assets/js/datatables/datatables.min.js"></script>

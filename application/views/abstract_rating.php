@@ -58,7 +58,7 @@
         </div>
         <div class="mt-2 w-2/5">
             <p class="font-semibold mb-1 font-sans">비밀번호</p>
-            <input type="password" name="password" id="password" class="border p-2 border-solid w-full"/>
+            <input type="password" name="password" id="password" class="border p-2 border-solid w-full" autocomplete="off" placeholder="비밀번호를 입력해주세요."/>
         </div>
         <button id="submit" class="mt-4 py-2 px-4 bg-neutral-300 hover:bg-cyan-400 font-semibold">로그인</button>
     </form>
