@@ -361,7 +361,13 @@ class Score extends CI_Controller
             }
 
         $extension = "xlsx"; // 파일 확장자 변수
-        $filename = "개별_초록집계현황";
+        if($code2 == ""){
+            $filename = $code1."_초록집계현황";
+        }else{
+            $filename = $code1."+".$code2."_초록집계현황";
+        }
+        
+
     
         // 엑셀 파일로 내보내기
         header('Content-Type: application/vnd.ms-excel');
@@ -428,7 +434,7 @@ class Score extends CI_Controller
             }
 
         $extension = "xlsx"; // 파일 확장자 변수
-        $filename = "개별_초록집계현황";
+        $filename = "pp3~pp10_초록집계현황"; 
     
         // 엑셀 파일로 내보내기
         header('Content-Type: application/vnd.ms-excel');

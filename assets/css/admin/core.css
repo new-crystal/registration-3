@@ -13,6 +13,12 @@
   src: url('../css/icons/glyphicons/glyphicons-halflings-regular.eot');
   src: url('../css/icons/glyphicons/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../css/icons/glyphicons/glyphicons-halflings-regular.woff2') format('woff2'), url('../css/icons/glyphicons/glyphicons-halflings-regular.woff') format('woff'), url('../css/icons/glyphicons/glyphicons-halflings-regular.ttf') format('truetype'), url('../css/icons/glyphicons/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
+
+@font-face {
+  font-family: Arial_bold;
+  src: url("../../../assets/font/arial_bold.otf");
+}
+
 .glyphicon {
   font-size: 16px;
   vertical-align: middle;
@@ -117,14 +123,40 @@
 }
 
 #printThis .txt_con{
-  height: 526px;
+  height: 340px;
   position: relative;
   width: 100%;
-  margin-top: 170px;
+  margin-top: 535px;
 }
 
+#printThis .reg {
+  width: 25%;
+    text-align: right !important;
+    transform: translate(263px, -91px);
+    margin: 0;
+}
+
+#printThis .number_box {
+  width: 8cm;
+  transform: rotate(0.5turn) translate(0px,507px);
+  display: flex !important;
+}
+
+#printThis .reg_1, #printThis .reg_2{
+  width: 25%;
+}
+
+#printThis .reg_1{
+  transform: translate(-6px, 1px);
+}
+
+#printThis .reg_2{
+  transform: translate(28px, 1px);
+}
+
+
 #printThis .org{
-  font-size: 18px;
+  font-size: 14px;
   padding: 0 10px;
   top: 16%;
   word-break: keep-all;
@@ -138,18 +170,19 @@
 }
 
 #printThis .small_nickname{
-  line-height: 30px;
-  font-weight: 400;
-  font-size: 45px;
-  letter-spacing: 15px;
-  padding: 19px 40px 0 58px;
-  overflow: hidden;
+  font-size: 33px !important;
 }
 
+#printThis .small_small_nickname{
+  font-size: 27px !important;
+}
+
+
 #printThis .nick_name{
+  font-family: Arial_bold;
   line-height: 61px;
   font-weight: 400;
-  font-size: 52px;
+  font-size: 44px;
   letter-spacing: 20px;
   padding: 19px 40px 0 58px;
   overflow: hidden;
@@ -241,7 +274,7 @@
 /*    float: left;*/
 /*    width: 100px;*/
     margin-bottom: 0px;
-    padding: 31px 10px;
+    padding: 10px 10px;
 }
 
 #qrcode img{
@@ -6540,18 +6573,18 @@ h6.panel-title,
 }
 
 #printThis .txt_con{
-  height: 526px;
+  height: 340px;
   position: relative;
   width: 100%;
-  margin-top: 150px;
+  margin-top: 535px;
 }
 
 #printThis .org{
-  font-size: 18px;
+  font-size: 14px;
   padding: 0 10px;
   top: 16%;
   word-break: keep-all;
-  height: 60px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6572,7 +6605,7 @@ h6.panel-title,
 #printThis .nick_name{
   line-height: 61px;
   font-weight: 400;
-  font-size: 52px;
+  font-size: 44px;
   letter-spacing: 20px;
   padding: 19px 40px 0 58px;
   overflow: hidden;
@@ -6665,7 +6698,7 @@ h6.panel-title,
 /*    float: left;*/
 /*    width: 100px;*/
     margin-bottom: 0px;
-    padding: 31px 10px;
+    padding: 10px 10px;
 }
 
 #qrcode img{

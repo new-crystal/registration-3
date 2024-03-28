@@ -1,3 +1,4 @@
+
 <style>
     #modal{
         background-color: #FFF;
@@ -261,10 +262,11 @@ switch ($category) {
         <button class="close_pdf"><i class="icon-cross2"></i>창닫기</button>
        <iframe class="iframe" frameborder="0" style="width:100%; height:650px;"></iframe>      
     </div>
-    
+    <div style="color:red">제출을 완료하시면 점수 수정이 불가 합니다.</div>
     <input name="etc1" class="etc1" hidden/>
     <button id="submit" class="mt-10 py-2 px-4 bg-neutral-300 hover:bg-cyan-400 font-semibold">제출하기</button>
 </div>
+
 <script>
     const rateBtnList = document.querySelectorAll(".rating");
     const modal = document.querySelector("#modal");
@@ -400,7 +402,7 @@ switch ($category) {
     //조정점수 구하기
     sumList.map((sum)=>{
         if(sum !== 0){
-            scoreList.push(sum * 15 / average)
+            scoreList.push(sum * 20 / average)
         }else{
             scoreList.push(0)
         }
@@ -559,7 +561,5 @@ switch ($category) {
 
     return sum / count;
 }
-
-
 
 </script>
