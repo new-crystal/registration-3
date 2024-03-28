@@ -88,7 +88,8 @@ switch ($type) {
 		break;
 }
 
-$category = $sliced_code[2];
+// $category = $sliced_code[2];
+$category = $abstract[0]['category'];
 switch ($category) {
 	case 1:
     case 6:
@@ -100,11 +101,11 @@ switch ($category) {
 		break;
 	case 3:
     case 8:
-		$category_text = "Bone/Muscle";
+		$category_text = "Thyroid";
 		break;
 	case 4:
     case 9:
-		$category_text = "Thyroid";
+		$category_text = "Bone/Muscle";
 		break;
 	case 5:
     case 10:

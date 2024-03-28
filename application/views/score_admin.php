@@ -153,11 +153,11 @@ table th {
                                     $category_num = array("2", "7");
                                     break;
                             case 'c':
-                                    $category_text = "Bone/Muscle";
+                                    $category_text = "Thyroid";
                                     $category_num = array("3", "8");
                                     break;
                             case 'd':
-                                    $category_text = "Thyroid";
+                                    $category_text = "Bone/Muscle";
                                     $category_num = array("4", "9");
                                     break;
                             case 'e':
@@ -165,8 +165,17 @@ table th {
                                     $category_num = array("5", "10");
                                     break;
                         } ?>
-                <h1><?php echo $category_text; ?></h1>
+                <h1 style="padding-left: 20px;"><?php echo $category_text; ?></h1>
             <table class="table datatable-basic">
+                <colgroup>
+                        <col width="5%">
+                        <col >
+                        <col >
+                        <col  width="5%">
+                        <col >
+                        <col width="10%">
+                        <col width="5%">
+                </colgroup>
                 <thead>
                     <tr>
                         <th>초록번호</th>
