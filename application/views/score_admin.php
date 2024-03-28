@@ -97,10 +97,19 @@ table th {
                     </form>
                     <?php } ?>
                     <?php if ($primary_menu == 'poster_1') { ?>
-                    <form action="/score/get_abstract_excel_plus" method="post">
+                        
+                    <!-- <form action="/score/get_abstract_excel_plus" method="post">
                         <input type="hidden" id="typeInput" name="code1" value="PP1"/>
                         <input type="hidden" id="typeInput" name="code2" value="PP2"/>
                         <button class="btn btn-success pull-right"><i class="icon-download4"></i> PP1 + PP2 Excel</button>
+                    </form> -->
+                    <form action="/score/get_abstract_excel_plus" method="post">
+                        <input type="hidden" id="typeInput" name="code1" value="PP2"/>
+                        <button class="btn btn-success pull-right"><i class="icon-download4"></i> PP2 Excel</button>
+                    </form>
+                    <form action="/score/get_abstract_excel_plus" method="post">
+                        <input type="hidden" id="typeInput" name="code1" value="PP1"/>
+                        <button class="btn btn-success pull-right"><i class="icon-download4"></i> PP1 Excel</button>
                     </form>
                     <form action="/score/abstract_excel" method="post">
                         <input type="hidden" id="typeInput" name="type" value="1"/>
@@ -108,10 +117,19 @@ table th {
                     </form>
                     <?php } ?>
                     <?php if ($primary_menu == 'poster_2') { ?>
+                        <!-- 03.27 hyojun 변경 pp6+pp7 >> pp2+pp7 -->
+                    <form action="/score/get_abstract_excel_plus" method="post">
+                            <input type="hidden" id="typeInput" name="code1" value="PP7"/>
+                            <button class="btn btn-success pull-right"><i class="icon-download4"></i> PP7 Excel</button>
+                    </form>
                     <form action="/score/get_abstract_excel_plus" method="post">
                             <input type="hidden" id="typeInput" name="code1" value="PP6"/>
+                            <button class="btn btn-success pull-right"><i class="icon-download4"></i> PP6 Excel</button>
+                    </form>
+                    <form action="/score/get_abstract_excel_plus" method="post">
+                            <input type="hidden" id="typeInput" name="code1" value="PP2"/>
                             <input type="hidden" id="typeInput" name="code2" value="PP7"/>
-                            <button class="btn btn-success pull-right"><i class="icon-download4"></i> PP6 + PP7 Excel</button>
+                            <button class="btn btn-success pull-right"><i class="icon-download4"></i> PP2 + PP7 Excel</button>
                     </form>
                     <form action="/score/get_abstract_excel_plus" method="post">
                             <input type="hidden" id="typeInput" name="code1" value="PP3"/>
@@ -153,11 +171,11 @@ table th {
                                     $category_num = array("2", "7");
                                     break;
                             case 'c':
-                                    $category_text = "Bone/Muscle";
+                                    $category_text = "Thyroid";
                                     $category_num = array("3", "8");
                                     break;
                             case 'd':
-                                    $category_text = "Thyroid";
+                                    $category_text = "Bone/Muscle";
                                     $category_num = array("4", "9");
                                     break;
                             case 'e':
