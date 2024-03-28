@@ -87,7 +87,7 @@
             <div class="col-lg-12">
                 <section class="panel form-horizontal">
                     <h1 class="review_title">점수 확인</h1>
-                    <p class="review_sub_title">점수 수정을 원하실 경우 관리자에게 문의해주세요.</p>
+                    <!-- <p class="review_sub_title">점수 수정을 원하실 경우 관리자에게 문의해주세요.</p> -->
                     <div class="panel-body detail_table">
                         <table>
                                 <colgroup>

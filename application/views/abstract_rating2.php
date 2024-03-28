@@ -385,7 +385,7 @@ switch ($category) {
         if(submitStatus === false){
             alert("채점을 완료해주세요.")
         }else{
-            if (window.confirm("채점을 제출하시겠습니까?")) {
+            if (window.confirm("제출 후에는 점수 수정이 어렵습니다. 채점을 제출하시겠습니까?")) {
                 postAjax();
             }
         }
