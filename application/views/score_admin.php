@@ -134,7 +134,7 @@ table th {
                     </form>
                     <form action="/score/get_abstract_excel_plus" method="post">
                             <input type="hidden" id="typeInput" name="code1" value="PP3"/>
-                            <input type="hidden" id="typeInput" name="code2" value="PP4"/>
+                            <input type="hidden" id="typeInput" name="code2" value="PP8"/>
                             <button class="btn btn-success pull-right"><i class="icon-download4"></i> PP3 + PP8 Excel</button>
                     </form>
                     <form action="/score/get_abstract_excel_plus" method="post">
