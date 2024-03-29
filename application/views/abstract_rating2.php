@@ -63,6 +63,13 @@
         font-weight: 700;
         font-size:18px;
     }
+    .submit_noti{
+        text-align: center;
+        color: red;
+        font-weight: 700;
+        margin-top: 20px;
+        line-height: 1.6;
+    }
 </style>
 <script src="<?php echo base_url('../libraries/pdfjs'); ?>"></script>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -253,7 +260,7 @@ switch ($category) {
             <p class="p-2">1. 초록의 발표자 또는 공저자인 경우 COI에 O로 체크하신 후 해당 초록에 대한 심사는 심사에서 제외하여 주십시오.</p>
             <p class="p-2">2. 각 심사 항목은 각각 10점 만점입니다. 각 항목의 중간 점수를 5점으로 고려하시어 심사를 진행하여 주십시오.</p>
             <p class="p-2">3. 동점자 최소화를 위해 변별력 있게 점수를 부여해 주십시오.</p>
-            <p class="p-2">4. Poster oral 수상 예정 인원: 30명 (양일 기준, 5개 분야별 10인 발표)</p>
+            <p class="p-2">4. Poster oral 수상 예정 인원: 30명 (양일 기준, 5개 분야별 8인 발표)</p>
             <p class="p-2">5. 채점을 완료하시면 반드시 <span class="font-semibold">제출완료</span>를 눌러주십시오.</p>
         </div>
     </div>
@@ -262,9 +269,9 @@ switch ($category) {
         <button class="close_pdf"><i class="icon-cross2"></i>창닫기</button>
        <iframe class="iframe" frameborder="0" style="width:100%; height:650px;"></iframe>      
     </div>
-    <div style="color:red">제출을 완료하시면 점수 수정이 불가 합니다.</div>
     <input name="etc1" class="etc1" hidden/>
     <button id="submit" class="mt-10 py-2 px-4 bg-neutral-300 hover:bg-cyan-400 font-semibold">제출하기</button>
+    <div class="submit_noti">*심사를 마치시고 제출하기 버튼을 꼭 눌러주세요 <br/>**제출하기 버튼을 누르시면 이후 점수 수정이 불가합니다.</div>
 </div>
 
 <script>
