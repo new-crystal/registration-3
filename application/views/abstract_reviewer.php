@@ -4,13 +4,13 @@
         <p id="code"></p>
         <div class="w-2/5">
             <p class="font-semibold mb-1 font-sans">성함</p>
-            <input name="name" id="name" class="border p-2 border-solid w-full"  autocomplete="off" placeholder="성함을 입력해주세요."/>
+            <input name="name" id="name" class="border p-2 border-solid w-full h-14"  autocomplete="off" placeholder="성함을 입력해주세요."/>
         </div>
-        <div class="w-2/5">
+        <div class="w-2/5 mt-20">
             <p class="font-semibold mb-1 font-sans">소속</p>
-            <input name="org" id="org" class="border p-2 border-solid w-full" autocomplete="off" placeholder="소속을 입력해주세요."/>
+            <input name="org" id="org" class="border p-2 border-solid w-full h-14" autocomplete="off" placeholder="소속을 입력해주세요."/>
         </div>
-        <button id="submit" class="mt-4 py-2 px-4 bg-neutral-300 hover:bg-cyan-400 font-semibold">로그인</button>
+        <button id="submit" class="mt-20 py-2 px-4 bg-neutral-300 hover:bg-cyan-400 font-semibold h-16 w-40">로그인</button>
     </form>
 </div>
 <script>
