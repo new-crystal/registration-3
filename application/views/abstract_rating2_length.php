@@ -11,10 +11,6 @@
     table th, table td{
         word-break: keep-all;
         text-align: center;
-        font-size: 14px;
-        padding: 8px;
-        /* font-size: 0.875rem; 14px */
-        line-height: 1.4; /* 20px */
     }
 
     .button{
@@ -23,14 +19,12 @@
     }
 
     .title_box{
-        /* width: 400px;
-        overflow: hidden; */
-        /* white-space: nowrap; */
+        width: 100px;
+        overflow: hidden;
+        white-space: nowrap;
         text-overflow: ellipsis;
         word-break: break-all;
         cursor: pointer;
-        text-align: left;
-        line-height: 1.4;
     }
 
     .modal_background{
@@ -45,9 +39,9 @@
 
     #pdf_viewer{
         width: 630px;
-        height: 700px;
+        height: 800px;
         position: absolute;
-        top: 60%;
+        top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 9999999999;
@@ -130,9 +124,9 @@ switch ($category) {
 ?>
 
 <div class="w-full h-screen flex items-center justify-center flex-col px-10">
-    <h1 class="font-semibold text-3xl font-sans"><?php echo $type_text; ?> 채점표</h1>
-    <div class="mt-10 w-6/12">
-        <table class="border border-solid w-full">
+    <h1 class="font-semibold text-2xl font-sans"><?php echo $type_text; ?> 채점표</h1>
+    <div class="mt-10">
+        <table class="border border-solid">
             <tr class="border border-solid">
                 <td class="border border-solid py-2 px-4" colspan="3">심사위원정보</td>
             </tr>
@@ -149,12 +143,12 @@ switch ($category) {
             </tr>
         </table>
     </div>
-    <div class="mt-10 w-11/12 mx-auto">
-        <table class="border border-solid w-full">
+    <div class="mt-10">
+        <table class="border border-solid">
             <tr class="border border-solid">
                 <td class="border border-solid p-2">No.</td>
                 <td class="border border-solid p-2">Abstract No.</td>
-                <td class="border border-solid p-2">Presenter Name</td>
+                <td class="border border-solid p-2">Presenter No.</td>
                 <td class="border border-solid p-2">Affiliation</td>
                 <td class="border border-solid p-2">Country</td>
                 <td class="border border-solid p-2">Abstract Title</td>
@@ -276,7 +270,7 @@ switch ($category) {
        <iframe class="iframe" frameborder="0" style="width:100%; height:650px;"></iframe>      
     </div>
     <input name="etc1" class="etc1" hidden/>
-    <button id="submit" class="mt-20 py-2 px-4 bg-neutral-300 hover:bg-cyan-400 font-semibold w-60 h-12 ">제출하기</button>
+    <button id="submit" class="mt-10 py-2 px-4 bg-neutral-300 hover:bg-cyan-400 font-semibold">제출하기</button>
     <div class="submit_noti">*심사를 마치시고 제출하기 버튼을 꼭 눌러주세요 <br/>**제출하기 버튼을 누르시면 이후 점수 수정이 불가합니다.</div>
 </div>
 
