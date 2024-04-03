@@ -3,7 +3,7 @@
   "short_name": "SICEM",
   "description": "abstract evaluation",
   "start_url": "/score",
-  "display": "standalone",
+  "display": "minimal-ui",
   "background_color": "#ffffff",
   "theme_color": "#ff7c10",
   "icons": [
