@@ -34,3 +34,8 @@
     <!-- /theme JS files -->
     <link rel="manifest" href="../../../manifest.json">
 </head>
+<script>
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('service-worker.js')
+  }
+</script>
