@@ -32,5 +32,5 @@
     <!-- /core JS files -->
 
     <!-- /theme JS files -->
-
+    <link rel="manifest" href="../../../manifest.json">
 </head>
