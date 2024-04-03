@@ -1,3 +1,4 @@
+
 <script src="https://cdn.tailwindcss.com"></script>
 <div class="w-full h-screen flex items-center justify-center flex-col">
     <form id="reviewer_form" action="/score" method="post" class="w-full h-screen flex items-center justify-center flex-col">
@@ -63,6 +64,35 @@
         <button id="submit" class="mt-20 py-2 px-4 bg-neutral-300 hover:bg-cyan-400 font-semibold h-16 w-40">로그인</button>
     </form>
 </div>
+<button class="hi" onclick="installPWA()">Install PWA</button>
+<script>
+	function installPWA() {
+        if ('serviceWorker' in navigator && 'PushManager' in window) {
+            console.log("hi")
+
+			// 'beforeinstallprompt' 이벤트를 기다립니다.
+		window.addEventListener('beforeinstallprompt', (event) => {
+        // 'beforeinstallprompt' 이벤트를 캐치하면, 버튼을 활성화하고 설치를 유도합니다.
+        console.log("hello");
+        event.preventDefault();
+        const installButton = document.querySelector('.hi');
+        installButton.style.display = 'block';
+
+        installButton.addEventListener('click', () => {
+          // 사용자에게 설치를 요청하고, 이벤트를 완료합니다.
+          event.prompt();
+          event.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+              console.log('User accepted the install prompt');
+            } else {
+              console.log('User dismissed the install prompt');
+            }
+          });
+        });
+      });
+    }
+  }
+</script>
 <script>
 
     const submitBtn = document.querySelector("#submit");

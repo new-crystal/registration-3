@@ -1,0 +1,18 @@
+{
+  "name": "SICEM 2024",
+  "short_name": "SICEM",
+  "description": "abstract evaluation",
+  "start_url": "/score",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ff7c10",
+  "icons": [
+    {
+      "src": "./assets/images/test.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "id": "SICEM",
+  "lang": "en"
+}
