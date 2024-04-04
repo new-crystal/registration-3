@@ -44,10 +44,10 @@
     }
 
     #pdf_viewer{
-        width: 630px;
-        height: 700px;
+        width: 70%;
+        height: 80%;
         position: absolute;
-        top: 60%;
+        top: 45%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 9999999999;
@@ -63,8 +63,8 @@
     #pdf_viewer .close_pdf {
         position: absolute;
         z-index: 9999999999;
-        right: 0;
-        top: -25px;
+        right: 4px;
+        top: -8px;
         color: #FFF;
         font-weight: 700;
         font-size:18px;
@@ -76,8 +76,40 @@
         margin-top: 20px;
         line-height: 1.6;
     }
+
+    .loading_box {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        /* background-color: rgba(0, 0, 0, 0.5); */
+        /* transform: translateX(-200px); */
+        z-index: 9999999999999999999;
+    }   
+
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+}
+
+.canvas_box{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    
+}
+
+#canvas-container > canvas {
+  border: 1px solid black;
+  direction: ltr;
+  overflow: auto; 
+  margin : 0 auto;
+  /* width: 100%;
+  height: 200%; */
+}
 </style>
-<script src="<?php echo base_url('../libraries/pdfjs'); ?>"></script>
+
 <script src="https://cdn.tailwindcss.com"></script>
 <?php
 $type_text = "";
@@ -129,7 +161,15 @@ switch ($category) {
 
 ?>
 
+<script type="module">
+  // If absolute URL from the remote server is provided, configure the CORS
+  // header on that server.
+  var url = 'https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf';
+
+ 
+</script>
 <div class="w-full h-screen flex items-center justify-center flex-col px-10">
+    
     <h1 class="font-semibold text-3xl font-sans"><?php echo $type_text; ?> 채점표</h1>
     <div class="mt-10 w-6/12">
         <table class="border border-solid w-full">
@@ -170,7 +210,7 @@ switch ($category) {
                     <td class="border border-solid p-2"><?php echo $item['nick_name'];?></td>
                     <td class="border border-solid p-2"><?php echo $item['org'];?></td>
                     <td class="border border-solid p-2"><?php echo $item['nation'];?></td>
-                    <td class="border border-solid p-2"><div class="title_box text-blue-700 underline decoration-blue-700" data-id="<?php echo $item['file'];?>"><?php echo $item['title'];?></div></td>
+                    <td class="border border-solid p-2"><div class="title_box text-blue-700 underline decoration-blue-700" data-id="<?php echo $item['submission_code'];?>"><?php echo $item['title'];?></div></td>
                     <td class="border border-solid p-2"><button class="rating button p-2" id="<?php echo $index;?>" data-id="<?php echo $item['idx'];?>">채점하기</button></td>
                 </tr> 
                 <?php
@@ -270,17 +310,20 @@ switch ($category) {
             <p class="p-2">5. 채점을 완료하시면 반드시 <span class="font-semibold">제출완료</span>를 눌러주십시오.</p>
         </div>
     </div>
-
+  
     <div id="pdf_viewer" style="display: none;">
         <button class="close_pdf"><i class="icon-cross2"></i>창닫기</button>
-       <iframe class="iframe" frameborder="0" style="width:100%; height:650px;"></iframe>      
+            <span id="page_count" style="opacity:0;"></span>   
+            <div class="canvas_box">
+                <div id="canvas-container"></div> 
+            </div>       
     </div>
     <input name="etc1" class="etc1" hidden/>
     <button id="submit" class="mt-20 py-2 px-4 bg-neutral-300 font-semibold w-60 h-12">제출하기</button>
     <div class="submit_noti">*심사를 마치시고 제출하기 버튼을 꼭 눌러주세요 <br/>**제출하기 버튼을 누르시면 이후 점수 수정이 불가합니다.</div>
 </div>
 
-<script>
+<script type="module">
     const rateBtnList = document.querySelectorAll(".rating");
     const modal = document.querySelector("#modal");
     const modalBackground = document.querySelector(".modal_background");
@@ -293,7 +336,6 @@ switch ($category) {
 
     const titleList = document.querySelectorAll(".title_box")
     const pdfViewer = document.querySelector("#pdf_viewer");
-    const iframe = document.querySelector(".iframe");
     const closedPdf = document.querySelector(".close_pdf");
 
     const select1 =  document.querySelector("#select1");
@@ -301,6 +343,7 @@ switch ($category) {
     const select3 =  document.querySelector("#select3");
     const select4 =  document.querySelector("#select4");
     const select5 =  document.querySelector("#select5");
+
 
     let data = {};
     let sumList = [];
@@ -310,6 +353,9 @@ switch ($category) {
 
     let btnFlags = [];
     let closeModal = false;
+    
+    //화면에서 내려서 새로고침 방지
+    document.body.style.overscrollBehaviorY = 'none';
 
     //채점하기 버튼 클릭 이벤트
    rateBtnList.forEach((btn)=>{
@@ -443,14 +489,16 @@ switch ($category) {
     
      // console.log(sumList);
      //console.log(data);
-    const idx = <?php echo $reviewer['idx']; ?>
-
+    const idx = <?php echo $reviewer['idx']; ?>;
+    // const localStorageItem = window.localStorage.getItem("rating0")
+    // console.log(JSON.parse(localStorageItem))
     $.ajax({
 		type: "POST",
 		url : url,
 		data: data,
 		success: function(result){
             alert("채점을 해주셔서 감사합니다.");
+            //window.localStorage.clear();
             window.location.href = `/score/review?n=${idx}`;
         },
 		error:function(e){  
@@ -544,13 +592,15 @@ switch ($category) {
 
    //pdf 뷰어 보이는 함수
    function showPdfViwer(e){
-        const url = e.target.dataset.id;
-        // const url = `https://docs.google.com/gview?url=${e.target.dataset.id}&embedded=true`;
+        // const url = e.target.dataset.id;
+        const slicedUrl = e.target.dataset.id.slice(0,2);
+        const url = `../../assets/abstract/${slicedUrl}/${e.target.dataset.id}.pdf`
+        //const url = `https://docs.google.com/gview?embedded=true&url=${e.target.dataset.id}`;
+        
         modalBackground.style.display = "";
         pdfViewer.style.display = "";
-
-        iframe.setAttribute("src", url)
         showPdf = true;
+        viewPDF(url)
 
         closedPdf.addEventListener("click", ()=>{
         modalBackground.style.display = "none";
@@ -558,6 +608,57 @@ switch ($category) {
         showPdf = false;
     })
    }
+
+   //pdf 보여주는 함수 // 여러페이지일 경우 스크롤
+   function viewPDF(url) {
+
+    // Loaded via <script> tag, create shortcut to access PDF.js exports.
+    var { pdfjsLib } = globalThis;
+
+    // The workerSrc property shall be specified.
+    pdfjsLib.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.mjs';
+
+    var pdfDoc = null,
+        scale = 1,
+        canvasContainer = document.getElementById('canvas-container');
+
+    pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
+        pdfDoc = pdfDoc_;
+        var numPages = pdfDoc.numPages;
+        document.getElementById('page_count').textContent = numPages;
+
+        // Render all pages
+        for (var pageNum = 1; pageNum <= numPages; pageNum++) {
+            renderPage(pageNum);
+        }
+    });
+
+    /**
+     * Render specified page.
+     * @param num Page number.
+     */
+    function renderPage(num) {
+        // Create a new canvas element for each page
+        var canvas = document.createElement('canvas');
+        canvas.id = 'page-' + num;
+        canvasContainer.appendChild(canvas);
+
+        // Using promise to fetch the page
+        pdfDoc.getPage(num).then(function(page) {
+            var viewport = page.getViewport({scale: scale});
+            canvas.height = viewport.height; // Set canvas height for each page
+            canvas.width = viewport.width; // Set canvas width for each page
+
+            // Render PDF page into canvas context
+            var ctx = canvas.getContext('2d');
+            var renderContext = {
+                canvasContext: ctx,
+                viewport: viewport
+            };
+            page.render(renderContext);
+        });
+    }
+}
 
    modalBackground.addEventListener("click", ()=>{
         if(showPdf && !closeModal){
@@ -589,5 +690,10 @@ switch ($category) {
 
     return sum / count;
 }
+    //뒤로가기 새로고침 경고창
+    $(window).on("beforeunload", function(){
+            return "현재 채점하신 점수가 초기화 될 수 있습니다.";
+        });
+
 
 </script>
