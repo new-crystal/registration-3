@@ -77,27 +77,21 @@
         line-height: 1.6;
     }
 
-    .loading_box {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        /* background-color: rgba(0, 0, 0, 0.5); */
-        /* transform: translateX(-200px); */
-        z-index: 9999999999999999999;
-    }   
-
-.loading {
-    position: absolute;
-    top: 50%;
-    left: 52%;
-    transform: translate(-50%, -50%);
-}
-
+  
 .canvas_box{
     width: 100%;
     height: 100%;
     overflow: auto;
-    
+}
+
+/* ( 크롬, 사파리, 오페라, 엣지 ) 동작 */
+.canvas_box::-webkit-scrollbar {
+  display: none;
+}
+
+.canvas_box {
+  -ms-overflow-style: none; /* 인터넷 익스플로러 */
+  scrollbar-width: none; /* 파이어폭스 */
 }
 
 #canvas-container > canvas {
@@ -161,13 +155,6 @@ switch ($category) {
 
 ?>
 
-<script type="module">
-  // If absolute URL from the remote server is provided, configure the CORS
-  // header on that server.
-  var url = 'https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf';
-
- 
-</script>
 <div class="w-full h-screen flex items-center justify-center flex-col px-10">
     
     <h1 class="font-semibold text-3xl font-sans"><?php echo $type_text; ?> 채점표</h1>
@@ -594,7 +581,7 @@ switch ($category) {
    function showPdfViwer(e){
         // const url = e.target.dataset.id;
         const slicedUrl = e.target.dataset.id.slice(0,2);
-        const url = `../../assets/abstract/${slicedUrl}/${e.target.dataset.id}.pdf`
+        const url = `../../assets/abstract/${slicedUrl.toLowerCase()}/${e.target.dataset.id}.pdf`
         //const url = `https://docs.google.com/gview?embedded=true&url=${e.target.dataset.id}`;
         
         modalBackground.style.display = "";
@@ -611,7 +598,7 @@ switch ($category) {
 
    //pdf 보여주는 함수 // 여러페이지일 경우 스크롤
    function viewPDF(url) {
-
+    // console.log(url)
     // Loaded via <script> tag, create shortcut to access PDF.js exports.
     var { pdfjsLib } = globalThis;
 
@@ -621,6 +608,7 @@ switch ($category) {
     var pdfDoc = null,
         scale = 1,
         canvasContainer = document.getElementById('canvas-container');
+        canvasContainer.innerHTML = "";
 
     pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
         pdfDoc = pdfDoc_;
