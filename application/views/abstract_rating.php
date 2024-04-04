@@ -1,5 +1,5 @@
-
 <script src="https://cdn.tailwindcss.com"></script>
+
 <style>
     option{
         height: 40px;
@@ -71,16 +71,17 @@
         <button id="submit" class="mt-20 py-2 px-4 bg-neutral-300 hover:bg-cyan-400 font-semibold h-16 w-40 text-2xl">로그인</button>
     </form>
 </div>
-<button class="hi" onclick="installPWA()">Install PWA</button>
+<!-- <button class="hi" onclick="installPWA()">Install PWA</button> -->
 <script>
+    installPWA();
 	function installPWA() {
         if ('serviceWorker' in navigator && 'PushManager' in window) {
-            console.log("hi")
+            //console.log("hi")
 
 			// 'beforeinstallprompt' 이벤트를 기다립니다.
 		window.addEventListener('beforeinstallprompt', (event) => {
         // 'beforeinstallprompt' 이벤트를 캐치하면, 버튼을 활성화하고 설치를 유도합니다.
-        console.log("hello");
+        //console.log("hello");
         event.preventDefault();
         const installButton = document.querySelector('.hi');
         installButton.style.display = 'block';
