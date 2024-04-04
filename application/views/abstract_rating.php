@@ -1,9 +1,16 @@
 
 <script src="https://cdn.tailwindcss.com"></script>
+<style>
+    option{
+        height: 40px;
+        font-size: 16px;
+        line-height: 2.4;
+    }
+</style>
 <div class="w-full h-screen flex items-center justify-center flex-col">
     <form id="reviewer_form" action="/score" method="post" class="w-full h-screen flex items-center justify-center flex-col">
         <div class="w-2/5">
-            <p class="font-semibold mb-1 font-sans">발표형식</p>
+            <p class="font-semibold mb-10 font-sans text-2xl">발표형식</p>
             <select id="oral"  class="border p-2 border-solid w-full h-14">
                 <option value="" selected hidden>Choose</option>
                 <option value="Oral">Oral</option>
@@ -12,8 +19,8 @@
             <input name="email" id="email" class="border p-2 border-solid w-full" hidden/>
         </div>
         <div class="w-2/5" style="display: none;" id="oral_select_box">
-            <p class="font-semibold mb-1 font-sans">코드 번호</p>
-            <select  class="border p-2 border-solid w-full h-14" id="oral_select">
+            <p class="font-semibold mb-10 font-sans text-2xl">코드 번호</p>
+            <select  class="border p-4 border-solid w-full h-14" id="oral_select">
                 <option value="" selected hidden>Choose</option>
                 <option value="OP1">OP1</option>
                 <option value="OP2">OP2</option>
@@ -24,8 +31,8 @@
             </select>
         </div>
         <div class="w-2/5" style="display: none;" id="poster_select_box">
-            <p class="font-semibold mb-1 font-sans">코드 번호</p>
-            <select  class="border p-2 border-solid w-full h-14" id="poster_select">
+            <p class="font-semibold mb-10 font-sans text-2xl">코드 번호</p>
+            <select  class="border p-4 border-solid w-full h-14" id="poster_select">
                 <option value="" selected hidden>Choose</option>
                 <option value="PP1">PP1</option>
                 <option value="PP2">PP2</option>
@@ -41,8 +48,8 @@
             <input name="code" id="code" class="border p-2 border-solid w-full" hidden/>
         </div>
         <div class="mt-20 w-2/5">
-            <p class="font-semibold mb-1 font-sans">심사자 번호</p>
-            <select  class="border p-2 border-solid w-full h-14" id="num_select">
+            <p class="font-semibold mb-10 font-sans text-2xl">심사자 번호</p>
+            <select  class="border p-4 border-solid w-full h-14" id="num_select">
                 <option value="" selected hidden>Choose</option>
                 <option value="A">A</option>
                 <option value="B">B</option>
@@ -58,10 +65,10 @@
             <input name="num" id="num" class="border p-2 border-solid w-full h-14" hidden/>
         </div>
         <div class="mt-20 w-2/5">
-            <p class="font-semibold mb-1 font-sans">비밀번호</p>
-            <input type="password" name="password" id="password" class="border p-2 border-solid w-full h-14" autocomplete="off" placeholder="비밀번호를 입력해주세요."/>
+            <p class="font-semibold mb-10 font-sans text-2xl">비밀번호</p>
+            <input type="password" name="password" id="password" class="border p-4 border-solid w-full h-14" autocomplete="off" placeholder="비밀번호를 입력해주세요."/>
         </div>
-        <button id="submit" class="mt-20 py-2 px-4 bg-neutral-300 hover:bg-cyan-400 font-semibold h-16 w-40">로그인</button>
+        <button id="submit" class="mt-20 py-2 px-4 bg-neutral-300 hover:bg-cyan-400 font-semibold h-16 w-40 text-2xl">로그인</button>
     </form>
 </div>
 <button class="hi" onclick="installPWA()">Install PWA</button>
