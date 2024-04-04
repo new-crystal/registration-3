@@ -171,7 +171,7 @@ switch ($category) {
                     <td class="border border-solid p-2"><?php echo $item['org'];?></td>
                     <td class="border border-solid p-2"><?php echo $item['nation'];?></td>
                     <td class="border border-solid p-2"><div class="title_box text-blue-700 underline decoration-blue-700" data-id="<?php echo $item['file'];?>"><?php echo $item['title'];?></div></td>
-                    <td class="border border-solid p-2"><button class="rating button" id="<?php echo $index;?>" data-id="<?php echo $item['idx'];?>">채점하기</button></td>
+                    <td class="border border-solid p-2"><button class="rating button p-2" id="<?php echo $index;?>" data-id="<?php echo $item['idx'];?>">채점하기</button></td>
                 </tr> 
                 <?php
                 $index++;
@@ -276,7 +276,7 @@ switch ($category) {
        <iframe class="iframe" frameborder="0" style="width:100%; height:650px;"></iframe>      
     </div>
     <input name="etc1" class="etc1" hidden/>
-    <button id="submit" class="mt-20 py-2 px-4 bg-neutral-300 hover:bg-cyan-400 font-semibold w-60 h-12 ">제출하기</button>
+    <button id="submit" class="mt-20 py-2 px-4 bg-neutral-300 font-semibold w-60 h-12">제출하기</button>
     <div class="submit_noti">*심사를 마치시고 제출하기 버튼을 꼭 눌러주세요 <br/>**제출하기 버튼을 누르시면 이후 점수 수정이 불가합니다.</div>
 </div>
 
@@ -341,7 +341,8 @@ switch ($category) {
             
         if(modal.dataset.id === btn.dataset.id){
             btn.innerText = "채점완료";
-            btn.style.background = "rgb(59 130 246)"
+            btn.style.background = "rgb(59 130 246)";
+            btn.style.color = "#FFF";
             btnFlags[index] = true;
         }
     })
@@ -349,7 +350,8 @@ switch ($category) {
         const allTrue = btnFlags.every(flag => flag === true);
 
         if (allTrue) {
-            submitBtn.style.background = "rgb(59 130 246)";
+            submitBtn.classList.add("bg-red-700");
+            submitBtn.classList.add("text-white");
         }
 
     sumList[modal.dataset.index] = sumTd.innerText * 1;
@@ -383,6 +385,19 @@ switch ($category) {
             score4: value4,
             coi: value5
         };
+    //console.log(data)
+
+    const localSaveData = JSON.stringify({
+            abstract_idx: abstract_idx,
+            reviewer_idx: reviewer_idx,
+            score1: value1,
+            score2: value2,
+            score3: value3,
+            score4: value4,
+            coi: value5
+        })
+
+    //window.localStorage.setItem(`rating${index}`, localSaveData)
 }
 
    //제출하기 버튼 이벤트

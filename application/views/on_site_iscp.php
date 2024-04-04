@@ -191,7 +191,7 @@ td {
     height: 40px;
 }
 
-@media screen and (max-width:480px) {
+@media screen and (max-width:600px) {
     #addForm {
         width: 80%;
     }
@@ -230,6 +230,24 @@ td {
 
     .check_btn {
         display: block;
+    }
+
+    .onsite_title {
+        font-size: 25px;
+    }
+
+    .term_wrap .term_box {
+        max-height: 100px !important;
+    }
+
+    .term_label {
+        text-align: left;
+    }
+
+    .term_label>label {
+        margin: 0;
+        font-size: 0.6rem;
+
     }
 }
 
@@ -284,16 +302,51 @@ td {
 .justify-between {
     justify-content: space-between !important;
 }
+
+
+.term_wrap .term_box {
+    max-height: 200px;
+    overflow-y: scroll;
+    text-align: justify;
+}
+
+.term_label {
+    text-align: right;
+}
 </style>
 <script src="https://cdn.tailwindcss.com"></script>
-<?php echo form_open('/onSite/sicem', 'id="addForm" name="addForm" ') ?>
+<?php echo form_open('/onSite', 'id="addForm" name="addForm" ') ?>
 <!-- <form action="/onSite/sicem" class="w-3/5 mx-auto"> -->
 <!-- <img src="./mail_header.png" alt="header" class="w-full h-96" /> -->
 <div class="wrap_1">
-    <img class="onsite_header" src="../../assets/images/SICEM_onsite.png" />
+    <img class="onsite_header" src="../../assets/images/ISCP_onsite.png" />
     <div class="flex justify-left items-center w-8/12 h-12 mx-auto mt-5 text-4xl sm:text-3xl font-semibold w-full">
         <img src="../../assets/images/subTit_bl.png" />
-        <h1>On-site Registration</h1>
+        <h1 class="onsite_title">On-site Registration</h1>
+    </div>
+
+    <div class="term_wrap">
+        <img src="../../assets/images/circle.png" class="inline" />
+        <h1 class="text-sky-900 font-bold text-xl mt-10 mb-5 inline-block">Use of Personal Information</h1>
+        <div class="term_box border p-5">
+            <strong>Purpose</strong>
+            <p class="mb-3">International Society of Cardiovascular Pharmacotherapy(ISCP) with KSCVP & KSCP provides
+                online on-site
+                registration services for ISCP 2023. Based on your personal information, you can sign up for the
+                conference and complete the payment for registration.</p>
+            <strong>Collecting Personal Information</strong>
+            <p class="mb-3">ISCP 2023 requires you to provide your personal information to complete on-site registration
+                online. You
+                will be asked to enter your name, ID (email), password, date of birth, institution/organization,
+                department, mobile, and telephone number.</p>
+            <strong>Storing Personal Information</strong>
+            <p>ISCP 2023 will continue to store your personal information to provide you with useful services, such as
+                conference updates and newsletters.</p>
+        </div>
+        <div class="term_label">
+            <input type="checkbox" class="checkbox input required" id="terms" name="terms" value="Y">
+            <label for="terms">I agree to the collection and use of my personal information. </label>
+        </div>
     </div>
     <div>
         <img src="../../assets/images/circle.png" class="inline" />
@@ -311,7 +364,7 @@ td {
                 <td>
                     <div class="email_box w-11/12">
 
-                        <div class="flex items-center w-full justify-between p-1">
+                        <div class="flex items-center w-full justify-between p-1 flex-wrap">
                             <input type="text" name="email1" id="Email1" maxlength="64" value="" class="w-4/12">
                             <p class="mx-1">@</p>
                             <input type="text" name="email2" id="Email2" maxlength="64" value="" class="w-4/12">
@@ -343,7 +396,7 @@ td {
                 <th>Country<br> (국가)<span class="hit">*</span></th>
                 <td>
                     <select id="nation_no" name="nation" class="px-2 py-1 w-11/12 h-10 border" disabled>
-                        <option data-nt="82" value="Korea" selected="">Korea</option>
+                        <option data-nt="82" value="Republic of Korea" selected="">Republic of Korea</option>
                         <option data-nt="93" value="Afghanistan">Afghanistan</option>
                         <!-- <option data-nt="358" value="Aland Islands">Aland Islands</option> -->
                         <option data-nt="335" value="Albania">Albania</option>
@@ -413,7 +466,8 @@ td {
                         <option data-nt="291" value="Eritrea">Eritrea</option>
                         <option data-nt="372" value="Estonia">Estonia</option>
                         <option data-nt="251" value="Ethiopia">Ethiopia</option>
-                        <option data-nt="500" value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option>
+                        <option data-nt="500" value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)
+                        </option>
                         <option data-nt="298" value="Faroe Islands">Faroe Islands</option>
                         <option data-nt="679" value="Fiji">Fiji</option>
                         <option data-nt="358" value="Finland">Finland</option>
@@ -462,7 +516,8 @@ td {
                         <option data-nt="686" value="Kiribati">Kiribati</option>
                         <option data-nt="965" value="Kuwait">Kuwait</option>
                         <option data-nt="7" value="Kyrgyzstan">Kyrgyzstan</option>
-                        <option data-nt="856" value="Lao People's Democratic Republic">Lao People's Democratic Republic
+                        <option data-nt="856" value="Lao People's Democratic Republic">Lao People's Democratic
+                            Republic
                         </option>
                         <option data-nt="371" value="Latvia">Latvia</option>
                         <option data-nt="961" value="Lebanon">Lebanon</option>
@@ -486,7 +541,8 @@ td {
                         <option data-nt="230" value="Mauritius">Mauritius</option>
                         <option data-nt="269-6" value="Mayotte">Mayotte</option>
                         <option data-nt="52" value="Mexico">Mexico</option>
-                        <option data-nt="691" value="Micronesia, Federated States of">Micronesia, Federated States of
+                        <option data-nt="691" value="Micronesia, Federated States of">Micronesia, Federated States
+                            of
                         </option>
                         <option data-nt="373" value="Moldova, Republic of">Moldova, Republic of</option>
                         <option data-nt="377" value="Monaco">Monaco</option>
@@ -557,7 +613,8 @@ td {
                         <option data-nt="963" value="Syrian Arab Republic">Syrian Arab Republic</option>
                         <option data-nt="886" value="Taiwan">Taiwan</option>
                         <option data-nt="7" value="Tajikistan">Tajikistan</option>
-                        <option data-nt="255" value="Tanzania, United Republic of">Tanzania, United Republic of</option>
+                        <option data-nt="255" value="Tanzania, United Republic of">Tanzania, United Republic of
+                        </option>
                         <option data-nt="66" value="Thailand">Thailand</option>
                         <option data-nt="228" value="Togo">Togo</option>
                         <option data-nt="690" value="Tokelau">Tokelau</option>
@@ -612,8 +669,8 @@ td {
                 <td>
                     <input type="text" id="affiliation" name="affiliation" class="w-11/12  mb-3"
                         placeholder="Affiliation (ex. Korea University, Korea Hospital) " disabled />
-                    <input type="text" id="affiliation_kor" name="affiliation_kor" class="w-11/12"
-                        placeholder="국문 소속 (ex. 한국대학교, 한국대병원)" disabled />
+                    <input style="display: none;" type="text" id="affiliation_kor" name="affiliation_kor"
+                        class="w-11/12" placeholder="국문 소속 (ex. 한국대학교, 한국대병원)" disabled />
                 </td>
             </tr>
             <tr>
@@ -624,6 +681,8 @@ td {
                 <td>
                     <input type="text" id="department" name="department" class="w-11/12  mb-3" placeholder="Department"
                         disabled />
+                    <input style="display: none;" type="text" id="department_kor" name="department_kor"
+                        class="w-11/12  mb-3" placeholder="부서" disabled />
                 </td>
             </tr>
             <tr>
@@ -642,43 +701,7 @@ td {
                 </td>
             </tr>
 
-            <tr class="ln">
-                <th>
-                    평점신청 여부<br>(Only Korean)
-                    <span class="hit">*</span>
-                </th>
-                <td>
-                    <div class="h-12">
-                        <input id="is_score" name="is_score" hidden />
-                        <input type="radio" id="need" disabled />
-                        <label for="need">필요</label>
-                        <input type="radio" id="non_need" disabled />
-                        <label for="non_need">불필요</label>
-                    </div>
-                    <div class="flex items-center w-12/12 justify-left flex-wrap" id="ln_box" style="display: none;">
-                        <div class="flex items-center ">
-                            <p class="mx-2 number">의사면허번호</p>
-                            <input name="licence_number" id="doctor" type="text" class="mx-2" placeholder="123456"
-                                disabled />
-                        </div>
-                        <div class="flex items-center">
-                            <p class="mx-4 number"> 전문의번호 </p>
-                            <input name="specialty_number" id="specialist" class="mx-2" type="text" placeholder="123456"
-                                disabled />
-                        </div>
-                        <div class="flex items-center">
-                            <p class="mx-4 number"> 직책 </p>
-                            <select class="px-2 py-1 h-10 border" name="etc3">
-                                <option value="교수" selected="">교수</option>
-                                <option value="전문의">전문의</option>
-                                <option value="전공의">전공의</option>
-                                <option value="기타">기타</option>
-                            </select>
-                        </div>
 
-                    </div>
-                </td>
-            </tr>
         </table>
         <img src="../../assets/images/circle.png" class="inline" />
         <h1 class="text-sky-900 font-bold text-xl mt-10 mb-5 inline-block">Survey</h1>
@@ -688,80 +711,50 @@ td {
                 <col width="*">
             </colgroup>
             <tr>
-                <th>Is this your first time attending SICEM? (참석 횟수 조사) <span class="hit">*</span></th>
-                <td>
-                    <div>
-                        <input id="first_time_yn" name="first_time_yn" hidden />
-                        <input type="checkbox" id="attend_yes" />
-                        <label for="attend_yes">Yes</label>
-                        <input type="checkbox" id="attend_no" />
-                        <label for="attend_no">No</label>
-
-                    </div>
-                </td>
-            </tr>
-            <tr class="time_num" style="display:none">
-                <th>How many SICEMs have you attended before?</th>
-                <td>
-                    <div>
-                        <input id="first_time" name="first_time" hidden />
-
-                        <input type="radio" id="three" />
-                        <label for="three">1-3</label>
-                        <input type="radio" id="six" />
-                        <label for="six">4-6</label>
-                        <input type="radio" id="nine" />
-                        <label for="nine">7-9</label>
-                        <input type="radio" id="ten" />
-                        <label for="ten">10+</label>
-
-                    </div>
-                </td>
-            </tr>
-            <tr>
                 <th>Where did you get the information about the conference?(가입 경로) <span class="hit">*</span></th>
                 <td>
                     <div>
                         <input name="conference_info" id="conference_info" hidden />
                         <div>
-                            <input type="checkbox" id="conference_email" data-id="Email" class="confer" />
-                            <label for="conference_email">Email</label>
+                            <input type="checkbox" id="conference_email" data-id="Website or newletter of KSCP or KSCVP"
+                                class="confer" />
+                            <label for="conference_email">Website or newletter of KSCP or KSCVP</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="conference_tel" data-id="Telephone text" class="confer" />
-                            <label for="conference_tel">Telephone text</label>
+                            <input type="checkbox" id="conference_tel" data-id="Website or notice of related society"
+                                class="confer" />
+                            <label for="conference_tel">Website or notice of related society</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="conference_letter" data-id="Letter from Korean" class="confer" />
-                            <label for="conference_letter">Letter from Korean</label>
+                            <input type="checkbox" id="conference_letter" data-id="Went to the last ISCP"
+                                class="confer" />
+                            <label for="conference_letter">Went to the last ISCP</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="conference_medi" data-id="Medical Association" class="confer" />
-                            <label for="conference_medi">Medical Association</label>
+                            <input type="checkbox" id="conference_medi" data-id="Invitation for speaker or chair"
+                                class="confer" />
+                            <label for="conference_medi">Invitation for speaker or chair</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="conference_colleague" data-id="Colleague" class="confer" />
-                            <label for="conference_colleague">Colleague</label>
+                            <input type="checkbox" id="conference_colleague" data-id="Friend / Colleague"
+                                class="confer" />
+                            <label for="conference_colleague">Friend / Colleague</label>
                         </div>
                         <div>
+                            <input type="checkbox" id="conference_colleague" data-id="Medical corporate"
+                                class="confer" />
+                            <label for="conference_colleague">Medical corporate</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="conference_colleague" data-id="Internet banner ads or search"
+                                class="confer" />
+                            <label for="conference_colleague">Internet banner ads or search</label>
+                        </div>
+                        <!-- <div>
                             <input type="checkbox" id="cofer_other" class="confer" />
                             <label for="cofer_other">Other</label>
-                            <input type="text" class="w-9/12 mt-3" placeholder="other" id="conference_other"
-                                style="display:none" />
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th>Would you like to apply for an abstract book copy? <br>(초록집 요청) <span class="hit">*</span></th>
-                <td>
-                    <div>
-                        <input id="copy_yn" name="copy_yn" hidden />
-                        <input type="checkbox" id="abstract_yes" />
-                        <label for="abstract_yes">Yes (Hard copy)</label>
-                        <br>
-                        <input type="checkbox" id="abstract_no" />
-                        <label for="abstract_no">No (PDF file)</label>
+                            <input type="text" class="w-9/12 mt-3" placeholder="other" id="conference_other" style="display:none" />
+                        </div> -->
                     </div>
                 </td>
             </tr>
@@ -791,55 +784,7 @@ td {
                 <col width="20%">
                 <col width="*">
             </colgroup>
-            <tr>
-                <th>
-                    Member<br>(학회 회원 여부)
-                    <span class="hit">*</span>
-                </th>
-                <td>
-                    <input id="kes_member_status" name="kes_member_status" hidden />
-                    <input type="radio" id="member" />
-                    <label for="member">Member (회원)</label>
-                    <br>
-                    <input type="radio" id="non_member" />
-                    <label for="non_member">Non-Member (비회원)</label>
-                    <div class="sign_up_btn_box" style="display: none;">
-                        <br>
-                        <a target="_blank" href="https://www.endocrinology.or.kr/member/info.php"><button type="button"
-                                class="sign_up bg-blue-300 hover:bg-blue-100">KES 회원가입 (Korean only)</button></a>
-                        <a target="_blank"
-                            href="https://docs.google.com/forms/d/e/1FAIpQLSeST6AvFwdi3EvAyudol6PeD7evWTcNEH7oh-weHNGORk2izg/viewform"><button
-                                type="button" class="sign_up bg-blue-300 hover:bg-blue-100">KES Sign up (For
-                                foreigner)</button></a>
-                    </div>
-                    <div class="kes_id" style="display: none;">
-                        <input name="kes_id" class="kes_id_input border p-2 mt-4 w-6/12" placeholder="KES ID를 입력해주세요" />
-                        <button class="kes_check_btn bg-blue-700 text-white px-4 font-semibold" type="button">Check
-                            ID</button>
-                        <p class="kes_email_text" style="color: #c1121f; font-weight:600;">Please enter your KES ID.</p>
 
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th>Attendance Date<br>(참석 날짜)
-                    <span class="hit">*</span>
-                </th>
-                <td>
-                    <input id="attendance_date" name="attendance_date" hidden />
-                    <input type="checkbox" id="full" class="day" />
-                    <label for="full">Full registration </label>
-                    <br>
-                    <input type="checkbox" id="thursday" class="day" />
-                    <label for="thursday">Thursday, October 26 </label>
-                    <br>
-                    <input type="checkbox" id="friday" class="day" />
-                    <label for="friday">Friday, October 27</label>
-                    <br>
-                    <input type="checkbox" id="saturday" class="day" />
-                    <label for="saturday">Saturday, October 28</label>
-                </td>
-            </tr>
             <tr>
                 <th>
                     Type of Participation<br>(참석유형)
@@ -849,21 +794,22 @@ td {
                     <div class="flex w-11/12 justify-between items-center">
                         <select id="Participation_1" style="background-color:#ffffff;"
                             class="px-2 py-1 w-full h-10 border" name="attendance_type">
-                            <option value="" selected="selected">선택사항</option>
-                            <option value="Participant">Participant</option>
-                            <option value="Speaker">Speaker</option>
+                            <option value="" selected="selected">Select</option>
+                            <option value="Participants">Participants</option>
+                            <option value="Sponsor">Sponsor</option>
                             <option value="Chairperson">Chairperson</option>
-                            <option value="Moderator">Moderator</option>
+                            <option value="Speaker">Speaker</option>
                             <option value="Panel">Panel</option>
-                            <option value="Preceptor">Preceptor</option>
-                            <option value="Organizer">Organizer</option>
-                            <!-- <option value="Oral Presenter">Oral Presenter</option> -->
-                            <!-- <option value="Poster Oral Presenter">Poster Oral Presenter</option> -->
-                            <option value="Satellite Attendee">Satellite Attendee</option>
-                            <option value="Press">Press</option>
-                            <option value="Exhibitior">Exhibitior</option>
+                            <option value="ISCP full member">ISCP full member</option>
+                            <option value="Other">Other</option>
+                            <input type="text" id="participation_others" name="attendance_other_type"
+                                style="display: none;width:140%;" placeholder="please write type of Participation" />
                         </select>
                     </div>
+                    <p class="email_text other_participation" style="display:none;">**Please visit the registration
+                        desk, and check your type
+                        of
+                        participation.</p>
                 </td>
             </tr>
             <tr>
@@ -874,39 +820,21 @@ td {
                     <div class="flex w-11/12 justify-between items-center border">
                         <select id="Category_1" style="background-color:#ffffff;" class="px-2 py-1 w-full h-10"
                             name="member_type">
-                            <option value="" selected="selected">선택사항</option>
-                            <option value="Medical Doctor">Medical Doctor</option>
+                            <option value="" selected="selected">Select</option>
+                            <option value="Specialist">Specialist</option>
                             <option value="Professor">Professor</option>
-                            <option value="Trainee">Trainee</option>
-                            <option value="Student">Student</option>
-                            <option value="Other">Other</option>
-                            <option value="Corporate">Corporate</option>
-                        </select>
-                    </div>
-
-                    <div class="flex w-11/12 justify-between items-center ">
-                        <select name="member_other_type" id="category_2" style="background-color:#ffffff; display:none"
-                            class="px-2 py-1 w-full h-10 border">
                             <option value="Fellow">Fellow</option>
-                            <option value="Resident">Resident</option>
-                            <option value="Graduate">Graduate</option>
-                            <option value="Individual Researcher">Individual Researcher</option>
-                        </select>
-                    </div>
-
-                    <div class="flex w-11/12 justify-between items-center">
-                        <select name="member_other_type" id="category_3" style="background-color:#ffffff;display:none"
-                            class="px-2 py-1 w-full h-10 border">
-                            <option value="Public Health Doctor">Public Health Doctor</option>
-                            <option value="Military Doctor">Military Doctor</option>
+                            <option value="Researcher">Researcher</option>
                             <option value="Nurse">Nurse</option>
                             <option value="Nutritionist">Nutritionist</option>
-                            <option value="Pharmacist">Pharmacist</option>
-                            <option value="Exercise Specialist">Exercise Specialist</option>
-                            <option value="Researcher">Researcher</option>
-                            <option value="Other">Other</option>
+                            <option value="Pharmacists">Pharmacists</option>
+                            <option value="Corporate member">Corporate member</option>
+                            <option value="Military medical officer">Military medical officer</option>
+                            <option value="Student">Student</option>
+                            <option value="Resident">Resident</option>
+                            <option value="Others">Others</option>
                             <input type="text" id="category_others" name="member_other_type"
-                                style="display: none;width:140%;" placeholder="category" />
+                                style="display: none;width:140%;" placeholder="please write category" />
                         </select>
                     </div>
                 </td>
@@ -957,6 +885,8 @@ td {
 <script>
 const wrap_1 = document.querySelector(".wrap_1")
 
+const terms = document.querySelector("#terms")
+
 const firstName = document.querySelector("#firstName");
 const LastName = document.querySelector("#lastName");
 const KoreanName = document.querySelector("#koreanName");
@@ -966,6 +896,7 @@ const contry = document.querySelector("#nation_no");
 const affilation = document.querySelector("#affiliation");
 const koreanAffiliation = document.querySelector("#affiliation_kor")
 const department = document.querySelector("#department")
+const department_kor = document.querySelector("#department_kor")
 
 const contryNumber = document.querySelector("#contryNum");
 const phone = document.querySelector("#phoneNumber")
@@ -976,37 +907,15 @@ const email_3 = document.querySelector("#Email3")
 const check_btn = document.querySelector(".check_btn")
 const email_text = document.querySelector(".email_text")
 
-const member = document.querySelector("#member");
-const nonMember = document.querySelector("#non_member")
-const kes_member_status = document.querySelector("#kes_member_status")
-const sign_up_btn_box = document.querySelector(".sign_up_btn_box")
-const kes_id = document.querySelector(".kes_id")
-const kes_id_input = document.querySelector(".kes_id_input")
-const kes_check_btn = document.querySelector(".kes_check_btn")
-const kes_email_text = document.querySelector(".kes_email_text")
 
-// const participation = document.querySelector("#Participation");
 const participationSelect = document.querySelector("#Participation_1")
+const other_participation = document.querySelector(".other_participation")
+const participation_others = document.querySelector("#participation_others")
 
 // const category = document.querySelector("#Category")
 const categorySelect = document.querySelector("#Category_1")
 const categoryOthers = document.querySelector("#category_others")
-const category_2 = document.querySelector("#category_2")
-const category_3 = document.querySelector("#category_3")
 
-const need = document.querySelector("#need");
-const nonNeed = document.querySelector("#non_need")
-const ln_box = document.querySelector("#ln_box")
-
-const doctor = document.querySelector("#doctor");
-const specialist = document.querySelector("#specialist")
-
-const attendance_date = document.querySelector("#attendance_date")
-const full = document.querySelector("#full");
-const thursday = document.querySelector("#thursday");
-const friday = document.querySelector("#friday");
-const saturday = document.querySelector("#saturday");
-const dayList = document.querySelectorAll(".day")
 
 const card = document.querySelector("#card");
 const transfer = document.querySelector("#transfer")
@@ -1038,9 +947,9 @@ const conferList = document.querySelectorAll(".confer")
 const attend_yes = document.querySelector("#attend_yes");
 const attend_no = document.querySelector("#attend_no")
 
-const abstract_yes = document.querySelector("#abstract_yes");
-const abstract_no = document.querySelector("#abstract_no")
-const copy_yn = document.querySelector("#copy_yn")
+// const abstract_yes = document.querySelector("#abstract_yes");
+// const abstract_no = document.querySelector("#abstract_no")
+// const copy_yn = document.querySelector("#copy_yn")
 
 const is_score = document.querySelector("#is_score")
 
@@ -1059,7 +968,6 @@ const special_vege = document.querySelector("#special_vege")
 
 const fee_input = document.querySelector("#fee")
 
-const ln = document.querySelector(".ln")
 const header = document.querySelector(".onsite_header")
 
 let fee;
@@ -1080,9 +988,13 @@ LastName.addEventListener("input", (event) => {
     englishInput(event)
 })
 
-affilation.addEventListener("input", (event) => {
-    englishInput(event)
-})
+// affilation.addEventListener("input", (event) => {
+//     englishInput(event)
+// })
+
+// department.addEventListener("input", (event) => {
+//     englishInput(event)
+// })
 
 function englishInput(event) {
     const inputValue = event.target.value;
@@ -1093,22 +1005,11 @@ function englishInput(event) {
     }
 }
 
-/**email 유효성 검사 */
-kes_id_input.addEventListener("input", (event) => {
-    const inputValue = event.target.value;
-    const emailPattern = /^[A-Za-z0-9\s\-_,.@]+$/;
-
-    if (!emailPattern.test(inputValue)) {
-        event.target.value = inputValue.replace(/[^A-Za-z0-9\-_,.@]+/g, '');
-    }
-});
-
 
 /**한국어 유효성 검사 */
 KoreanName.addEventListener('input', (event) => {
     const inputValue = event.target.value;
     const onlyHangul = /^[ㄱ-ㅎㅏ-ㅣ가-힣\s\-_,]+$/;
-
 
     if (!onlyHangul.test(inputValue)) {
         event.target.value = inputValue.replace(/[^\uAC00-\uD7AF\u1100-\u11FF\u3130-\u318F\s\-_,]+/g, '');
@@ -1116,6 +1017,15 @@ KoreanName.addEventListener('input', (event) => {
 });
 
 koreanAffiliation.addEventListener("input", (event) => {
+    const inputValue = event.target.value;
+    const onlyHangul = /^[ㄱ-ㅎㅏ-ㅣ가-힣\s\-_,]+$/;
+
+    if (!onlyHangul.test(inputValue)) {
+        event.target.value = inputValue.replace(/[^\uAC00-\uD7AF\u1100-\u11FF\u3130-\u318F\s\-_,]+/g, '');
+    }
+})
+
+department_kor.addEventListener("input", (event) => {
     const inputValue = event.target.value;
     const onlyHangul = /^[ㄱ-ㅎㅏ-ㅣ가-힣\s\-_,]+$/;
 
@@ -1156,19 +1066,20 @@ phone.addEventListener('input', (event) => {
 /**국적 -> 한국인만 한국이름 작성 */
 contry.addEventListener("click", () => {
     contryNumber.value = contry.options[contry.selectedIndex].dataset.nt
-    if (contry.value !== "Korea") {
+    if (contry.value !== "Republic of Korea") {
         KoreanName.style.display = "none"
         koreanAffiliation.style.display = "none"
-        ln.style.display = "none"
-    } else if (contry.value === "Korea") {
+        department_kor.style.display = "none"
+
+    } else if (contry.value === "Republic of Korea") {
         KoreanName.style.display = "";
-        koreanAffiliation.style.display = "";
-        ln.style.display = ""
+        koreanAffiliation.style.display = "none"
+        department_kor.style.display = "none"
     }
 })
 
 /**email selectbox */
-email_3.addEventListener("click", () => {
+email_3.addEventListener("change", () => {
     email_2.value = email_3.options[email_3.selectedIndex].value
 })
 
@@ -1196,9 +1107,9 @@ check_btn.addEventListener("click", () => {
 async function checkEmail() {
     const email = `${email_1.value}@${email_2.value}`
     const url = `/onSite/check_email?n=${email}`
-    const personalInfoList = [firstName, LastName, KoreanName, contry, affilation, koreanAffiliation, department,
-        phone, need,
-        nonNeed, doctor, specialist
+    const personalInfoList = [firstName, LastName, KoreanName, contry, affilation, koreanAffiliation,
+        department, department_kor,
+        phone
     ]
 
     const response = await fetch(url, {
@@ -1229,101 +1140,16 @@ function removeDisabled(content) {
     content.disabled = false;
 }
 
-/**회원 여부 checkbox */
-member.addEventListener("click", () => {
-    kes_check_email = false;
-    if (member.checked) {
-        kes_id.style.display = ""
-        nonMember.checked = false;
-        kes_member_status.value = "Y"
-        sign_up_btn_box.style.display = "none"
-    } else {
-        member.checked = true;
-    }
-})
-
-kes_check_btn.addEventListener("click", () => {
-    if (kes_id_input.value !== "") {
-        kes_check_email = true;
-        kes_email_text.innerText = "Checked. "
-        kes_email_text.style.color = "blue"
-        calRegiFee()
-    } else {
-        alert("Please enter your KES ID.")
-    }
-})
-
-
-nonMember.addEventListener("click", () => {
-    if (nonMember.checked) {
-        kes_id.style.display = "none"
-        member.checked = false;
-        kes_member_status.value = "N"
-        sign_up_btn_box.style.display = ""
-    } else {
-        nonMember.checked = true;
-    }
-    calRegiFee()
-})
-
-
-/**참석 횟수 checkbox */
-attend_yes.addEventListener("click", () => {
-    if (attend_yes.checked) {
-        attend_no.checked = false;
-        first_time_yn.value = "Y"
-        time_num.style.display = "none"
-        first_time.value = null
-    }
-})
-
-attend_no.addEventListener("click", () => {
-    if (attend_no.checked) {
-        attend_yes.checked = false;
-        first_time_yn.value = "N"
-        time_num.style.display = "";
-    }
-})
-
-/**참석 횟수 */
-
-three.addEventListener("click", () => {
-    six.checked = false;
-    nine.checked = false;
-    ten.checked = false;
-    first_time.value = "1-3"
-})
-
-six.addEventListener("click", () => {
-    three.checked = false;
-    nine.checked = false;
-    ten.checked = false;
-    first_time.value = "4-6"
-})
-
-nine.addEventListener("click", () => {
-    three.checked = false;
-    six.checked = false;
-    ten.checked = false;
-    first_time.value = "7-9"
-})
-
-ten.addEventListener("click", () => {
-    three.checked = false;
-    six.checked = false;
-    nine.checked = false;
-    first_time.value = "10+"
-})
 
 /** 가입 경로 other input*/
-cofer_other.addEventListener("click", () => {
-    if (cofer_other.checked) {
-        conference_other.style.display = "";
-        conference_info.value = conference_other.value
-    } else {
-        conference_other.style.display = "none";
-    }
-})
+// cofer_other.addEventListener("click", () => {
+//     if (cofer_other.checked) {
+//         conference_other.style.display = "";
+//         conference_info.value = conference_other.value
+//     } else {
+//         conference_other.style.display = "none";
+//     }
+// })
 
 /**가입 경로 */
 conferList.forEach((checkbox) => {
@@ -1333,44 +1159,13 @@ conferList.forEach((checkbox) => {
                 otherCheckbox.checked = false;
             }
         });
-        if (e.target.dataset.id) {
-            conference_other.style.display = "none";
-        }
+        // if (e.target.dataset.id) {
+        //     conference_other.style.display = "none";
+        // }
         conference_info.value = e.target.dataset.id
     });
 });
 
-/**참석 날짜 checkbox */
-full.addEventListener("click", () => {
-    attendance_date.value = "Full registration"
-    dayCheck("full")
-})
-
-thursday.addEventListener("click", () => {
-    attendance_date.value = "Thursday, October 26"
-    dayCheck("thursday")
-})
-
-friday.addEventListener("click", () => {
-    attendance_date.value = "Friday, October 27"
-    dayCheck("friday")
-})
-
-saturday.addEventListener("click", () => {
-    attendance_date.value = "Saturday, October 28"
-    dayCheck("saturday")
-})
-
-function dayCheck(selected) {
-    dayList.forEach((day) => {
-        if (day.id !== selected) {
-            day.checked = false;
-        } else {
-            day.checked = true;
-        }
-    })
-    calRegiFee()
-}
 
 /**지불방법 checkbox */
 card.addEventListener("click", () => {
@@ -1387,111 +1182,29 @@ transfer.addEventListener("click", () => {
     calRegiFee()
 })
 
+participationSelect.addEventListener("change", () => {
+    const participationValue = participationSelect.options[participationSelect.selectedIndex].value;
+    if (participationValue === "Other") {
+        other_participation.style.display = "";
+        // participation_others.style.display = "";
+    } else {
+        other_participation.style.display = "none";
+        participation_others.style.display = "none";
+    }
+    calRegiFee()
+})
 
 
 /**category select */
 categorySelect.addEventListener("change", () => {
     const categoryValue = categorySelect.options[categorySelect.selectedIndex].value;
     member_other_type = "";
-
-    if (categoryValue === "Trainee") {
-        category_2.style.display = "";
-        category_3.style.display = "none";
-        categoryOthers.style.display = "none"
-    }
-    if (categoryValue !== "Trainee" && categoryValue !== "Other") {
-        category_2.style.display = "none";
-        category_3.style.display = "none";
-        categoryOthers.style.display = "none"
-    }
-    if (categoryValue === "Other") {
-        category_2.style.display = "none";
-        category_3.style.display = "";
-    }
-    calRegiFee()
-})
-
-category_2.addEventListener("click", () => {
-    member_other_type = category_2.options[category_2.selectedIndex].value;
-    calRegiFee()
-})
-
-category_3.addEventListener("click", () => {
-    const categoryOtherInput = category_3.options[category_3.selectedIndex].value;
-    member_other_type = categoryOtherInput
-    if (categoryOtherInput === "Other") {
-        categoryOthers.style.display = ""
-        categoryOtherInput = categoryOthers.value
+    if (categoryValue === "Others") {
+        categoryOthers.style.display = "";
     } else {
-        categoryOthers.style.display = "none"
+        categoryOthers.style.display = "none";
     }
     calRegiFee()
-})
-
-
-
-
-/**평점 신청 X -> input disabled */
-nonNeed.addEventListener("click", () => {
-    if (nonNeed.checked) {
-        ln_box.style.display = "none"
-        need.checked = false;
-        doctor.disabled = true;
-        specialist.disabled = true;
-        is_score.value = "N"
-    } else {
-        need.checked = true
-        doctor.disabled = false;
-        specialist.disabled = false;
-    }
-})
-
-
-/**평점 신청 O -> input disabled X */
-need.addEventListener("click", () => {
-    if (need.checked) {
-        ln_box.style.display = ""
-        nonNeed.checked = false;
-        doctor.disabled = false;
-        specialist.disabled = false;
-        is_score.value = "Y"
-    }
-})
-
-/**면허 번호 유효성 검사 */
-
-doctor.addEventListener("input", () => {
-    const inputValue = event.target.value;
-    const onlyNumbers = /^[0-9]+$/;
-
-    if (!onlyNumbers.test(inputValue)) {
-        event.target.value = inputValue.replace(/\D/g, '');
-    }
-})
-
-specialist.addEventListener("input", () => {
-    const inputValue = event.target.value;
-    const onlyNumbers = /^[0-9]+$/;
-
-    if (!onlyNumbers.test(inputValue)) {
-        event.target.value = inputValue.replace(/\D/g, '');
-    }
-})
-
-
-/**abstract book */
-abstract_yes.addEventListener("click", () => {
-    if (abstract_yes.checked) {
-        abstract_no.checked = false;
-        copy_yn.value = "Y"
-    }
-})
-
-abstract_no.addEventListener("click", () => {
-    if (abstract_no.checked) {
-        abstract_yes.checked = false;
-        copy_yn.value = "N"
-    }
 })
 
 /**special request food */
@@ -1531,7 +1244,6 @@ $(function() {
     $("#Submit").click(function(e) {
         const submit = onSubmit(e)
         if (submit) {
-
             $("#addForm").submit();
         } else {
 
@@ -1542,7 +1254,15 @@ $(function() {
 
 function onSubmit(e) {
     e.preventDefault()
+
+    if (!terms.checked) {
+        alert("Please check the Terms section.")
+        terms.focus()
+        return;
+    }
+
     /** Personal Information */
+
     if (!email_1.value || !email_2.value) {
         alert("invaild email");
         email_1.focus()
@@ -1558,7 +1278,7 @@ function onSubmit(e) {
         firstName.focus()
         return;
     }
-    if (!contry.value) {
+    if (!contry.options[contry.selectedIndex].value) {
         alert("invaild contry");
         contry.focus()
         return;
@@ -1578,24 +1298,30 @@ function onSubmit(e) {
         phone.focus()
         return;
     }
-    if (contry.value === "Korea" && !need.checked && !nonNeed.checked) {
-        alert("invaild grade");
-        need.focus()
-        return;
+
+    if (contry.options[contry.selectedIndex].value === "Republic of Korea") {
+        if (!KoreanName.value) {
+            alert("invaild Name");
+            KoreanName.focus()
+            return;
+        }
+
+        // if (!koreanAffiliation.value) {
+        //     alert("invaild affilation");
+        //     koreanAffiliation.focus()
+        //     return;
+        // }
+
+        // if (!department_kor.value) {
+        //     alert("invaild Department");
+        //     department_kor.focus()
+        //     return;
+        // }
     }
-    if (need.checked && !doctor.value && !specialist.value) {
-        alert("invaild grade");
-        need.focus()
-        return;
-    }
+
 
     /** Survey */
 
-    if (!attend_yes.checked && !attend_no.checked) {
-        alert("invaild attend");
-        attend_yes.focus()
-        return;
-    }
     let conferCheck = false
     conferList.forEach((confer) => {
         if (confer.checked) {
@@ -1607,11 +1333,7 @@ function onSubmit(e) {
         conference_other.focus()
         return;
     }
-    if (!abstract_yes.checked && !abstract_no.checked) {
-        alert("invaild abstract");
-        abstract_yes.focus()
-        return;
-    }
+
 
     // if (!special_no.checked && !special_halal.checked && !special_vege.checked) {
     //     alert("invaild special food");
@@ -1622,21 +1344,7 @@ function onSubmit(e) {
 
 
     /** Registration Fees */
-    if (!member.checked && !nonMember.checked) {
-        alert("invaild member");
-        member.focus()
-        return;
-    }
-    if (member.checked && !kes_id_input.value) {
-        alert("invaild member");
-        kes_id_input.focus()
-        return;
-    }
-    if (member.checked && !kes_check_email) {
-        alert("invaild member");
-        kes_id_input.focus()
-        return;
-    }
+
     if (!participationSelect.options[participationSelect.selectedIndex].value) {
         alert("invaild participation");
         participationSelect.focus()
@@ -1652,11 +1360,7 @@ function onSubmit(e) {
         categoryOthers.focus()
         return;
     }
-    if (!full.checked && !thursday.checked && !friday.checked && !saturday.checked) {
-        alert("invaild Attendance Date");
-        full.focus()
-        return;
-    }
+
     if (!card.checked && !transfer.checked) {
         alert("invaild Payment Method");
         card.focus()
@@ -1675,106 +1379,48 @@ function onSubmit(e) {
 
 /**금액 계산 */
 function calRegiFee() {
+    const categoryValue = categorySelect.options[categorySelect.selectedIndex].value;
+    const contryValue = contry.options[contry.selectedIndex].value;
+    const participationValue = participationSelect.options[participationSelect.selectedIndex].value;
 
-    /**fee = 0*/
-    if (participationSelect.value === "Speaker" || participationSelect.value === "Chairperson" ||
-        participationSelect.value === "Moderator" || participationSelect.value === "Panel" || participationSelect
-        .value === "Preceptor" || participationSelect.value === "Organizer" || participationSelect.value ===
-        "Press" || participationSelect.value === "Satellite Attendee"
-    ) {
-        if (contry.value === "Korea") {
-            fee = "KRW 0"
+    if (contryValue === "Republic of Korea") {
+        if (participationValue === "Participants") {
+            if (categoryValue === "Specialist" || categoryValue === "Professor") {
+                fee = "70,000";
+            } else if (categoryValue === "Fellow" || categoryValue === "Researcher" || categoryValue === "Nurses" ||
+                categoryValue === "Nutritionists" || categoryValue === "Corporate member" || categoryValue ===
+                "Military medical officer") {
+                fee = "30,000";
+            } else if (categoryValue === "Resident" || categoryValue === "Student") {
+                fee = "0"
+            } else {
+                fee = "30,000";
+            }
         } else {
-            fee = "USD 0"
+            fee = 0;
+        }
+    } else {
+        if (participationValue === "Participants") {
+            if (categoryValue === "Specialist" || categoryValue === "Professor") {
+                fee = "USD 300(KRW 405,000)";
+            } else if (categoryValue === "Fellow" || categoryValue === "Researcher" || categoryValue === "Nurses" ||
+                categoryValue === "Nutritionists" || categoryValue === "Corporate member" || categoryValue ===
+                "Military medical officer") {
+                fee = "USD 150(KRW 202,500)";
+            } else if (categoryValue === "Resident" || categoryValue === "Student") {
+                fee = "0"
+            } else {
+                fee = "USD 150(KRW 202,500)";
+            }
+        } else {
+            fee = 0;
         }
     }
-    /**fee != 0*/
-    else {
-        if (member.checked) {
-            /**full day & member*/
-            if (full.checked) {
-                if (categorySelect.value === "Medical Doctor" || categorySelect.value === "Professor") {
-                    if (contry.value === "Korea") {
-                        fee = "KRW 250,000"
-                    } else {
-                        fee = "USD 250(KRW 337,500)"
-                    }
-                } else if (categorySelect.value === "Student" || categorySelect.value === "Trainee") {
-                    if (contry.value === "Korea") {
-                        fee = "KRW 125,000"
-                    } else {
-                        fee = "USD 125(KRW 168,750)"
-                    }
-                } else if (categorySelect.value === "Corporate" || categorySelect.value === "Other") {
-                    if (contry.value === "Korea") {
-                        fee = "KRW 200,000"
-                    } else {
-                        fee = "USD 200(KRW 270,000)"
-                    }
-                } else {
-                    if (contry.value === "Korea") {
-                        fee = "KRW 200,000"
-                    } else {
-                        fee = "USD 200(KRW 270,000)"
-                    }
-                }
-            }
-
-            /** one day & member */
-            else {
-                if (contry.value === "Korea") {
-                    fee = "KRW 200,000"
-                } else {
-                    fee = "USD 200(KRW 270,000)"
-                }
-            }
-
-
-
-        } else if (!member.checked) {
-
-            /**full day & non-member */
-            if (full.checked) {
-                if (categorySelect.value === "Medical Doctor" || categorySelect.value === "Professor") {
-                    if (contry.value === "Korea") {
-                        fee = "KRW 350,000"
-                    } else {
-                        fee = "USD 350(KRW 472,500)"
-                    }
-                } else if (categorySelect
-                    .value === "Trainee" || categorySelect
-                    .value === "Student") {
-                    if (contry.value === "Korea") {
-                        fee = "KRW 175,000"
-                    } else {
-                        fee = "USD 175(KRW 236,250)"
-                    }
-                } else if (categorySelect.value === "Corporate" || categorySelect.value === "Other") {
-                    if (contry.value === "Korea") {
-                        fee = "KRW 250,000"
-                    } else {
-                        fee = "USD 250(KRW 337,500)"
-                    }
-                } else {
-                    if (contry.value === "Korea") {
-                        fee = "KRW 250,000"
-                    } else {
-                        fee = "USD 250(KRW 337,500)"
-                    }
-                }
-            }
-
-            /** one day  & non-member */
-            else {
-                if (contry.value === "Korea") {
-                    fee = "KRW 230,000"
-                } else {
-                    fee = "USD 230(KRW 310,500)"
-                }
-            }
-        }
+    if (contryValue === "Republic of Korea" && fee !== undefined) {
+        total.innerText = `￦${fee}`
+    } else if (fee !== undefined) {
+        total.innerText = fee;
     }
-    total.innerText = fee;
     fee_input.value = fee;
 }
 </script>
