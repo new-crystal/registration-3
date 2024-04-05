@@ -288,8 +288,11 @@ class Score extends CI_Controller
         }
     
         // 엑셀 파일로 내보내기
+        // header('Content-Type: application/vnd.ms-excel');
+        // header("Content-Disposition: attachment; filename=\"$filename.$extension\"");
+        // header('Cache-Control: max-age=0');
         header('Content-Type: application/vnd.ms-excel');
-        header("Content-Disposition: attachment; filename=\"$filename.$extension\"");
+        header('Content-Disposition: attachment; filename="' . urlencode($filename) . '.' . $extension . '"');
         header('Cache-Control: max-age=0');
         
         $object_writer = PHPExcel_IOFactory::createWriter($object, 'Excel2007');
@@ -371,7 +374,7 @@ class Score extends CI_Controller
     
         // 엑셀 파일로 내보내기
         header('Content-Type: application/vnd.ms-excel');
-        header("Content-Disposition: attachment; filename=\"$filename.$extension\"");
+        header('Content-Disposition: attachment; filename="' . urlencode($filename) . '.' . $extension . '"');
         header('Cache-Control: max-age=0');
         
         $object_writer = PHPExcel_IOFactory::createWriter($object, 'Excel2007');
@@ -438,7 +441,7 @@ class Score extends CI_Controller
     
         // 엑셀 파일로 내보내기
         header('Content-Type: application/vnd.ms-excel');
-        header("Content-Disposition: attachment; filename=\"$filename.$extension\"");
+        header('Content-Disposition: attachment; filename="' . urlencode($filename) . '.' . $extension . '"');
         header('Cache-Control: max-age=0');
         
         $object_writer = PHPExcel_IOFactory::createWriter($object, 'Excel2007');
@@ -625,7 +628,9 @@ class Score extends CI_Controller
         
             // 엑셀 파일로 내보내기
             header('Content-Type: application/vnd.ms-excel');
-            header('Content-Disposition: attachment;filename="poster_oral_초록집계현황.xlsx"');
+            // header('Content-Disposition: attachment;filename="poster_oral_초록집계현황.xlsx"');
+
+            header('Content-Disposition: attachment; filename="' . urlencode("poster_oral_초록집계현황") . '.' . "xlsx" . '"');
             header('Cache-Control: max-age=0');
             
             $object_writer = PHPExcel_IOFactory::createWriter($object, 'Excel2007');
