@@ -10,6 +10,8 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- 바로가기 아이콘 이미지 -->
+  <link rel="apple-touch-icon" href="/assets/images/test.png">
 
     <title>SICEM 2024</title>
 

@@ -454,8 +454,6 @@ class OnSite extends CI_Controller
             }
 
 
-
-
             $info = array(
                 'name_kor' => preg_replace("/\s+/", "", $name),
                 'licence_number' => preg_replace("/\s+/", "", $licence_number),

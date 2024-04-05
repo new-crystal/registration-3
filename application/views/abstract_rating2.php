@@ -105,6 +105,24 @@
 </style>
 
 <script src="https://cdn.tailwindcss.com"></script>
+<script>
+       //점수 합계 구하는 함수
+   function getSum(){
+        const value1 =  select1.options[select1.selectedIndex].value;
+        const value2 =  select2.options[select2.selectedIndex].value;
+        const value3 =  select3.options[select3.selectedIndex].value;
+        const value4 =  select4.options[select4.selectedIndex].value;
+        const value5 =  select5.options[select5.selectedIndex].value;
+        const sumTd = document.querySelector("#sum");
+        
+        if(value5 === "N"){
+            sumTd.innerText = value1*1 + value2*1 + value3*1 + value4*1;
+        }else if(value5 === "Y"){
+            sumTd.innerText = 0;
+        }
+   }
+
+</script>
 <?php
 $type_text = "";
 $category_text = "";
@@ -341,6 +359,8 @@ switch ($category) {
     let btnFlags = [];
     let closeModal = false;
     
+    let canvasScale = 0.8;
+
     //화면에서 내려서 새로고침 방지
     document.body.style.overscrollBehaviorY = 'none';
 
@@ -459,6 +479,7 @@ switch ($category) {
     //평균구하기
     const average = calculateAverage(sumList);
     const scoreList = [];
+   
     
     //조정점수 구하기
     sumList.map((sum)=>{
@@ -468,14 +489,12 @@ switch ($category) {
             scoreList.push(0)
         }
     })
-
+  
     // 조정점수 넣기
     scoreList.forEach((score, index) => {
         data[index]['etc1'] = score;
     });
-    
-     // console.log(sumList);
-     //console.log(data);
+  
     const idx = <?php echo $reviewer['idx']; ?>;
     // const localStorageItem = window.localStorage.getItem("rating0")
     // console.log(JSON.parse(localStorageItem))
@@ -560,21 +579,6 @@ switch ($category) {
         }
    }
 
-   //점수 합계 구하는 함수
-   function getSum(){
-        const value1 =  select1.options[select1.selectedIndex].value;
-        const value2 =  select2.options[select2.selectedIndex].value;
-        const value3 =  select3.options[select3.selectedIndex].value;
-        const value4 =  select4.options[select4.selectedIndex].value;
-        const value5 =  select5.options[select5.selectedIndex].value;
-
-        if(value5 === "N"){
-            sumTd.innerText = value1*1 + value2*1 + value3*1 + value4*1;
-        }else if(value5 === "Y"){
-            sumTd.innerText = 0;
-        }
-   }
-
    let showPdf = false;
 
    //pdf 뷰어 보이는 함수
@@ -606,7 +610,7 @@ switch ($category) {
     pdfjsLib.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.mjs';
 
     var pdfDoc = null,
-        scale = 1,
+        scale = canvasScale,
         canvasContainer = document.getElementById('canvas-container');
         canvasContainer.innerHTML = "";
 
@@ -647,6 +651,7 @@ switch ($category) {
         });
     }
 }
+
 
    modalBackground.addEventListener("click", ()=>{
         if(showPdf && !closeModal){
