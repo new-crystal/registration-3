@@ -2,16 +2,16 @@
 <html lang="en">
 
 <head>
-    <!-- <meta charset="utf-8"> -->
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-    <meta name="viewport" content="width=device-width" charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta name="viewport" content="width=device-width" charset="utf-8" /> -->
 
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <!-- 바로가기 아이콘 이미지 -->
-  <link rel="apple-touch-icon" href="/assets/images/test.png">
+   <link rel="apple-touch-icon" href="/assets/images/test.png">
 
     <title>SICEM 2024</title>
 
