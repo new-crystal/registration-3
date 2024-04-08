@@ -51,24 +51,32 @@
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 9999999999;
-        /* overflow: hidden; */
+        overflow: hidden;
         /* padding-top: 56.25%; */
     }
 
-    #pdf_viewer iframe{
+    #pdf_viewer img{
         width:100%;
-        height: 100%;
+        /* height: 100%; */
     }
 
     #pdf_viewer .close_pdf {
         position: absolute;
         z-index: 9999999999;
         right: 4px;
-        top: -8px;
+        top: -2px;
         color: #FFF;
         font-weight: 700;
         font-size:18px;
     }
+    #pdf_viewer .carousel{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top:30px;
+        overflow: scroll;
+    }
+
     .submit_noti{
         text-align: center;
         color: red;
@@ -78,30 +86,17 @@
     }
 
   
-.canvas_box{
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-}
+    /* ( 크롬, 사파리, 오페라, 엣지 ) 동작 */
+    .carousel::-webkit-scrollbar {
+    display: none;
+    }
 
-/* ( 크롬, 사파리, 오페라, 엣지 ) 동작 */
-.canvas_box::-webkit-scrollbar {
-  display: none;
-}
+    .carousel {
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+    }
 
-.canvas_box {
-  -ms-overflow-style: none; /* 인터넷 익스플로러 */
-  scrollbar-width: none; /* 파이어폭스 */
-}
 
-#canvas-container > canvas {
-  border: 1px solid black;
-  direction: ltr;
-  overflow: auto; 
-  margin : 0 auto;
-  /* width: 100%;
-  height: 200%; */
-}
 </style>
 
 <script src="https://cdn.tailwindcss.com"></script>
@@ -215,7 +210,7 @@ switch ($category) {
                     <td class="border border-solid p-2"><?php echo $item['nick_name'];?></td>
                     <td class="border border-solid p-2"><?php echo $item['org'];?></td>
                     <td class="border border-solid p-2"><?php echo $item['nation'];?></td>
-                    <td class="border border-solid p-2"><div class="title_box text-blue-700 underline decoration-blue-700" data-id="<?php echo $item['submission_code'];?>"><?php echo $item['title'];?></div></td>
+                    <td class="border border-solid p-2"><div class="title_box text-blue-700 underline decoration-blue-700" data-id="<?php echo $item['submission_code'];?>"  data-leng="<?php echo $item['etc1'];?>"><?php echo $item['title'];?></div></td>
                     <td class="border border-solid p-2"><button class="rating button p-2" id="<?php echo $index;?>" data-id="<?php echo $item['idx'];?>">채점하기</button></td>
                 </tr> 
                 <?php
@@ -317,18 +312,16 @@ switch ($category) {
     </div>
   
     <div id="pdf_viewer" style="display: none;">
+    <!-- <div id="pdf_viewer" style="display: none;"> -->
         <button class="close_pdf"><i class="icon-cross2"></i>창닫기</button>
-            <span id="page_count" style="opacity:0;"></span>   
-            <div class="canvas_box">
-                <div id="canvas-container"></div> 
-            </div>       
+        <div class="carousel"></div>
     </div>
     <input name="etc1" class="etc1" hidden/>
     <button id="submit" class="mt-20 py-2 px-4 bg-neutral-300 font-semibold w-60 h-12">제출하기</button>
     <div class="submit_noti">*심사를 마치시고 제출하기 버튼을 꼭 눌러주세요 <br/>**제출하기 버튼을 누르시면 이후 점수 수정이 불가합니다.</div>
 </div>
 
-<script type="module">
+<script>
     const rateBtnList = document.querySelectorAll(".rating");
     const modal = document.querySelector("#modal");
     const modalBackground = document.querySelector(".modal_background");
@@ -340,7 +333,6 @@ switch ($category) {
     const submitBtn = document.querySelector("#submit");
 
     const titleList = document.querySelectorAll(".title_box")
-    const pdfViewer = document.querySelector("#pdf_viewer");
     const closedPdf = document.querySelector(".close_pdf");
 
     const select1 =  document.querySelector("#select1");
@@ -583,80 +575,149 @@ switch ($category) {
 
    //pdf 뷰어 보이는 함수
    function showPdfViwer(e){
-        // const url = e.target.dataset.id;
-        const slicedUrl = e.target.dataset.id.slice(0,2);
-        const url = `../../assets/abstract/${slicedUrl.toLowerCase()}/${e.target.dataset.id}.pdf`
-        //const url = `https://docs.google.com/gview?embedded=true&url=${e.target.dataset.id}`;
-        
+        const carousel = document.querySelector(".carousel");
+        const carouselContainer = document.querySelector("#pdf_viewer");
+
+        const img_id = e.target.dataset.id;
+        const img_leng = e.target.dataset.leng;
+
+        const typeNum = <?php echo $abstract[0]['type']; ?>;
+        const typeTxt = getType(typeNum);
+
+        const categolryNum = <?php echo $abstract[0]['category']; ?>;
+        const categoryTxt = getCategory(categolryNum);
+
+        carousel.innerHTML = "";
+
         modalBackground.style.display = "";
-        pdfViewer.style.display = "";
+        carouselContainer.style.display = "";
         showPdf = true;
-        viewPDF(url)
+        if(typeTxt === "pp"){
+            for(let i = 1; i <= img_leng; i++){
+                carousel.innerHTML += `
+                <div class="carousel_item">
+                    <img class="slide-animation image" src = "https://image.webeon.net/SICEM/2024/abstract/img/${typeTxt}/${categoryTxt}/${img_id}/${img_id}-${i}.png"/>   
+                </div>
+            `
+            }
+        }else if(typeTxt === "op"){
+            carousel.innerHTML += `
+                <div class="carousel_item">
+                    <img class="slide-animation image" src = "https://image.webeon.net/SICEM/2024/abstract/img/${typeTxt}/${img_id}.png"/>   
+                </div>
+            `
+        }
+   
+
+        // carousel.style.transform = `translate3d(0px, 0, 0)`;
+        carouselContainer.append(carousel);
+
+      
+        //viewPDF(url)
 
         closedPdf.addEventListener("click", ()=>{
-        modalBackground.style.display = "none";
-        pdfViewer.style.display = "none";
-        showPdf = false;
+            modalBackground.style.display = "none";
+            carouselContainer.style.display = "none";
+            showPdf = false;
     })
    }
 
-   //pdf 보여주는 함수 // 여러페이지일 경우 스크롤
-   function viewPDF(url) {
-    // console.log(url)
-    // Loaded via <script> tag, create shortcut to access PDF.js exports.
-    var { pdfjsLib } = globalThis;
-
-    // The workerSrc property shall be specified.
-    pdfjsLib.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.mjs';
-
-    var pdfDoc = null,
-        scale = canvasScale,
-        canvasContainer = document.getElementById('canvas-container');
-        canvasContainer.innerHTML = "";
-
-    pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
-        pdfDoc = pdfDoc_;
-        var numPages = pdfDoc.numPages;
-        document.getElementById('page_count').textContent = numPages;
-
-        // Render all pages
-        for (var pageNum = 1; pageNum <= numPages; pageNum++) {
-            renderPage(pageNum);
+   function getType(num){
+        switch(num){
+            case 0 : 
+                return "op";
+                break;
+            case 1 :
+            case 2 : 
+                return "pp";
+                break;
         }
-    });
+   }
 
-    /**
-     * Render specified page.
-     * @param num Page number.
-     */
-    function renderPage(num) {
-        // Create a new canvas element for each page
-        var canvas = document.createElement('canvas');
-        canvas.id = 'page-' + num;
-        canvasContainer.appendChild(canvas);
+   function getCategory(num){
+    switch (num) {
+            case 1:
+            case 6:
+                return "clinical";
+                break;
+            case 2:
+            case 7:
+                return "basic";
+                break;
+            case 3:
+            case 8:
+                return "thyroid";
+                break;
+            case 4:
+            case 9:
+                return "bone";
+                break;
+            case 5:
+            case 10:
+                return "pituitary";
+                break;
+        }
 
-        // Using promise to fetch the page
-        pdfDoc.getPage(num).then(function(page) {
-            var viewport = page.getViewport({scale: scale});
-            canvas.height = viewport.height; // Set canvas height for each page
-            canvas.width = viewport.width; // Set canvas width for each page
+   }
 
-            // Render PDF page into canvas context
-            var ctx = canvas.getContext('2d');
-            var renderContext = {
-                canvasContext: ctx,
-                viewport: viewport
-            };
-            page.render(renderContext);
-        });
-    }
-}
+//    //pdf 보여주는 함수 // 여러페이지일 경우 스크롤
+//    function viewPDF(url) {
+//     // console.log(url)
+//     // Loaded via <script> tag, create shortcut to access PDF.js exports.
+//     var { pdfjsLib } = globalThis;
+
+//     // The workerSrc property shall be specified.
+//     pdfjsLib.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.mjs';
+
+//     var pdfDoc = null,
+//         scale = canvasScale,
+//         canvasContainer = document.getElementById('canvas-container');
+//         canvasContainer.innerHTML = "";
+
+//     pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
+//         pdfDoc = pdfDoc_;
+//         var numPages = pdfDoc.numPages;
+//         document.getElementById('page_count').textContent = numPages;
+
+//         // Render all pages
+//         for (var pageNum = 1; pageNum <= numPages; pageNum++) {
+//             renderPage(pageNum);
+//         }
+//     });
+
+//     /**
+//      * Render specified page.
+//      * @param num Page number.
+//      */
+//     function renderPage(num) {
+//         // Create a new canvas element for each page
+//         var canvas = document.createElement('canvas');
+//         canvas.id = 'page-' + num;
+//         canvasContainer.appendChild(canvas);
+
+//         // Using promise to fetch the page
+//         pdfDoc.getPage(num).then(function(page) {
+//             var viewport = page.getViewport({scale: scale});
+//             canvas.height = viewport.height; // Set canvas height for each page
+//             canvas.width = viewport.width; // Set canvas width for each page
+
+//             // Render PDF page into canvas context
+//             var ctx = canvas.getContext('2d');
+//             var renderContext = {
+//                 canvasContext: ctx,
+//                 viewport: viewport
+//             };
+//             page.render(renderContext);
+//         });
+//     }
+// }
 
 
    modalBackground.addEventListener("click", ()=>{
+    const carouselContainer = document.querySelector("#pdf_viewer");
         if(showPdf && !closeModal){
             modalBackground.style.display = "none";
-            pdfViewer.style.display = "none";
+            carouselContainer.style.display = "none";
             showPdf = false;
         }
         else if(!showPdf && closeModal){
