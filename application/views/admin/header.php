@@ -11,7 +11,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <!-- 바로가기 아이콘 이미지 -->
-   <link rel="apple-touch-icon" href="/assets/images/test.png">
+    <link rel="apple-touch-icon" href="/assets/images/test.png">
 
     <title>SICEM 2024</title>
 
@@ -44,17 +44,17 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.js"></script> -->
     <script src="//mozilla.github.io/pdf.js/build/pdf.mjs" type="module"></script>
 </head>
-<script>
-  // if (typeof navigator.serviceWorker !== 'undefined') {
-  //   navigator.serviceWorker.register('service-worker.js')
-  // }
-//   if ('serviceWorker' in navigator) {
-//   window.addEventListener('load', function() {
-//     navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-//       console.log('ServiceWorker registration successful with scope: ', registration.scope);
-//     }, function(err) {
-//       console.error('ServiceWorker registration failed: ', err);
-//     });
-//   });
-// }
-</script>
+<!-- <script>
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('service-worker.js')
+  }
+  if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      console.error('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+</script> -->

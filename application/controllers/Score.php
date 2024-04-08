@@ -291,6 +291,8 @@ class Score extends CI_Controller
         // header('Content-Type: application/vnd.ms-excel');
         // header("Content-Disposition: attachment; filename=\"$filename.$extension\"");
         // header('Cache-Control: max-age=0');
+       
+        //한글출력이 안 될 때 encode 
         header('Content-Type: application/vnd.ms-excel');
         header('Content-Disposition: attachment; filename="' . urlencode($filename) . '.' . $extension . '"');
         header('Cache-Control: max-age=0');

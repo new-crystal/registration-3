@@ -90,10 +90,20 @@ table th {
                     <?php } ?>
                     <?php if ($primary_menu == 'oral') { ?>
                     <form action="/score/abstract_excel" method="post">
-                    <input type="hidden" id="typeInput" name="type" value="0"/>
+                        <input type="hidden" id="typeInput" name="type" value="0"/>
                         <button class="btn btn-primary pull-right"><i class="icon-download4"></i> Oral Excel
                             Download</button>
                     </form>
+                    <form action="/score/get_abstract_excel_plus" method="post">
+                        <input type="hidden" id="typeInput" name="code1" value="op6"/>
+                        <button class="btn btn-success pull-right"><i class="icon-download4"></i> OP6 Excel</button>
+                    </form>
+                    <form action="/score/get_abstract_excel_plus" method="post">
+                        <input type="hidden" id="typeInput" name="code1" value="op1"/>
+                        <button class="btn btn-success pull-right"><i class="icon-download4"></i> OP1 Excel</button>
+                    </form>
+                 
+                    
                     <?php } ?>
                     <?php if ($primary_menu == 'poster_1') { ?>
                         
