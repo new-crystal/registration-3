@@ -84,6 +84,12 @@ class Score extends CI_Controller
         $data['abstract'] = $this->rating->get_abstract_rating($abstract_where);
         $data['reviewer'] = $this->rating->get_reviewer($reviewer_where);
 
+        $score_where = array(
+            'reviewer_idx' => $data['reviewer']['idx']
+        );
+
+        $data['pre_score'] = $this->rating->get_score($score_where);
+
         $this->load->view('abstract_rating2', $data);
     }
 

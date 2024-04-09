@@ -188,7 +188,7 @@ switch ($category) {
 		$category_text = "Pituitary/Adrenal/Gonad";
 		break;
 }
-
+// print_r($pre_score)
 ?>
 
 <div class="w-full h-screen flex items-center justify-center flex-col px-10">
@@ -333,7 +333,7 @@ switch ($category) {
             <p class="p-2">2. 각 심사 항목은 각각 10점 만점입니다. 각 항목의 중간 점수를 5점으로 고려하시어 심사를 진행하여 주십시오.</p>
             <p class="p-2">3. 동점자 최소화를 위해 변별력 있게 점수를 부여해 주십시오.</p>
             <p class="p-2">4. Poster oral 수상 예정 인원: 30명 (양일 기준, 5개 분야별 8인 발표)</p>
-            <p class="p-2">5. 채점을 완료하시면 반드시 <span class="font-semibold">제출완료</span>를 눌러주십시오.</p>
+            <p class="p-2">5. 채점을 완료하시면 반드시 <span class="font-semibold">제출하기</span>를 눌러주십시오.</p>
         </div>
     </div>
   
@@ -348,6 +348,10 @@ switch ($category) {
 </div>
 
 <script>
+    <?php
+        $pre_score_array = json_encode($pre_score);
+        echo "const pre_score = ". $pre_score_array . ";\n";
+        ?>
     const rateBtnList = document.querySelectorAll(".rating");
     const modal = document.querySelector("#modal");
     const modalBackground = document.querySelector(".modal_background");
@@ -380,6 +384,29 @@ switch ($category) {
     
     let tooltipTime = "";
 
+    // console.log(pre_score)
+    
+    window.onload = ()=>{
+        if(pre_score.length !== 0){
+            getPreData();
+        }
+    }
+
+
+    //이전 점수 불러오기
+    function getPreData(){
+        pre_score.map((score, i)=>{
+            data[i] = {
+            abstract_idx: score.abstract_idx,
+            reviewer_idx: score.reviewer_idx,
+            score1: score.score1,
+            score2: score.score2,
+            score3: score.score3,
+            score4: score.score4,
+            coi: score.coi
+        };
+        })
+    }
 
     //화면에서 내려서 새로고침 방지
     document.body.style.overscrollBehaviorY = 'none';
@@ -459,17 +486,17 @@ switch ($category) {
             score4: value4,
             coi: value5
         };
-    //console.log(data)
+   // console.log(data)
 
-    const localSaveData = JSON.stringify({
-            abstract_idx: abstract_idx,
-            reviewer_idx: reviewer_idx,
-            score1: value1,
-            score2: value2,
-            score3: value3,
-            score4: value4,
-            coi: value5
-        })
+    // const localSaveData = JSON.stringify({
+    //         abstract_idx: abstract_idx,
+    //         reviewer_idx: reviewer_idx,
+    //         score1: value1,
+    //         score2: value2,
+    //         score3: value3,
+    //         score4: value4,
+    //         coi: value5
+    //     })
 
     //window.localStorage.setItem(`rating${index}`, localSaveData)
 }

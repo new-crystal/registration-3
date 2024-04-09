@@ -90,6 +90,12 @@ class Rating extends CI_Model
 		return $this->db->get($this->abstract_reviewer)->row_array();
     }
 
+    public function get_score($where)
+    {
+        $this->db->where($where);
+		return $this->db->get($this->abstract_score)->result_array();
+    }
+
     public function add_score($info)
     {
         $this->db->insert($this->abstract_score, $info);
