@@ -367,7 +367,7 @@ switch ($category) {
     const select4 =  document.querySelector("#select4");
     const select5 =  document.querySelector("#select5");
 
-    const tooltipBox = document.querySelector(".tooltip_box");
+    //const tooltipBox = document.querySelector(".tooltip_box");
 
     let data = {};
     let sumList = [];
@@ -403,7 +403,7 @@ switch ($category) {
    //modal 채점 완료 버튼 이벤트
    completedBtn.addEventListener("click", async ()=>{
         closeModal = false;
-        clearTimeout(tooltipTime);
+        //clearTimeout(tooltipTime);
 
         saveData(modal.dataset.index)
     
@@ -557,9 +557,9 @@ switch ($category) {
         closeModal = true;
         modal.style.display = "";
         modalBackground.style.display = "";
-        tooltipBox.style.opacity = 1;
+        //tooltipBox.style.opacity = 1;
 
-        tooltipTime = setTimeout(()=>{tooltipBox.style.opacity = 0;},3000)
+        //tooltipTime = setTimeout(()=>{tooltipBox.style.opacity = 0;},3000)
 
         modal.dataset.id = e.target.dataset.id;
         modal.dataset.index = e.target.id;
@@ -762,9 +762,9 @@ switch ($category) {
             showPdf = false;
         }
         else if(!showPdf && closeModal){
-            //alert("채점완료 버튼을 눌러주세요.")
-            tooltipBox.style.opacity = 1;
-            tooltipTime = setTimeout(()=>{tooltipBox.style.opacity = 0;},3000)
+            alert("채점완료 버튼을 눌러주세요.")
+            //tooltipBox.style.opacity = 1;
+            //tooltipTime = setTimeout(()=>{tooltipBox.style.opacity = 0;},3000)
         }
    })
 
