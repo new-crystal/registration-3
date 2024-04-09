@@ -83,7 +83,7 @@ class Score extends CI_Controller
 
         $data['abstract'] = $this->rating->get_abstract_rating($abstract_where);
         $data['reviewer'] = $this->rating->get_reviewer($reviewer_where);
-
+        //이전 점수 불러와서 넣어주기
         $score_where = array(
             'reviewer_idx' => $data['reviewer']['idx']
         );
@@ -110,6 +110,12 @@ class Score extends CI_Controller
     {
         $this->load->view('admin/header');
         $this->load->view('abstract_notice');
+    }
+
+    public function test()
+    {
+        $this->load->view('admin/header');
+        $this->load->view('abstract_rating2_test');
     }
 
     public function add_sum(){
