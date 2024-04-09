@@ -75,6 +75,7 @@
         position: absolute;
         top:30px;
         overflow: scroll;
+        padding-bottom: 35px;
     }
 
     .submit_noti{
@@ -96,6 +97,28 @@
     scrollbar-width: none; /* 파이어폭스 */
     }
 
+    .tooltip_box{
+        position: absolute;
+        right: -140px;
+        top: 39px;
+        background-color: rgb(225 29 72);
+        padding: 16px;
+        border-radius: 8px;
+        color: wheat;
+    }
+
+    .tooltip_box::after {
+        position: absolute;
+        left: 22px;
+        top: 44px;
+        content: '';
+        width: 15px;
+        height: 15px;
+        border-top: 5px solid rgb(225 29 72);
+        border-right: 5px solid rgb(225 29 72);
+        transform: rotate(135deg);
+        background-color: rgb(225 29 72);
+    }
 
 </style>
 
@@ -297,6 +320,9 @@ switch ($category) {
                 </td>
                 <td class="border border-solid py-2 px-4" id="sum">4</td>
                 <td class="border border-solid py-2 px-4">
+                    <div class="tooltip_box animate-bounce" style="opacity: 0;">
+                        <p>채점완료 버튼을 눌러주세요.</p>
+                    </div>
                     <button id="completed" class="button">채점 완료</button>
                 </td>
             </tr>
@@ -341,6 +367,7 @@ switch ($category) {
     const select4 =  document.querySelector("#select4");
     const select5 =  document.querySelector("#select5");
 
+    const tooltipBox = document.querySelector(".tooltip_box");
 
     let data = {};
     let sumList = [];
@@ -351,7 +378,8 @@ switch ($category) {
     let btnFlags = [];
     let closeModal = false;
     
-    let canvasScale = 0.8;
+    let tooltipTime = "";
+
 
     //화면에서 내려서 새로고침 방지
     document.body.style.overscrollBehaviorY = 'none';
@@ -375,6 +403,7 @@ switch ($category) {
    //modal 채점 완료 버튼 이벤트
    completedBtn.addEventListener("click", async ()=>{
         closeModal = false;
+        clearTimeout(tooltipTime);
 
         saveData(modal.dataset.index)
     
@@ -487,23 +516,33 @@ switch ($category) {
         data[index]['etc1'] = score;
     });
   
-    const idx = <?php echo $reviewer['idx']; ?>;
+    <?php
+        if (isset($reviewer['idx'])) {
+            $idx = $reviewer['idx'];
+            echo "const idx = $idx;"; ?>
+            $.ajax({
+                type: "POST",
+                url : url,
+                data: data,
+                success: function(result){
+                    alert("채점을 해주셔서 감사합니다.");
+                    //window.localStorage.clear();
+                    window.location.href = `/score/review?n=${idx}`;
+                },
+                error:function(e){  
+                    console.log(e)
+                    alert("점수 저장 이슈가 발생했습니다. 관리자에게 문의해주세요.")
+                }
+        })  
+      <?php } else {
+            // $reviewer['idx']가 없는 경우 에러를 처리하기 위해 JavaScript 코드를 생성합니다.
+            echo "alert('심사자가 존재하지 않습니다.'); return;";
+        }
+    ?>
+    //const idx = <?php echo $reviewer['idx']; ?>;
     // const localStorageItem = window.localStorage.getItem("rating0")
     // console.log(JSON.parse(localStorageItem))
-    $.ajax({
-		type: "POST",
-		url : url,
-		data: data,
-		success: function(result){
-            alert("채점을 해주셔서 감사합니다.");
-            //window.localStorage.clear();
-            window.location.href = `/score/review?n=${idx}`;
-        },
-		error:function(e){  
-            console.log(e)
-            alert("점수 저장 이슈가 발생했습니다. 관리자에게 문의해주세요.")
-		}
-	})  
+   
    }
 
    //제목 클릭 => pdf 뷰어
@@ -518,6 +557,10 @@ switch ($category) {
         closeModal = true;
         modal.style.display = "";
         modalBackground.style.display = "";
+        tooltipBox.style.opacity = 1;
+
+        tooltipTime = setTimeout(()=>{tooltipBox.style.opacity = 0;},3000)
+
         modal.dataset.id = e.target.dataset.id;
         modal.dataset.index = e.target.id;
 
@@ -596,22 +639,20 @@ switch ($category) {
             for(let i = 1; i <= img_leng; i++){
                 carousel.innerHTML += `
                 <div class="carousel_item">
-                    <img class="slide-animation image" src = "https://image.webeon.net/SICEM/2024/abstract/img/${typeTxt}/${categoryTxt}/${img_id}/${img_id}-${i}.png"/>   
+                    <img class="slide-animation image" src = "https://186e4e806bf2d560.kinxzone.com/img/${typeTxt}/${categoryTxt}/${img_id}/${img_id}-${i}.png"/>   
                 </div>
             `
             }
         }else if(typeTxt === "op"){
             carousel.innerHTML += `
                 <div class="carousel_item">
-                    <img class="slide-animation image" src = "https://image.webeon.net/SICEM/2024/abstract/img/${typeTxt}/${img_id}.png"/>   
+                    <img class="slide-animation image" src = "https://186e4e806bf2d560.kinxzone.com/img/${typeTxt}/${img_id}.png"/>   
                 </div>
             `
         }
    
 
-        // carousel.style.transform = `translate3d(0px, 0, 0)`;
         carouselContainer.append(carousel);
-
       
         //viewPDF(url)
 
@@ -721,7 +762,9 @@ switch ($category) {
             showPdf = false;
         }
         else if(!showPdf && closeModal){
-            alert("채점완료 버튼을 눌러주세요.")
+            //alert("채점완료 버튼을 눌러주세요.")
+            tooltipBox.style.opacity = 1;
+            tooltipTime = setTimeout(()=>{tooltipBox.style.opacity = 0;},3000)
         }
    })
 
@@ -744,10 +787,10 @@ switch ($category) {
 
     return sum / count;
 }
-    //뒤로가기 새로고침 경고창
-    $(window).on("beforeunload", function(){
-            return "현재 채점하신 점수가 초기화 될 수 있습니다.";
-        });
+    // //뒤로가기 새로고침 경고창
+    // $(window).on("beforeunload", function(){
+    //         return "현재 채점하신 점수가 초기화 될 수 있습니다.";
+    //     });
 
 
 </script>
