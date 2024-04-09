@@ -332,7 +332,11 @@ switch ($category) {
             <p class="p-2">1. 초록의 발표자 또는 공저자인 경우 COI에 O로 체크하신 후 해당 초록에 대한 심사는 심사에서 제외하여 주십시오.</p>
             <p class="p-2">2. 각 심사 항목은 각각 10점 만점입니다. 각 항목의 중간 점수를 5점으로 고려하시어 심사를 진행하여 주십시오.</p>
             <p class="p-2">3. 동점자 최소화를 위해 변별력 있게 점수를 부여해 주십시오.</p>
-            <p class="p-2">4. Poster oral 수상 예정 인원: 30명 (양일 기준, 5개 분야별 8인 발표)</p>
+            <?php if($type == 0){ ?>
+                <p class="p-2">4. Oral Session 수상 인원: Plenary oral 1명, Best oral 1명, Excellent oral 3명 (분야별 선정인원)</p>
+            <?php }else if($type == 1 || $type == 2){ ?>
+                <p class="p-2">4. Poster oral 수상 예정 인원: 30명 (양일 기준, 5개 분야별 8인 발표)</p>
+            <?php } ?>
             <p class="p-2">5. 채점을 완료하시면 반드시 <span class="font-semibold">제출하기</span>를 눌러주십시오.</p>
         </div>
     </div>
@@ -663,13 +667,22 @@ switch ($category) {
         carouselContainer.style.display = "";
         showPdf = true;
         if(typeTxt === "pp"){
-            for(let i = 1; i <= img_leng; i++){
-                carousel.innerHTML += `
+
+            //초록 포스터 버전
+            // for(let i = 1; i <= img_leng; i++){
+            //     carousel.innerHTML += `
+            //     <div class="carousel_item">
+            //         <img class="slide-animation image" src = "https://186e4e806bf2d560.kinxzone.com/img/${typeTxt}/${categoryTxt}/${img_id}/${img_id}-${i}.png"/>   
+            //     </div>
+            // `
+            // }
+
+            //[240409] sujeong / 학회팀 요청 초록 원고버전으로 변경
+            carousel.innerHTML += `
                 <div class="carousel_item">
-                    <img class="slide-animation image" src = "https://186e4e806bf2d560.kinxzone.com/img/${typeTxt}/${categoryTxt}/${img_id}/${img_id}-${i}.png"/>   
+                    <img class="slide-animation image" src = "https://186e4e806bf2d560.kinxzone.com/img/${typeTxt}/${categoryTxt}/${img_id}/${img_id}_1.png"/>   
                 </div>
             `
-            }
         }else if(typeTxt === "op"){
             carousel.innerHTML += `
                 <div class="carousel_item">
