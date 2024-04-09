@@ -13,8 +13,7 @@
         text-align: center;
         font-size: 14px;
         padding: 8px;
-        /* font-size: 0.875rem; 14px */
-        line-height: 1.4; /* 20px */
+        line-height: 1.4; 
     }
 
     .button{
@@ -23,9 +22,6 @@
     }
 
     .title_box{
-        /* width: 400px;
-        overflow: hidden; */
-        /* white-space: nowrap; */
         text-overflow: ellipsis;
         word-break: break-all;
         cursor: pointer;
@@ -52,12 +48,10 @@
         transform: translate(-50%, -50%);
         z-index: 9999999999;
         overflow: hidden;
-        /* padding-top: 56.25%; */
     }
 
     #pdf_viewer img{
         width:100%;
-        /* height: 100%; */
     }
 
     #pdf_viewer .close_pdf {
@@ -86,8 +80,6 @@
         line-height: 1.6;
     }
 
-  
-    /* ( 크롬, 사파리, 오페라, 엣지 ) 동작 */
     .carousel::-webkit-scrollbar {
     display: none;
     }
@@ -141,59 +133,10 @@
    }
 
 </script>
-<?php
-$type_text = "";
-$category_text = "";
-
- //print_r($abstract[0]['type']);
-// print_r($reviewer);
-
-$sliced_code = explode("-", $reviewer['code'])[0];
-
-// $type = $sliced_code[0];
-$type = $abstract[0]['type'];
-switch ($type) {
-	case 0:
-		$type_text = "Oral";
-		break;
-	case 1:
-		$type_text = "Poster oral I";
-		break;
-	case 2:
-		$type_text = "Poster oral II";
-		break;
-}
-
-// $category = $sliced_code[2];
-$category = $abstract[0]['category'];
-switch ($category) {
-	case 1:
-    case 6:
-		$category_text = "Diabetes/Obesity/Lipid (clinical)";
-		break;
-	case 2:
-    case 7:
-		$category_text = "Diabetes/Obesity/Lipid (basic)";
-		break;
-	case 3:
-    case 8:
-		$category_text = "Thyroid";
-		break;
-	case 4:
-    case 9:
-		$category_text = "Bone/Muscle";
-		break;
-	case 5:
-    case 10:
-		$category_text = "Pituitary/Adrenal/Gonad";
-		break;
-}
-// print_r($pre_score)
-?>
 
 <div class="w-full h-screen flex items-center justify-center flex-col px-10">
     
-    <h1 class="font-semibold text-3xl font-sans"><?php echo $type_text; ?> 채점표</h1>
+    <h1 class="font-semibold text-3xl font-sans">TEST 채점표</h1>
     <div class="mt-10 w-6/12">
         <table class="border border-solid w-full">
             <tr class="border border-solid">
@@ -205,10 +148,9 @@ switch ($category) {
                 <td class="border border-solid py-2 px-4">소속</td>
             </tr>
             <tr>
-                <input id="reviewer_idx" value="<?php echo $reviewer['idx']; ?>" hidden/>
-                <td class="border border-solid py-2 px-4"> <div class="text_box"><?php echo $category_text; ?></div> </td>
-                <td class="border border-solid py-2 px-4"> <?php echo $reviewer['nick_name']; ?> </td>
-                <td class="border border-solid py-2 px-4"> <?php echo $reviewer['org']; ?> </td>
+                <td class="border border-solid py-2 px-4"> <div class="text_box">Diabetes/Obesity/Lipid (clinical)</div> </td>
+                <td class="border border-solid py-2 px-4">홍길동</td>
+                <td class="border border-solid py-2 px-4">대한내분비학회</td>
             </tr>
         </table>
     </div>
@@ -223,23 +165,42 @@ switch ($category) {
                 <td class="border border-solid p-2">Abstract Title</td>
                 <td class="border border-solid p-2"></td>
             </tr>
-            <?php 
-            $index = 0;
-            foreach($abstract as $item){ 
-                ?>
-                <tr>
-                    <td class="border border-solid p-2"><?php echo $index + 1 ?></td>
-                    <td class="border border-solid p-2"><?php echo $item['submission_code'];?></td>
-                    <td class="border border-solid p-2"><?php echo $item['nick_name'];?></td>
-                    <td class="border border-solid p-2"><?php echo $item['org'];?></td>
-                    <td class="border border-solid p-2"><?php echo $item['nation'];?></td>
-                    <td class="border border-solid p-2"><div class="title_box text-blue-700 underline decoration-blue-700" data-id="<?php echo $item['submission_code'];?>"  data-leng="<?php echo $item['etc1'];?>"><?php echo $item['title'];?></div></td>
-                    <td class="border border-solid p-2"><button class="rating button p-2" id="<?php echo $index;?>" data-id="<?php echo $item['idx'];?>">채점하기</button></td>
+            <tr>
+                    <td class="border border-solid p-2">1</td>
+                    <td class="border border-solid p-2">PP1-1</td>
+                    <td class="border border-solid p-2">Ahmad Zamir Che Daud </td>
+                    <td class="border border-solid p-2">Universiti Teknologi MARA</td>
+                    <td class="border border-solid p-2">Malaysia</td>
+                    <td class="border border-solid p-2"><div class="title_box text-blue-700 underline decoration-blue-700" data-id="PP1-1"  data-leng="5">Effectiveness of Integrated Insulin Education (ITEI) on insulin knowledge and injection competency: a randomized control trial study</div></td>
+                    <td class="border border-solid p-2"><button class="rating button p-2" id="0" data-id="32">채점하기</button></td>
                 </tr> 
-                <?php
-                $index++;
-            } ?>
-           
+                                <tr>
+                    <td class="border border-solid p-2">2</td>
+                    <td class="border border-solid p-2">PP1-2</td>
+                    <td class="border border-solid p-2">Heejun Son</td>
+                    <td class="border border-solid p-2">Seoul National University</td>
+                    <td class="border border-solid p-2">Korea</td>
+                    <td class="border border-solid p-2"><div class="title_box text-blue-700 underline decoration-blue-700" data-id="PP1-2"  data-leng="4">The effect of continuous glucose monitoring on post-operative glucose control in people with type 2 diabetes mellitus undergoing coronary artery bypass grafting: a randomized clinical trial</div></td>
+                    <td class="border border-solid p-2"><button class="rating button p-2" id="1" data-id="33">채점하기</button></td>
+                </tr> 
+                                <tr>
+                    <td class="border border-solid p-2">3</td>
+                    <td class="border border-solid p-2">PP1-3</td>
+                    <td class="border border-solid p-2">Denise Joy Emmanuelle Lopez </td>
+                    <td class="border border-solid p-2">Philippine General Hospital</td>
+                    <td class="border border-solid p-2">Philippines</td>
+                    <td class="border border-solid p-2"><div class="title_box text-blue-700 underline decoration-blue-700" data-id="PP1-3"  data-leng="5">Efficacy of retatrutide for weight reduction and its cardiometabolic effects among adults: a systematic review and meta-analysis</div></td>
+                    <td class="border border-solid p-2"><button class="rating button p-2" id="2" data-id="34">채점하기</button></td>
+                </tr> 
+                                <tr>
+                    <td class="border border-solid p-2">4</td>
+                    <td class="border border-solid p-2">PP1-4</td>
+                    <td class="border border-solid p-2">Javad Alizargar </td>
+                    <td class="border border-solid p-2">Kashan University</td>
+                    <td class="border border-solid p-2">Iran, Islamic Republic of</td>
+                    <td class="border border-solid p-2"><div class="title_box text-blue-700 underline decoration-blue-700" data-id="PP1-4"  data-leng="4">Insulin resistance linked to increased risk of End-Stage Renal Disease in non-diabetic and diabetic individuals: findings from a large-scale study</div></td>
+                    <td class="border border-solid p-2"><button class="rating button p-2" id="3" data-id="35">채점하기</button></td>
+                </tr>      
         </table>
     </div>
 
@@ -338,7 +299,6 @@ switch ($category) {
     </div>
   
     <div id="pdf_viewer" style="display: none;">
-    <!-- <div id="pdf_viewer" style="display: none;"> -->
         <button class="close_pdf"><i class="icon-cross2"></i>창닫기</button>
         <div class="carousel"></div>
     </div>
@@ -348,10 +308,6 @@ switch ($category) {
 </div>
 
 <script>
-    <?php
-        $pre_score_array = json_encode($pre_score);
-        echo "const pre_score = ". $pre_score_array . ";\n";
-        ?>
     const rateBtnList = document.querySelectorAll(".rating");
     const modal = document.querySelector("#modal");
     const modalBackground = document.querySelector(".modal_background");
@@ -383,30 +339,6 @@ switch ($category) {
     let closeModal = false;
     
     let tooltipTime = "";
-
-    // console.log(pre_score)
-    
-    window.onload = ()=>{
-        if(pre_score.length !== 0){
-            getPreData();
-        }
-    }
-
-
-    //이전 점수 불러오기
-    function getPreData(){
-        pre_score.map((score, i)=>{
-            data[i] = {
-            abstract_idx: score.abstract_idx,
-            reviewer_idx: score.reviewer_idx,
-            score1: score.score1,
-            score2: score.score2,
-            score3: score.score3,
-            score4: score.score4,
-            coi: score.coi
-        };
-        })
-    }
 
     //화면에서 내려서 새로고침 방지
     document.body.style.overscrollBehaviorY = 'none';
@@ -462,7 +394,7 @@ switch ($category) {
    function saveData(index) {
 
         const abstract_idx = modal.dataset.id;
-        const reviewer_idx = document.querySelector("#reviewer_idx").value;
+        const reviewer_idx = 777;
 
         let value1 =  select1.options[select1.selectedIndex].value;
         let value2 =  select2.options[select2.selectedIndex].value;
@@ -486,19 +418,7 @@ switch ($category) {
             score4: value4,
             coi: value5
         };
-   // console.log(data)
 
-    // const localSaveData = JSON.stringify({
-    //         abstract_idx: abstract_idx,
-    //         reviewer_idx: reviewer_idx,
-    //         score1: value1,
-    //         score2: value2,
-    //         score3: value3,
-    //         score4: value4,
-    //         coi: value5
-    //     })
-
-    //window.localStorage.setItem(`rating${index}`, localSaveData)
 }
 
    //제출하기 버튼 이벤트
@@ -515,62 +435,11 @@ switch ($category) {
             alert("채점을 완료해주세요.")
         }else{
             if (window.confirm("제출 후에는 점수 수정이 어렵습니다. 채점을 제출하시겠습니까?")) {
-                postAjax();
+                alert("테스트를 해주셔서 감사합니다.");
             }
         }
    })
 
-   //ajax 보내기
-   function postAjax(){
-    const url = `/score/add_sum`;
-
-    //평균구하기
-    const average = calculateAverage(sumList);
-    const scoreList = [];
-   
-    
-    //조정점수 구하기
-    sumList.map((sum)=>{
-        if(sum !== 0){
-            scoreList.push(sum * 20 / average)
-        }else{
-            scoreList.push(0)
-        }
-    })
-  
-    // 조정점수 넣기
-    scoreList.forEach((score, index) => {
-        data[index]['etc1'] = score;
-    });
-  
-    <?php
-        if (isset($reviewer['idx'])) {
-            $idx = $reviewer['idx'];
-            echo "const idx = $idx;"; ?>
-            $.ajax({
-                type: "POST",
-                url : url,
-                data: data,
-                success: function(result){
-                    alert("채점을 해주셔서 감사합니다.");
-                    //window.localStorage.clear();
-                    window.location.href = `/score/review?n=${idx}`;
-                },
-                error:function(e){  
-                    console.log(e)
-                    alert("점수 저장 이슈가 발생했습니다. 관리자에게 문의해주세요.")
-                }
-        })  
-      <?php } else {
-            // $reviewer['idx']가 없는 경우 에러를 처리하기 위해 JavaScript 코드를 생성합니다.
-            echo "alert('심사자가 존재하지 않습니다. 관리자에게 문의해주세요.'); return;";
-        }
-    ?>
-    //const idx = <?php echo $reviewer['idx']; ?>;
-    // const localStorageItem = window.localStorage.getItem("rating0")
-    // console.log(JSON.parse(localStorageItem))
-   
-   }
 
    //제목 클릭 => pdf 뷰어
    titleList.forEach((title)=>{
@@ -651,10 +520,10 @@ switch ($category) {
         const img_id = e.target.dataset.id;
         const img_leng = e.target.dataset.leng;
 
-        const typeNum = <?php echo $abstract[0]['type']; ?>;
+        const typeNum = 1;
         const typeTxt = getType(typeNum);
 
-        const categolryNum = <?php echo $abstract[0]['category']; ?>;
+        const categolryNum = 1;
         const categoryTxt = getCategory(categolryNum);
 
         carousel.innerHTML = "";
