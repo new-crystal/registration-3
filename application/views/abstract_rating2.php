@@ -132,6 +132,9 @@
         const value4 =  select4.options[select4.selectedIndex].value;
         const value5 =  select5.options[select5.selectedIndex].value;
         const sumTd = document.querySelector("#sum");
+
+        completedBtn.classList.add("bg-blue-500");
+        completedBtn.classList.add("text-white");
         
         if(value5 === "N"){
             sumTd.innerText = value1*1 + value2*1 + value3*1 + value4*1;
@@ -245,7 +248,7 @@ switch ($category) {
 
     <div class="modal_background" style="display: none;"></div>
     <div id="modal" style="display: none;" class="p-4 w-3/5">
-        <table>
+        <table class="w-full">
             <tr>
                 <th class="border border-solid py-2 px-4">연구의 창의성<br/>(1점~10점)</th>
                 <th class="border border-solid py-2 px-4">방법의 타당성<br/>(1점~10점)</th>
@@ -323,7 +326,7 @@ switch ($category) {
                     <div class="tooltip_box animate-bounce" style="opacity: 0;">
                         <p>심사완료 버튼을 눌러주세요.</p>
                     </div>
-                    <button id="completed" class="button bg-blue-500 text-white">심사 완료</button>
+                    <button id="completed" class="button">확인</button>
                 </td>
             </tr>
         </table>
@@ -437,6 +440,9 @@ switch ($category) {
         //clearTimeout(tooltipTime);
 
         saveData(modal.dataset.index)
+
+        completedBtn.classList.remove("bg-blue-500");
+        completedBtn.classList.remove("text-white");
     
         modal.style.display = "none";
         modalBackground.style.display = "none";
@@ -808,7 +814,7 @@ switch ($category) {
             showPdf = false;
         }
         else if(!showPdf && closeModal){
-            alert("심사완료 버튼을 눌러주세요.")
+            alert("확인 버튼을 눌러주세요.")
             //tooltipBox.style.opacity = 1;
             //tooltipTime = setTimeout(()=>{tooltipBox.style.opacity = 0;},3000)
         }
