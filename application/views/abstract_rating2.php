@@ -511,6 +511,7 @@ switch ($category) {
         rateBtnList.forEach((btn)=>{
             if(btn.innerText !== "심사완료"){
                 btn.style.background = "rgb(225 29 72)";
+                btn.style.color = "#FFF"
                 submitStatus = false;
             }
         })
