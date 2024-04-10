@@ -532,13 +532,12 @@
         carouselContainer.style.display = "";
         showPdf = true;
         if(typeTxt === "pp"){
-            for(let i = 1; i <= img_leng; i++){
-                carousel.innerHTML += `
+            carousel.innerHTML += `
                 <div class="carousel_item">
-                    <img class="slide-animation image" src = "https://186e4e806bf2d560.kinxzone.com/img/${typeTxt}/${categoryTxt}/${img_id}/${img_id}-${i}.png"/>   
+                    <img class="slide-animation image" src = "https://186e4e806bf2d560.kinxzone.com/img/${typeTxt}/${categoryTxt}/${img_id}/${img_id}_1.png"/>   
                 </div>
             `
-            }
+            
         }else if(typeTxt === "op"){
             carousel.innerHTML += `
                 <div class="carousel_item">
