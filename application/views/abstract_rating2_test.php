@@ -136,7 +136,7 @@
 
 <div class="w-full h-screen flex items-center justify-center flex-col px-10">
     
-    <h1 class="font-semibold text-3xl font-sans">TEST 채점표</h1>
+    <h1 class="font-semibold text-3xl font-sans">TEST 심사표</h1>
     <div class="mt-10 w-6/12">
         <table class="border border-solid w-full">
             <tr class="border border-solid">
@@ -172,7 +172,7 @@
                     <td class="border border-solid p-2">Universiti Teknologi MARA</td>
                     <td class="border border-solid p-2">Malaysia</td>
                     <td class="border border-solid p-2"><div class="title_box text-blue-700 underline decoration-blue-700" data-id="PP1-1"  data-leng="5">Effectiveness of Integrated Insulin Education (ITEI) on insulin knowledge and injection competency: a randomized control trial study</div></td>
-                    <td class="border border-solid p-2"><button class="rating button p-2" id="0" data-id="32">채점하기</button></td>
+                    <td class="border border-solid p-2"><button class="rating button p-2" id="0" data-id="32">심사하기</button></td>
                 </tr> 
                                 <tr>
                     <td class="border border-solid p-2">2</td>
@@ -181,7 +181,7 @@
                     <td class="border border-solid p-2">Seoul National University</td>
                     <td class="border border-solid p-2">Korea</td>
                     <td class="border border-solid p-2"><div class="title_box text-blue-700 underline decoration-blue-700" data-id="PP1-2"  data-leng="4">The effect of continuous glucose monitoring on post-operative glucose control in people with type 2 diabetes mellitus undergoing coronary artery bypass grafting: a randomized clinical trial</div></td>
-                    <td class="border border-solid p-2"><button class="rating button p-2" id="1" data-id="33">채점하기</button></td>
+                    <td class="border border-solid p-2"><button class="rating button p-2" id="1" data-id="33">심사하기</button></td>
                 </tr> 
                                 <tr>
                     <td class="border border-solid p-2">3</td>
@@ -190,7 +190,7 @@
                     <td class="border border-solid p-2">Philippine General Hospital</td>
                     <td class="border border-solid p-2">Philippines</td>
                     <td class="border border-solid p-2"><div class="title_box text-blue-700 underline decoration-blue-700" data-id="PP1-3"  data-leng="5">Efficacy of retatrutide for weight reduction and its cardiometabolic effects among adults: a systematic review and meta-analysis</div></td>
-                    <td class="border border-solid p-2"><button class="rating button p-2" id="2" data-id="34">채점하기</button></td>
+                    <td class="border border-solid p-2"><button class="rating button p-2" id="2" data-id="34">심사하기</button></td>
                 </tr> 
                                 <tr>
                     <td class="border border-solid p-2">4</td>
@@ -199,7 +199,7 @@
                     <td class="border border-solid p-2">Kashan University</td>
                     <td class="border border-solid p-2">Iran, Islamic Republic of</td>
                     <td class="border border-solid p-2"><div class="title_box text-blue-700 underline decoration-blue-700" data-id="PP1-4"  data-leng="4">Insulin resistance linked to increased risk of End-Stage Renal Disease in non-diabetic and diabetic individuals: findings from a large-scale study</div></td>
-                    <td class="border border-solid p-2"><button class="rating button p-2" id="3" data-id="35">채점하기</button></td>
+                    <td class="border border-solid p-2"><button class="rating button p-2" id="3" data-id="35">심사하기</button></td>
                 </tr>      
         </table>
     </div>
@@ -214,7 +214,7 @@
                 <th class="border border-solid py-2 px-4">발표의 우수성<br/>(1점~10점)</th>
                 <th class="border border-solid py-2 px-4">COI</th>
                 <th class="border border-solid py-2 px-4">총점<br/>(40점)</th>
-                <th class="border border-solid py-2 px-4">채점 완료</th>
+                <th class="border border-solid py-2 px-4">심사 완료</th>
             </tr>
             <tr>
                 <td class="border border-solid py-2 px-4">
@@ -282,9 +282,9 @@
                 <td class="border border-solid py-2 px-4" id="sum">4</td>
                 <td class="border border-solid py-2 px-4">
                     <div class="tooltip_box animate-bounce" style="opacity: 0;">
-                        <p>채점완료 버튼을 눌러주세요.</p>
+                        <p>심사완료 버튼을 눌러주세요.</p>
                     </div>
-                    <button id="completed" class="button">완료</button>
+                    <button id="completed" class="button bg-blue-500 text-white">심사 완료</button>
                 </td>
             </tr>
         </table>
