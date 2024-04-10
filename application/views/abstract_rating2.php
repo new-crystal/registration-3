@@ -120,6 +120,12 @@
         background-color: rgb(225 29 72);
     }
 
+    *{
+        user-select: none;
+        word-break: keep-all;
+    }
+
+
 </style>
 
 <script src="https://cdn.tailwindcss.com"></script>
@@ -197,15 +203,20 @@ switch ($category) {
 <div class="w-full h-screen flex items-center justify-center flex-col px-10">
     
     <h1 class="font-semibold text-3xl font-sans"><?php echo $type_text; ?> 심사표</h1>
-    <div class="mt-10 w-6/12">
+    <div class="mt-10 w-full">
         <table class="border border-solid w-full">
+            <colgroup>
+                <col width="33.3%">
+                <col>
+                <col>
+            </colgroup>
             <tr class="border border-solid">
-                <td class="border border-solid py-2 px-4" colspan="3">심사위원정보</td>
+                <td class="border border-solid py-6 px-4 bg-slate-200" colspan="3">심사위원 정보</td>
             </tr>
-            <tr>
-                <td class="border border-solid py-2 px-4">파트구분</td>
-                <td class="border border-solid py-2 px-4">성함</td>
-                <td class="border border-solid py-2 px-4">소속</td>
+            <tr class="*:border *:border-solid *:py-6 *:px-4 *:bg-slate-500 *:text-white *:font-semibold">
+                <td>파트구분</td>
+                <td>성함</td>
+                <td>소속</td>
             </tr>
             <tr>
                 <input id="reviewer_idx" value="<?php echo $reviewer['idx']; ?>" hidden/>
@@ -215,32 +226,32 @@ switch ($category) {
             </tr>
         </table>
     </div>
-    <div class="mt-10 w-full mx-auto">
+    <div class="mt-20 w-full mx-auto">
         <table class="border border-solid w-full">
-            <tr class="border border-solid">
-                <td class="border border-solid p-2">No.</td>
-                <td class="border border-solid p-2">Abstract No.</td>
-                <td class="border border-solid p-2">Presenter Name</td>
-                <td class="border border-solid p-2">Affiliation</td>
-                <td class="border border-solid p-2">Country</td>
-                <td class="border border-solid p-2">Abstract Title</td>
-                <td class="border border-solid p-2"></td>
+            <tr class="border border-solid *:bg-slate-500 *:text-white *:font-semibold *:border *:border-solid *:p-2">
+                <td>No.</td>
+                <td>Abstract No.</td>
+                <td>Presenter Name</td>
+                <td>Affiliation</td>
+                <td>Country</td>
+                <td>Abstract Title</td>
+                <td></td>
             </tr>
             <?php 
             $index = 0;
             foreach($abstract as $item){ 
                 ?>
-                <tr>
-                    <td class="border border-solid p-2"><?php echo $index + 1 ?></td>
-                    <td class="border border-solid p-2"><?php echo $item['submission_code'];?></td>
-                    <td class="border border-solid p-2"><?php echo $item['nick_name'];?></td>
-                    <td class="border border-solid p-2"><?php echo $item['org'];?></td>
-                    <td class="border border-solid p-2"><?php echo $item['nation'];?></td>
-                    <td class="border border-solid p-2"><div class="title_box text-blue-700 underline decoration-blue-700" data-id="<?php echo $item['submission_code'];?>"  data-leng="<?php echo $item['etc1'];?>"><?php echo $item['title'];?></div></td>
-                    <td class="border border-solid p-2"><button class="rating button p-2" id="<?php echo $index;?>" data-id="<?php echo $item['idx'];?>">심사하기</button></td>
+                <tr class="*:border *:border-solid *:p-2">
+                    <td><?php echo $index + 1 ?></td>
+                    <td><?php echo $item['submission_code'];?></td>
+                    <td><?php echo $item['nick_name'];?></td>
+                    <td><?php echo $item['org'];?></td>
+                    <td><?php echo $item['nation'];?></td>
+                    <td><div class="title_box text-blue-700 decoration-blue-700 break-keep" data-id="<?php echo $item['submission_code'];?>"  data-leng="<?php echo $item['etc1'];?>"><?php echo $item['title'];?></div></td>
+                    <td><button class="rating button p-2" id="<?php echo $index;?>" data-id="<?php echo $item['idx'];?>">심사하기</button></td>
                 </tr> 
                 <?php
-                $index++;
+                $index++; 
             } ?>
            
         </table>
@@ -249,14 +260,14 @@ switch ($category) {
     <div class="modal_background" style="display: none;"></div>
     <div id="modal" style="display: none;" class="p-4 w-3/5">
         <table class="w-full">
-            <tr>
-                <th class="border border-solid py-2 px-4">연구의 창의성<br/>(1점~10점)</th>
-                <th class="border border-solid py-2 px-4">방법의 타당성<br/>(1점~10점)</th>
-                <th class="border border-solid py-2 px-4">결과의 영향력<br/>(1점~10점)</th>
-                <th class="border border-solid py-2 px-4">발표의 우수성<br/>(1점~10점)</th>
-                <th class="border border-solid py-2 px-4">COI</th>
-                <th class="border border-solid py-2 px-4">총점<br/>(40점)</th>
-                <th class="border border-solid py-2 px-4">심사완료</th>
+            <tr class="*:border *:border-solid *:py-2 *:px-4">
+                <th>연구의 창의성<br/>(1점~10점)</th>
+                <th>방법의 타당성<br/>(1점~10점)</th>
+                <th>결과의 영향력<br/>(1점~10점)</th>
+                <th>발표의 우수성<br/>(1점~10점)</th>
+                <th>COI</th>
+                <th>총점<br/>(40점)</th>
+                <th>심사완료</th>
             </tr>
             <tr>
                 <td class="border border-solid py-2 px-4">
@@ -323,7 +334,7 @@ switch ($category) {
                 </td>
                 <td class="border border-solid py-2 px-4" id="sum">4</td>
                 <td class="border border-solid py-2 px-4">
-                    <div class="tooltip_box animate-bounce" style="opacity: 0;">
+                    <div class="tooltip_box animate-bounce" style="opacity: 0; display:none;">
                         <p>심사완료 버튼을 눌러주세요.</p>
                     </div>
                     <button id="completed" class="button">확인</button>
@@ -350,8 +361,8 @@ switch ($category) {
         <div class="carousel"></div>
     </div>
     <input name="etc1" class="etc1" hidden/>
-    <button id="submit" class="mt-20 py-2 px-4 bg-neutral-300 font-semibold w-60 h-12">제출하기</button>
-    <div class="submit_noti">*심사를 마치시고 제출하기 버튼을 꼭 눌러주세요 <br/>**제출하기 버튼을 누르시면 이후 점수 수정이 불가합니다.</div>
+    <button id="submit" class="mt-20 py-2 px-4 bg-neutral-300 font-semibold w-80 h-20 text-3xl">제출하기</button>
+    <div class="submit_noti">*심사를 마치시고 제출하기 버튼을 꼭 눌러주세요&nbsp;&nbsp;&nbsp; **제출하기 버튼을 누르시면 이후 점수 수정이 불가합니다.</div>
 </div>
 
 <script>
@@ -525,7 +536,7 @@ switch ($category) {
         if(submitStatus === false){
             alert("심사를 완료해주세요.")
         }else{
-            if (window.confirm("제출 후에는 점수 수정이 어렵습니다. 심사를 제출하시겠습니까?")) {
+            if (window.confirm("제출 후에는 점수 수정이 어렵습니다. 심사표를 제출하시겠습니까?")) {
                 postAjax();
             }
         }

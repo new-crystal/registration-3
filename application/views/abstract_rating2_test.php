@@ -111,7 +111,10 @@
         transform: rotate(135deg);
         background-color: rgb(225 29 72);
     }
-
+    *{
+        user-select: none;
+        word-break: keep-all;
+    }
 </style>
 
 <script src="https://cdn.tailwindcss.com"></script>
@@ -125,6 +128,9 @@
         const value5 =  select5.options[select5.selectedIndex].value;
         const sumTd = document.querySelector("#sum");
         
+        completedBtn.classList.add("bg-blue-500");
+        completedBtn.classList.add("text-white");
+        
         if(value5 === "N"){
             sumTd.innerText = value1*1 + value2*1 + value3*1 + value4*1;
         }else if(value5 === "Y"){
@@ -137,69 +143,74 @@
 <div class="w-full h-screen flex items-center justify-center flex-col px-10">
     
     <h1 class="font-semibold text-3xl font-sans">TEST 심사표</h1>
-    <div class="mt-10 w-6/12">
+    <div class="mt-10 w-full">
         <table class="border border-solid w-full">
+            <colgroup>
+                <col width="33.3%">
+                <col>
+                <col>
+            </colgroup>
             <tr class="border border-solid">
-                <td class="border border-solid py-2 px-4" colspan="3">심사위원정보</td>
+                <td class="border border-solid py-6 px-4 bg-slate-200" colspan="3">심사위원 정보</td>
             </tr>
-            <tr>
-                <td class="border border-solid py-2 px-4">파트구분</td>
-                <td class="border border-solid py-2 px-4">성함</td>
-                <td class="border border-solid py-2 px-4">소속</td>
+            <tr class="*:border *:border-solid *:py-6 *:px-4 *:bg-slate-500 *:text-white *:font-semibold" >
+                <td>파트구분</td>
+                <td>성함</td>
+                <td>소속</td>
             </tr>
-            <tr>
-                <td class="border border-solid py-2 px-4"> <div class="text_box">Diabetes/Obesity/Lipid (clinical)</div> </td>
-                <td class="border border-solid py-2 px-4">홍길동</td>
-                <td class="border border-solid py-2 px-4">대한내분비학회</td>
+            <tr class="*:border *:border-solid *:py-2 *:px-4">
+                <td> <div class="text_box">Diabetes/Obesity/Lipid (clinical)</div> </td>
+                <td>홍길동</td>
+                <td>대한내분비학회</td>
             </tr>
         </table>
     </div>
-    <div class="mt-10 w-full mx-auto">
+    <div class="mt-20 w-full mx-auto">
         <table class="border border-solid w-full">
-            <tr class="border border-solid">
-                <td class="border border-solid p-2">No.</td>
-                <td class="border border-solid p-2">Abstract No.</td>
-                <td class="border border-solid p-2">Presenter Name</td>
-                <td class="border border-solid p-2">Affiliation</td>
-                <td class="border border-solid p-2">Country</td>
-                <td class="border border-solid p-2">Abstract Title</td>
-                <td class="border border-solid p-2"></td>
+            <tr class="border border-solid *:bg-slate-500 *:text-white *:font-semibold *:border *:border-solid *:p-2">
+                <td>No.</td>
+                <td>Abstract No.</td>
+                <td>Presenter Name</td *:>
+                <td>Affiliation</td>
+                <td>Country</td>
+                <td>Abstract Title</td>
+                <td></td>
             </tr>
-            <tr>
-                    <td class="border border-solid p-2">1</td>
-                    <td class="border border-solid p-2">PP1-1</td>
-                    <td class="border border-solid p-2">Ahmad Zamir Che Daud </td>
-                    <td class="border border-solid p-2">Universiti Teknologi MARA</td>
-                    <td class="border border-solid p-2">Malaysia</td>
-                    <td class="border border-solid p-2"><div class="title_box text-blue-700 underline decoration-blue-700" data-id="PP1-1"  data-leng="5">Effectiveness of Integrated Insulin Education (ITEI) on insulin knowledge and injection competency: a randomized control trial study</div></td>
-                    <td class="border border-solid p-2"><button class="rating button p-2" id="0" data-id="32">심사하기</button></td>
+            <tr class="*:border *:border-solid *:p-2">
+                    <td>1</td>
+                    <td>PP1-1</td>
+                    <td>Ahmad Zamir Che Daud </td>
+                    <td>Universiti Teknologi MARA</td>
+                    <td>Malaysia</td>
+                    <td><div class="title_box text-blue-700 decoration-blue-700 break-keep" data-id="PP1-1"  data-leng="5">Effectiveness of Integrated Insulin Education (ITEI) on insulin knowledge and injection competency: a randomized control trial study</div></td>
+                    <td><button class="rating button p-2" id="0" data-id="32">심사하기</button></td>
                 </tr> 
-                                <tr>
-                    <td class="border border-solid p-2">2</td>
-                    <td class="border border-solid p-2">PP1-2</td>
-                    <td class="border border-solid p-2">Heejun Son</td>
-                    <td class="border border-solid p-2">Seoul National University</td>
-                    <td class="border border-solid p-2">Korea</td>
-                    <td class="border border-solid p-2"><div class="title_box text-blue-700 underline decoration-blue-700" data-id="PP1-2"  data-leng="4">The effect of continuous glucose monitoring on post-operative glucose control in people with type 2 diabetes mellitus undergoing coronary artery bypass grafting: a randomized clinical trial</div></td>
-                    <td class="border border-solid p-2"><button class="rating button p-2" id="1" data-id="33">심사하기</button></td>
+                <tr class="*:border *:border-solid *:p-2">
+                    <td>2</td>
+                    <td>PP1-2</td>
+                    <td>Heejun Son</td>
+                    <td>Seoul National University</td>
+                    <td>Korea</td>
+                    <td><div class="title_box text-blue-700 decoration-blue-700 break-keep" data-id="PP1-2"  data-leng="4">The effect of continuous glucose monitoring on post-operative glucose control in people with type 2 diabetes mellitus undergoing coronary artery bypass grafting: a randomized clinical trial</div></td>
+                    <td><button class="rating button p-2" id="1" data-id="33">심사하기</button></td>
                 </tr> 
-                                <tr>
-                    <td class="border border-solid p-2">3</td>
-                    <td class="border border-solid p-2">PP1-3</td>
-                    <td class="border border-solid p-2">Denise Joy Emmanuelle Lopez </td>
-                    <td class="border border-solid p-2">Philippine General Hospital</td>
-                    <td class="border border-solid p-2">Philippines</td>
-                    <td class="border border-solid p-2"><div class="title_box text-blue-700 underline decoration-blue-700" data-id="PP1-3"  data-leng="5">Efficacy of retatrutide for weight reduction and its cardiometabolic effects among adults: a systematic review and meta-analysis</div></td>
-                    <td class="border border-solid p-2"><button class="rating button p-2" id="2" data-id="34">심사하기</button></td>
+                <tr class="*:border *:border-solid *:p-2">
+                    <td>3</td>
+                    <td>PP1-3</td>
+                    <td>Denise Joy Emmanuelle Lopez </td>
+                    <td>Philippine General Hospital</td>
+                    <td>Philippines</td>
+                    <td><div class="title_box text-blue-700 decoration-blue-700 break-keep" data-id="PP1-3"  data-leng="5">Efficacy of retatrutide for weight reduction and its cardiometabolic effects among adults: a systematic review and meta-analysis</div></td>
+                    <td><button class="rating button p-2" id="2" data-id="34">심사하기</button></td>
                 </tr> 
-                                <tr>
-                    <td class="border border-solid p-2">4</td>
-                    <td class="border border-solid p-2">PP1-4</td>
-                    <td class="border border-solid p-2">Javad Alizargar </td>
-                    <td class="border border-solid p-2">Kashan University</td>
-                    <td class="border border-solid p-2">Iran, Islamic Republic of</td>
-                    <td class="border border-solid p-2"><div class="title_box text-blue-700 underline decoration-blue-700" data-id="PP1-4"  data-leng="4">Insulin resistance linked to increased risk of End-Stage Renal Disease in non-diabetic and diabetic individuals: findings from a large-scale study</div></td>
-                    <td class="border border-solid p-2"><button class="rating button p-2" id="3" data-id="35">심사하기</button></td>
+                <tr class="*:border *:border-solid *:p-2">
+                    <td>4</td>
+                    <td>PP1-4</td>
+                    <td>Javad Alizargar </td>
+                    <td>Kashan University</td>
+                    <td>Iran, Islamic Republic of</td>
+                    <td><div class="title_box text-blue-700 decoration-blue-700 break-keep" data-id="PP1-4"  data-leng="4">Insulin resistance linked to increased risk of End-Stage Renal Disease in non-diabetic and diabetic individuals: findings from a large-scale study</div></td>
+                    <td><button class="rating button p-2" id="3" data-id="35">심사하기</button></td>
                 </tr>      
         </table>
     </div>
@@ -207,14 +218,14 @@
     <div class="modal_background" style="display: none;"></div>
     <div id="modal" style="display: none;" class="p-4">
         <table class="w-full">
-            <tr>
-                <th class="border border-solid py-2 px-4">연구의 창의성<br/>(1점~10점)</th>
-                <th class="border border-solid py-2 px-4">방법의 타당성<br/>(1점~10점)</th>
-                <th class="border border-solid py-2 px-4">결과의 영향력<br/>(1점~10점)</th>
-                <th class="border border-solid py-2 px-4">발표의 우수성<br/>(1점~10점)</th>
-                <th class="border border-solid py-2 px-4">COI</th>
-                <th class="border border-solid py-2 px-4">총점<br/>(40점)</th>
-                <th class="border border-solid py-2 px-4">심사 완료</th>
+            <tr class="*:border *:border-solid *:py-2 *:px-4">
+                <th>연구의 창의성<br/>(1점~10점)</th>
+                <th>방법의 타당성<br/>(1점~10점)</th>
+                <th>결과의 영향력<br/>(1점~10점)</th>
+                <th>발표의 우수성<br/>(1점~10점)</th>
+                <th>COI</th>
+                <th>총점<br/>(40점)</th>
+                <th>심사완료</th>
             </tr>
             <tr>
                 <td class="border border-solid py-2 px-4">
@@ -284,7 +295,7 @@
                     <div class="tooltip_box animate-bounce" style="opacity: 0;">
                         <p>심사완료 버튼을 눌러주세요.</p>
                     </div>
-                    <button id="completed" class="button bg-blue-500 text-white">확인</button>
+                    <button id="completed" class="button">확인</button>
                 </td>
             </tr>
         </table>
@@ -303,8 +314,8 @@
         <div class="carousel"></div>
     </div>
     <input name="etc1" class="etc1" hidden/>
-    <button id="submit" class="mt-20 py-2 px-4 bg-neutral-300 font-semibold w-60 h-12">제출하기</button>
-    <div class="submit_noti">*심사를 마치시고 제출하기 버튼을 꼭 눌러주세요 <br/>**제출하기 버튼을 누르시면 이후 점수 수정이 불가합니다.</div>
+    <button id="submit" class="mt-20 py-2 px-4 bg-neutral-300 font-semibold w-80 h-20 text-3xl">제출하기</button>
+    <div class="submit_noti">*심사를 마치시고 제출하기 버튼을 꼭 눌러주세요&nbsp;&nbsp;&nbsp; **제출하기 버튼을 누르시면 이후 점수 수정이 불가합니다.</div>
 </div>
 
 <script>
@@ -364,7 +375,10 @@
         closeModal = false;
         //clearTimeout(tooltipTime);
 
-        saveData(modal.dataset.index)
+        saveData(modal.dataset.index);
+
+        completedBtn.classList.remove("bg-blue-500");
+        completedBtn.classList.remove("text-white");
     
         modal.style.display = "none";
         modalBackground.style.display = "none";
