@@ -321,7 +321,7 @@ switch ($category) {
                 <td class="border border-solid py-2 px-4" id="sum">4</td>
                 <td class="border border-solid py-2 px-4">
                     <div class="tooltip_box animate-bounce" style="opacity: 0;">
-                        <p>채점완료 버튼을 눌러주세요.</p>
+                        <p>심사완료 버튼을 눌러주세요.</p>
                     </div>
                     <button id="completed" class="button bg-blue-500 text-white">심사 완료</button>
                 </td>

@@ -373,7 +373,7 @@
         rateBtnList.forEach((btn, index)=>{
             
         if(modal.dataset.id === btn.dataset.id){
-            btn.innerText = "채점완료";
+            btn.innerText = "심사완료";
             btn.style.background = "rgb(59 130 246)";
             btn.style.color = "#FFF";
             btnFlags[index] = true;
@@ -425,16 +425,16 @@
    submitBtn.addEventListener("click", ()=>{
         let submitStatus = true;
         rateBtnList.forEach((btn)=>{
-            if(btn.innerText !== "채점완료"){
+            if(btn.innerText !== "심사완료"){
                 btn.style.background = "rgb(225 29 72)";
                 submitStatus = false;
             }
         })
         
         if(submitStatus === false){
-            alert("채점을 완료해주세요.")
+            alert("심사를 완료해주세요.")
         }else{
-            if (window.confirm("제출 후에는 점수 수정이 어렵습니다. 채점을 제출하시겠습니까?")) {
+            if (window.confirm("제출 후에는 점수 수정이 어렵습니다. 심사를 제출하시겠습니까?")) {
                 alert("테스트를 해주셔서 감사합니다.");
             }
         }
@@ -662,7 +662,7 @@
             showPdf = false;
         }
         else if(!showPdf && closeModal){
-            alert("채점완료 버튼을 눌러주세요.")
+            alert("심사완료 버튼을 눌러주세요.")
             //tooltipBox.style.opacity = 1;
             //tooltipTime = setTimeout(()=>{tooltipBox.style.opacity = 0;},3000)
         }
