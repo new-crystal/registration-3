@@ -193,7 +193,7 @@ switch ($category) {
 
 <div class="w-full h-screen flex items-center justify-center flex-col px-10">
     
-    <h1 class="font-semibold text-3xl font-sans"><?php echo $type_text; ?> 채점표</h1>
+    <h1 class="font-semibold text-3xl font-sans"><?php echo $type_text; ?> 심사표</h1>
     <div class="mt-10 w-6/12">
         <table class="border border-solid w-full">
             <tr class="border border-solid">
@@ -234,7 +234,7 @@ switch ($category) {
                     <td class="border border-solid p-2"><?php echo $item['org'];?></td>
                     <td class="border border-solid p-2"><?php echo $item['nation'];?></td>
                     <td class="border border-solid p-2"><div class="title_box text-blue-700 underline decoration-blue-700" data-id="<?php echo $item['submission_code'];?>"  data-leng="<?php echo $item['etc1'];?>"><?php echo $item['title'];?></div></td>
-                    <td class="border border-solid p-2"><button class="rating button p-2" id="<?php echo $index;?>" data-id="<?php echo $item['idx'];?>">채점하기</button></td>
+                    <td class="border border-solid p-2"><button class="rating button p-2" id="<?php echo $index;?>" data-id="<?php echo $item['idx'];?>">심사하기</button></td>
                 </tr> 
                 <?php
                 $index++;
@@ -244,7 +244,7 @@ switch ($category) {
     </div>
 
     <div class="modal_background" style="display: none;"></div>
-    <div id="modal" style="display: none;" class="p-4">
+    <div id="modal" style="display: none;" class="p-4 w-3/5">
         <table>
             <tr>
                 <th class="border border-solid py-2 px-4">연구의 창의성<br/>(1점~10점)</th>
@@ -253,7 +253,7 @@ switch ($category) {
                 <th class="border border-solid py-2 px-4">발표의 우수성<br/>(1점~10점)</th>
                 <th class="border border-solid py-2 px-4">COI</th>
                 <th class="border border-solid py-2 px-4">총점<br/>(40점)</th>
-                <th class="border border-solid py-2 px-4">채점</th>
+                <th class="border border-solid py-2 px-4">심사완료</th>
             </tr>
             <tr>
                 <td class="border border-solid py-2 px-4">
@@ -323,7 +323,7 @@ switch ($category) {
                     <div class="tooltip_box animate-bounce" style="opacity: 0;">
                         <p>채점완료 버튼을 눌러주세요.</p>
                     </div>
-                    <button id="completed" class="button">채점 완료</button>
+                    <button id="completed" class="button bg-blue-500 text-white">심사 완료</button>
                 </td>
             </tr>
         </table>
@@ -337,7 +337,7 @@ switch ($category) {
             <?php }else if($type == 1 || $type == 2){ ?>
                 <p class="p-2">4. Poster oral 수상 예정 인원: 30명 (양일 기준, 5개 분야별 8인 발표)</p>
             <?php } ?>
-            <p class="p-2">5. 채점을 완료하시면 반드시 <span class="font-semibold">제출하기</span>를 눌러주십시오.</p>
+            <p class="p-2">5. 심사를 완료하시면 반드시 <span class="font-semibold">제출하기</span>를 눌러주십시오.</p>
         </div>
     </div>
   
@@ -445,7 +445,7 @@ switch ($category) {
         rateBtnList.forEach((btn, index)=>{
             
         if(modal.dataset.id === btn.dataset.id){
-            btn.innerText = "채점완료";
+            btn.innerText = "심사완료";
             btn.style.background = "rgb(59 130 246)";
             btn.style.color = "#FFF";
             btnFlags[index] = true;
@@ -509,16 +509,16 @@ switch ($category) {
    submitBtn.addEventListener("click", ()=>{
         let submitStatus = true;
         rateBtnList.forEach((btn)=>{
-            if(btn.innerText !== "채점완료"){
+            if(btn.innerText !== "심사완료"){
                 btn.style.background = "rgb(225 29 72)";
                 submitStatus = false;
             }
         })
         
         if(submitStatus === false){
-            alert("채점을 완료해주세요.")
+            alert("심사를 완료해주세요.")
         }else{
-            if (window.confirm("제출 후에는 점수 수정이 어렵습니다. 채점을 제출하시겠습니까?")) {
+            if (window.confirm("제출 후에는 점수 수정이 어렵습니다. 심사를 제출하시겠습니까?")) {
                 postAjax();
             }
         }
@@ -556,7 +556,7 @@ switch ($category) {
                 url : url,
                 data: data,
                 success: function(result){
-                    alert("채점을 해주셔서 감사합니다.");
+                    alert("심사를 해주셔서 감사합니다.");
                     //window.localStorage.clear();
                     window.location.href = `/score/review?n=${idx}`;
                 },
@@ -807,7 +807,7 @@ switch ($category) {
             showPdf = false;
         }
         else if(!showPdf && closeModal){
-            alert("채점완료 버튼을 눌러주세요.")
+            alert("심사완료 버튼을 눌러주세요.")
             //tooltipBox.style.opacity = 1;
             //tooltipTime = setTimeout(()=>{tooltipBox.style.opacity = 0;},3000)
         }

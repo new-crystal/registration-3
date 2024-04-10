@@ -214,7 +214,7 @@
                 <th class="border border-solid py-2 px-4">발표의 우수성<br/>(1점~10점)</th>
                 <th class="border border-solid py-2 px-4">COI</th>
                 <th class="border border-solid py-2 px-4">총점<br/>(40점)</th>
-                <th class="border border-solid py-2 px-4">채점</th>
+                <th class="border border-solid py-2 px-4">채점 완료</th>
             </tr>
             <tr>
                 <td class="border border-solid py-2 px-4">
@@ -284,7 +284,7 @@
                     <div class="tooltip_box animate-bounce" style="opacity: 0;">
                         <p>채점완료 버튼을 눌러주세요.</p>
                     </div>
-                    <button id="completed" class="button">채점 완료</button>
+                    <button id="completed" class="button">완료</button>
                 </td>
             </tr>
         </table>
@@ -294,7 +294,7 @@
             <p class="p-2">2. 각 심사 항목은 각각 10점 만점입니다. 각 항목의 중간 점수를 5점으로 고려하시어 심사를 진행하여 주십시오.</p>
             <p class="p-2">3. 동점자 최소화를 위해 변별력 있게 점수를 부여해 주십시오.</p>
             <p class="p-2">4. Poster oral 수상 예정 인원: 30명 (양일 기준, 5개 분야별 8인 발표)</p>
-            <p class="p-2">5. 채점을 완료하시면 반드시 <span class="font-semibold">제출하기</span>를 눌러주십시오.</p>
+            <p class="p-2">5. 심사를 완료하시면 반드시 <span class="font-semibold">제출하기</span>를 눌러주십시오.</p>
         </div>
     </div>
   
