@@ -341,17 +341,18 @@ switch ($category) {
                 </td>
             </tr>
         </table>
-        <div>
-            <h6 class="p-2 font-semibold">[현장 심사 안내]</h6>
-            <p class="p-2">1. 초록의 발표자 또는 공저자인 경우 COI에 O로 체크하신 후 해당 초록에 대한 심사는 심사에서 제외하여 주십시오.</p>
-            <p class="p-2">2. 각 심사 항목은 각각 10점 만점입니다. 각 항목의 중간 점수를 5점으로 고려하시어 심사를 진행하여 주십시오.</p>
-            <p class="p-2">3. 동점자 최소화를 위해 변별력 있게 점수를 부여해 주십시오.</p>
-            <?php if($type == 0){ ?>
-                <p class="p-2">4. Oral Session 수상 인원: Plenary oral 1명, Best oral 1명, Excellent oral 3명 (분야별 선정인원)</p>
+        <div class="*:p-2">
+            <h6 class="font-semibold">[현장 심사 안내]</h6>
+            <p>1. 초록의 발표자 또는 공저자인 경우 COI에 O로 체크하신 후 해당 초록에 대한 심사는 심사에서 제외하여 주십시오.</p>
+            <p>2. 각 심사 항목은 각각 10점 만점입니다. 각 항목의 중간 점수를 5점으로 고려하시어 심사를 진행하여 주십시오.</p>
+            <p>3. 동점자 최소화를 위해 변별력 있게 점수를 부여해 주십시오.</p>
+            <!-- [240412] sujeong / 학회팀 요청 주석 -->
+            <!-- <?php if($type == 0){ ?>
+                <p>4. Oral Session 수상 인원: Plenary oral 1명, Best oral 1명, Excellent oral 3명 (분야별 선정인원)</p>
             <?php }else if($type == 1 || $type == 2){ ?>
-                <p class="p-2">4. Poster oral 수상 예정 인원: 30명 (양일 기준, 5개 분야별 8인 발표)</p>
-            <?php } ?>
-            <p class="p-2">5. 심사를 완료하시면 반드시 <span class="font-semibold">제출하기</span>를 눌러주십시오.</p>
+                <p>4. Poster oral 수상 예정 인원: 30명 (양일 기준, 5개 분야별 8인 발표)</p>
+            <?php } ?> -->
+            <p>4. 심사를 완료하시면 반드시 <span class="font-semibold">제출하기</span>를 눌러주십시오.</p>
         </div>
     </div>
   

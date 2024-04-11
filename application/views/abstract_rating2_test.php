@@ -147,8 +147,8 @@
         <table class="border border-solid w-full">
             <colgroup>
                 <col width="33.3%">
-                <col>
-                <col>
+                <col width="33.3%">
+                <col width="33.3%">
             </colgroup>
             <tr class="border border-solid">
                 <td class="border border-solid py-6 px-4 bg-slate-200" colspan="3">심사위원 정보</td>
@@ -304,8 +304,8 @@
             <p class="p-2">1. 초록의 발표자 또는 공저자인 경우 COI에 O로 체크하신 후 해당 초록에 대한 심사는 심사에서 제외하여 주십시오.</p>
             <p class="p-2">2. 각 심사 항목은 각각 10점 만점입니다. 각 항목의 중간 점수를 5점으로 고려하시어 심사를 진행하여 주십시오.</p>
             <p class="p-2">3. 동점자 최소화를 위해 변별력 있게 점수를 부여해 주십시오.</p>
-            <p class="p-2">4. Poster oral 수상 예정 인원: 30명 (양일 기준, 5개 분야별 8인 발표)</p>
-            <p class="p-2">5. 심사를 완료하시면 반드시 <span class="font-semibold">제출하기</span>를 눌러주십시오.</p>
+            <!-- <p class="p-2">4. Poster oral 수상 예정 인원: 30명 (양일 기준, 5개 분야별 8인 발표)</p> -->
+            <p class="p-2">4. 심사를 완료하시면 반드시 <span class="font-semibold">제출하기</span>를 눌러주십시오.</p>
         </div>
     </div>
   
@@ -449,8 +449,9 @@
         if(submitStatus === false){
             alert("심사를 완료해주세요.")
         }else{
-            if (window.confirm("제출 후에는 점수 수정이 어렵습니다. 심사를 제출하시겠습니까?")) {
+            if (window.confirm("제출 후에는 점수 수정이 어렵습니다. 심사표를 제출하시겠습니까?")) {
                 alert("테스트를 해주셔서 감사합니다.");
+                window.location.reload();
             }
         }
    })
