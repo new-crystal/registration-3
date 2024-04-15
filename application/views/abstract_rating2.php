@@ -125,26 +125,42 @@
         word-break: keep-all;
     }
 
+    .point{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
+    .point > select{
+        z-index: 999999999;
+    }
 </style>
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
        //점수 합계 구하는 함수
    function getSum(){
+
+        //getPoint();
+
         const value1 =  select1.options[select1.selectedIndex].value;
         const value2 =  select2.options[select2.selectedIndex].value;
         const value3 =  select3.options[select3.selectedIndex].value;
         const value4 =  select4.options[select4.selectedIndex].value;
         const value5 =  select5.options[select5.selectedIndex].value;
+        const value6 =  select6.options[select6.selectedIndex].value;
+
+        select1.options[select1.selectedIndex].value = "1.1점";
+
         const sumTd = document.querySelector("#sum");
 
         completedBtn.classList.add("bg-blue-500");
         completedBtn.classList.add("text-white");
         
-        if(value5 === "N"){
+        if(value5 === "N" && value6 === "N"){
             sumTd.innerText = value1*1 + value2*1 + value3*1 + value4*1;
-        }else if(value5 === "Y"){
+        }else if(value5 === "Y" || value6 === "Y"){
             sumTd.innerText = 0;
         }
    }
@@ -258,7 +274,7 @@ switch ($category) {
     </div>
 
     <div class="modal_background" style="display: none;"></div>
-    <div id="modal" style="display: none;" class="p-4 w-3/5">
+    <div id="modal" style="display: none;" class="p-4 w-3/5 h-fit">
         <table class="w-full">
             <tr class="*:border *:border-solid *:py-2 *:px-4">
                 <th>연구의 창의성<br/>(1점~10점)</th>
@@ -266,13 +282,14 @@ switch ($category) {
                 <th>결과의 영향력<br/>(1점~10점)</th>
                 <th>발표의 우수성<br/>(1점~10점)</th>
                 <th>COI</th>
+                <th>심사 제외</th>
                 <th>총점<br/>(40점)</th>
                 <th>심사완료</th>
             </tr>
             <tr>
                 <td class="border border-solid py-2 px-4">
                     <select id="select1" onchange="getSum()">
-                        <option value="1" selected>1점</option>
+                    <option value="1" selected>1점</option>
                         <option value="2">2점</option>
                         <option value="3">3점</option>
                         <option value="4">4점</option>
@@ -332,6 +349,12 @@ switch ($category) {
                         <option value="Y">O</option>
                     </select>
                 </td>
+                <td class="border border-solid py-2 px-4">
+                    <select id="select6"  onchange="getSum()" >
+                        <option value="N" selected>X</option>
+                        <option value="Y">O</option>
+                    </select>
+                </td>
                 <td class="border border-solid py-2 px-4" id="sum">4</td>
                 <td class="border border-solid py-2 px-4">
                     <div class="tooltip_box animate-bounce" style="opacity: 0; display:none;">
@@ -354,6 +377,10 @@ switch ($category) {
             <?php } ?> -->
             <p>4. 심사를 완료하시면 반드시 <span class="font-semibold">제출하기</span>를 눌러주십시오.</p>
         </div>
+        <div class="point w-2/4 h-96 bg-slate-300" style="display: none;"><div class="point_select"></div></div>
+    </div>
+    
+
     </div>
   
     <div id="pdf_viewer" style="display: none;">
@@ -389,6 +416,10 @@ switch ($category) {
     const select3 =  document.querySelector("#select3");
     const select4 =  document.querySelector("#select4");
     const select5 =  document.querySelector("#select5");
+    const select6 =  document.querySelector("#select6");
+
+    const point = document.querySelector(".point");
+    const pointSelect = document.querySelector(".point_select")
 
     //const tooltipBox = document.querySelector(".tooltip_box");
 
@@ -410,7 +441,33 @@ switch ($category) {
             getPreData();
         }
     }
+    
+    //소숫점 넣기
+    function getPoint(){
+        console.log("point")
+        point.style.display = "";
+        const value = 3;
+        pointSelect.innerHTML = `
+            <select class="text-black" onchange = "closePoint()">
+                <option value="${value}.0" selected>${value}.0점</option>
+                <option value="${value}.1">${value}.1점</option>
+                <option value="${value}.2">${value}.2점</option>
+                <option value="${value}.3">${value}.3점</option>
+                <option value="${value}.4">${value}.4점</option>
+                <option value="${value}.5">${value}.5점</option>
+                <option value="${value}.6">${value}.6점</option>
+                <option value="${value}.7">${value}.7점</option>
+                <option value="${value}.8">${value}.8점</option>
+                <option value="${value}.9">${value}.9점</option>
+            </select>
+        `
+        point.append(innerHtml);
 
+    }
+
+    function closePoint(){
+        point.style.display = "none";
+    }
 
     //이전 점수 불러오기
     function getPreData(){

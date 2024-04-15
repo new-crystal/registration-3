@@ -80,7 +80,7 @@
              $category_text = "Pituitary/Adrenal/Gonad";
              break;
      }  
-
+     $reviewer = 0;
      //print_r($abstract_detail)
     ?>
 
@@ -142,6 +142,10 @@
                                 <?php foreach($abstract_detail as $detail){ 
                                     $sum += $detail['sum'];
                                     $etc_sum += $detail['etc1'];
+                                   
+                                    if($detail['coi'] !== 'Y'){
+                                        $reviewer += 1;
+                                    }
                                     ?>
                                 <tr>
                                     <td><?php echo $detail['reviewer_name']; ?></td>
@@ -164,10 +168,12 @@
                                 <tr>
                                     <th>총점</th>
                                     <th>조정점수 총합</th>
+                                    <th>조정점수 평균</th>
                                 </tr>
                                 <tr>
                                     <td><?php echo $sum; ?></td>
                                     <td><?php echo $etc_sum; ?></td>
+                                    <td><?php echo $etc_sum/$reviewer; ?></td>
                                 </tr>  
                             </table>
 
