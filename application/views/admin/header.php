@@ -13,7 +13,7 @@
     <!-- 바로가기 아이콘 이미지 -->
     <link rel="apple-touch-icon" href="/assets/images/test.png">
 
-    <title>SICEM 2024</title>
+    <title>IMCVP 2024</title>
 
     <!-- Global stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
