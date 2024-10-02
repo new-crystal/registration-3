@@ -12,7 +12,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Intoon_reg</title>
+    <title>IMCVP 2024</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,Chrome=1" />
     <meta property="og:image" content="/assets/images/og_image.png" />
     <meta property="og:description" content="대한심뇌혈관질환예방학회 개원의 연수강좌 사전등록 홈페이지입니다" />

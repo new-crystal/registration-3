@@ -5,9 +5,7 @@
 
         <div class="txtCon" style="min-height:500px;">
             <div class="txtCon regist">
-
                 <dl class="registInfo">
-
                     <script type="text/javascript">
                     $(function() {
                         $("#accessForm").submit(function() {

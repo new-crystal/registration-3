@@ -153,13 +153,13 @@
                                 <div class="fresh"></div>
                                 <div style=" transform: translateY(700px);">
                                     <dl class="pl-2" style="transform: translateY(-200px);">
-                                        <dd><input type="text" name="qrcode" id="qrcode" class=" h-20  px-3 py-3 mt-5 border-indigo-900 mx-auto" style="    transform: translate(74px,-20px);width: 800px;" placeholder="" autofocus>
+                                        <dd><input type="text" name="qrcode" id="qrcode" class=" h-20  px-3 py-3 mt-5 border-indigo-900 mx-auto" style="    transform: translate(74px,-20px);width: 800px;" placeholder="" autofocus  autocomplete='off'>
                                         </dd>
                                     </dl>
 
                                     <dl class="pl-2" style="transform: translateY(-200px);">
                                         <div id="qr_nick_name" class="qr_info_wrap">
-                                            <div class="info_content"><input type="text" class="qr_info input name" value="<?php if (isset($first_name)) echo $first_name . ' ' . $last_name ?>" readonly>
+                                            <div class="info_content"><input type="text" class="qr_info input name" value="<?php if (isset($first_name)) echo $first_name . ' ' . $last_name ?>" readonly  autocomplete='off'>
                                             </div>
                                         </div>
 
@@ -168,27 +168,21 @@
                                     <dl class="pl-2" style="transform: translateY(-200px);">
                                         <div id="qr_entrance" class="qr_info_wrap">
                                             <div class="info_content">
-                                                <input type="text" style="margin-top:3px;transform: translate(857px, -226px);" class="qr_info input" value="<?php if (isset($enter)) {
-                                                                                                                                                                $enter = date("Y-m-d H:i", strtotime($enter));
-                                                                                                                                                                echo $enter;
-                                                                                                                                                            } ?>
-                                                " readonly>
+                                                <input type="text" style="margin-top:3px;transform: translate(857px, -226px);" class="qr_info input" value="<?php if(isset($enter)) { $enter = date("Y-m-d H:i", strtotime($enter)); echo $enter; } ?>
+                                                " readonly  autocomplete='off'>
                                             </div>
 
                                         </div>
                                         <div id="qr_exit" class="qr_info_wrap">
                                             <div class="info_content">
-                                                <input type="text" style="margin-top:0; transform: translate(854px, -107px);" class="qr_info input" value="<?php if (isset($leave)) {
-                                                                                                                                                                $leave = date("Y-m-d H:i", strtotime($leave));
-                                                                                                                                                                echo $leave;
-                                                                                                                                                            } ?>
-                                                " readonly>
+                                                <input type="text" style="margin-top:0; transform: translate(854px, -107px);" class="qr_info input" value="<?php if (isset($leave)) { $leave = date("Y-m-d H:i", strtotime($leave)); echo $leave;} ?>
+                                                " readonly  autocomplete='off'>
                                             </div>
                                         </div>
                                     </dl>
 
                                     <div class="w-full flex items-center justify-center">
-                                        <button type="submit" value="등록" class="btnPoint w-full flex items-center justify-center" style="    transform: translate(55px,434px);"></button>
+                                        <button type="submit" value="등록" class="btnPoint w-full flex items-center justify-center" style="transform: translate(55px,434px);"></button>
                                     </div>
                                 </div>
 

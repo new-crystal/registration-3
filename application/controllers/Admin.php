@@ -19,6 +19,7 @@ class Admin extends CI_Controller
         $this->load->model('users');
         $this->load->model('entrance');
         $this->load->model('schedule');
+        $this->load->model('table');
         $this->load->library("excel");
         $this->load->library("user_agent");
         ini_set('memory_limit', '-1');
@@ -1462,13 +1463,96 @@ class Admin extends CI_Controller
             /**qr access 총 유저 */
             $data['item'] = $this->users->get_qr_print_user($wheres);
 
-            /**day1 ~ day3 access 각각 유저 */
-            $data['day_1'] = $this->users->get_access_statistics_k_1();
-            $data['day_1_e'] = $this->users->get_access_statistics_e_1();
-            $data['day_2'] = $this->users->get_access_statistics_k_2();
-            $data['day_2_e'] = $this->users->get_access_statistics_e_2();
-            $data['day_3'] = $this->users->get_access_statistics_k_3();
-            $data['day_3_e'] = $this->users->get_access_statistics_e_3();
+           /**day1 ~ day3 access 각각 유저 */
+           $data['day1_speaker_kor'] = $this->table->get_day1_speaker_kor();
+           $data['day1_speaker_eng'] = $this->table->get_day1_speaker_eng();
+
+           $data['day1_chairperson_kor'] = $this->table->get_day1_chairperson_kor();
+           $data['day1_chairperson_eng'] = $this->table->get_day1_chairperson_eng();
+
+           $data['day1_penel_kor'] = $this->table->get_day1_penel_kor();
+           $data['day1_penel_eng'] = $this->table->get_day1_penel_eng();
+
+           $data['day1_committee_kor'] = $this->table->get_day1_committee_kor();
+           $data['day1_committee_eng'] = $this->table->get_day1_committee_eng();
+
+           $data['day1_participants_kor'] = $this->table->get_day1_participants_kor();
+           $data['day1_participants_eng'] = $this->table->get_day1_participants_eng();
+
+           $data['day1_sponsor_kor'] = $this->table->get_day1_sponsor_kor();
+           $data['day1_sponsor_eng'] = $this->table->get_day1_sponsor_eng();
+
+           $data['day1_other_kor'] = $this->table->get_day1_other_kor();
+           $data['day1_other_eng'] = $this->table->get_day1_other_eng();
+
+           $data['day2_speaker_kor'] = $this->table->get_day2_speaker_kor();
+           $data['day2_speaker_eng'] = $this->table->get_day2_speaker_eng();
+
+           $data['day2_chairperson_kor'] = $this->table->get_day2_chairperson_kor();
+           $data['day2_chairperson_eng'] = $this->table->get_day2_chairperson_eng();
+
+           $data['day2_penel_kor'] = $this->table->get_day2_penel_kor();
+           $data['day2_penel_eng'] = $this->table->get_day2_penel_eng();
+
+           $data['day2_committee_kor'] = $this->table->get_day2_committee_kor();
+           $data['day2_committee_eng'] = $this->table->get_day2_committee_eng();
+
+           $data['day2_participants_kor'] = $this->table->get_day2_participants_kor();
+           $data['day2_participants_eng'] = $this->table->get_day2_participants_eng();
+
+           $data['day2_sponsor_kor'] = $this->table->get_day2_sponsor_kor();
+           $data['day2_sponsor_eng'] = $this->table->get_day2_sponsor_eng();
+
+           $data['day2_other_kor'] = $this->table->get_day2_other_kor();
+           $data['day2_other_eng'] = $this->table->get_day2_other_eng();
+
+           $data['day1_num'] = $this->table->get_day1();
+           $data['day2_num'] = $this->table->get_day2();
+
+           $data['day1_on_speaker_kor'] = $this->table->get_on_day1_speaker_kor();
+           $data['day1_on_speaker_eng'] = $this->table->get_on_day1_speaker_eng();
+
+           $data['day1_on_chairperson_kor'] = $this->table->get_on_day1_chairperson_kor();
+           $data['day1_on_chairperson_eng'] = $this->table->get_on_day1_chairperson_eng();
+
+           $data['day1_on_penel_kor'] = $this->table->get_on_day1_penel_kor();
+           $data['day1_on_penel_eng'] = $this->table->get_on_day1_penel_eng();
+
+           $data['day1_on_committee_kor'] = $this->table->get_on_day1_committee_kor();
+           $data['day1_on_committee_eng'] = $this->table->get_on_day1_committee_eng();
+
+           $data['day1_on_participants_kor'] = $this->table->get_on_day1_participants_kor();
+           $data['day1_on_participants_eng'] = $this->table->get_on_day1_participants_eng();
+
+           $data['day1_on_sponsor_kor'] = $this->table->get_on_day1_sponsor_kor();
+           $data['day1_on_sponsor_eng'] = $this->table->get_on_day1_sponsor_eng();
+
+           $data['day1_on_other_kor'] = $this->table->get_on_day1_other_kor();
+           $data['day1_on_other_eng'] = $this->table->get_on_day1_other_eng();
+
+           $data['day2_on_speaker_kor'] = $this->table->get_on_day2_speaker_kor();
+           $data['day2_on_speaker_eng'] = $this->table->get_on_day2_speaker_eng();
+
+           $data['day2_on_chairperson_kor'] = $this->table->get_on_day2_chairperson_kor();
+           $data['day2_on_chairperson_eng'] = $this->table->get_on_day2_chairperson_eng();
+
+           $data['day2_on_penel_kor'] = $this->table->get_on_day2_penel_kor();
+           $data['day2_on_penel_eng'] = $this->table->get_on_day2_penel_eng();
+
+           $data['day2_on_committee_kor'] = $this->table->get_on_day2_committee_kor();
+           $data['day2_on_committee_eng'] = $this->table->get_on_day2_committee_eng();
+
+           $data['day2_on_participants_kor'] = $this->table->get_on_day2_participants_kor();
+           $data['day2_on_participants_eng'] = $this->table->get_on_day2_participants_eng();
+
+           $data['day2_on_sponsor_kor'] = $this->table->get_on_day2_sponsor_kor();
+           $data['day2_on_sponsor_eng'] = $this->table->get_on_day2_sponsor_eng();
+
+           $data['day2_on_other_kor'] = $this->table->get_on_day2_other_kor();
+           $data['day2_on_other_eng'] = $this->table->get_on_day2_other_eng();
+
+           $data['day1_on_num'] = $this->table->get_on_day1();
+           $data['day2_on_num'] = $this->table->get_on_day2();
 
             $this->load->view('admin/left_side.php', $data);
             $this->load->view('admin/participant.php', $data);
