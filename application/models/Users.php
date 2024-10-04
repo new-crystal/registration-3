@@ -327,4 +327,33 @@ class Users extends CI_Model
 	");
 		return $query->result_array();
 	}
+
+	//날짜 변경 필요!!!
+	//faculty page / 일반참석자, 기자 제외
+	public function get_faculty()
+	{
+		$query = $this->db->query("
+		SELECT *, time_format(b.duration,'%H시간 %i분') as d_format
+		FROM users a
+		LEFT JOIN (
+			SELECT registration_no as qr_registration_no,
+				MIN(time) as mintime_day_1,
+				TIMEDIFF(MAX(time), MIN(time)) as duration
+			FROM access
+			 WHERE DATE(TIME) = '2024-11-29'
+			GROUP BY registration_no
+		) b ON a.registration_no = b.qr_registration_no
+		LEFT JOIN (
+			SELECT registration_no as qr_registration_no,
+				MIN(time) as mintime_day_2,
+				TIMEDIFF(MAX(time), MIN(time)) as duration
+			FROM access
+			 WHERE DATE(TIME) = '2024-11-30'
+			GROUP BY registration_no
+		) b1 ON a.registration_no = b1.qr_registration_no
+		WHERE a.qr_generated = 'Y' AND a.deposit = '결제완료' AND a.attendance_type != 'Participants' AND a.attendance_type != 'Sponsor'
+		ORDER BY a.id ASC
+");
+		return $query->result_array();
+	}
 }

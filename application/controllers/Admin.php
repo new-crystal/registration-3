@@ -1891,4 +1891,20 @@ class Admin extends CI_Controller
         }
         $this->load->view('footer');
     }
+
+    public function faculty()
+    {
+        $this->load->view('admin/header');
+        if (!isset($this->session->admin_data['logged_in']))
+            $this->load->view('admin/login');
+        else {
+            // 
+            $data['primary_menu'] = 'faculty';
+            $data['users'] = $this->users->get_faculty();
+
+            $this->load->view('admin/left_side.php', $data);
+            $this->load->view('admin/faculty', $data);
+        }
+        $this->load->view('footer');
+    }
 }
