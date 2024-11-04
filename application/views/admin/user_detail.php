@@ -66,7 +66,7 @@ $remark3 = "";
                                     <td colspan="2"><button type="button" class="btn btn-primary" onclick="print('<?php echo $item['registration_no']; ?>')">QR Print</button>
                                     </td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <th style="background-color: #fb8500">하단 띠지</th>
                                     <td> <input class="form-control attendance" type="text" value="<?php echo $item['attendance_type']; ?>" name="attendance_type" id="attendance_type">
                                         <select class="form-control input-lg m-bot15" id="attendance_select">
@@ -85,7 +85,7 @@ $remark3 = "";
                                             <option value="Exhibitior">Exhibitior</option>
                                         </select>
                                     </td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     <th style="background-color: #fb8500">Remarks 1</th>
                                     <td><input class="form-control" type="text" name="remark1" id="remark1" value="<?php echo $item['remark1']; ?>">
@@ -108,7 +108,7 @@ $remark3 = "";
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th style="background-color: #fb8500">Remarks 5(갈라)</th>
+                                    <th style="background-color: #fb8500">Remarks 5</th>
                                     <td><input class="form-control" type="text" value="<?php echo $item['remark5']; ?>" name="remark5" id="remark5">
                                     </td>
                                 </tr>
@@ -142,6 +142,18 @@ $remark3 = "";
                                 </tr>
 
                                 <tr>
+                                    <th>1일차 오찬 여부</th>
+                                    <td> <input id="dp1" type="text" value="<?php echo $item['day1_luncheon_yn']; ?>" size="16" class="form-control yn" name="day1_luncheon_yn">
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>1일차 satellite 여부</th>
+                                    <td> <input id="dp1" type="text" value="<?php echo $item['day1_satellite_yn']; ?>" size="16" class="form-control yn" name="day1_satellite_yn">
+
+                                    </td>
+                                </tr>
+                                <tr>
                                     <th>2일차 조식 여부</th>
                                     <td> <input id="dp1" type="text" value="<?php echo $item['day2_breakfast_yn']; ?>" size="16" class="form-control yn" name="day2_breakfast_yn">
 
@@ -154,19 +166,31 @@ $remark3 = "";
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>3일차 조식 여부</th>
-                                    <td> <input id="dp1" type="text" value="<?php echo $item['day3_breakfast_yn']; ?>" size="16" class="form-control yn" name="day3_breakfast_yn">
+                                    <th>2일차 satellite 여부</th>
+                                    <td> <input id="dp1" type="text" value="<?php echo $item['day2_satellite_yn']; ?>" size="16" class="form-control yn" name="day2_satellite_yn">
 
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>3일차 오찬 여부</th>
-                                    <td> <input id="dp1" type="text" value="<?php echo $item['day3_luncheon_yn']; ?>" size="16" class="form-control yn" name="day3_luncheon_yn">
-
+                                    <th>참가유형</th>
+                                    <td> <input class="form-control attendance" type="text" value="<?php echo $item['attendance_type']; ?>" name="attendance_type" id="attendance_type">
+                                        <select class="form-control input-lg m-bot15" id="attendance_select">
+                                            <option value="" selected="selected">직접입력</option>
+                                            <option value="Participants">Participants</option>
+                                            <option value="Speaker">Speaker</option>
+                                            <option value="Chairperson">Chairperson</option>
+                                            <option value="Moderator">Moderator</option>
+                                            <option value="Panel">Panel</option>
+                                            <option value="Preceptor">Preceptor</option>
+                                            <option value="Organizer">Organizer</option>
+                                            <option value="Oral Presenter">Oral Presenter</option>
+                                            <option value="Poster Oral Presenter">Poster Oral Presenter</option>
+                                            <option value="Satellite Attendee">Satellite Attendee</option>
+                                            <option value="Press">Press</option>
+                                            <option value="Exhibitior">Exhibitior</option>
+                                        </select>
                                     </td>
                                 </tr>
-
-
                                 <tr>
                                     <th>참석자구분</th>
                                     <td>

@@ -432,7 +432,7 @@ class Admin extends CI_Controller
             //            var_dump($data['item2']);
 
             $this->load->view('admin/left_side.php', $data);
-            $this->load->view('admin/user_detail_test', $data);
+            $this->load->view('admin/user_detail', $data);
         }
         $this->load->view('footer');
     }
@@ -1903,4 +1903,21 @@ class Admin extends CI_Controller
         }
         $this->load->view('footer');
     }
+
+    public function time_day1()
+    {
+        $this->load->view('admin/header');
+        if (!isset($this->session->admin_data['logged_in']))
+            $this->load->view('admin/login');
+        else {
+            // 
+            $data['primary_menu'] = 'day1';
+            $data['users'] = $this->users->get_time_user();
+
+            $this->load->view('admin/left_side.php', $data);
+            $this->load->view('admin/qr_user_day1', $data);
+        }
+        $this->load->view('footer');
+    }
+
 }
