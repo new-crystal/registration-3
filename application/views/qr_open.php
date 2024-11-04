@@ -1,5 +1,11 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
+    
+    @font-face {
+        font-family: Gong;
+        src: url("../../../assets/font/Gong_Gothic_OTF_Bold.otf");
+    }
+
     .text_box {
         font-size: 7rem;
         color: #000;
@@ -66,6 +72,44 @@
             transform: translateZ(0);
         }
     }
+
+    .alert {
+        width: 100%;
+        height: 260px;
+        background: #ffc425;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #FFF;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.85;
+        z-index: 999;
+    }
+
+    .alert>p, .no_alert > p {
+        font-size: 8.5rem;
+        font-weight: 700;
+        position: relative;
+        /* animation: fadeInUp 1s; */
+        font-family: Gong;
+        -webkit-text-stroke-width: 5px;
+        -webkit-text-stroke-color: #004471;
+    }
+
+    .alert>h6 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        position: relative;
+        /* animation: fadeInUp 1s; */
+        font-family: Gong;
+        -webkit-text-stroke-width: 3px;
+        -webkit-text-stroke-color: #004471;
+        }
+
 </style>
 <div class="w-full h-screen flex flex-col items-center justify-center">
     <div class="page_1">
@@ -106,15 +150,19 @@
             <?php if (isset($users['affiliation'])) echo $users['affiliation'] ?></div>
     </div>
     </div> 
-
+    <div class="alert" style="display:none;">
+        <p class="alert_text">출결 체크 완료!</p>
+    </div>
 <?php   } ?>
 
 </div>
 <script>
     const page1 = document.querySelector(".page_1");
     const page2 = document.querySelector(".page_2")
-    const nickname = document.querySelector("#nickname")
-    const org = document.querySelector("#org")
+    const nickname = document.querySelector("#nickname");
+    const org = document.querySelector("#org");
+    const alert = document.querySelector(".alert");
+    const alertText = document.querySelector(".alert_text")
 
     const bc = new BroadcastChannel("test_channel");
    
@@ -124,8 +172,16 @@
     }
 
     function childFunction(data) {
-        if (data.qrcode) {
+        if (data.qrcode && data.type !== 2) {
             window.location.href = `/qrcode/open?qrcode=${data.qrcode}`
+        }else if(data.qrcode && data.type == 2){
+            alert.style.display = "";
+
+            setTimeout(() => {
+                alert.style.display = "none";
+            }, 3000)
+            //window.location.href = `/access/row_scan_qr?qrcode=${data.qrcode}`
+            // alert("출결체크 완료!")
         }
     }
 

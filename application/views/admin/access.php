@@ -68,6 +68,22 @@ $en_name = $firstName . " " . $lastName
     .memoHeader {
         background-color: #fb8500 !important;
     }
+
+    .access_btn{
+        position:absolute;
+        bottom:150px;
+        left:50%;
+        transform: translateX(-50%);
+        width: 150px;
+        height: 50px;
+        background-color: orange;
+        font-size: 20px;
+        font-weight: 800;
+    }
+
+    .access_btn:hover{
+        background-color: orangered;
+    }
 </style>
 
 <div class="page-container">
@@ -199,16 +215,18 @@ $en_name = $firstName . " " . $lastName
                             </tr>
                             <tr>
                                 <th class="memoHeader">메모</th>
-                                <td id="memo" class="qr_text"><?php
-                                                                if (isset($user['memo'])) {
-                                                                    echo $user['memo'] == 'null' ? "" : $user['memo'];
-                                                                }
-                                                                ?></td>
-
+                                <td id="memo" class="qr_text">
+                                    <?php
+                                        if (isset($user['memo'])) {
+                                            echo $user['memo'] == 'null' ? "" : $user['memo'];
+                                        }
+                                    ?>
+                                </td>   
                             </tr>
                         </table>
                     </div>
                 </form>
+                <button onclick="saveTime()" class="access_btn">출결</button>
             </div>
         </div>
     </div>
@@ -260,6 +278,7 @@ $en_name = $firstName . " " . $lastName
     var childWindow;
     let popUpWindow;
     let qrvalue = "";
+    let bc = "";
 
     content.addEventListener("click", () => {
         qrcode.focus();
@@ -326,9 +345,10 @@ $en_name = $firstName . " " . $lastName
 
     function fetchData(qrcode) {
         // Ajax 요청 수행
+        executeFunctionInChildWindow(qrcode);
         fetch(`/admin/access?qrcode=${qrcode}`)
             .then(response => response.text())
-            .then(data => {
+            .then((data) => {
                 const parser = new DOMParser();
                 const htmlDocument = parser.parseFromString(data, 'text/html');
                 console.log(htmlDocument)
@@ -378,10 +398,8 @@ $en_name = $firstName . " " . $lastName
                     etc1.innerText = ""
                     throw new Error("없는 QR입니다.");
                 }
-            }).then((data) => {
-                executeFunctionInChildWindow(qrcode);
             }).then(() => {
-                window.open(`https://reg2.webeon.net/qrcode/print_file?registration_no=${qrvalue}`, "_blank")
+                window.open(`https://reg3.webeon.net/qrcode/print_file?registration_no=${qrvalue}`, "_blank")
             }).then(() => {
 
                 changeBackgroundColorIfNotEmpty(memo);
@@ -399,15 +417,13 @@ $en_name = $firstName . " " . $lastName
     }
 
     function executeFunctionInChildWindow(data) {
-        const bc = new BroadcastChannel("test_channel");
+        bc = new BroadcastChannel("test_channel");
        
         bc.postMessage({
             qrcode: data
         });
-
         
     }
-
 
     // function executeFunctionInChildWindow(data) {
 
@@ -443,6 +459,36 @@ $en_name = $firstName . " " . $lastName
         // childWindow = null;
         receiveMessage(e)
     }, false);
+
+    function saveTime(){
+        console.log(qrvalue)
+        
+        const url = "/access/add_record"
+        const data = {
+            reg_no : qrvalue
+        }
+        if(qrvalue){
+            $.ajax({
+                type: "POST",
+                url : url,
+                data: data,
+                success: function(result){
+                    //console.log(result)
+                    alert('출결시간이 변경되었습니다.');
+                    // window.location.reload()
+                    bc.postMessage({
+                        qrcode: qrvalue,
+                        type:2
+                    });
+                },
+                error:function(e){  
+                    console.log(e)
+                    alert("현장등록 이슈가 발생했습니다. 관리자에게 문의해주세요.")
+                }
+            })  
+        }
+    }
+
 
     window.onload = () => {
         whiteBackGrond()
