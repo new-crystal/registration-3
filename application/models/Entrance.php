@@ -38,7 +38,7 @@ class Entrance extends CI_Model
                 MIN(time) as mintime_day1,
                 TIMEDIFF(MAX(time), MIN(time)) as duration_day1
             FROM access
-            WHERE DATE(TIME) = '2023-11-23'
+            WHERE DATE(TIME) = '2024-11-29'
             GROUP BY registration_no
         ) b1 ON a.registration_no = b1.qr_registration_no
         LEFT JOIN (
@@ -47,18 +47,9 @@ class Entrance extends CI_Model
                 MIN(time) as mintime_day2,
                 TIMEDIFF(MAX(time), MIN(time)) as duration_day2
             FROM access
-            WHERE DATE(TIME) = '2023-11-24'
+            WHERE DATE(TIME) = '2024-11-30'
             GROUP BY registration_no
         ) b2 ON a.registration_no = b2.qr_registration_no
-        LEFT JOIN (
-            SELECT registration_no as qr_registration_no,
-                MAX(time) as maxtime_day3,
-                MIN(time) as mintime_day3,
-                TIMEDIFF(MAX(time), MIN(time)) as duration_day3
-            FROM access
-            WHERE DATE(TIME) = '2023-11-25'
-            GROUP BY registration_no
-        ) b3 ON a.registration_no = b3.qr_registration_no
         ORDER BY a.name_kor ASC;
         ");
 
