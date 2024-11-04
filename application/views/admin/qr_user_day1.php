@@ -181,7 +181,7 @@ function saveTime(button, reg_no){
         },
 		error:function(e){  
             console.log(e)
-            alert("현장등록 이슈가 발생했습니다. 관리자에게 문의해주세요.")
+            alert("출결등록 이슈가 발생했습니다. 관리자에게 문의해주세요.")
 		}
 	})  
     
