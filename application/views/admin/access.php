@@ -13,6 +13,12 @@ $en_name = $firstName . " " . $lastName
 <script src="https://cdn.tailwindcss.com"></script>
 <script type="text/javascript" src="/assets/js/admin/lecture_history.js"></script>
 <style>
+       
+    @font-face {
+        font-family: Gong;
+        src: url("../../../assets/font/Gong_Gothic_OTF_Bold.otf");
+    }
+
     .qr-info-table {
         margin-top: 1rem;
         border: 2px solid #eee;
@@ -84,6 +90,45 @@ $en_name = $firstName . " " . $lastName
     .access_btn:hover{
         background-color: orangered;
     }
+
+    
+    .alert {
+        width: 100%;
+        height: 260px;
+        background: #ffc425;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #FFF;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.85;
+        z-index: 999;
+    }
+
+    .alert>p{
+        font-size: 5.5rem;
+        font-weight: 700;
+        position: relative;
+        /* animation: fadeInUp 1s; */
+        font-family: Gong;
+        -webkit-text-stroke-width: 5px;
+        -webkit-text-stroke-color: #004471;
+    }
+
+    .alert>h6 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        position: relative;
+        /* animation: fadeInUp 1s; */
+        font-family: Gong;
+        -webkit-text-stroke-width: 3px;
+        -webkit-text-stroke-color: #004471;
+        }
+
 </style>
 
 <div class="page-container">
@@ -229,6 +274,10 @@ $en_name = $firstName . " " . $lastName
                 <button onclick="saveTime()" class="access_btn">출결</button>
             </div>
         </div>
+        <div class="alert" style="display:none;" id="alert">
+            <p class="time"></p>
+            <p class="alert_text">출결 체크 완료!</p>
+        </div>
     </div>
 </div>
 <!-- <div class="footer text-muted mt-20">
@@ -351,7 +400,7 @@ $en_name = $firstName . " " . $lastName
             .then((data) => {
                 const parser = new DOMParser();
                 const htmlDocument = parser.parseFromString(data, 'text/html');
-                console.log(htmlDocument)
+                //console.log(htmlDocument)
                 if (htmlDocument.querySelector("#number").innerText) {
                     number.innerText = htmlDocument.querySelector("#number").innerText.replace(/<br\s*\/?>/gi, "")
                         .trim();
@@ -473,17 +522,29 @@ $en_name = $firstName . " " . $lastName
                 url : url,
                 data: data,
                 success: function(result){
-                    //console.log(result)
-                    alert('출결시간이 변경되었습니다.');
+                    //console.log("result", enName.innerText)
+                    const alert = document.querySelector("#alert");
+                    const alertText = document.querySelector(".alert_text");
+                    //console.log(alert)
+                    alert.style.display = "";
+                    const today = new Date();
+                    const time = document.querySelector(".time");
+
+                    time.innerText = `${today.toLocaleString()}`
+
+                    setTimeout(() => {
+                        alert.style.display = "none";
+                    }, 3000)
                     // window.location.reload()
                     bc.postMessage({
                         qrcode: qrvalue,
-                        type:2
+                        type:2,
+                        nickname:enName.innerText
                     });
                 },
                 error:function(e){  
                     console.log(e)
-                    alert("현장등록 이슈가 발생했습니다. 관리자에게 문의해주세요.")
+                    alert("출결등록 이슈가 발생했습니다. 관리자에게 문의해주세요.")
                 }
             })  
         }

@@ -202,7 +202,7 @@
                                 const accessForm = document.querySelector("#accessForm")
                                 accessForm.addEventListener("submit", (e) => {
                                     // e.preventDefault();
-                                    qrcdoe.valuea.replace(/ /g, "")
+                                    qrcdoe.value.replace(/ /g, "")
                                 })
                             </script>
                         </div>

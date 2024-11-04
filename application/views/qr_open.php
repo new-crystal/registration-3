@@ -73,9 +73,9 @@
         }
     }
 
-    .alert {
+    .alert_modal {
         width: 100%;
-        height: 260px;
+        height: 380px;
         background: #ffc425;
         display: flex;
         flex-direction: column;
@@ -90,23 +90,23 @@
         z-index: 999;
     }
 
-    .alert>p, .no_alert > p {
-        font-size: 8.5rem;
+    .alert_modal>p{
+        font-size: 5.5rem;
         font-weight: 700;
         position: relative;
         /* animation: fadeInUp 1s; */
         font-family: Gong;
-        -webkit-text-stroke-width: 5px;
+        -webkit-text-stroke-width: 4px;
         -webkit-text-stroke-color: #004471;
     }
 
-    .alert>h6 {
-        font-size: 2.5rem;
+    .alert_modal>h6 {
+        font-size: 4.5rem;
         font-weight: 600;
         position: relative;
         /* animation: fadeInUp 1s; */
         font-family: Gong;
-        -webkit-text-stroke-width: 3px;
+        -webkit-text-stroke-width: 4px;
         -webkit-text-stroke-color: #004471;
         }
 
@@ -150,38 +150,55 @@
             <?php if (isset($users['affiliation'])) echo $users['affiliation'] ?></div>
     </div>
     </div> 
-    <div class="alert" style="display:none;">
-        <p class="alert_text">출결 체크 완료!</p>
+    <?php   } ?>
+    
+    <!-- <div class="alert"  id="alert"> -->
+    <div class="alert_modal" style="display:none;" id="alert">
+        <h6 class="alert_name"></h6>
+        <h6 class="time"></h6>
+        <p class="alert_text">Attendance Checked!</p>
     </div>
-<?php   } ?>
-
 </div>
 <script>
     const page1 = document.querySelector(".page_1");
     const page2 = document.querySelector(".page_2")
     const nickname = document.querySelector("#nickname");
     const org = document.querySelector("#org");
-    const alert = document.querySelector(".alert");
-    const alertText = document.querySelector(".alert_text")
-
+    
     const bc = new BroadcastChannel("test_channel");
-   
+    
     bc.onmessage = (data)=>{
-        console.log(data.data.qrcode)
+        //console.log(data.data.qrcode)
         childFunction(data.data)
     }
-
+    
     function childFunction(data) {
         if (data.qrcode && data.type !== 2) {
             window.location.href = `/qrcode/open?qrcode=${data.qrcode}`
         }else if(data.qrcode && data.type == 2){
-            alert.style.display = "";
+            const alertModal = document.querySelector(".alert_modal");
+            const alertText = document.querySelector(".alert_text");
+            //console.log(alert)
+            alertModal.style.display = "";
+            const today = new Date();
+            const time = document.querySelector(".time");
+            const alertName = document.querySelector(".alert_name")
+
+            const hours = ('0' + today.getHours()).slice(-2); 
+            const minutes = ('0' + today.getMinutes()).slice(-2);
+            const year = today.getFullYear();
+            const month = ('0' + (today.getMonth() + 1)).slice(-2);
+            const day = ('0' + today.getDate()).slice(-2);
+
+            const dateString = year + '-' + month  + '-' + day;
+
+            alertName.innerText = `${data.nickname}`;
+            time.innerText = `${dateString} ${hours}:${minutes}`;
 
             setTimeout(() => {
-                alert.style.display = "none";
+                alertModal.style.display = "none";
             }, 3000)
-            //window.location.href = `/access/row_scan_qr?qrcode=${data.qrcode}`
-            // alert("출결체크 완료!")
+
         }
     }
 
@@ -201,7 +218,6 @@
 
 
     window.addEventListener('message', function(event) {
-
         if (event.data) {
             childFunction(event.data);
         }

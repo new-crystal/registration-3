@@ -1009,6 +1009,26 @@ class Access extends CI_Controller
                 'type' => 2
             );
 
+            $where = array(
+                'registration_no' => $reg_no
+            );
+
+            $qr_time = date("Y-m-d");
+            if ($qr_time == '2024-11-29') {
+                $infoqr = array(
+                    'qr_chk_day_1' => 'Y',
+                    'qr_chk' => 'Y'
+                );
+                $this->users->update_qr_status($infoqr, $where);
+            }
+            if ($qr_time == '2024-11-30') {
+                $infoqr = array(
+                    'qr_chk_day_2' =>  'Y',
+                    'qr_chk' => 'Y'
+                );
+                $this->users->update_qr_status($infoqr, $where);
+            }
+
         $this->entrance->record($info);
         
        }
