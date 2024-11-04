@@ -356,4 +356,40 @@ class Users extends CI_Model
 ");
 		return $query->result_array();
 	}
+
+	public function get_time_user()
+	{
+		$query = $this->db->query("
+		SELECT a.*, 
+		TIME_FORMAT(b.maxtime_day_1, '%H:%i') as maxtime_day_1_formatted,
+		TIME_FORMAT(b.mintime_day_1, '%H:%i') as mintime_day_1_formatted,
+		TIME_FORMAT(b1.maxtime_day_2, '%H:%i') as maxtime_day_2_formatted,
+		TIME_FORMAT(b1.mintime_day_2, '%H:%i') as mintime_day_2_formatted
+
+	FROM users a
+	LEFT JOIN (
+		SELECT registration_no as qr_registration_no,
+			MAX(time) as maxtime_day_1,
+			MIN(time) as mintime_day_1,
+			TIMEDIFF(MAX(time), MIN(time)) as duration
+		FROM access
+		WHERE DATE(TIME) = '2024-11-29'
+		GROUP BY registration_no
+	) AS b ON a.registration_no = b.qr_registration_no
+	LEFT JOIN (
+		SELECT registration_no as qr_registration_no,
+			MAX(time) as maxtime_day_2,
+			MIN(time) as mintime_day_2,
+			TIMEDIFF(MAX(time), MIN(time)) as duration
+		FROM access
+		WHERE DATE(TIME) = '2024-11-30'
+		GROUP BY registration_no
+	) AS b1 ON a.registration_no = b1.qr_registration_no
+	WHERE a.qr_generated = 'Y' 
+		AND a.deposit = '결제완료'
+	ORDER BY a.id ASC;
+
+	");
+	return $query->result_array();
+	}
 }

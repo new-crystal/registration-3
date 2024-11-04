@@ -80,27 +80,59 @@
                                         </span>
                                     </a>
                                 </li>
-                                <li style="margin-bottom: 2rem;" <?php if ($primary_menu == 'notice') echo 'class="active"' ?>>
+                                <!-- <li style="margin-bottom: 2rem;" <?php if ($primary_menu == 'notice') echo 'class="active"' ?>>
                                     <a href="/admin/notice">
                                         <i class="icon-list-unordered"></i>
                                         <span>공지사항
                                         </span>
                                     </a>
+                                </li> -->
+                            
+
+                                <li style="margin-bottom: 2rem;">
+                                    <a href="https://imcvp.org/main/onsite_registration.php" target="_blank">
+                                        <i class="icon-user-plus"></i>
+                                        <span>현장등록페이지
+                                        </span>
+                                    </a>
                                 </li>
-                                <li>
+                                <li style="margin-bottom: 2rem;">
+                                    <a href="/access/scan_qr" target="_blank">
+                                        <i class="icon-qrcode"></i>
+                                        <span>세로형 출결 페이지
+                                        </span>
+                                    </a>
+                                </li>
+                                <li style="margin-bottom: 2rem;">
+                                    <a href="/access/row_scan_qr" target="_blank">
+                                        <i class="icon-qrcode"></i>
+                                        <span>가로형 출결 페이지
+                                        </span>
+                                    </a>
+                                </li>
+                                <li style="margin-bottom: 2rem;"
+                                    <?php if ($primary_menu == 'day1') echo 'class="active"' ?>>
+                                    <a href="/admin/time_day1">
+                                        <i class="icon-list-unordered"></i>
+                                        <span> Day별 출결
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li style="margin-bottom: 2rem;">
                                     <a href="/admin/sicem_qr_excel_download" target="_blank">
                                         <i class="icon-download4"></i>
                                         <span>QR 기록 다운로드
                                         </span>
                                     </a>
                                 </li>
-                                <li>
+                                <!-- <li style="margin-bottom: 2rem;" >
                                     <a href="/admin/qr_blank_user" target="_blank">
                                         <i class="icon-download4"></i>
                                         <span>QR 프린트용
                                         </span>
                                     </a>
-                                </li>
+                                </li> -->
                                 <!-- /main -->
                             </ul>
                         </div>
