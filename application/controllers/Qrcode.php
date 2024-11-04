@@ -14,6 +14,7 @@ class Qrcode extends CI_Controller
         date_default_timezone_set('Asia/Seoul');
         $this->load->library("qrcode_e");
         $this->load->model('users');
+        $this->load->model('entrance');
         ini_set('memory_limit', '-1');
     }
 
@@ -59,14 +60,14 @@ class Qrcode extends CI_Controller
 
         /** day1 ~ day3 access 기록*/
         $qr_time = date("Y-m-d");
-        if ($qr_time == '2023-11-23') {
+        if ($qr_time == '2024-11-29') {
             $infoqr = array(
                 'qr_chk_day_1' => 'Y',
                 'qr_chk' => 'Y'
             );
             $this->users->update_qr_status($infoqr, $where);
         }
-        if ($qr_time == '2023-11-24') {
+        if ($qr_time == '2024-11-30') {
             $infoqr = array(
                 'qr_chk_day_2' =>  'Y',
                 'qr_chk' => 'Y'
@@ -155,6 +156,7 @@ class Qrcode extends CI_Controller
             'registration_no' => $qrcode
         );
         $data['users'] = $this->users->get_user($where);
+        $data['times'] = $this->entrance->access($where);
         $this->load->view('qr_open', $data);
     }
 
