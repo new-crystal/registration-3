@@ -1549,6 +1549,22 @@ class Admin extends CI_Controller
 
            $data['day1_on_num'] = $this->table->get_on_day1();
            $data['day2_on_num'] = $this->table->get_on_day2();
+           
+           $data['chairperson_count'] = $this->table->get_on_chairperson();
+           $data['committee_count'] = $this->table->get_on_committee();
+           $data['speaker_count'] = $this->table->get_on_speaker();
+           $data['panel_count'] = $this->table->get_on_panel();
+           $data['participant_count'] = $this->table->get_on_participant();
+           $data['sponsor_count'] = $this->table->get_on_sponsor();
+           $data['others_count'] = $this->table->get_on_others();
+           
+           $data['chairperson_on_count'] = $this->table->get_on_chairperson_1();
+           $data['committee_on_count'] = $this->table->get_on_committee_1();
+           $data['speaker_on_count'] = $this->table->get_on_speaker_1();
+           $data['panel_on_count'] = $this->table->get_on_panel_1();
+           $data['participant_on_count'] = $this->table->get_on_participant_1();
+           $data['sponsor_on_count'] = $this->table->get_on_sponsor_1();
+           $data['others_on_count'] = $this->table->get_on_others_1();
 
             $this->load->view('admin/left_side.php', $data);
             $this->load->view('admin/participant.php', $data);

@@ -1,3 +1,12 @@
+<?php
+    $non_user = 0;
+    foreach($users as $item){
+        if($item['qr_chk'] == "N"){
+            $non_user++;
+        }
+    }
+?>
+
 <script type="text/javascript" src="/assets/js/admin/lecture_history.js"></script>
 <style>
 table th {
@@ -19,6 +28,25 @@ table th {
     top: 10%;
     left: 52%;
     transform: translate(-50%, -50%);
+}
+
+.header_txt{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.datatable-header{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.datatable-header:after{
+    content: none;
 }
 </style>
 <!-- Main content -->
@@ -134,6 +162,20 @@ function copy(text) {
         }
     }
 
+document.addEventListener("DOMContentLoaded", function() {
+const searchBar = document.querySelector(".dataTables_filter");
+const userNum = <?php echo count($users); ?>;
+const nonUserNum = <?php echo $non_user; ?>;
+
+    if (searchBar) {
+        const newElement = document.createElement("div");
+        newElement.classList.add("header_txt")
+        newElement.textContent = `총원 : ${userNum}명 / 미출결 : ${nonUserNum}명`;
+        searchBar.insertAdjacentElement("afterend", newElement);
+    } else {
+        console.warn(".dataTables_filter 요소를 찾을 수 없습니다.");
+    }
+});
 
 
 </script>
