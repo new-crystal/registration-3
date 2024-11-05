@@ -455,6 +455,7 @@ $speaker = 0;
 $chairperson = 0;
 $panel = 0;
 
+
 foreach($users as $item){
     if($item['attendance_type'] == "Committee"){
         $committee++;
@@ -550,14 +551,7 @@ foreach($users as $item){
             </td>
             <td>
                 <?php
-                /**day1 */
-                if (isset($day1_speaker_kor) && !isset($day2_speaker_kor)) {
-                    echo  $day1_speaker_eng + $day1_speaker_kor;
-                }
-                /**day 2 */
-                else if (isset($day1_speaker_kor) && isset($day2_speaker_kor)) {
-                    echo  $day1_speaker_eng + $day1_speaker_kor + $day2_speaker_eng + $day2_speaker_kor;
-                }
+                    echo isset($speaker_count) ?  $speaker_count : 0; 
                 ?>
             </td>
 
@@ -578,14 +572,8 @@ foreach($users as $item){
             </td>
             <td>
                 <?php
-                /**day 1 */
-                if (isset($day1_chairperson_kor) && !isset($day2_chairperson_kor)) {
-                    echo  $day1_chairperson_eng + $day1_chairperson_kor;
-                }
-                /**day 2 */
-                else if (isset($day1_chairperson_kor) && isset($day2_chairperson_kor)) {
-                    echo  $day1_chairperson_eng + $day1_chairperson_kor + $day2_chairperson_eng + $day2_chairperson_kor;
-                }
+                    //print_r($chairperson_count); 
+                 echo isset($chairperson_count) ?  $chairperson_count : 0; 
                 ?>
             </td>
 
@@ -606,14 +594,7 @@ foreach($users as $item){
             </td>
             <td>
                 <?php
-                /**day1 */
-                if (isset($day1_penel_kor) && !isset($day2_penel_kor)) {
-                    echo  $day1_penel_eng + $day1_penel_kor;
-                }
-                /**day 2 */
-                else if (isset($day1_penel_kor) && isset($day2_penel_kor)) {
-                    echo  $day1_penel_eng + $day1_penel_kor + $day2_penel_eng + $day2_penel_kor;
-                }
+                    echo isset($panel_count) ?  $panel_count : 0; 
                 ?>
             </td>
         </tr>
@@ -633,14 +614,7 @@ foreach($users as $item){
             </td>
             <td>
                 <?php
-                /**day1 */
-                if (isset($day1_committee_kor) && !isset($day2_committee_kor)) {
-                    echo  $day1_committee_eng + $day1_committee_kor;
-                }
-                /**day 2 */
-                else if (isset($day1_committee_kor) && isset($day2_committee_kor)) {
-                    echo $day1_committee_eng + $day1_committee_kor + $day2_committee_eng + $day2_committee_kor;
-                }
+                    echo isset($committee_count) ?  $committee_count : 0; 
                 ?>
             </td>
         </tr>
@@ -661,14 +635,7 @@ foreach($users as $item){
             </td>
             <td>
                 <?php
-                /**day1 */
-                if (isset($day1_participants_kor) && !isset($day2_participants_kor)) {
-                    echo   $day1_participants_eng + $day1_participants_kor;
-                }
-                /**day 2 */
-                else if (isset($day1_participants_kor) && isset($day2_participants_kor)) {
-                    echo   $day1_participants_eng + $day1_participants_kor + $day2_participants_eng + $day2_participants_kor;
-                }
+                 echo isset($participant_count) ?  $participant_count : 0; 
                 ?>
             </td>
         </tr>
@@ -688,14 +655,7 @@ foreach($users as $item){
             </td>
             <td>
                 <?php
-                /**day1 */
-                if (isset($day1_sponsor_kor) && !isset($day2_sponsor_kor)) {
-                    echo   $day1_sponsor_eng + $day1_sponsor_kor;
-                }
-                /**day 2 */
-                else if (isset($day1_sponsor_kor) && isset($day2_sponsor_kor)) {
-                    echo   $day1_sponsor_eng + $day1_sponsor_kor + $day2_sponsor_eng + $day2_sponsor_kor;
-                }
+                  echo isset($sponsor_count) ?  $sponsor_count : 0; 
                 ?>
             </td>
         </tr>
@@ -715,14 +675,7 @@ foreach($users as $item){
             </td>
             <td>
                 <?php
-                /**day1 */
-                if (isset($day1_other_kor) && !isset($day2_other_kor)) {
-                    echo    $day1_other_eng + $day1_other_kor;
-                }
-                /**day 2 */
-                else if (isset($day1_other_kor) && isset($day2_other_kor)) {
-                    echo    $day1_other_eng + $day1_other_kor + $day2_other_eng + $day2_other_kor;
-                }
+                echo isset($others_count) ?  $others_count : 0; 
                 ?>
             </td>
         </tr>
@@ -766,14 +719,7 @@ foreach($users as $item){
             </td>
             <td>
                 <?php
-                /**day1 */
-                if (isset($day1_on_speaker_kor) && !isset($day2_on_speaker_kor)) {
-                    echo   $day1_on_speaker_eng + $day1_on_speaker_kor;
-                }
-                /**day 2 */
-                else if (isset($day1_on_speaker_kor) && isset($day2_on_speaker_kor)) {
-                    echo  $day1_on_speaker_eng + $day1_on_speaker_kor + $day2_on_speaker_eng + $day2_on_speaker_kor;
-                }
+                 echo isset($speaker_on_count) ?  $speaker_on_count : 0; 
                 ?>
 
             </td>
@@ -794,14 +740,7 @@ foreach($users as $item){
             </td>
             <td>
                 <?php
-                /**day1 */
-                if (isset($day1_on_chairperson_kor) && !isset($day2_on_chairperson_kor)) {
-                    echo  $day1_on_chairperson_eng + $day1_on_chairperson_kor;
-                }
-                /**day 2 */
-                else if (isset($day1_on_chairperson_kor) && isset($day2_on_chairperson_kor)) {
-                    echo  $day1_on_chairperson_eng + $day1_on_chairperson_kor + $day2_on_chairperson_eng + $day2_on_chairperson_kor;
-                }
+                 echo isset($chairperson_on_count) ?  $chairperson_on_count : 0; 
                 ?>
             </td>
 
@@ -822,14 +761,7 @@ foreach($users as $item){
             </td>
             <td>
                 <?php
-                /**day1 */
-                if (isset($day1_on_penel_kor) && !isset($day2_on_penel_kor)) {
-                    echo  $day1_on_penel_eng + $day1_on_penel_kor;
-                }
-                /**day 2 */
-                else if (isset($day1_on_penel_kor) && isset($day2_on_penel_kor)) {
-                    echo  $day1_on_penel_eng + $day1_on_penel_kor + $day2_on_penel_eng + $day2_on_penel_kor;
-                }
+                 echo isset($panel_on_count) ?  $panel_on_count : 0; 
                 ?>
             </td>
         </tr>
@@ -849,14 +781,7 @@ foreach($users as $item){
             </td>
             <td>
                 <?php
-                /**day1 */
-                if (isset($day1_on_committee_kor) && !isset($day2_on_committee_kor)) {
-                    echo $day1_on_committee_eng + $day1_on_committee_kor;
-                }
-                /**day 2 */
-                else if (isset($day1_on_committee_kor) && isset($day2_on_committee_kor)) {
-                    echo  $day1_on_committee_eng + $day1_on_committee_kor + $day2_on_committee_eng + $day2_on_committee_kor;
-                }
+                       echo isset($committee_on_count) ?  $committee_on_count : 0; 
                 ?>
             </td>
         </tr>
@@ -877,14 +802,7 @@ foreach($users as $item){
             </td>
             <td>
                 <?php
-                /**day1 */
-                if (isset($day1_on_participants_kor) && !isset($day2_on_participants_kor)) {
-                    echo  $day1_on_participants_eng + $day1_on_participants_kor;
-                }
-                /**day 2 */
-                else if (isset($day1_on_participants_kor) && isset($day2_on_participants_kor)) {
-                    echo  $day1_on_participants_eng + $day1_on_participants_kor + $day2_on_participants_eng + $day2_on_participants_kor;
-                }
+                   echo isset($participant_on_count) ?  $participant_on_count : 0; 
                 ?>
             </td>
         </tr>
@@ -905,14 +823,7 @@ foreach($users as $item){
             </td>
             <td>
                 <?php
-                /**day1 */
-                if (isset($day1_on_sponsor_kor) && !isset($day2_on_sponsor_kor)) {
-                    echo  $day1_on_sponsor_eng + $day1_on_sponsor_kor;
-                }
-                /**day 2 */
-                else if (isset($day1_on_sponsor_kor) && isset($day2_on_sponsor_kor)) {
-                    echo  $day1_on_sponsor_eng + $day1_on_sponsor_kor + $day2_on_sponsor_eng + $day2_on_sponsor_kor;
-                }
+                echo isset($sponsor_on_count) ?  $sponsor_on_count : 0; 
                 ?>
             </td>
         </tr>
@@ -932,14 +843,7 @@ foreach($users as $item){
             </td>
             <td>
                 <?php
-                /**day1 */
-                if (isset($day1_on_other_kor) && !isset($day2_on_other_kor)) {
-                    echo  $day1_on_other_eng + $day1_on_other_kor;
-                }
-                /**day 2 */
-                else if (isset($day1_on_other_kor) && isset($day2_on_other_kor)) {
-                    echo $day1_on_other_eng + $day1_on_other_kor + $day2_on_other_eng + $day2_on_other_kor;
-                }
+                   echo isset($others_on_count) ?  $others_on_count : 0; 
                 ?>
             </td>
         </tr>

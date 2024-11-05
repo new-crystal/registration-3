@@ -687,7 +687,8 @@ class Table extends CI_Model
         FROM users a
         WHERE a.qr_chk = 'Y' AND a.attendance_type = 'Chairperson' AND a.onsite_reg = 0
         ");
-        $result = $query->result_array();  
+        $result = $query->result_array();
+        // var_dump($result);   
         return count($result); 
     }
 
