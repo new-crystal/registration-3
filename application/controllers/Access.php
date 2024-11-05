@@ -988,12 +988,31 @@ class Access extends CI_Controller
            $dateTime = DateTime::createFromFormat('Y-m-d H:i', $dateTimeString);
            $dateInfo = $dateTime->format('Y-m-d H:i:s');
    
+           $where = array(
+            'registration_no' => $reg_no
+            );
+
            $info = array(
                'registration_no' => $reg_no,
                'time' => $dateInfo,
                'type' => 1
            );
-   
+
+           $qr_time = $date;
+           if ($qr_time == '2024-11-29') {
+               $infoqr = array(
+                   'qr_chk_day_1' => 'Y',
+                   'qr_chk' => 'Y'
+               );
+               $this->users->update_qr_status($infoqr, $where);
+           }
+           if ($qr_time == '2024-11-30') {
+               $infoqr = array(
+                   'qr_chk_day_2' =>  'Y',
+                   'qr_chk' => 'Y'
+               );
+               $this->users->update_qr_status($infoqr, $where);
+           }
          $this->entrance->record($info);
        
        }

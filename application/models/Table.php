@@ -677,6 +677,164 @@ class Table extends CI_Model
         $result = $query->result_array();  
         return count($result); 
     }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public function get_on_chairperson()
+    {
+        $query = $this->db->query("
+        SELECT *
+        FROM users a
+        WHERE a.qr_chk = 'Y' AND a.attendance_type = 'Chairperson' AND a.onsite_reg = 0
+        ");
+        $result = $query->result_array();  
+        return count($result); 
+    }
+
+    public function get_on_committee()
+    {
+        $query = $this->db->query("
+        SELECT *
+        FROM users a
+        WHERE a.qr_chk = 'Y' AND a.attendance_type = 'Committee' AND a.onsite_reg = 0
+        ");
+        $result = $query->result_array();  
+        return count($result); 
+    }
+
+    public function get_on_speaker()
+    {
+        $query = $this->db->query("
+        SELECT *
+        FROM users a
+        WHERE a.qr_chk = 'Y' AND a.attendance_type = 'Speaker' AND a.onsite_reg = 0
+        ");
+        $result = $query->result_array();  
+        return count($result); 
+    }
+
+    public function get_on_panel()
+    {
+        $query = $this->db->query("
+        SELECT *
+        FROM users a
+        WHERE a.qr_chk = 'Y' AND a.attendance_type = 'Penel' AND a.onsite_reg = 0
+        ");
+        $result = $query->result_array();  
+        return count($result); 
+    }
+
+    public function get_on_participant()
+    {
+        $query = $this->db->query("
+        SELECT *
+        FROM users a
+        WHERE a.qr_chk = 'Y' AND a.attendance_type = 'Participants' AND a.onsite_reg = 0
+        ");
+        $result = $query->result_array();  
+        return count($result); 
+    }
+
+    public function get_on_sponsor()
+    {
+        $query = $this->db->query("
+        SELECT *
+        FROM users a
+        WHERE a.qr_chk = 'Y' AND a.attendance_type = 'Sponsor' AND a.onsite_reg = 0
+        ");
+        $result = $query->result_array();  
+        return count($result); 
+    }
+
+    public function get_on_others()
+    {
+        $query = $this->db->query("
+        SELECT *
+        FROM users a
+        WHERE a.qr_chk = 'Y'  AND a.attendance_type != 'Speaker' AND a.attendance_type != 'Chairperson' AND a.attendance_type != 'Penel' AND a.attendance_type != 'Committee' AND a.attendance_type != 'Participants' AND a.attendance_type != 'Sponsor' AND a.onsite_reg = 0
+        ");
+        $result = $query->result_array();  
+        return count($result); 
+    }
+
+
+
+    public function get_on_chairperson_1()
+    {
+        $query = $this->db->query("
+        SELECT *
+        FROM users a
+        WHERE a.qr_chk = 'Y' AND a.attendance_type = 'Chairperson' AND a.onsite_reg = 1
+        ");
+        $result = $query->result_array();  
+        return count($result); 
+    }
+
+    public function get_on_committee_1()
+    {
+        $query = $this->db->query("
+        SELECT *
+        FROM users a
+        WHERE a.qr_chk = 'Y' AND a.attendance_type = 'Committee' AND a.onsite_reg = 1
+        ");
+        $result = $query->result_array();  
+        return count($result); 
+    }
+
+    public function get_on_speaker_1()
+    {
+        $query = $this->db->query("
+        SELECT *
+        FROM users a
+        WHERE a.qr_chk = 'Y' AND a.attendance_type = 'Speaker' AND a.onsite_reg = 1
+        ");
+        $result = $query->result_array();  
+        return count($result); 
+    }
+
+    public function get_on_panel_1()
+    {
+        $query = $this->db->query("
+        SELECT *
+        FROM users a
+        WHERE a.qr_chk = 'Y' AND a.attendance_type = 'Penel' AND a.onsite_reg = 1
+        ");
+        $result = $query->result_array();  
+        return count($result); 
+    }
+
+    public function get_on_participant_1()
+    {
+        $query = $this->db->query("
+        SELECT *
+        FROM users a
+        WHERE a.qr_chk = 'Y' AND a.attendance_type = 'Participants' AND a.onsite_reg = 1
+        ");
+        $result = $query->result_array();  
+        return count($result); 
+    }
+
+    public function get_on_sponsor_1()
+    {
+        $query = $this->db->query("
+        SELECT *
+        FROM users a
+        WHERE a.qr_chk = 'Y' AND a.attendance_type = 'Sponsor' AND a.onsite_reg = 1
+        ");
+        $result = $query->result_array();  
+        return count($result); 
+    }
+
+    public function get_on_others_1()
+    {
+        $query = $this->db->query("
+        SELECT *
+        FROM users a
+        WHERE a.qr_chk = 'Y'  AND a.attendance_type != 'Speaker' AND a.attendance_type != 'Chairperson' AND a.attendance_type != 'Penel' AND a.attendance_type != 'Committee' AND a.attendance_type != 'Participants' AND a.attendance_type != 'Sponsor' AND a.onsite_reg = 1
+        ");
+        $result = $query->result_array();  
+        return count($result); 
+    }
 }
 
 ?>
