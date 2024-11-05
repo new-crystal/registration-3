@@ -450,6 +450,26 @@ $day_2_users = $day2_num + $day2_on_num;
 /** day 3 출결 유저 수 */
 // $day_3_users = count($day_3) + count($day_3_e);
 
+$committee = 0;
+$speaker = 0;
+$chairperson = 0;
+$panel = 0;
+
+foreach($users as $item){
+    if($item['attendance_type'] == "Committee"){
+        $committee++;
+    }
+    else if($item['attendance_type'] == "Speaker"){
+        $speaker++;
+    }
+    else if($item['attendance_type'] == "Chairperson"){
+        $chairperson++;
+    }
+    else if($item['attendance_type'] == "Panel"){
+        $panel++;
+    }
+}
+
 
 ?>
 <div class="text-center flex flex-col items-center justify-center">
@@ -474,6 +494,29 @@ $day_2_users = $day2_num + $day2_on_num;
         <tr>
             <td class="count_9"> <?php echo $day_1_users ?></td>
             <td class="count_10"> <?php echo $day_2_users ?></td>
+        </tr>
+    </table>
+
+    <table class="mt-10">
+        <colgroup>
+            <col width="250px">
+            <col width="250px">
+        </colgroup>
+        <tr>
+            <th class="bg-orange-200">Committee</th>
+            <td><?php echo isset($committee_count) ? $committee_count : 0; ?> / <?php echo $committee; ?> </td>
+        </tr>
+        <tr>
+            <th class="bg-orange-200">Chairperson</th>
+            <td><?php echo isset($chairperson_count) ? $chairperson_count : 0; ?> / <?php echo $chairperson; ?> </td>
+        </tr>
+        <tr>
+            <th class="bg-orange-200">Speaker</th>
+            <td><?php echo isset($speaker_count) ? $speaker_count : 0;  ?> / <?php echo $speaker; ?> </td>
+        </tr>
+        <tr>
+            <th class="bg-orange-200">Panel</th>
+            <td><?php echo isset($panel_count) ? $panel_count : 0;  ?> / <?php echo $panel; ?> </td>
         </tr>
     </table>
 
@@ -513,7 +556,7 @@ $day_2_users = $day2_num + $day2_on_num;
                 }
                 /**day 2 */
                 else if (isset($day1_speaker_kor) && isset($day2_speaker_kor)) {
-                    echo   $day1_speaker_eng + $day1_speaker_kor + $day2_speaker_eng + $day2_speaker_kor;
+                    echo  $day1_speaker_eng + $day1_speaker_kor + $day2_speaker_eng + $day2_speaker_kor;
                 }
                 ?>
             </td>
