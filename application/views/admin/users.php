@@ -65,10 +65,10 @@
             <div class="panel-heading">
                 <h5 class="panel-title">등록 인원(<?php echo count($users) ?>)</h5>
                 <div class="heading-elements">
-                    <form action="/admin/qr_excel_download" method="post">
+                    <!-- <form action="/admin/qr_excel_download" method="post">
                         <button class="btn btn-primary pull-right"><i class="icon-download4"></i> &nbspExcel
                             Download</button>
-                    </form>
+                    </form> -->
                     <form action="/admin/all_deposit_check" method="post" id="all_depositForm">
                         <button class="btn btn-primary pull-right"><i class="icon-checkmark"></i>전부 입금확인</button>
                     </form>
@@ -79,10 +79,7 @@
                         <button class="btn btn-danger pull-right"><i class="icon-checkmark"></i> 미결제처리</button>
                     </form>
                     <a class="btn btn-primary pull-right" href="/admin/add_user"><i class="icon-add"></i> 등록</a>
-                    <!-- <a class="btn btn-primary pull-right" href="/access/scan_qr"><i class="icon-add"></i> 등록데스크
-                        QR</a> -->
-                    <a class="btn btn-primary pull-right" href="/access/row_scan_qr" target="_blank"><i class="icon-add"></i> 등록데스크 가로
-                        QR</a>
+
                 </div>
             </div>
 
@@ -92,6 +89,7 @@
                         <th style="width: 30px;"></th>
                         <th>Registration No.</th>
                         <th>결제상태</th>
+                        <th>회원유무</th>
                         <!-- <th style="width:90px;">등록시간</th> -->
                         <!-- <th style="width:60px;">KES <br>회원여부</th> -->
                         <th>Type of Participation</th>
@@ -129,6 +127,12 @@
                         }
                         echo '' . $item['deposit'] . '</td>';
                         echo '</td>';
+                        if ($item['member_status'] == "비회원") {
+                            echo '<td style="color:red;">';
+                        } else {
+                            echo '<td style="color:blue;">';
+                        }
+                        echo '' . $item['member_status'] . '</td>';
                         // echo '<td>' . $item['time'] . '</td>';
                         // echo '<td>' . $item['kes_member_status'] . '</td>';
                         echo '<td>' . $item['attendance_type'] . '</td>';
