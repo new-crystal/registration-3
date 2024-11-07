@@ -858,7 +858,7 @@ class Admin extends CI_Controller
             $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row['mintime']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $contry);
             $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $row['nation']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(10, $excel_row, $row['kes_member_status']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(10, $excel_row, $row['member_status']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(11, $excel_row, $row['first_name'] . " " . $row['last_name']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(12, $excel_row, $row['first_name']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(13, $excel_row, $row['last_name']);

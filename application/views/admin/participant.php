@@ -456,17 +456,17 @@ $chairperson = 0;
 $panel = 0;
 
 
-foreach($users as $item){
-    if($item['attendance_type'] == "Committee"){
+foreach($users as $user){
+    if($user['attendance_type'] == "Committee"){
         $committee++;
     }
-    else if($item['attendance_type'] == "Speaker"){
+    else if($user['attendance_type'] == "Speaker"){
         $speaker++;
     }
-    else if($item['attendance_type'] == "Chairperson"){
+    else if($user['attendance_type'] == "Chairperson"){
         $chairperson++;
     }
-    else if($item['attendance_type'] == "Panel"){
+    else if($user['attendance_type'] == "Panel"){
         $panel++;
     }
 }
@@ -476,11 +476,8 @@ foreach($users as $item){
 <div class="text-center flex flex-col items-center justify-center">
     <h1 class="text-6xl font-semibold text-orange-600 my-10">IMCVP 2024</h1>
     <h6 class="text-3xl font-semibold mb-20 ">현장 참석자 데이터</h6>
-    <h6 class="text-3xl font-semibold mb-20 ">현장 QR 출결 :
-        <?php echo count($item) ?> 명 / 미출결:
-        <?php echo $non_qr ?>
-        명
-        <!-- <?php echo count($day_2_e) ?> -->
+    <h6 class="text-3xl font-semibold mb-20 ">총 등록인원 : <?php echo count($users) ?>명</h6>
+    <h6 class="text-3xl font-semibold mb-20 ">현장 QR 출결 :<?php echo count($item) ?> 명 / 미출결:<?php echo $non_qr ?>명
     </h6>
 
     <table>
