@@ -15,7 +15,9 @@ class Qrcode extends CI_Controller
         $this->load->library("qrcode_e");
         $this->load->model('users');
         $this->load->model('entrance');
+        $this->load->model('schedule');
         ini_set('memory_limit', '-1');
+        $this->load->library("time_spent");
     }
 
     public function index()
@@ -157,6 +159,37 @@ class Qrcode extends CI_Controller
         );
         $data['users'] = $this->users->get_user($where);
         $data['times'] = $this->entrance->access($where);
+
+        $list = $this->entrance->access($where);
+        $enter = $list['min_time'];
+        $leave = $list['max_time'];
+
+        $duration = $this->schedule->get_duration();
+        $start = $duration['start'];
+        $end = $duration['end'];
+
+        $allbreaks = $this->schedule->get_breaks();
+        $breaks = [];
+
+        foreach ($allbreaks as $brk) {
+            $break = new breaktime();
+            $break->start = $brk['start'];
+            $break->end = $brk['end'];
+            $breaks[] = $break;
+        }
+
+        $spent = $this->time_spent->time_spentcalc($enter, $leave, $start, $end, $breaks);
+
+        $data['score'] = floor($spent / 60);
+
+        $max_score = $this->schedule->get_maxscore();
+
+        if ($data['score'] >= $max_score) {
+            $data['score'] = $max_score;
+        } else {
+            $data['score'] = $data['score'];
+        }
+
         $this->load->view('qr_open', $data);
     }
 
