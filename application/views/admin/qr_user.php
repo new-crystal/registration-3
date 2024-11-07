@@ -69,12 +69,12 @@ table th {
                     <form action="/admin/send_all_msm" method="post" id="depositForm">
                         <button class="btn btn-primary pull-right"><i class="icon-checkmark"></i> 전체문자발송</button>
                     </form>
-                    <a class="btn btn-primary pull-right" href="/access/scan_qr" target="_blank"><i
+                    <!-- <a class="btn btn-primary pull-right" href="/access/scan_qr" target="_blank"><i
                             class="icon-add"></i> 등록데스크
                         QR</a>
                     <a class="btn btn-primary pull-right" href="/access/row_scan_qr" target="_blank"><i
                             class="icon-add"></i> 등록데스크 가로
-                        QR</a>
+                        QR</a> -->
                 </div>
             </div>
 

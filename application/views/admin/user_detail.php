@@ -179,15 +179,15 @@ $remark3 = "";
                                             <option value="Participants">Participants</option>
                                             <option value="Speaker">Speaker</option>
                                             <option value="Chairperson">Chairperson</option>
-                                            <option value="Moderator">Moderator</option>
+                                            <option value="Committee">Committee</option>
                                             <option value="Panel">Panel</option>
-                                            <option value="Preceptor">Preceptor</option>
-                                            <option value="Organizer">Organizer</option>
+                                            <option value="Sponsor">Sponsor</option>
+                                            <!-- <option value="Organizer">Organizer</option>
                                             <option value="Oral Presenter">Oral Presenter</option>
                                             <option value="Poster Oral Presenter">Poster Oral Presenter</option>
-                                            <option value="Satellite Attendee">Satellite Attendee</option>
+                                            <option value="Satellite Attendee">Satellite Attendee</option> -->
                                             <option value="Press">Press</option>
-                                            <option value="Exhibitior">Exhibitior</option>
+                                            <!-- <option value="Exhibitior">Exhibitior</option> -->
                                         </select>
                                     </td>
                                 </tr>
@@ -197,18 +197,17 @@ $remark3 = "";
                                         <input class="form-control member_type" type="text" value="<?php echo $item['member_type']; ?>" name="member_type" id="type1">
                                         <select class="form-control input-lg m-bot15" id="member_type_select">
                                             <option value="" selected="selected">직접입력</option>
-
-                                            <option value="Specialist">Specialist</option>
+                                            <option value="Certified M.D.">Certified M.D.</option>
                                             <option value="Professor">Professor</option>
-                                            <option value="Fellow">Fellow</option>
                                             <option value="Researcher">Researcher</option>
-                                            <option value="Nurse">Nurse</option>
                                             <option value="Nutritionist">Nutritionist</option>
-                                            <option value="Pharmacists">Pharmacists</option>
-                                            <option value="Corporate member">Corporate member</option>
-                                            <option value="Military medical officer">Military medical officer</option>
+                                            <option value="Exercise Specialist">Exercise Specialist</option>
+                                            <option value="Nurse">Nurse</option>
+                                            <option value="Pharmacist">Pharmacist</option>
+                                            <option value="Trainee">Trainee</option>
                                             <option value="Student">Student</option>
-                                            <option value="Resident">Resident</option>
+                                            <option value="Others">Others</option>
+                                            <option value="Trainee (전공의)">Trainee (전공의)</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -248,13 +247,13 @@ $remark3 = "";
                                 </tr>
 
                                 <tr>
-                                    <th>Affiliation</th>
-                                    <td> <input class="form-control" type="text" value="<?php echo $item['affiliation']; ?>" name="affiliation" id="org">
+                                    <th>소속</th>
+                                    <td> <input class="form-control" type="text" value="<?php echo $item['affiliation']; ?>" name="affiliation" id="org" disabled>
 
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Name Badge_affiliation</th>
+                                    <th>네임텍 소속</th>
                                     <td> <input class="form-control" type="text" value="<?php echo $item['org_nametag']; ?>" name="org_nametag" id="org_nametag">
                                     </td>
                                 </tr>
@@ -275,7 +274,7 @@ $remark3 = "";
                                     <th>면허번호</th>
                                     <td>
                                         <div style="display:flex;  align-items: center;">
-                                            <input class="form-control" type="text" value="<?php echo $item['licence_number']; ?>" name="licence_number" id="phone">
+                                            <input class="form-control" type="text" value="<?php echo $item['licence_number']; ?>" name="licence_number" id="licence_number">
                                         </div>
                                     </td>
                                 </tr>
@@ -283,7 +282,7 @@ $remark3 = "";
                                     <th>전문의번호</th>
                                     <td>
                                         <div style="display:flex;  align-items: center;">
-                                            <input class="form-control" type="text" value="<?php echo $item['specialty_number']; ?>" name="specialty_number" id="phone">
+                                            <input class="form-control" type="text" value="<?php echo $item['specialty_number']; ?>" name="specialty_number" id="specialty_number">
                                         </div>
                                     </td>
                                 </tr>
@@ -330,10 +329,10 @@ $remark3 = "";
                                     <td> <input type="text" class="form-control" value="<?php echo $item['deposit_method']; ?>" name="deposit_method" id="etc4"></td>
                                 </tr>
 
-                                <tr>
+                                <!-- <tr>
                                     <th>결제수단<br>(은행/계좌번호)</th>
                                     <td> <input type="text" class="form-control" value="<?php echo $item['etc4']; ?>" name="etc4" id="etc4"></td>
-                                </tr>
+                                </tr> -->
 
                                 <tr>
                                     <th>결제상태</th>

@@ -651,10 +651,11 @@ class Admin extends CI_Controller
                 $deposit = $this->input->post('deposit');
                 $deposit_date = $this->input->post('deposit_date');
                 $special_request_food = $this->input->post('special_request_food');
+                $day1_luncheon_yn = $this->input->post('day1_luncheon_yn');
+                $day1_satellite_yn = $this->input->post('day1_satellite_yn');
                 $day2_breakfast_yn = $this->input->post('day2_breakfast_yn');
                 $day2_luncheon_yn = $this->input->post('day2_luncheon_yn');
-                $day3_breakfast_yn = $this->input->post('day3_breakfast_yn');
-                $day3_luncheon_yn = $this->input->post('day3_luncheon_yn');
+                $day2_satellite_yn = $this->input->post('day2_satellite_yn');
                 $conference_info = $this->input->post('conference_info');
                 $qr_print = $this->input->post('qr_print');
                 $qr_chk_day_1 = $this->input->post('qr_chk_day_1');
@@ -712,10 +713,11 @@ class Admin extends CI_Controller
                     'first_name' => $first_name,
                     'last_name' => $last_name,
                     'nation' => $nation,
+                    'day1_luncheon_yn' => $day1_luncheon_yn,
+                    'day1_satellite_yn' => $day1_satellite_yn,
                     'day2_breakfast_yn' => $day2_breakfast_yn,
                     'day2_luncheon_yn' => $day2_luncheon_yn,
-                    'day3_breakfast_yn' => $day3_breakfast_yn,
-                    'day3_luncheon_yn' => $day3_luncheon_yn,
+                    'day2_satellite_yn' => $day2_satellite_yn,
                     'updatetime' => $updateTime,
                     'time' => $time,
                     'conference_info' => $conference_info,
