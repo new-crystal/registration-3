@@ -128,9 +128,9 @@
                         echo '' . $item['deposit'] . '</td>';
                         echo '</td>';
                         if ($item['member_status'] == "비회원") {
-                            echo '<td style="color:red;">';
+                            echo '<td style="color:black;">';
                         } else {
-                            echo '<td style="color:blue;">';
+                            echo '<td style="color:red;">';
                         }
                         echo '' . $item['member_status'] . '</td>';
                         // echo '<td>' . $item['time'] . '</td>';
