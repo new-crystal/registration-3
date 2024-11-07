@@ -181,44 +181,12 @@
     <div class="page_1">
         <img src="../../assets/images/new_index.png" />
     </div>
-    <!-- <div class="page_2" style="display: none;">
-        <img class="absolute top-0 left-0" style="z-index: -99;" src="../../assets/images/name_org.png" />
-        <?php if (mb_strlen($users['affiliation']) > 7 && mb_strlen($users['affiliation']) <= 14) { ?>
-            <div class="small_text_box">
-                <div id="nickname" class="z-50 block">
-                    <?php if (isset($users['first_name'])) echo $users['first_name'] ?>
-                </div>
-            </div>
-            <div class="small_text_box">
-                <div id="org" class=" z-50 block" style=" font-size: 5rem;">
-                    <?php if (isset($users['affiliation'])) echo $users['affiliation'] ?></div>
-            </div>
-    </div> 
- <?php } else if (mb_strlen($users['affiliation']) >= 14) { ?>
-    <div class="long_small_text_box">
-        <div id="nickname" class=" z-50 block">
-            <?php if (isset($users['first_name'])) echo $users['first_name'] ?>
-        </div>
-    </div>
-    <div class="long_small_text_box">
-        <div id="org" class=" z-50 block" style="font-size: 4rem;">
-            <?php if (isset($users['affiliation'])) echo $users['affiliation'] ?></div>
-    </div> 
-</div>
-<?php } else if (mb_strlen($users['affiliation']) <= 7) { ?>
-    <div class="text_box" style="position: relative;left: 100px;">
-        <div id="nickname" class=" z-50 block">
-            <?php if (isset($users['first_name'])) echo $users['first_name'] ?>
-        </div>
-    </div>
-    <div class="text_box" style="position: relative;left: 100px;">
-        <div id="org" class=" z-50 block">
-            <?php if (isset($users['affiliation'])) echo $users['affiliation'] ?></div>
-    </div>
-    </div>  -->
-    <?php   } ?>
  <div class="page_3" style="display: none;">
     <div id="container" class="w-full h-full flex items-center">
+        <div class="alert_modal">
+            <p class="alert_text">Attendance Checked!</p>
+            <h6 class="alert_text">예상평점 : <?php echo $score; ?>점</h6>
+        </div>
         <div class="h-full">
             <div>
                 <div>
@@ -284,6 +252,7 @@
         <p class="alert_text">Attendance Checked!</p>
     </div> -->
 </div>
+</div>
 <script>
     const page1 = document.querySelector(".page_1");
     const page2 = document.querySelector(".page_2")
@@ -294,7 +263,7 @@
     const bc = new BroadcastChannel("test_channel");
     
     bc.onmessage = (data)=>{
-        //console.log(data.data.qrcode)
+        //console.log(data)
         childFunction(data.data)
     }
     
@@ -302,8 +271,9 @@
         if (data.qrcode && data.type !== 2) {
             window.location.href = `/qrcode/open?qrcode=${data.qrcode}`
         }else if(data.qrcode && data.type == 2){
-            page3.style.display = "";
-            page1.style.display = "none";
+            window.location.href = `/qrcode/open?qrcode=${data.qrcode}&type=2`
+            // page3.style.display = "";
+            // page1.style.display = "none";
             // const alertModal = document.querySelector(".alert_modal");
             // const alertText = document.querySelector(".alert_text");
             // //console.log(alert)
@@ -323,27 +293,29 @@
             // alertName.innerText = `${data.nickname}`;
             // time.innerText = `${dateString} ${hours}:${minutes}`;
 
-            setTimeout(() => {
-                page3.style.display = "none";
-                page1.style.display = "";
-                //alertModal.style.display = "none";
-            }, 3000)
+            // setTimeout(() => {
+            //     page3.style.display = "none";
+            //     page1.style.display = "";
+            //     //alertModal.style.display = "none";
+            // }, 10000)
 
         }
     }
 
-    // window.onload = () => {
-    //     page1.style.display = "";
-    //     page2.style.display = "none";
-    //     if (window.location.search) {
-    //         page1.style.display = "none";
-    //         page2.style.display = "";
-    //         setTimeout(() => {
-    //             page1.style.display = "";
-    //             page2.style.display = "none";
-    //         }, 10000)
-    //     }
-    // }
+    window.onload = () => {
+        // console.log(page1)
+        // console.log(page3)
+        page1.style.display = "";
+        page3.style.display = "none";
+        if (window.location.search?.split("type=")[1] === '2') {
+            page1.style.display = "none";
+            page3.style.display = "";
+            setTimeout(() => {
+                page1.style.display = "";
+                page3.style.display = "none";
+            }, 10000)
+        }
+    }
 
 
 
