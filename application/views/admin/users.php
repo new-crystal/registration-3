@@ -123,7 +123,7 @@
                         if ($item['deposit'] != "결제완료") {
                             echo '<td style="color:red;">';
                         } else {
-                            echo '<td style="color:blue;">';
+                            echo '<td style="color:black;">';
                         }
                         echo '' . $item['deposit'] . '</td>';
                         echo '</td>';

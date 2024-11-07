@@ -28,8 +28,7 @@ class Entrance extends CI_Model
         SELECT *,
             time_format(b.duration,'%H시간 %i분') as d_format,
             time_format(b1.duration_day1,'%H시간 %i분') as d_format_day1,
-            time_format(b2.duration_day2,'%H시간 %i분') as d_format_day2,
-            time_format(b3.duration_day3,'%H시간 %i분') as d_format_day3
+            time_format(b2.duration_day2,'%H시간 %i분') as d_format_day2
         FROM users a
         LEFT JOIN( SELECT registration_no as qr_registration_no, MAX(time) as maxtime, MIN(time) as mintime, TIMEDIFF(MAX(time), MIN(time)) as duration from access GROUP by registration_no ) b on a.registration_no = b.qr_registration_no
         LEFT JOIN (
