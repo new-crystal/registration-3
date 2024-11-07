@@ -523,10 +523,10 @@ foreach($users as $item){
 
     <table class="w-9/12 text-2xl mb-20 mt-20">
         <tr class="text-black">
-            <th colspan="2" rowspan="2" class="bg-sky-950 text-white">등록구분</th>
+            <th colspan="2" rowspan="2" class="bg-slate-300">등록구분</th>
             <th colspan="2" class="bg-sky-200">11월 29일(금)</th>
             <th colspan="2" class="bg-amber-200">11월 30일(토)</th>
-            <th rowspan="2" class=" bg-slate-300">Total</th>
+            <th rowspan="2" class="bg-slate-300">Total</th>
         </tr>
         <tr class="text-black">
             <th>국외</th>
