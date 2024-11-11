@@ -126,13 +126,13 @@
   height: 340px;
   position: relative;
   width: 100%;
-  margin-top: 535px;
+  margin-top: 103px;
 }
 
 #printThis .reg {
   width: 25%;
     text-align: right !important;
-    transform: translate(263px, -91px);
+    transform: translate(256px, 2px);
     margin: 0;
 }
 
@@ -208,6 +208,7 @@
     /* width: 100%; */
     /* padding-right: 96px; */
     text-align: left;
+
 }
 #printThis .receipt_num_1{
   top: 84px;
@@ -251,13 +252,22 @@
 }
 
 #printThis .receipt_name{
-  top: 226px;
+  top: 783px;
   left: -104px;
 }
 
 #printThis .receipt_price{
-  top: 216px;
-  left: -156px;
+  top: 777px;
+  left: -104px;
+}
+
+#printThis .end_num_1{
+  top: 858px;
+  left: -233px;
+}
+#printThis .end_num_2{
+  top: 839px;
+  left: -42px;
 }
 
 
@@ -6558,7 +6568,7 @@ h6.panel-title,
     width: 10cm;
     height: 24cm;
     border: 1px solid transparent;
-    background-image: url('../../images/nametag_bg.png');
+    background-image: url('../../images/nametag_bg-1.jpg');
     background-size: contain;
     margin: 0;
     background-repeat: no-repeat;
@@ -6576,7 +6586,7 @@ h6.panel-title,
   height: 340px;
   position: relative;
   width: 100%;
-  margin-top: 535px;
+  margin-top: 103px;
 }
 
 #printThis .org{
@@ -6603,7 +6613,7 @@ h6.panel-title,
 }
 
 #printThis .nick_name{
-  line-height: 61px;
+  line-height: 50px;
   font-weight: 400;
   font-size: 44px;
   letter-spacing: 20px;

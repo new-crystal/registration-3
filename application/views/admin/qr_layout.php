@@ -69,16 +69,17 @@
                 $nicknameLength = mb_strlen($users['first_name'], "UTF-8") + mb_strlen($users['last_name'], "UTF-8");
                 $orgLength = mb_strlen($users['org_nametag'], "UTF-8");
                 $participant = $users['attendance_type'];
+                $lucky_num = explode("-",$users['registration_no'])[1]; 
                 //echo $nicknameLength;
                 // echo mb_strlen($users['org_nametag'], "UTF-8") + mb_strlen($users['nation'], "UTF-8");
                 echo '<div class="a4_area">';
                 echo '<div class="bg_area">';
                 echo '<div class="txt_con">';
                 echo '<div class="number_box">';
-                echo '<div class="reg_1">' .  $users['registration_no'] . '</div>';
-                echo '<div class="reg_2">' .  $users['registration_no'] . '</div>';
+                // echo '<div class="reg_1">' .  $lucky_num . '</div>';
+                // echo '<div class="reg_2">' .  $users['registration_no'] . '</div>';
                 echo '</div>';
-                echo '<div class="reg" id="reg">' .  $users['registration_no'] . '</div>';
+                echo '<div class="reg" id="reg">' .  $lucky_num . '</div>';
                 if ($users['nt_info'] != '') {
                     echo '<div class="org" id="nt_info">' . $users['nt_info'] . '</div>';
                 }
@@ -107,6 +108,12 @@
                     echo '<div class="org" id="org" style="height:33px;">' . $users['nation'] . '</div>';
                 }
                 echo '<div id="qrcode" class=""><img src="/assets/images/QR/qrcode_' . $users['registration_no'] . '.jpg"></div>';
+
+                echo '<div class="receipt receipt_price number_box">' . $users['fee']. '</div>';
+                echo '<div class="receipt receipt_name number_box">' . $users['first_name'] ." " . $users['last_name']. '</div>';
+                echo '<div class="receipt end_num_1 number_box">' . $lucky_num . '</div>';
+                echo '<div class="receipt end_num_2 number_box">' . $lucky_num . '</div></div>';
+
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';

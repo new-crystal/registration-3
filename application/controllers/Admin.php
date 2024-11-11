@@ -1938,4 +1938,11 @@ class Admin extends CI_Controller
         $this->load->view('footer');
     }
 
+    public function testKaKao()
+    {
+        $this->load->view('admin/header');
+        $this->load->view('admin/kakao');
+        $this->load->view('footer');
+    }
+
 }
