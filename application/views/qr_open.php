@@ -1,6 +1,10 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-    
+     body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* 스크롤 없애기 */
+        }
     @font-face {
         font-family: Gong;
         src: url("../../../assets/font/Gong_Gothic_OTF_Bold.otf");
@@ -175,11 +179,48 @@
         width:1780px; 
     }
 
+    @keyframes slideUp {
+    0% {
+        transform: translate(-50%, 100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%);
+        opacity: 0.85;
+    }
+}
+
+.wating {
+    width: 100%;
+    height: 380px;
+    background: #ffc425;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.85;
+    z-index: 999;
+    animation: slideUp 1s ease-in;
+    font-size: 5.5rem;
+    font-weight: 700;
+    font-family: Gong;
+    -webkit-text-stroke-width: 4px;
+    -webkit-text-stroke-color: #004471;
+}
+
 
 </style>
-<div class="w-full h-screen flex flex-col items-center justify-center">
-    <div class="page_1">
+<div class="w-full h-screen flex flex-col items-center justify-center overflow-hidden">
+    <div class="page_1 overflow-hidden">
         <img src="../../assets/images/new_index.png" />
+        <div class="wating hidden">
+             LOADING... Please wait
+        </div>
     </div>
  <div class="page_3" style="display: none;">
     <div id="container" class="w-full h-full flex items-center">
@@ -259,6 +300,7 @@
     const page3 = document.querySelector(".page_3")
     const nickname = document.querySelector("#nickname");
     const org = document.querySelector("#org");
+    const watingBox = document.querySelector(".wating");
     
     const bc = new BroadcastChannel("test_channel");
     
@@ -308,12 +350,19 @@
         page1.style.display = "";
         page3.style.display = "none";
         if (window.location.search?.split("type=")[1] === '2') {
+            watingBox.classList.add("hidden")
             page1.style.display = "none";
             page3.style.display = "";
             setTimeout(() => {
                 page1.style.display = "";
                 page3.style.display = "none";
             }, 10000)
+        }else if(window.location.search?.split("type=")[1] !== '2' && window.location.search){
+            watingBox.classList.remove("hidden");
+
+            setTimeout(() => {
+                watingBox.classList.add("hidden")
+            }, 5000)
         }
     }
 
