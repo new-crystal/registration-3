@@ -823,7 +823,7 @@ class Admin extends CI_Controller
 
             $member_type = "";
 
-            if ($row['nation'] == "Republic of Korea") {
+            if ($row['nation'] == "Korea") {
                 $contry = "국내";
             } else {
                 $contry = "국외";
@@ -998,7 +998,7 @@ class Admin extends CI_Controller
             $onsite = "";
             $member_type = "";
 
-            if ($row['nation'] == "Republic of Korea") {
+            if ($row['nation'] == "Korea") {
                 $contry = "국내";
             } else {
                 $contry = "국외";
@@ -1153,7 +1153,7 @@ class Admin extends CI_Controller
             $contry = "";
             $remark3 = "";
 
-            if ($row['nation'] == "Republic of Korea") {
+            if ($row['nation'] == "Korea") {
                 $contry = "국내";
             } else {
                 $contry = "국외";
@@ -1340,7 +1340,7 @@ class Admin extends CI_Controller
             $userId = $_GET['n'];
             $where = array(
                 'registration_no' => $userId,
-                'nation' => 'Republic of Korea'
+                'nation' => 'Korea'
             );
             $info = array(
                 'QR_SMS_SEND_YN' =>  'Y'
@@ -1360,7 +1360,7 @@ class Admin extends CI_Controller
             // $data['users'] = array(); // 배열로 초기화
             foreach ($userId as $value) {
                 $wheres = array(
-                    'nation' => 'Republic of Korea',
+                    'nation' => 'Korea',
                     'qr_generated' =>  'Y',
                     'registration_no' => $value
                 );
@@ -1413,7 +1413,7 @@ class Admin extends CI_Controller
                             'RECV_NAME'         =>  $users['first_name'] . ' ' . $users['last_name'],
                             'REPLY_ADDRESS'     => 'info@imcvp.org',
                             'REPLY_NAME'        => 'IMCVP 2024',
-                            'EMAIL_SUBJECT'     => '[IMCVP 2024] Registration QR and On-Site Attendance Details(Nov. 23rd – 25th, Conrad Seoul, Republic of Korea)',
+                            'EMAIL_SUBJECT'     => '[IMCVP 2024] Registration QR and On-Site Attendance Details(Nov. 23rd – 25th, Conrad Seoul, Korea)',
                             'EMAIL_ALTBODY'     => 'IMCVP 2024',
                             'EMAIL_TEMPLETE_ID' => 'Qr_iscp_231123',
                             'EMBED_IMAGE_GRID'  => 'null',
@@ -1695,7 +1695,7 @@ class Admin extends CI_Controller
                 'REPLY_NAME'        => 'IMCVP 2024',
                 'EMAIL_SUBJECT'     => 'IMCVP 2024',
                 'EMAIL_ALTBODY'     => 'IMCVP 2024',
-                'EMAIL_SUBJECT'     => '[IMCVP 2024] Registration QR and On-Site Attendance Details(Nov. 23rd – 25th, Conrad Seoul, Republic of Korea)',
+                'EMAIL_SUBJECT'     => '[IMCVP 2024] Registration QR and On-Site Attendance Details(Nov. 23rd – 25th, Conrad Seoul, Korea)',
                 'EMAIL_TEMPLETE_ID' => 'Qr_iscp_231123',
                 'EMBED_IMAGE_GRID'  => 'null',
                 'INSERT_TEXT_GRID'    => "{" .
@@ -1742,7 +1742,7 @@ class Admin extends CI_Controller
                 'RECV_NAME'         => $data['users']['first_name'] . ' ' . $data['users']['last_name'],
                 'REPLY_ADDRESS'     => 'info@imcvp.org',
                 'REPLY_NAME'        => 'IMCVP 2024',
-                'EMAIL_SUBJECT'     => '[IMCVP 2024] Registration QR and On-Site Attendance Details(Nov. 23rd – 25th, Conrad Seoul, Republic of Korea)',
+                'EMAIL_SUBJECT'     => '[IMCVP 2024] Registration QR and On-Site Attendance Details(Nov. 23rd – 25th, Conrad Seoul, Korea)',
                 'EMAIL_ALTBODY'     => 'IMCVP 2024',
                 'EMAIL_TEMPLETE_ID' => 'Qr_iscp_231123',
                 'EMBED_IMAGE_GRID'  => 'null',

@@ -132,7 +132,7 @@
 #printThis .reg {
   width: 25%;
     text-align: right !important;
-    transform: translate(256px, 2px);
+    transform: translate(256px, -5px);
     margin: 0;
 }
 
@@ -252,21 +252,21 @@
 }
 
 #printThis .receipt_name{
-  top: 783px;
+  top: 787px;
   left: -104px;
 }
 
 #printThis .receipt_price{
-  top: 777px;
+  top: 783px;
   left: -104px;
 }
 
 #printThis .end_num_1{
-  top: 858px;
+  top: 860px;
   left: -233px;
 }
 #printThis .end_num_2{
-  top: 839px;
+  top: 840px;
   left: -42px;
 }
 
@@ -284,7 +284,7 @@
 /*    float: left;*/
 /*    width: 100px;*/
     margin-bottom: 0px;
-    padding: 10px 10px;
+    padding: 0px 10px;
 }
 
 #qrcode img{
@@ -6586,21 +6586,25 @@ h6.panel-title,
   height: 340px;
   position: relative;
   width: 100%;
-  margin-top: 103px;
+  margin-top: 110px;
 }
 
 #printThis .org{
   font-size: 14px;
-  padding: 0 10px;
+  padding: 10px 10px 0 10px;
   top: 16%;
   word-break: keep-all;
-  height: 40px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   /* letter-spacing: -0.5px; */
   transform: translateY(-8px);
   font-weight: 400!important;
+}
+
+#printThis .org.nation{
+  height: 30px;
 }
 
 #printThis .small_nickname{
