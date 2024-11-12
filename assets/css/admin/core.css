@@ -253,12 +253,14 @@
 
 #printThis .receipt_name{
   top: 787px;
-  left: -104px;
+  left: 0px;
+  justify-content: flex-end;
 }
 
 #printThis .receipt_price{
   top: 783px;
-  left: -104px;
+  left: 0px;
+  justify-content: flex-end;
 }
 
 #printThis .end_num_1{
@@ -6644,7 +6646,7 @@ h6.panel-title,
     position: relative;
     /* width: 100%; */
     /* padding-right: 96px; */
-    text-align: left;
+    text-align: right;
 }
 #printThis .receipt_num_1{
   top: 84px;
