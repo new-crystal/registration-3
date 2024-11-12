@@ -95,4 +95,4 @@ define('PER_PAGE_COUNT', 10);
 
 
 define('ADMIN_ID', 'admin');
-define('ADMIN_PASS', 'lecture');
+define('ADMIN_PASS', 'imcvp20@4');
