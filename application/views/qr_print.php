@@ -103,8 +103,8 @@ body {
                      echo '<div class="org" id="org">' . $users['org_nametag'] . '</div>';
                      echo '<div class="org" id="org">' . $users['nation'] . '</div>';
                  } else {
-                     echo '<div class="org" id="org" style="height:57px;">' . $users['org_nametag'] . '</div>';
-                     echo '<div class="org" id="org" style="height:33px;">' . $users['nation'] . '</div>';
+                     echo '<div class="org" id="org">' . $users['org_nametag'] . '</div>';
+                     echo '<div class="org" id="org">' . $users['nation'] . '</div>';
                  }
                  echo '<div id="qrcode" class=""><img src="/assets/images/QR/qrcode_' . $users['registration_no'] . '.jpg"></div>';
  

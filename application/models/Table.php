@@ -9,7 +9,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Speaker' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Speaker' AND a.nation = 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -20,7 +20,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Speaker' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Speaker' AND a.nation != 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -32,7 +32,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Chairperson' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Chairperson' AND a.nation = 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -43,7 +43,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Chairperson' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Chairperson' AND a.nation != 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -55,7 +55,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Panel' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Panel' AND a.nation = 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -66,7 +66,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Panel' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Panel' AND a.nation != 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -77,7 +77,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Committee' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Committee' AND a.nation = 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -88,7 +88,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Committee' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Committee' AND a.nation != 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -99,7 +99,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Participants' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Participants' AND a.nation = 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -110,7 +110,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Participants' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Participants' AND a.nation != 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -121,7 +121,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Sponsor' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Sponsor' AND a.nation = 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -132,7 +132,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Sponsor' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Sponsor' AND a.nation != 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -143,7 +143,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type != 'Speaker' AND a.attendance_type != 'Chairperson' AND a.attendance_type != 'Panel'  AND a.attendance_type != 'Committee' AND a.attendance_type != 'Participants' AND a.attendance_type != 'Sponsor' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type != 'Speaker' AND a.attendance_type != 'Chairperson' AND a.attendance_type != 'Panel'  AND a.attendance_type != 'Committee' AND a.attendance_type != 'Participants' AND a.attendance_type != 'Sponsor' AND a.nation = 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -154,7 +154,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-             WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type != 'Speaker' AND a.attendance_type != 'Chairperson' AND a.attendance_type != 'Panel'  AND a.attendance_type != 'Committee' AND a.attendance_type != 'Participants' AND a.attendance_type != 'Sponsor' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 0
+             WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type != 'Speaker' AND a.attendance_type != 'Chairperson' AND a.attendance_type != 'Panel'  AND a.attendance_type != 'Committee' AND a.attendance_type != 'Participants' AND a.attendance_type != 'Sponsor' AND a.nation != 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -167,7 +167,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Speaker' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Speaker' AND a.nation = 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -178,7 +178,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Speaker' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Speaker' AND a.nation != 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -190,7 +190,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Chairperson' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Chairperson' AND a.nation = 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -201,7 +201,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Chairperson' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Chairperson' AND a.nation != 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -213,7 +213,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Panel' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Panel' AND a.nation = 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -224,7 +224,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Panel' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Panel' AND a.nation != 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -235,7 +235,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Committee' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Committee' AND a.nation = 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -246,7 +246,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Committee' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Committee' AND a.nation != 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -257,7 +257,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Participants' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Participants' AND a.nation = 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -268,7 +268,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Participants' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Participants' AND a.nation != 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -279,7 +279,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Sponsor' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Sponsor' AND a.nation = 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -290,7 +290,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Sponsor' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Sponsor' AND a.nation != 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -301,7 +301,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type != 'Speaker' AND a.attendance_type != 'Chairperson' AND a.attendance_type != 'Panel'  AND a.attendance_type != 'Committee' AND a.attendance_type != 'Participants' AND a.attendance_type != 'Sponsor' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 0
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type != 'Speaker' AND a.attendance_type != 'Chairperson' AND a.attendance_type != 'Panel'  AND a.attendance_type != 'Committee' AND a.attendance_type != 'Participants' AND a.attendance_type != 'Sponsor' AND a.nation = 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -312,7 +312,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-             WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type != 'Speaker' AND a.attendance_type != 'Chairperson' AND a.attendance_type != 'Panel'  AND a.attendance_type != 'Committee' AND a.attendance_type != 'Participants' AND a.attendance_type != 'Sponsor' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 0
+             WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type != 'Speaker' AND a.attendance_type != 'Chairperson' AND a.attendance_type != 'Panel'  AND a.attendance_type != 'Committee' AND a.attendance_type != 'Participants' AND a.attendance_type != 'Sponsor' AND a.nation != 'Korea' AND a.onsite_reg = 0
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -347,7 +347,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Speaker' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Speaker' AND a.nation = 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -358,7 +358,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Speaker' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Speaker' AND a.nation != 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -370,7 +370,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Chairperson' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Chairperson' AND a.nation = 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -381,7 +381,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Chairperson' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Chairperson' AND a.nation != 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -393,7 +393,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Panel' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Panel' AND a.nation = 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -404,7 +404,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Panel' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Panel' AND a.nation != 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -415,7 +415,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Committee' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Committee' AND a.nation = 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -426,7 +426,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Committee' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Committee' AND a.nation != 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -437,7 +437,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Participants' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Participants' AND a.nation = 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -448,7 +448,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Participants' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Participants' AND a.nation != 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -459,7 +459,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Sponsor' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Sponsor' AND a.nation = 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -470,7 +470,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Sponsor' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type = 'Sponsor' AND a.nation != 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -481,7 +481,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type != 'Speaker' AND a.attendance_type != 'Chairperson' AND a.attendance_type != 'Panel'  AND a.attendance_type != 'Committee' AND a.attendance_type != 'Participants' AND a.attendance_type != 'Sponsor' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type != 'Speaker' AND a.attendance_type != 'Chairperson' AND a.attendance_type != 'Panel'  AND a.attendance_type != 'Committee' AND a.attendance_type != 'Participants' AND a.attendance_type != 'Sponsor' AND a.nation = 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -492,7 +492,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type != 'Speaker' AND a.attendance_type != 'Chairperson' AND a.attendance_type != 'Panel'  AND a.attendance_type != 'Committee' AND a.attendance_type != 'Participants' AND a.attendance_type != 'Sponsor' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_1 = 'Y' AND a.attendance_type != 'Speaker' AND a.attendance_type != 'Chairperson' AND a.attendance_type != 'Panel'  AND a.attendance_type != 'Committee' AND a.attendance_type != 'Participants' AND a.attendance_type != 'Sponsor' AND a.nation != 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -505,7 +505,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Speaker' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Speaker' AND a.nation = 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -516,7 +516,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Speaker' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Speaker' AND a.nation != 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -528,7 +528,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Chairperson' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Chairperson' AND a.nation = 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -539,7 +539,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Chairperson' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Chairperson' AND a.nation != 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -551,7 +551,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Panel' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Panel' AND a.nation = 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -562,7 +562,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Panel' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Panel' AND a.nation != 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -573,7 +573,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Committee' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Committee' AND a.nation = 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -584,7 +584,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Committee' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Committee' AND a.nation != 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -595,7 +595,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Participants' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Participants' AND a.nation = 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -606,7 +606,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Participants' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Participants' AND a.nation != 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -617,7 +617,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Sponsor' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Sponsor' AND a.nation = 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -628,7 +628,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Sponsor' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type = 'Sponsor' AND a.nation != 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -639,7 +639,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type != 'Speaker' AND a.attendance_type != 'Chairperson' AND a.attendance_type != 'Panel'  AND a.attendance_type != 'Committee' AND a.attendance_type != 'Participants' AND a.attendance_type != 'Sponsor' AND a.nation = 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type != 'Speaker' AND a.attendance_type != 'Chairperson' AND a.attendance_type != 'Panel'  AND a.attendance_type != 'Committee' AND a.attendance_type != 'Participants' AND a.attendance_type != 'Sponsor' AND a.nation = 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
@@ -650,7 +650,7 @@ class Table extends CI_Model
         $query = $this->db->query("
             SELECT *
             FROM users a
-            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type != 'Speaker' AND a.attendance_type != 'Chairperson' AND a.attendance_type != 'Panel'  AND a.attendance_type != 'Committee' AND a.attendance_type != 'Participants' AND a.attendance_type != 'Sponsor' AND a.nation != 'Republic of Korea' AND a.onsite_reg = 1
+            WHERE a.qr_chk_day_2 = 'Y' AND a.attendance_type != 'Speaker' AND a.attendance_type != 'Chairperson' AND a.attendance_type != 'Panel'  AND a.attendance_type != 'Committee' AND a.attendance_type != 'Participants' AND a.attendance_type != 'Sponsor' AND a.nation != 'Korea' AND a.onsite_reg = 1
             ");
             $result = $query->result_array();  
             return count($result); 
