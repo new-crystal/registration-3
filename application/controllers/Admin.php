@@ -1405,20 +1405,20 @@ class Admin extends CI_Controller
                     $postdata = http_build_query(
                         array(
                             'CATEGORY_D_1'      => 'QrSystem',
-                            'CATEGORY_D_2'      => 'iscp',
-                            'CATEGORY_D_3'      => '231123',
+                            'CATEGORY_D_2'      => 'imcvp',
+                            'CATEGORY_D_3'      => '241129',
                             'SEND_ADDRESS'      => 'info@imcvp.org',
                             'SEND_NAME'         => 'IMCVP 2024',
                             'RECV_ADDRESS'      =>  $users['email'],
                             'RECV_NAME'         =>  $users['first_name'] . ' ' . $users['last_name'],
                             'REPLY_ADDRESS'     => 'info@imcvp.org',
                             'REPLY_NAME'        => 'IMCVP 2024',
-                            'EMAIL_SUBJECT'     => '[IMCVP 2024] Registration QR and On-Site Attendance Details(Nov. 23rd – 25th, Conrad Seoul, Korea)',
+                            'EMAIL_SUBJECT'     => '[IMCVP 2024]',
                             'EMAIL_ALTBODY'     => 'IMCVP 2024',
-                            'EMAIL_TEMPLETE_ID' => 'Qr_iscp_231123',
+                            'EMAIL_TEMPLETE_ID' => 'Qr_imcvp_241129',
                             'EMBED_IMAGE_GRID'  => 'null',
                             'INSERT_TEXT_GRID'    => "{" .
-                                '"$text1" : ' . '"' .  $users['name_kor'] . '",' .
+                                '"$text1" : ' . '"' .  $users['first_name'] . '",' .
                                 '"$text2" : ' . '"' . $users['affiliation'] . '",' .
                                 '"$text3" : ' . '"' .  $users['registration_no'] . '",' .
                                 '"$text4" : ' . '"' . base64_encode(file_get_contents(getcwd() . '/assets/images/QR/qrcode_' .  $users['registration_no'] . '.jpg')) . '"' .
@@ -1685,8 +1685,8 @@ class Admin extends CI_Controller
         $postdata = http_build_query(
             array(
                 'CATEGORY_D_1'      => 'QrSystem',
-                'CATEGORY_D_2'      => 'IMCVP',
-                'CATEGORY_D_3'      => '231123',
+                'CATEGORY_D_2'      => 'imcvp',
+                'CATEGORY_D_3'      => '241129',
                 'SEND_ADDRESS'      => 'info@imcvp.org',
                 'SEND_NAME'         => 'IMCVP 2024',
                 'RECV_ADDRESS'      => $data['users']['email'],
@@ -1695,11 +1695,11 @@ class Admin extends CI_Controller
                 'REPLY_NAME'        => 'IMCVP 2024',
                 'EMAIL_SUBJECT'     => 'IMCVP 2024',
                 'EMAIL_ALTBODY'     => 'IMCVP 2024',
-                'EMAIL_SUBJECT'     => '[IMCVP 2024] Registration QR and On-Site Attendance Details(Nov. 23rd – 25th, Conrad Seoul, Korea)',
-                'EMAIL_TEMPLETE_ID' => 'Qr_iscp_231123',
+                'EMAIL_SUBJECT'     => '[IMCVP 2024] ',
+                'EMAIL_TEMPLETE_ID' => 'Qr_imcvp_241129',
                 'EMBED_IMAGE_GRID'  => 'null',
                 'INSERT_TEXT_GRID'    => "{" .
-                    '"$text1" : ' . '"' . $data['users']['name_kor'] . '",' .
+                    '"$text1" : ' . '"' . $data['users']['first_name'] . '",' .
                     '"$text2" : ' . '"' . $data['users']['affiliation'] . '",' .
                     '"$text3" : ' . '"' . $data['users']['registration_no'] . '",' .
                     '"$text4" : ' . '"' . base64_encode(file_get_contents(getcwd() . '/assets/images/QR/qrcode_' . $data['users']['registration_no'] . '.jpg')) . '"' .
@@ -1734,20 +1734,20 @@ class Admin extends CI_Controller
         $postdata = http_build_query(
             array(
                 'CATEGORY_D_1'      => 'QrSystem',
-                'CATEGORY_D_2'      => 'IMCVP',
-                'CATEGORY_D_3'      => '231123',
+                'CATEGORY_D_2'      => 'imcvp',
+                'CATEGORY_D_3'      => '241129',
                 'SEND_ADDRESS'      => 'info@imcvp.org',
                 'SEND_NAME'         => 'IMCVP 2024',
                 'RECV_ADDRESS'      => $email,
                 'RECV_NAME'         => $data['users']['first_name'] . ' ' . $data['users']['last_name'],
                 'REPLY_ADDRESS'     => 'info@imcvp.org',
                 'REPLY_NAME'        => 'IMCVP 2024',
-                'EMAIL_SUBJECT'     => '[IMCVP 2024] Registration QR and On-Site Attendance Details(Nov. 23rd – 25th, Conrad Seoul, Korea)',
+                'EMAIL_SUBJECT'     => '[IMCVP 2024] ',
                 'EMAIL_ALTBODY'     => 'IMCVP 2024',
-                'EMAIL_TEMPLETE_ID' => 'Qr_iscp_231123',
+                'EMAIL_TEMPLETE_ID' => 'Qr_imcvp_241129',
                 'EMBED_IMAGE_GRID'  => 'null',
                 'INSERT_TEXT_GRID'    => "{" .
-                    '"$text1" : ' . '"' . $data['users']['name_kor'] . '",' .
+                    '"$text1" : ' . '"' . $data['users']['first_name'] . '",' .
                     '"$text2" : ' . '"' . $data['users']['affiliation'] . '",' .
                     '"$text3" : ' . '"' . $data['users']['registration_no'] . '",' .
                     '"$text4" : ' . '"' . base64_encode(file_get_contents(getcwd() . '/assets/images/QR/qrcode_' . $data['users']['registration_no'] . '.jpg')) . '"' .

@@ -24,15 +24,10 @@ table {
 </style>
 <div align="center" style="width:750px;margin:0 auto;font-size:0;line-height:0;border:0">
     <div style="line-height:0;font-size:0;margin:0;padding:0">
-        <img alt="img1" src="https://image.webeon.net/ISCP/231123/ISCP_QR_01.png" />
+        <img alt="img1" src="https://image.webeon.net/imcvp2024/qr/IMCVP-2024_241113_01.png" />
     </div>
     <div style="line-height:0;font-size:0;margin:0;padding:0">
-        <a href="https://iscp2023.org/" target="_blank">
-            <img src="https://image.webeon.net/ISCP/231123/ISCP_QR_02.png">
-        </a>
-    </div>
-    <div style="line-height:0;font-size:0;margin:0;padding:0">
-        <img src="https://image.webeon.net/ISCP/231123/ISCP_QR_03.png">
+            <img src="https://image.webeon.net/imcvp2024/qr/IMCVP-2024_241113_02.png">
     </div>
     <div style="line-height:0;font-size:0;margin:0;padding:0;background-color: #FFF;">
         <img width="200px" height="200px"
@@ -40,17 +35,18 @@ table {
             alt="" />
     </div>
     <div style="line-height:0;font-size:0;margin:0;padding:0">
-        <img src="https://image.webeon.net/ISCP/231123/ISCP_QR_04.png" usemap="#image-map">
+        <img src="https://image.webeon.net/imcvp2024/qr/IMCVP-2024_241113_03.png">
+    </div>
+
+    <div style="line-height:0;font-size:0;margin:0;padding:0">
+        <img src="https://image.webeon.net/imcvp2024/qr/IMCVP-2024_241113_04.png" usemap="#image-map">
 
         <map name="image-map" id="#image-map">
             <area target="_blank" alt="" title="" href="https://iscp2023.org/main/cme_credits_Information.php"
                 coords="256,294,496,358" shape="rect">
         </map>
     </div>
-    <div style="line-height:0;font-size:0;margin:0;padding:0">
-        <img src="https://image.webeon.net/ISCP/231123/ISCP_QR_05.png">
 
-    </div>
 
     <div style="width:750px;display:flex; justify-content:center; margin-top:1rem;">
         <input id="email" style="width:350px; height:40px; padding:1rem;" placeholder="받으실 email주소를 작성해주세요." />
@@ -82,7 +78,7 @@ table {
             } else {
                 const registrationNo = sendMail.getAttribute("data-registration-no");
                 const url =
-                    `https://reg2.webeon.net/admin/sendemail?n=${registrationNo}&m=${email.value}`;
+                    `https://reg2.webeon.net/admin/sendEMail?n=${registrationNo}&m=${email.value}`;
 
                 fetch(url, {
                         method: 'GET',
