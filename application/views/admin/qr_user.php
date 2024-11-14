@@ -120,7 +120,7 @@ table th {
                         echo '<td class="user_d"><a href="/admin/user_detail?n=' . $item['registration_no'] . '" target="_self">' . $item['email'] . '</a></td>';
                         echo '<td>' . $item['phone'] . '</td>';
                         echo '<td>';
-                        if ($item['nation'] == "Republic of Korea") {
+                        if ($item['nation'] == "Korea") {
                             if ($item['QR_SMS_SEND_YN'] == "Y") {
                                 echo '<button style="background:transparent;border:none" onclick="onClickMsm(\'' . $item['registration_no'] . '\')"><div class="msm_btn btn btn-success qr_btn"  data-id="' . $item['registration_no'] . '">문자발송</div></button>';
                             } else {

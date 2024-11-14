@@ -78,7 +78,7 @@ table {
             } else {
                 const registrationNo = sendMail.getAttribute("data-registration-no");
                 const url =
-                    `https://reg2.webeon.net/admin/sendEMail?n=${registrationNo}&m=${email.value}`;
+                    `https://reg3.webeon.net/admin/sendEMail?n=${registrationNo}&m=${email.value}`;
 
                 fetch(url, {
                         method: 'GET',

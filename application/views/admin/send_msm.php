@@ -1,19 +1,18 @@
 <?php
 $phone = $users['phone'] ?? '';
-$id = $users['id'] ?? '';
 $registration_no = $users['registration_no'] ?? '';
-$nick_name = $users['name_kor'] ?? '';
+
 $curl = curl_init();
 $error = "";
 
-if (substr($phone, 0, 2) == "82") {
-    $phone = '0' . substr($phone, 3);
-}
-if (substr($phone, 0, 2) == "10") {
-    $phone = '0' . $phone;
-} else {
-    $phone = $phone;
-}
+// if (substr($phone, 0, 2) == "82") {
+//     $phone = '0' . substr($phone, 3);
+// }
+// if (substr($phone, 0, 2) == "10") {
+//     $phone = '0' . $phone;
+// } else {
+//     $phone = $phone;
+// }
 
 
 curl_setopt_array($curl, array(
@@ -40,7 +39,7 @@ curl_close($curl);
 if ($err) {
     echo "cURL Error #:" . $err;
 } else {
-    // echo $response;
+   // echo $response;
     $responseData = json_decode($response, true);
     $accessToken = $responseData['access_token'];
 
@@ -57,7 +56,7 @@ if ($err) {
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => "POST",
         CURLOPT_POSTFIELDS => array(
-            'phone' =>  $phone, 'callback' => '01065492506',
+            'phone' =>  $phone, 'callback' => '01030098530',
             'message' =>  '
 안녕하세요. ISCP2023 운영사무국 입니다.
 본 학회에 등록해 주셔서 감사드리며, 원활한 참석을 위하여 다음과 같은 안내 드리오니, 많은 관심 부탁 드립니다.
@@ -81,7 +80,7 @@ if ($err) {
 ISCP 2023 운영사무국 올림. 
 T. +82-2-6549-2506 | E. iscp@into-on.com
             
-', 'refkey' => 'RESTAPITEST1548722798', 'subject' => '[11/23-25_ISCP2023]등록자QR및행사정보안내(콘래드서울)', 'image_cnt' =>
+', 'refkey' => 'RESTAPITEST1548722798', 'subject' => '[IMCVP 2024]', 'image_cnt' =>
             '1', '
              images0' => new CURLFILE('assets/images/QR/qrcode_' . $registration_no . '.jpg')
         ),

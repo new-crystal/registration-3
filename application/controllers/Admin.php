@@ -1451,15 +1451,11 @@ class Admin extends CI_Controller
         else {
             $data['primary_menu'] = 'participant';
 
-
-            $wheres = array(
-                'qr_chk' => 'Y'
-            );
             /**모든 유저 */
             $data['users'] = $this->users->get_users();
 
             /**qr access 총 유저 */
-            $data['item'] = $this->users->get_qr_print_user($wheres);
+            $data['item'] = $this->users->get_qr_print_user();
 
            /**day1 ~ day3 access 각각 유저 */
            $data['day1_speaker_kor'] = $this->table->get_day1_speaker_kor();
