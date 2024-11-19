@@ -6,7 +6,6 @@
 @page {
     size: 10cm 24cm;
     margin: 0;
-    overflow: hidden;
 }
 
 body {
@@ -24,10 +23,6 @@ body {
     src: url("../../../assets/font/Arial_Italic.otf");
 }
 
-.org {
-    font-family: Arial_italic;
-}
-
 .nick_name {
     font-family: Arial_bold;
     font-size: 48px;
@@ -38,76 +33,6 @@ body {
     height: 24cm;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-}
-
-.receipt {
-    transform: rotate(0.5turn);
-}
-
-
-.text_box>.receipt_name {
-    left: -42px !important;
-}
-
-#last_name {
-    padding: 0 !important;
-}
-
-.text_box {
-    position: absolute;
-    top: 302px;
-}
-
-.kor_box {
-    position: absolute;
-    top: 24px;
-}
-
-.small {
-    font-size: 34px !important;
-    line-height: 64px !important;
-}
-
-.org_small {
-    transform: translateY(7px) !important;
-}
-
-.small_box {
-    top: 302px !important;
-}
-
-.reg {
-    text-align: right !important;
-    transform: translate(-16px, -43px);
-}
-
-/* 
-    .long_nick>.receipt {
-        position: static !important;
-        transform: rotate(0.5turn) !important;
-    }
-
-    .long_nick {
-        padding-top: 249px;
-    } */
-
-.tag_price,
-.tag_name {
-    transform: rotate(0.5turn);
-    width: 77%;
-    margin: 0 auto;
-    text-align: right !important;
-}
-
-.tag_name {
-    position: relative;
-    top: 265px;
-}
-
-.tag_price {
-    position: relative;
-    top: 250px;
 }
 
 @media print {
@@ -118,10 +43,6 @@ body {
         height: 956px; */
         margin: 0;
         padding: 0;
-    }
-
-    .edit_wrapper, #editor1{
-        display: none;
     }
 
    }
@@ -142,7 +63,7 @@ body {
     <!-- Content area -->
     <div class="content" id="nametag">
         <div id="printThis">
-                    <div id="editor1" contenteditable="true">
+        <div id="editor1" contenteditable="true" style="height:24cm;">
                 <?php
                 echo '<div class="a4_area">';
                 echo '<div class="bg_area">';
@@ -193,7 +114,6 @@ function printElement(elem) {
         var $printSection = document.createElement("div");
         $printSection.style.width = "10cm";
         $printSection.style.height = "24cm";
-        $printSection.style.overflow = "hidden";
         $printSection.id = "printSection";
         document.body.appendChild($printSection);
     }
