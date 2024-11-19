@@ -139,7 +139,7 @@ class Users extends CI_Model
 		$this->db->insert($this->users, $info);
 
 		$id = $this->db->insert_id();
-		$registration_no = 'IMCVP2024-4' . str_pad($id, 4, '0', STR_PAD_LEFT);
+		$registration_no = 'IMCVP2024-4' . str_pad($id, 3, '0', STR_PAD_LEFT);
 		$this->db->where('id', $id);
 		$this->db->update($this->users, array('registration_no' => $registration_no));
 	}
@@ -149,7 +149,7 @@ class Users extends CI_Model
 		$this->db->insert($this->users, $info);
 
 		$id = $this->db->insert_id();
-		$registration_no = 'IMCVP2024-4' . str_pad($id, 4, '0', STR_PAD_LEFT);
+		$registration_no = 'IMCVP2024-4' . str_pad($id, 3, '0', STR_PAD_LEFT);
 		$this->db->where('id', $id);
 		$this->db->update($this->users, array('registration_no' => $registration_no));
 	}
@@ -276,7 +276,7 @@ class Users extends CI_Model
 		$query = $this->db->query("
 	SELECT *
 	FROM users a
-	WHERE a.qr_chk_day_1 = 'Y' AND a.nation = 'Republic of Korea'
+	WHERE a.qr_chk_day_1 = 'Y' AND a.nation = 'Korea'
 	ORDER BY a.id ASC
 	");
 		return $query->result_array();
@@ -288,7 +288,7 @@ class Users extends CI_Model
 		$query = $this->db->query("
 		SELECT *
 		FROM users a
-		WHERE a.qr_chk_day_1 = 'Y' AND a.nation != 'Republic of Korea'
+		WHERE a.qr_chk_day_1 = 'Y' AND a.nation != 'Korea'
 		ORDER BY a.id ASC
 	");
 		return $query->result_array();
@@ -300,7 +300,7 @@ class Users extends CI_Model
 		$query = $this->db->query("
 	SELECT *
 	FROM users a
-	WHERE a.qr_chk_day_2 = 'Y' AND a.nation = 'Republic of Korea'
+	WHERE a.qr_chk_day_2 = 'Y' AND a.nation = 'Korea'
 	ORDER BY a.id ASC
 	");
 		return $query->result_array();
@@ -312,7 +312,7 @@ class Users extends CI_Model
 		$query = $this->db->query("
 	SELECT *
 	FROM users a
-	WHERE a.qr_chk_day_2 = 'Y' AND a.nation != 'Republic of Korea'
+	WHERE a.qr_chk_day_2 = 'Y' AND a.nation != 'Korea'
 	ORDER BY a.id ASC
 	");
 		return $query->result_array();
@@ -324,7 +324,7 @@ class Users extends CI_Model
 		$query = $this->db->query("
 	SELECT *
 	FROM users a
-	WHERE a.qr_chk_day_3 = 'Y' AND a.nation = 'Republic of Korea'
+	WHERE a.qr_chk_day_3 = 'Y' AND a.nation = 'Korea'
 	ORDER BY a.id ASC
 	");
 		return $query->result_array();
@@ -336,7 +336,7 @@ class Users extends CI_Model
 		$query = $this->db->query("
 	SELECT *
 	FROM users a
-	WHERE a.qr_chk_day_3 = 'Y' AND a.nation != 'Republic of Korea'
+	WHERE a.qr_chk_day_3 = 'Y' AND a.nation != 'Korea'
 	ORDER BY a.id ASC
 	");
 		return $query->result_array();

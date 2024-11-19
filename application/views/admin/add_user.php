@@ -98,7 +98,7 @@
                                     <input class="form-control" type="text" name="nation" id="nation">
                                     <select id="nation_no" name="nation_no" class="required">
 										<option value="" selected="" hidden="">Choose</option>
-                                        <option data-nt="82" value="25">Republic of Korea</option>
+                                        <option data-nt="82" value="25">Korea</option>
                                         <option data-nt="93" value="122">Afghanistan</option>
                                         <option data-nt="355" value="124">Albania</option>
                                         <option data-nt="213" value="125">Algeria</option>

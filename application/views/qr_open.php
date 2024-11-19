@@ -125,12 +125,12 @@
     }
 
     .qr_info_wrap {
-        width: 800px;
+        /* width: 800px; */
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: 5.5rem;
-        margin: 1rem auto;
+        /* height: 5.5rem; */
+        /* margin: 1rem auto; */
         font-weight: 500;
         font-size: 2.5rem;
     }
@@ -152,8 +152,8 @@
     } */
 
     .info_content>input {
-        width: 843px;
-        height: 100%;
+        width: 850px;
+        height: 114px;
         padding: 0 2rem;
         z-index: 999;
     }
@@ -174,8 +174,8 @@
     }
 
     .input_box {
-        transform: translate(0px, 200px);
-        height :340px;
+        transform: translate(0px, 124px);
+        height :322px;
         width:1780px; 
     }
 
@@ -216,13 +216,13 @@
 
 </style>
 <div class="w-full h-screen flex flex-col items-center justify-center overflow-hidden">
-    <div class="page_1 overflow-hidden">
-        <img src="../../assets/images/new_index.png" />
+    <div class="page_1 overflow-hidden" style="display: none;">
+        <img src="../../assets/images/new_index2024.jpg" />
         <div class="wating hidden">
              LOADING... Please wait
         </div>
     </div>
- <div class="page_3" style="display: none;">
+ <div class="page_3">
     <div id="container" class="w-full h-full flex items-center">
         <div class="alert_modal">
             <p class="alert_text">Attendance Checked!</p>
@@ -231,7 +231,7 @@
         <div class="h-full">
             <div>
                 <div>
-                    <img src="../../assets/images/row_app_loading_bg.png" style="position: absolute;z-index: -999;width: 1920px;top:0;left:0;" />
+                    <img src="../../assets/images/row_app_loading_bg2024.jpg" style="position: absolute;z-index: -999;width: 1920px;top:0;left:0;" />
                     <dl>
                         <div class="input_box">
                            <form>
@@ -243,8 +243,8 @@
                                         </dd>
                                     </dl>
                                 <div>
-                                    <div class="flex w-[1730px] h-[345px] items-center justify-between">
-                                <div class="h-[340px] flex flex-col  items-center justify-between">
+                                    <div class="flex w-[1765px] h-[320px] items-center justify-between">
+                                <div class="h-full flex flex-col  items-center justify-between">
                                     <dl class="pl-2">
                                         <div id="qr_nick_name" class="qr_info_wrap">
                                             <div class="info_content"><input type="text" class="qr_info input name" value="<?php if (isset($users['first_name'])) echo $users['first_name'] . ' ' . $users['last_name'] ?>" readonly  autocomplete='off'>
@@ -253,14 +253,14 @@
                                     </dl>
 
                                     <dl class="pl-2">
-                                        <div id="qr_nick_name" class="qr_info_wrap">
-                                            <div class="info_content"><input type="text" class="qr_info input name" value="<?php if (isset($users['first_name'])) echo $users['first_name'] . ' ' . $users['last_name'] ?>" readonly  autocomplete='off'>
+                                        <div id="qr_nick_org" class="qr_info_wrap">
+                                            <div class="info_content"><input type="text" class="qr_info input org" value="<?php if (isset($users['org_nametag'])) echo $users['org_nametag']  ?>" readonly  autocomplete='off'>
                                             </div>
                                         </div>
                                     </dl>
                                 </div>
                                 <div>
-                                        <dl class="pl-2 h-[340px] flex flex-col  items-center justify-between">
+                                        <dl class="pl-2 h-full flex flex-col  items-center justify-between">
                                             <div id="qr_entrance" class="qr_info_wrap">
                                                 <div class="info_content">
                                                     <input type="text" class="qr_info input" value="<?php if(isset($times['min_time'])) { $enter = date("Y-m-d H:i", strtotime($times['min_time'])); echo $enter; } ?>
@@ -347,23 +347,23 @@
     window.onload = () => {
         // console.log(page1)
         // console.log(page3)
-        page1.style.display = "";
-        page3.style.display = "none";
-        if (window.location.search?.split("type=")[1] === '2') {
-            watingBox.classList.add("hidden")
-            page1.style.display = "none";
-            page3.style.display = "";
-            setTimeout(() => {
-                page1.style.display = "";
-                page3.style.display = "none";
-            }, 10000)
-        }else if(window.location.search?.split("type=")[1] !== '2' && window.location.search){
-            watingBox.classList.remove("hidden");
+        // page1.style.display = "";
+        // page3.style.display = "none";
+        // if (window.location.search?.split("type=")[1] === '2') {
+        //     watingBox.classList.add("hidden")
+        //     page1.style.display = "none";
+        //     page3.style.display = "";
+        //     setTimeout(() => {
+        //         page1.style.display = "";
+        //         page3.style.display = "none";
+        //     }, 10000)
+        // }else if(window.location.search?.split("type=")[1] !== '2' && window.location.search){
+        //     watingBox.classList.remove("hidden");
 
-            setTimeout(() => {
-                watingBox.classList.add("hidden")
-            }, 5000)
-        }
+        //     setTimeout(() => {
+        //         watingBox.classList.add("hidden")
+        //     }, 5000)
+        // }
     }
 
 

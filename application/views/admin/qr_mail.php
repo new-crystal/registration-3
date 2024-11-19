@@ -24,10 +24,13 @@ table {
 </style>
 <div align="center" style="width:750px;margin:0 auto;font-size:0;line-height:0;border:0">
     <div style="line-height:0;font-size:0;margin:0;padding:0">
-        <img alt="img1" src="https://image.webeon.net/imcvp2024/qr/IMCVP-2024_241113_01.png" />
+        <img alt="img1" src="https://image.webeon.net/imcvp2024/qr/img_01.png" usemap="#image-map"/>
+        <map name="image-map" id="image-map">
+            <area target="_blank" alt="" title="" href="https://imcvp.org/" coords="620,6,800,68" shape="rect">
+        </map>
     </div>
     <div style="line-height:0;font-size:0;margin:0;padding:0">
-            <img src="https://image.webeon.net/imcvp2024/qr/IMCVP-2024_241113_02.png">
+            <img src="https://image.webeon.net/imcvp2024/qr/img_02.png">
     </div>
     <div style="line-height:0;font-size:0;margin:0;padding:0;background-color: #FFF;">
         <img width="200px" height="200px"
@@ -35,16 +38,16 @@ table {
             alt="" />
     </div>
     <div style="line-height:0;font-size:0;margin:0;padding:0">
-        <img src="https://image.webeon.net/imcvp2024/qr/IMCVP-2024_241113_03.png">
+        <img src="https://image.webeon.net/imcvp2024/qr/img_03.png" usemap="#image-map-2"/>
+                
+                <map name="image-map-2" id="image-map-2">
+                    <area target="_blank" alt="" title="" href="https://www.walkerhill.com/grandwalkerhillseoul/en/Map?tabIdx=1&amp;subAir=incheon" coords="150,578,646,686" shape="rect">
+                </map>
+
     </div>
 
     <div style="line-height:0;font-size:0;margin:0;padding:0">
-        <img src="https://image.webeon.net/imcvp2024/qr/IMCVP-2024_241113_04.png" usemap="#image-map">
-
-        <map name="image-map" id="#image-map">
-            <area target="_blank" alt="" title="" href="https://iscp2023.org/main/cme_credits_Information.php"
-                coords="256,294,496,358" shape="rect">
-        </map>
+        <img src="https://image.webeon.net//imcvp2024/qr/img_04.png">
     </div>
 
 

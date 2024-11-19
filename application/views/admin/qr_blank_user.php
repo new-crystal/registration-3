@@ -6,6 +6,7 @@
 @page {
     size: 10cm 24cm;
     margin: 0;
+    overflow: hidden;
 }
 
 body {
@@ -37,6 +38,7 @@ body {
     height: 24cm;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 .receipt {
@@ -107,6 +109,23 @@ body {
     position: relative;
     top: 250px;
 }
+
+@media print {
+        #printThis {
+        width: 10cm;
+        height: 24cm;
+        /* width: 794px;
+        height: 956px; */
+        margin: 0;
+        padding: 0;
+    }
+
+    .edit_wrapper, #editor1{
+        display: none;
+    }
+
+   }
+
 </style>
 <!-- Main content -->
 <div id="nametag_wrapper">
@@ -123,7 +142,7 @@ body {
     <!-- Content area -->
     <div class="content" id="nametag">
         <div id="printThis">
-            <div id="editor1" contenteditable="true" style="height:24cm;">
+                    <div id="editor1" contenteditable="true">
                 <?php
                 echo '<div class="a4_area">';
                 echo '<div class="bg_area">';
@@ -131,6 +150,8 @@ body {
 
                 echo '<div class="nick_name lang_en" id="first_name">' . '</div>';
 
+                echo '</div>';
+                echo '</div>';
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';
@@ -172,22 +193,23 @@ function printElement(elem) {
         var $printSection = document.createElement("div");
         $printSection.style.width = "10cm";
         $printSection.style.height = "24cm";
+        $printSection.style.overflow = "hidden";
         $printSection.id = "printSection";
         document.body.appendChild($printSection);
     }
 
     $printSection.innerHTML = "";
     $printSection.appendChild(domClone);
-    //            console.log($printSection);
+                console.log($printSection);
     window.print();
 }
 </script>
 
 <script>
 //Make the DIV element draggagle:
-dragElement(document.getElementById("qrcode"));
-dragElement(document.getElementById("org"));
-dragElement(document.getElementById("nick_name"));
+// dragElement(document.getElementById("qrcode"));
+// dragElement(document.getElementById("org"));
+dragElement(document.getElementById("first_name"));
 
 function dragElement(elmnt) {
     var pos1 = 0,

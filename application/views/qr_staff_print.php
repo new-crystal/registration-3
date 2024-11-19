@@ -112,7 +112,7 @@ body {
                 // 한국인 X && firstname 15글자 이하
 
                 // //한국인 O
-                // if ($nation == "Republic of Korea") {
+                // if ($nation == "Korea") {
                 //     echo '<div class="nick_name lang_en small_name" id="first_name">' . $users['last_name'] . " " . $users['first_name'] . '</div>';
                 // }
                 //echo '<div id="qrcode" class=""><img src="/assets/images/QR/qrcode_' . $users['registration_no'] . '.jpg"></div>';

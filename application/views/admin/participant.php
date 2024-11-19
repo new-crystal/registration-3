@@ -477,7 +477,7 @@ foreach($users as $user){
     <h1 class="text-6xl font-semibold text-orange-600 my-10">IMCVP 2024</h1>
     <h6 class="text-3xl font-semibold mb-20 ">현장 참석자 데이터</h6>
     <h6 class="text-3xl font-semibold mb-20 ">총 등록인원 : <?php echo count($users) ?>명</h6>
-    <h6 class="text-3xl font-semibold mb-20 ">현장 QR 출결 :<?php echo count($item) ?> 명 / 미출결:<?php echo $non_qr ?>명
+    <h6 class="text-3xl font-semibold mb-20 ">현장 QR 출결 : <?php echo count($item) ?> 명 / 미출결 : <?php echo $non_qr ?>명
     </h6>
 
     <table>
@@ -492,29 +492,6 @@ foreach($users as $user){
         <tr>
             <td class="count_9"> <?php echo $day_1_users ?></td>
             <td class="count_10"> <?php echo $day_2_users ?></td>
-        </tr>
-    </table>
-
-    <table class="mt-10">
-        <colgroup>
-            <col width="250px">
-            <col width="250px">
-        </colgroup>
-        <tr>
-            <th class="bg-orange-200">Committee</th>
-            <td><?php echo isset($committee_count) ? $committee_count : 0; ?> / <?php echo $committee; ?> </td>
-        </tr>
-        <tr>
-            <th class="bg-orange-200">Chairperson</th>
-            <td><?php echo isset($chairperson_count) ? $chairperson_count : 0; ?> / <?php echo $chairperson; ?> </td>
-        </tr>
-        <tr>
-            <th class="bg-orange-200">Speaker</th>
-            <td><?php echo isset($speaker_count) ? $speaker_count : 0;  ?> / <?php echo $speaker; ?> </td>
-        </tr>
-        <tr>
-            <th class="bg-orange-200">Panel</th>
-            <td><?php echo isset($panel_count) ? $panel_count : 0;  ?> / <?php echo $panel; ?> </td>
         </tr>
     </table>
 
@@ -865,7 +842,29 @@ foreach($users as $user){
             <td colspan="2" class="count_4"><?php echo $day1_on_num; ?></td>
             <td colspan="2" class="count_5"><?php echo $day2_on_num; ?></td>
         </tr>
+    </table>
 
+    <table class="my-10 ">
+        <colgroup>
+            <col width="250px">
+            <col width="250px">
+        </colgroup>
+        <tr>
+            <th class="bg-orange-200">Committee</th>
+            <td><?php echo isset($committee_count) ? $committee_count : 0; ?> / <?php echo $committee; ?> </td>
+        </tr>
+        <tr>
+            <th class="bg-orange-200">Chairperson</th>
+            <td><?php echo isset($chairperson_count) ? $chairperson_count : 0; ?> / <?php echo $chairperson; ?> </td>
+        </tr>
+        <tr>
+            <th class="bg-orange-200">Speaker</th>
+            <td><?php echo isset($speaker_count) ? $speaker_count : 0;  ?> / <?php echo $speaker; ?> </td>
+        </tr>
+        <tr>
+            <th class="bg-orange-200">Panel</th>
+            <td><?php echo isset($panel_count) ? $panel_count : 0;  ?> / <?php echo $panel; ?> </td>
+        </tr>
     </table>
 </div>
 </div>

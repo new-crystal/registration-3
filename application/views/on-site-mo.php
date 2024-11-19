@@ -403,7 +403,7 @@ td {
                 <th>Country<br> (국가)<span class="hit">*</span></th>
                 <td>
                     <select id="nation_no" name="nation" class="px-2 py-1 w-11/12 h-10 border" disabled>
-                        <option data-nt="82" value="Republic of Korea" selected="">Republic of Korea</option>
+                        <option data-nt="82" value="Korea" selected="">Korea</option>
                         <option data-nt="93" value="Afghanistan">Afghanistan</option>
                         <!-- <option data-nt="358" value="Aland Islands">Aland Islands</option> -->
                         <option data-nt="335" value="Albania">Albania</option>
@@ -1067,12 +1067,12 @@ phone.addEventListener('input', (event) => {
 /**국적 -> 한국인만 한국이름 작성 */
 contry.addEventListener("click", () => {
     contryNumber.value = contry.options[contry.selectedIndex].dataset.nt
-    if (contry.value !== "Republic of Korea") {
+    if (contry.value !== "Korea") {
         KoreanName.style.display = "none"
         koreanAffiliation.style.display = "none"
         department_kor.style.display = "none"
 
-    } else if (contry.value === "Republic of Korea") {
+    } else if (contry.value === "Korea") {
         KoreanName.style.display = "";
         koreanAffiliation.style.display = ""
         department_kor.style.display = ""
@@ -1291,7 +1291,7 @@ function onSubmit(e) {
         return;
     }
 
-    if (contry.options[contry.selectedIndex].value === "Republic of Korea") {
+    if (contry.options[contry.selectedIndex].value === "Korea") {
         if (!KoreanName.value) {
             alert("invaild Name");
             KoreanName.focus()
@@ -1375,7 +1375,7 @@ function calRegiFee() {
     const contryValue = contry.options[contry.selectedIndex].value;
     const participationValue = participationSelect.options[participationSelect.selectedIndex].value;
 
-    if (contryValue === "Republic of Korea") {
+    if (contryValue === "Korea") {
         if (participationValue === "Participants") {
             if (categoryValue === "Specialist" || categoryValue === "Professor") {
                 fee = "70,000";
@@ -1408,7 +1408,7 @@ function calRegiFee() {
             fee = 0;
         }
     }
-    if (contryValue === "Republic of Korea" && fee !== undefined) {
+    if (contryValue === "Korea" && fee !== undefined) {
         total.innerText = `￦${fee}`
     } else if (fee !== undefined) {
         total.innerText = fee;

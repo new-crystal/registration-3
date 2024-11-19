@@ -2,6 +2,13 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 require __DIR__ . '/../../vendor/autoload.php';
 
+class breaktime
+{
+    public $start;
+    public $end;
+}
+
+
 class Qrcode extends CI_Controller
 {
     private $sheets;

@@ -72,7 +72,7 @@ if ($err) {
 감사합니다.
 ISCP 2023 운영사무국 올림. 
 T. +82-2-6549-2506 | E. iscp@into-on.com
-', 'refkey' => 'RESTAPITEST1548722798', 'subject' => '[IMCVP 2024]', 'image_cnt' =>
+', 'refkey' => 'RESTAPITEST1548722798', 'subject' => '[IMCVP 2024] 학술대회 참석 안내', 'image_cnt' =>
                 '1', '
              images0' => new CURLFILE('assets/images/QR/qrcode_' . $item['registration_no'] . '.jpg')
             ),
@@ -111,8 +111,7 @@ T. +82-2-6549-2506 | E. iscp@into-on.com
         <p class="text-xl font-semibold mt-5">성공 : <?= $success ?> </p>
         <p class="text-xl font-semibold mt-5">실패 : <?= $failed ?> </p>
         <p class="text-xl font-semibold mt-5">문자 잔여량 : <?= $after ?> </p>
-        <a href="/admin/qr_user"><button class="bg-white text-lime-500 p-3 translate-y-32 font-semibold rounded">뒤로
-                가기</button></a>
+        <a href="/admin/qr_user"><button class="bg-white text-lime-500 p-3 translate-y-32 font-semibold rounded">뒤로가기</button></a>
     </div>
 
 </div>
