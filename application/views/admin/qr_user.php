@@ -140,7 +140,7 @@ table th {
                         // echo '<td style="text-align: center;">' . $item['mintime'] . '</td>';
                         // echo '<td style="text-align: center;">' . $item['maxtime'] . '</td>';
                         echo '<td>';
-                        echo '<a  href="/admin/qr_layout?n=' . $item['registration_no'] . '" target="_blank"><div class="btn btn-info qr_btn" >QR보기</div></a>';
+                        echo '<a  href="/admin/qr_layout?n=' . $item['registration_no'] . '" target="_blank"><div class="btn btn-info qr_btn">QR보기</div></a>';
                         echo '</td>';
 
                         // echo $item['deposit'] . '</td>';

@@ -6,6 +6,13 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <style>
+
+@font-face {
+        font-family: Gong;
+        src: url("../../../assets/font/Gong_Gothic_OTF_Bold.otf");
+    }
+
+
     @keyframes fadeInUp {
         0% {
             opacity: 0;
@@ -56,20 +63,20 @@
 
     }
 
-    .info_content {
+    /* .info_content {
         width: 66%;
         height: 100%;
-        /* border: 2px solid rgb(49 46 129); */
-    }
+         border: 2px solid rgb(49 46 129);
+    } */
 
     .info_content>input {
-        margin-left: 139px;
-        margin-top: 10px;
-        width: 157%;
-        height: 90%;
+        /* margin-left: 139px;
+        margin-top: 10px; */
+        width: 846px;
+        height: 113px;
         padding: 0 2rem;
         z-index: 999;
-        transform: translate(-63px, 91px);
+        /* transform: translate(-63px, 91px); */
     }
 
     input {
@@ -77,6 +84,7 @@
         background-color: transparent;
         font-size: 3rem;
         font-family: 'Roboto', sans-serif !important;
+        font-weight: 700;
     }
 
     .info_content>input:focus {
@@ -98,7 +106,7 @@
         transform: translate(1px, -92px);
     }
 
-    .alert {
+    /* .alert {
         width: 500px;
         height: 200px;
         background: #f9a21b;
@@ -118,75 +126,150 @@
         font-weight: 700;
         position: relative;
         animation: fadeInUp 1s;
+    } */
+    .alert {
+        width: 100%;
+        height: 260px;
+        background: #ffc425;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #FFF;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.85;
+        z-index: 999;
     }
+
+    .no_alert{
+        width: 100%;
+        height: 210px;
+        background: rgba(255,0,0,0.85);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* opacity: 0.85; */
+        color: #fff;
+    }
+
+    .alert>p, .no_alert > p {
+        font-size: 8.5rem;
+        font-weight: 700;
+        position: relative;
+        /* animation: fadeInUp 1s; */
+        font-family: Gong;
+        -webkit-text-stroke-width: 5px;
+        -webkit-text-stroke-color: #004471;
+    }
+
+    .alert>h6 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        position: relative;
+        /* animation: fadeInUp 1s; */
+        font-family: Gong;
+        -webkit-text-stroke-width: 3px;
+        -webkit-text-stroke-color: #004471;
+        }
+
+        .input_wrap{
+            transform: translate(78px, 594px);
+        }
+
+        .no_alert > p {
+            font-size: 6rem;
+        }
+
 </style>
 
 <body id="body" class="flex items-center justify-center">
     <div id="container" class="w-full h-full flex items-center overflow-hidden">
-        <div class="alert" style="display:none">
+        <div class="alert" style="display:none;">
             <p class="alert_text">Attendance Checked!</p>
+            <h6 class="alert_text">예상 평점 <?php echo $score ?>점</h6>
+        </div>
+        <div class="no_alert" style="display:none;">
+            <p class="no_alert_text">Please check the QR code.</p>
         </div>
         <div class="h-full">
             <div>
                 <div>
-                    <img src="../../assets/images/row_app_loading_bg.png" onclick="window.location.replace()" style="position: absolute;z-index: -999;width: 1920px;" />
+                    <img src="../../assets/images/row_app_loading_bg2024.jpg" style="position: absolute;z-index: -999;width: 1920px;top:0;left:0;" />
+                    
                     <dl>
+                    <script type="text/javascript">
+                        $(function() {
+                            $("#accessForm").submit(function() {
+                                if (!$.trim($("#qrcode").val())) {
+                                    alert("QR CODE를 입력하세요.");
+                                    $("#qrcode").focus();
+                                    return false;
+                                }
 
-                        <script type="text/javascript">
-                            $(function() {
-                                $("#accessForm").submit(function() {
-                                    if (!$.trim($("#qrcode").val())) {
-                                        alert("QR CODE를 입력하세요.");
-                                        $("#qrcode").focus();
-                                        return false;
-                                    }
+                                $("#accessForm").attr("action", "/access/row_scan_qr");
 
-                                    $("#accessForm").attr("action", "/access/row_scan_qr");
-
-                                    return true;
-                                });
+                                return true;
                             });
+                        });
                         </script>
                         <div class="input_box">
-                            <?php echo form_open('/access/row_scan_qr', 'id="accessForm" name="accessForm"') ?>
+                        <?php echo form_open('/access/row_scan_qr', 'id="accessForm" name="accessForm"') ?>
                             <fieldset>
-                                <div class="fresh"></div>
-                                <div style=" transform: translateY(700px);">
-                                    <dl class="pl-2" style="transform: translateY(-200px);">
-                                        <dd><input type="text" name="qrcode" id="qrcode" class=" h-20  px-3 py-3 mt-5 border-indigo-900 mx-auto" style="    transform: translate(74px,-20px);width: 800px;" placeholder="" autofocus  autocomplete='off'>
+                                <div>
+                                    <div>
+                                    <dl class="pl-2">
+                                        <dd>
+                                            <input type="text" name="qrcode" id="qrcode" class="h-20  px-3 py-3 mt-5 mx-auto" placeholder="" autofocus autocomplete='off'>
                                         </dd>
                                     </dl>
-
-                                    <dl class="pl-2" style="transform: translateY(-200px);">
+                                <div>
+                             <div class="flex w-[1750px] h-[330px] items-center justify-between input_wrap">
+                                <div class="h-full flex flex-col  items-center justify-between">
+                                    <dl class="pl-2">
                                         <div id="qr_nick_name" class="qr_info_wrap">
                                             <div class="info_content"><input type="text" class="qr_info input name" value="<?php if (isset($first_name)) echo $first_name . ' ' . $last_name ?>" readonly  autocomplete='off'>
                                             </div>
                                         </div>
-
                                     </dl>
 
-                                    <dl class="pl-2" style="transform: translateY(-200px);">
-                                        <div id="qr_entrance" class="qr_info_wrap">
-                                            <div class="info_content">
-                                                <input type="text" style="margin-top:3px;transform: translate(857px, -226px);" class="qr_info input" value="<?php if(isset($enter)) { $enter = date("Y-m-d H:i", strtotime($enter)); echo $enter; } ?>
-                                                " readonly  autocomplete='off'>
-                                            </div>
-
-                                        </div>
-                                        <div id="qr_exit" class="qr_info_wrap">
-                                            <div class="info_content">
-                                                <input type="text" style="margin-top:0; transform: translate(854px, -107px);" class="qr_info input" value="<?php if (isset($leave)) { $leave = date("Y-m-d H:i", strtotime($leave)); echo $leave;} ?>
-                                                " readonly  autocomplete='off'>
+                                    <dl class="pl-2">
+                                        <div id="qr_org" class="qr_info_wrap">
+                                            <div class="info_content"><input type="text" class="qr_info input org" value="<?php if (isset($entrance_org)) echo $entrance_org; ?>" readonly  autocomplete='off'>
                                             </div>
                                         </div>
                                     </dl>
+                                </div>
+                                <div>
+                                        <dl class="pl-2 h-full flex flex-col  items-center justify-between">
+                                            <div id="qr_entrance" class="qr_info_wrap">
+                                                <div class="info_content">
+                                                    <input type="text" class="qr_info input" value="<?php if (isset($enter)) { $enter = date("Y-m-d H:i", strtotime($enter));echo $enter;} ?> " readonly  autocomplete='off'>
+                                                </div>
 
-                                    <div class="w-full flex items-center justify-center">
-                                        <button type="submit" value="등록" class="btnPoint w-full flex items-center justify-center" style="transform: translate(55px,434px);"></button>
+                                            </div>
+                                            <div id="qr_exit" class="qr_info_wrap">
+                                                <div class="info_content">
+                                                    <input type="text" class="qr_info input" value="<?php if (isset($leave)) {$leave = date("Y-m-d H:i", strtotime($leave));echo $leave;} ?>" readonly  autocomplete='off'>
+                                                </div>
+                                            </div>
+                                        </dl>
                                     </div>
                                 </div>
-
+                                </div>
+                                </div>
                             </fieldset>
+                            <div class="w-full flex items-center justify-center">
+                                    <button type="submit" value="등록"
+                                        class="btnPoint w-full flex items-center justify-center"
+                                        style=" transform: translate(55px,434px);"></button>
+                                </div>
                             </form>
                             <script type="text/javascript">
                                 window.scrollTo(0, document.body.scrollHeight);
@@ -209,6 +292,7 @@
                     </dl>
                 </div>
             </div>
+    </div>
 
 </body>
 <script>
@@ -218,6 +302,8 @@
     const body = document.querySelector("#body")
     const alert = document.querySelector(".alert")
     const alertText = document.querySelector(".alert_text")
+    const noAlert = document.querySelector(".no_alert")
+    const noAlertText = document.querySelector(".no_alert_text")
     const name = document.querySelector(".name")
     let textTime;
     let alertTime;
@@ -230,15 +316,17 @@
     function checkAlert() {
         if (name.value !== "") {
             alert.style.display = "";
+            noAlert.style.display = "none";
         } else {
             alert.style.display = "none";
+            noAlert.style.display = "";
         }
     }
 
 
-    freshBtn.addEventListener("touchstart", () => {
-        window.location.reload()
-    })
+    // freshBtn.addEventListener("touchstart", () => {
+    //     window.location.reload()
+    // })
 
     qrcodeInput.addEventListener("input", (e) => {
         // 입력된 값에서 공백 제거
@@ -255,11 +343,13 @@
         checkAlert()
         alertTime = setTimeout(() => {
             alert.style.display = "none";
+            noAlert.style.display = "none";
         }, 3000)
         inputs.forEach((input) => {
             textTime = setTimeout(() => {
                 input.value = "";
                 alert.style.display = "none";
+                noAlert.style.display = "none";
             }, 10000)
         })
     }

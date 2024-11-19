@@ -52,7 +52,7 @@ class OnSite extends CI_Controller
             // $uagent = $this->agent->agent_string();
             $email = $email1 . "@" . $email2;
 
-            if ($nation == "Republic of Korea") {
+            if ($nation == "Korea") {
                 $phone = $phone2;
             } else {
                 $phone = '+' . $phone1 . " " . $phone2;
@@ -85,7 +85,7 @@ class OnSite extends CI_Controller
             }
 
 
-            if ($nation === "Republic of Korea") {
+            if ($nation === "Korea") {
                 if ($attendance_type === "Participants") {
                     if ($member_type === "Specialist" || $member_type === "Professor") {
                         $fee = "70,000";
@@ -198,7 +198,7 @@ class OnSite extends CI_Controller
             // $uagent = $this->agent->agent_string();
             $email = $email1 . "@" . $email2;
 
-            if ($nation == "Republic of Korea") {
+            if ($nation == "Korea") {
                 $phone = $phone2;
             } else {
                 $phone = '+' . $phone1 . " " . $phone2;
@@ -231,7 +231,7 @@ class OnSite extends CI_Controller
             }
 
 
-            if ($nation === "Republic of Korea") {
+            if ($nation === "Korea") {
                 if ($attendance_type === "Participants") {
                     if ($member_type === "Specialist" || $member_type === "Professor") {
                         $fee = "70,000";
@@ -378,25 +378,25 @@ class OnSite extends CI_Controller
                 /**full day & member*/
                 if ($attendance_date == "Full registration") {
                     if ($member_type == "Medical Doctor" || $member_type == "Professor") {
-                        if ($nation == "Republic of Korea") {
+                        if ($nation == "Korea") {
                             $fee = "KRW 250,000";
                         } else {
                             $fee = "USD 250";
                         }
                     } else if ($member_type == "Trainee" || $member_type == "Student") {
-                        if ($nation == "Republic of Korea") {
+                        if ($nation == "Korea") {
                             $fee = "KRW 125,000";
                         } else {
                             $fee = "USD 125";
                         }
                     } else if ($member_type == "Corporate" || $member_type == "Other") {
-                        if ($nation === "Republic of Korea") {
+                        if ($nation === "Korea") {
                             $fee = "KRW 200,000";
                         } else {
                             $fee = "USD 200";
                         }
                     } else {
-                        if ($nation == "Republic of Korea") {
+                        if ($nation == "Korea") {
                             $fee = "KRW 200,000";
                         } else {
                             $fee = "USD 200";
@@ -406,7 +406,7 @@ class OnSite extends CI_Controller
 
                 /** one day & member */
                 else if ($attendance_date != "Full registration") {
-                    if ($nation == "Republic of Korea") {
+                    if ($nation == "Korea") {
                         $fee = "KRW 200,000";
                     } else {
                         $fee = "USD 200";
@@ -417,25 +417,25 @@ class OnSite extends CI_Controller
                 /**full day & non-member */
                 if ($attendance_date == "Full registration") {
                     if ($member_type == "Medical Doctor" || $member_type == "Professor") {
-                        if ($nation == "Republic of Korea") {
+                        if ($nation == "Korea") {
                             $fee = "KRW 350,000";
                         } else {
                             $fee = "USD 350";
                         }
                     } else if ($member_type == "Trainee" ||  $member_type == "Student") {
-                        if ($nation == "Republic of Korea") {
+                        if ($nation == "Korea") {
                             $fee = "KRW 175,000";
                         } else {
                             $fee = "USD 175";
                         }
                     } else if ($member_type == "Corporate" || $member_type == "Other") {
-                        if ($nation == "Republic of Korea") {
+                        if ($nation == "Korea") {
                             $fee = "KRW 250,000";
                         } else {
                             $fee = "USD 250";
                         }
                     } else {
-                        if ($nation == "Republic of Korea") {
+                        if ($nation == "Korea") {
                             $fee = "KRW 250,000";
                         } else {
                             $fee = "USD 250";
@@ -445,7 +445,7 @@ class OnSite extends CI_Controller
 
                 /** one day  & non-member */
                 else if ($attendance_date != "Full registration") {
-                    if ($nation == "Republic of Korea") {
+                    if ($nation == "Korea") {
                         $fee = "KRW 230,000";
                     } else {
                         $fee = "USD 230";

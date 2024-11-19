@@ -80,7 +80,7 @@ if ($err) {
 ISCP 2023 운영사무국 올림. 
 T. +82-2-6549-2506 | E. iscp@into-on.com
             
-', 'refkey' => 'RESTAPITEST1548722798', 'subject' => '[IMCVP 2024]', 'image_cnt' =>
+', 'refkey' => 'RESTAPITEST1548722798', 'subject' => '[IMCVP 2024] 학술대회 참석 안내', 'image_cnt' =>
             '1', '
              images0' => new CURLFILE('assets/images/QR/qrcode_' . $registration_no . '.jpg')
         ),

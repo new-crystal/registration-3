@@ -248,7 +248,7 @@
                             <p class="inline-block">Country(국가)<span>*</span></p>
                             <select id="nation_no" name="nation_no" class="px-2 py-1 w-full h-9 border">
                                 <option value="" selected="" hidden="" data-nt="82">Contry</option>
-                                <option data-nt="82" value="25">Republic of Korea</option>
+                                <option data-nt="82" value="25">Korea</option>
                                 <option data-nt="93" value="122">Afghanistan</option>
                                 <option data-nt="355" value="124">Albania</option>
                                 <option data-nt="213" value="125">Algeria</option>
