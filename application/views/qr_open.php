@@ -216,13 +216,13 @@
 
 </style>
 <div class="w-full h-screen flex flex-col items-center justify-center overflow-hidden">
-    <div class="page_1 overflow-hidden" style="display: none;">
+    <div class="page_1 overflow-hidden">
         <img src="../../assets/images/new_index2024.jpg" />
         <div class="wating hidden">
              LOADING... Please wait
         </div>
     </div>
- <div class="page_3">
+ <div class="page_3" style="display: none;">
     <div id="container" class="w-full h-full flex items-center">
         <div class="alert_modal">
             <p class="alert_text">Attendance Checked!</p>
@@ -347,23 +347,23 @@
     window.onload = () => {
         // console.log(page1)
         // console.log(page3)
-        // page1.style.display = "";
-        // page3.style.display = "none";
-        // if (window.location.search?.split("type=")[1] === '2') {
-        //     watingBox.classList.add("hidden")
-        //     page1.style.display = "none";
-        //     page3.style.display = "";
-        //     setTimeout(() => {
-        //         page1.style.display = "";
-        //         page3.style.display = "none";
-        //     }, 10000)
-        // }else if(window.location.search?.split("type=")[1] !== '2' && window.location.search){
-        //     watingBox.classList.remove("hidden");
+        page1.style.display = "";
+        page3.style.display = "none";
+        if (window.location.search?.split("type=")[1] === '2') {
+            watingBox.classList.add("hidden")
+            page1.style.display = "none";
+            page3.style.display = "";
+            setTimeout(() => {
+                page1.style.display = "";
+                page3.style.display = "none";
+            }, 10000)
+        }else if(window.location.search?.split("type=")[1] !== '2' && window.location.search){
+            watingBox.classList.remove("hidden");
 
-        //     setTimeout(() => {
-        //         watingBox.classList.add("hidden")
-        //     }, 5000)
-        // }
+            setTimeout(() => {
+                watingBox.classList.add("hidden")
+            }, 5000)
+        }
     }
 
 
@@ -378,4 +378,8 @@
     document.addEventListener("contextmenu", function(event) {
         event.preventDefault();
     }, false);
+
+    window.addEventListener("beforeunload", ()=>{
+        bc.close()
+    })
 </script>

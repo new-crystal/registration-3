@@ -87,6 +87,12 @@
         font-weight: 700;
     }
 
+    input::placeholder {
+        font-weight: bold;
+        opacity: 0.5;
+    }
+
+
     .info_content>input:focus {
         outline: none
     }
@@ -234,14 +240,14 @@
                                 <div class="h-full flex flex-col  items-center justify-between">
                                     <dl class="pl-2">
                                         <div id="qr_nick_name" class="qr_info_wrap">
-                                            <div class="info_content"><input type="text" class="qr_info input name" value="<?php if (isset($first_name)) echo $first_name . ' ' . $last_name ?>" readonly  autocomplete='off'>
+                                            <div class="info_content"><input type="text" class="qr_info input name" value="<?php if (isset($first_name)) echo $first_name . ' ' . $last_name ?>" readonly  autocomplete='off' placeholder="First Name Last Name">
                                             </div>
                                         </div>
                                     </dl>
 
                                     <dl class="pl-2">
                                         <div id="qr_org" class="qr_info_wrap">
-                                            <div class="info_content"><input type="text" class="qr_info input org" value="<?php if (isset($entrance_org)) echo $entrance_org; ?>" readonly  autocomplete='off'>
+                                            <div class="info_content"><input type="text" class="qr_info input org" value="<?php if (isset($entrance_org)) echo $entrance_org; ?>" readonly  autocomplete='off' placeholder="Affiliation">
                                             </div>
                                         </div>
                                     </dl>
@@ -250,13 +256,13 @@
                                         <dl class="pl-2 h-full flex flex-col  items-center justify-between">
                                             <div id="qr_entrance" class="qr_info_wrap">
                                                 <div class="info_content">
-                                                    <input type="text" class="qr_info input" value="<?php if (isset($enter)) { $enter = date("Y-m-d H:i", strtotime($enter));echo $enter;} ?> " readonly  autocomplete='off'>
+                                                    <input type="text" class="qr_info input" value="<?php if (isset($enter)) { $enter = date("Y-m-d H:i", strtotime($enter));echo $enter;} ?> " readonly  autocomplete='off' placeholder="YYYY-MM-DD HH:MM">
                                                 </div>
 
                                             </div>
                                             <div id="qr_exit" class="qr_info_wrap">
                                                 <div class="info_content">
-                                                    <input type="text" class="qr_info input" value="<?php if (isset($leave)) {$leave = date("Y-m-d H:i", strtotime($leave));echo $leave;} ?>" readonly  autocomplete='off'>
+                                                    <input type="text" class="qr_info input" value="<?php if (isset($leave)) {$leave = date("Y-m-d H:i", strtotime($leave));echo $leave;} ?>" readonly  autocomplete='off' placeholder="YYYY-MM-DD HH:MM">
                                                 </div>
                                             </div>
                                         </dl>
