@@ -4,7 +4,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500&display=swap" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>   
+
 <style>
 body {
     font-family: 'Gothic A1', sans-serif;
@@ -229,6 +230,7 @@ input {
                     <dl>
 
                         <script type="text/javascript">
+                            let qrcodeValue = "";
                         $(function() {
                             $("#accessForm").submit(function() {
                                 if (!$.trim($("#qrcode").val())) {
@@ -236,7 +238,7 @@ input {
                                     $("#qrcode").focus();
                                     return false;
                                 }
-
+                                qrcodeValue = $("#qrcode").val()
                                 $("#accessForm").attr("action", "/access/scan_qr");
 
                                 return true;
@@ -347,6 +349,40 @@ function checkAlert() {
     if (name.value !== "") {
         alert.style.display = "";
         noAlert.style.display = "none";
+
+        const today = new Date();   
+
+        const month = today.getMonth() + 1;  // 월
+        const date = today.getDate();  // 날짜
+
+        const hours = today.getHours(); // 시
+        const minutes = today.getMinutes();  // 분
+        const seconds = today.getSeconds();  // 초
+
+        // Sujeong / 로컬 json에 데이터 쓰기
+        // const newJson = {
+        //         registration_no: '<?php echo $registration_no; ?>',
+        //         time: `${month}.${date}. ${hours}:${minutes}:${seconds}`,
+        //         type: 3
+        //     };
+
+        //     fetch('/jsonController/updateJson', { // 서버 API 엔드포인트
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //         },
+        //         body: JSON.stringify(newJson), // JavaScript 객체를 JSON 문자열로 변환
+        //     })
+        //         .then(res => {
+        //             if (!res.ok) {
+        //                 throw new Error(`HTTP error! Status: ${res.status}`);
+        //             }
+        //             return res.json();
+        //         })
+        //         .then(data => console.log('Success:', data))
+        //         .catch(err => {
+        //             console.error('Error:', err);
+        //         });
     } else {
         alert.style.display = "none";
         noAlert.style.display = "";

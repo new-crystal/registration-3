@@ -534,7 +534,7 @@ $en_name = $firstName . " " . $lastName
 
                     setTimeout(() => {
                         alert.style.display = "none";
-                    }, 3000)
+                    }, 1500)
                     // window.location.reload()
                     bc.postMessage({
                         qrcode: qrvalue,
