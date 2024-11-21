@@ -76,7 +76,6 @@ IMCVP 2024 (International Meeting of Cardiovascular Disease Prevention)
 
 감사합니다.
 IMCVP 2024 운영사무국 드림.
-
 ', 'refkey' => 'RESTAPITEST1548722798', 'subject' => '[IMCVP 2024] 학술대회 참석 안내', 'image_cnt' =>
             '1', '
              images0' => new CURLFILE('assets/images/QR/qrcode_' . $registration_no . '.jpg')

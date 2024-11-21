@@ -301,6 +301,7 @@
     const nickname = document.querySelector("#nickname");
     const org = document.querySelector("#org");
     const watingBox = document.querySelector(".wating");
+    const alert_modal = document.querySelector(".alert_modal");
     
     const bc = new BroadcastChannel("test_channel");
     
@@ -353,6 +354,11 @@
             watingBox.classList.add("hidden")
             page1.style.display = "none";
             page3.style.display = "";
+
+            setTimeout(()=>{
+                alert_modal.style.display = "none";
+            },8000)
+
             setTimeout(() => {
                 page1.style.display = "";
                 page3.style.display = "none";
