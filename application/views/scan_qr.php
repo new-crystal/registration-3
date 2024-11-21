@@ -256,7 +256,8 @@ input {
 
                                     <dl class="pl-2">
                                         <div id="qr_nick_name" class="qr_info_wrap">
-                                            <div class="info_content"><input type="text" class="qr_info input name"value="<?php if (isset($first_name)) echo $first_name . ' ' . $last_name ?>" readonly  autocomplete='off'>
+                                            <div class="info_content">
+                                                <input type="text" class="qr_info input name"value="<?php if (isset($first_name)) echo $first_name . ' ' . $last_name ?>" readonly  autocomplete='off' placeholder="First Name Last Name">
                                             </div>
                                         </div>
 
@@ -264,7 +265,7 @@ input {
 
                                     <dl class="pl-2">
                                         <div id="qr_org" class="qr_info_wrap">
-                                            <div class="info_content"><input type="text" class="qr_info input org"value="<?php if (isset($entrance_org)) echo $entrance_org; ?>" readonly  autocomplete='off'>
+                                            <div class="info_content"><input type="text" class="qr_info input org"value="<?php if (isset($entrance_org)) echo $entrance_org; ?>" readonly  autocomplete='off' placeholder="Affiliation">
                                             </div>
                                         </div>
 
@@ -275,7 +276,7 @@ input {
 
                                             <div class="info_content">
                                                 <input type="text" style="margin-top:3px"
-                                                    class="qr_info input entrance_time" value="<?php if (isset($enter)) { $enter = date("Y-m-d H:i", strtotime($enter));echo $enter;} ?>" readonly  autocomplete='off'>
+                                                    class="qr_info input entrance_time" value="<?php if (isset($enter)) { $enter = date("Y-m-d H:i", strtotime($enter));echo $enter;} ?>" readonly  autocomplete='off' placeholder="YYYY-MM-DD HH:MM">
                                             </div>
 
                                         </div>
@@ -286,7 +287,7 @@ input {
 
                                             <div class="info_content">
                                                 <input type="text" style="margin-top:0" class="qr_info input leave_time"
-                                                    value="<?php if (isset($leave)) {$leave = date("Y-m-d H:i", strtotime($leave));echo $leave;} ?>" readonly  autocomplete='off'>
+                                                    value="<?php if (isset($leave)) {$leave = date("Y-m-d H:i", strtotime($leave));echo $leave;} ?>" readonly  autocomplete='off' placeholder="YYYY-MM-DD HH:MM">
                                             </div>
                                         </div>
 
