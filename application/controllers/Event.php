@@ -19,7 +19,7 @@ class Event extends CI_Controller{
 
         $this->load->view('admin/header');
         if (!isset($this->session->admin_data['logged_in']))
-            $this->load->view('admin/login');
+            $this->load->view('stamp/login');
         else {
             // 
             $data['primary_menu'] = 'users';
@@ -31,12 +31,25 @@ class Event extends CI_Controller{
         $this->load->view('footer');
     }
 
+    public function login()
+    {
+        $user_id = $this->input->post("user_id");
+        $user_pass = $this->input->post("user_pass");
+
+        if ($user_id == ADMIN_ID && $user_pass == ADMIN_PASS) {
+            $this->session->set_userdata('admin_data', array(
+                'logged_in' => true
+            ));
+        }
+        redirect('event');
+    }
+
     public function user_detail()
     {
 
         $this->load->view('admin/header');
         if (!isset($this->session->admin_data['logged_in']))
-            $this->load->view('admin/login');
+            $this->load->view('stamp/login');
         else {
             $qrcode = isset($_GET['n']) ? $_GET['n'] : null;
             $where = array(
@@ -57,7 +70,7 @@ class Event extends CI_Controller{
         $this->load->view('admin/header');
 
         if (!isset($this->session->admin_data['logged_in']))
-            $this->load->view('admin/login');
+            $this->load->view('stamp/login');
         else {
             $data['primary_menu'] = 'users';
             $userId = $_GET['registration_no'];
@@ -100,7 +113,7 @@ class Event extends CI_Controller{
     {
         $this->load->view('admin/header');
         if (!isset($this->session->admin_data['logged_in']))
-            $this->load->view('admin/login');
+            $this->load->view('stamp/login');
         else {
             $qrcode = isset($_GET['qrcode']) ? $_GET['qrcode'] : null;
             $data['primary_menu'] = 'stamp';
@@ -214,7 +227,7 @@ class Event extends CI_Controller{
         
         $this->load->view('admin/header');
         if (!isset($this->session->admin_data['logged_in']))
-            $this->load->view('admin/login');
+            $this->load->view('stamp/login');
         else {
             // 
             $data['primary_menu'] = 'non_user';
