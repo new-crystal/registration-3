@@ -123,7 +123,7 @@ $qrcode = $_GET["qrcode"] ?? "";
                                 <tr>
                                     <th>소속</th>
                                     <td id="org" class="qr_text">
-                                        <?php if (isset($user['org'])) echo $user['org']; ?>
+                                        <?php if (isset($user['org_nametag'])) echo $user['org_nametag']; ?>
                                     </td>
                                 </tr>
 
