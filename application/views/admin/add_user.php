@@ -388,7 +388,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">메모</label>
                                 <div class="col-sm-10">
-                                    <input id="dp1" type="text" size="16" class="form-control" name="memo">
+                                    <input id="" type="text" size="16" class="form-control" name="memo">
                                 </div>
                             </div>
 

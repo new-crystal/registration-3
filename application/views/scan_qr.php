@@ -350,18 +350,18 @@ function checkAlert() {
         alert.style.display = "";
         noAlert.style.display = "none";
 
-        const today = new Date();   
+        // const today = new Date();   
 
-        const month = today.getMonth() + 1;  // 월
-        const date = today.getDate();  // 날짜
+        // const month = today.getMonth() + 1;  // 월
+        // const date = today.getDate();  // 날짜
 
-        const hours = today.getHours(); // 시
-        const minutes = today.getMinutes();  // 분
-        const seconds = today.getSeconds();  // 초
+        // const hours = today.getHours(); // 시
+        // const minutes = today.getMinutes();  // 분
+        // const seconds = today.getSeconds();  // 초
 
         // Sujeong / 로컬 json에 데이터 쓰기
         // const newJson = {
-        //         registration_no: '<?php echo $registration_no; ?>',
+        //         registration_no: '',
         //         time: `${month}.${date}. ${hours}:${minutes}:${seconds}`,
         //         type: 3
         //     };

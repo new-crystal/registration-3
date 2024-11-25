@@ -547,6 +547,7 @@ class Admin extends CI_Controller
                 );
                 //                var_dump($info);
                 $this->users->add_onsite_user($info);
+                $this->load->view('admin/user_update_success');
             }
         }
         $this->load->view('footer');
