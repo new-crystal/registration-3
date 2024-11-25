@@ -69,6 +69,8 @@ $en_name = $firstName . " " . $lastName
         width: 500px;
         padding: 4px;
         background-color: #ffbe0b;
+        font-weight: bold;
+        font-size: 20px;
     }
 
     .memoHeader {
@@ -215,45 +217,45 @@ $en_name = $firstName . " " . $lastName
                                 <col width="30%" />
                                 <col />
                             </colgroup>
-                            <tr>
+                            <!-- <tr>
                                 <th class="memoHeader">하단택</th>
                                 <td id="attendance_type" class="qr_text">
                                     <?php if (isset($user['attendance_type'])) echo $user['attendance_type'] ?></td>
-                            </tr>
-                            <tr>
+                            </tr> -->
+                            <!-- <tr>
                                 <th class="memoHeader">Special meal request</th>
                                 <td id="special_request_food" class="qr_text">
                                     <?php if (isset($user['special_request_food'])) echo $user['special_request_food'] ?>
                                 </td>
-                            </tr>
+                            </tr> -->
                             <tr>
-                                <th class="memoHeader">remark1</th>
+                                <th class="memoHeader">remark1<br/>(네임텍 하단)</th>
                                 <td id="remark1" class="qr_text">
                                     <?php if (isset($user['remark1'])) echo $user['remark1'] ?>
                                 </td>
                             </tr>
                             <tr>
-                                <th class="memoHeader">remark2</th>
+                                <th class="memoHeader">remark2<br/>(특이식단)</th>
                                 <td id="remark2" class="qr_text">
                                     <?php if (isset($user['remark2'])) echo $user['remark2'] ?>
                                 </td>
                             </tr>
                             <tr>
-                                <th class="memoHeader">remark3</th>
+                                <th class="memoHeader">remark3<br/>(안내/서명/심사표)</th>
                                 <td id="remark3" class="qr_text">
                                     <?php if (isset($user['remark3'])) echo $user['remark3'] ?>
                                 </td>
                             </tr>
 
                             <tr>
-                                <th class="memoHeader">remark4</th>
+                                <th class="memoHeader">remark4<br/>(갈라디너 참석/퍼즐)</th>
                                 <td id="remark4" class="qr_text">
                                     <?php if (isset($user['remark4'])) echo $user['remark4'] ?>
                                 </td>
                             </tr>
                             
                             <tr>
-                                <th class="memoHeader">remark5</th>
+                                <th class="memoHeader">remark5<br/>(선물제공/안내)</th>
                                 <td id="remark5" class="qr_text">
                                     <?php if (isset($user['remark5'])) echo $user['remark5'] ?>
                                 </td>
@@ -353,7 +355,7 @@ $en_name = $firstName . " " . $lastName
     }
 
     function changeBackgroundColorIfNotEmpty(element) {
-        if (element.innerText !== "" && element.innerText !== "N") {
+        if (element.innerText !== "" && element.innerText !== "Not Applicable") {
             element.style.backgroundColor = "#ffe566";
         } else {
             element.style.backgroundColor = "#fff";
@@ -413,18 +415,18 @@ $en_name = $firstName . " " . $lastName
                     affiliation.innerText = htmlDocument.querySelector("#affiliation").innerText.replace(/<br\s*\/?>/gi,
                             "")
                         .trim();
-                    attendance_type.innerText = htmlDocument.querySelector("#attendance_type").innerText.replace(
-                            /<br\s*\/?>/gi, "")
-                        .trim();
+                    // attendance_type.innerText = htmlDocument.querySelector("#attendance_type").innerText.replace(
+                    //         /<br\s*\/?>/gi, "")
+                    //     .trim();
                     category.innerText = htmlDocument.querySelector("#member_type").innerText.replace(
                             /<br\s*\/?>/gi, "")
                         .trim();
                     fee.innerText = htmlDocument.querySelector("#fee").innerText.replace(/<br\s*\/?>/gi, "")
                         .trim();
-                    special_request_food.innerText = htmlDocument.querySelector("#special_request_food").innerText
-                        .replace(/<br\s*\/?>/gi,
-                            "")
-                        .trim();
+                    // special_request_food.innerText = htmlDocument.querySelector("#special_request_food").innerText
+                    //     .replace(/<br\s*\/?>/gi,
+                    //         "")
+                    //     .trim();
                     memo.innerText = htmlDocument.querySelector("#memo").innerText.replace(/<br\s*\/?>/gi, "")
                         .trim();
                     remark1.innerText = htmlDocument.querySelector("#remark1").innerText.replace(/<br\s*\/?>/gi, "")
@@ -451,12 +453,12 @@ $en_name = $firstName . " " . $lastName
                 window.open(`https://reg3.webeon.net/qrcode/print_file?registration_no=${qrvalue}`, "_blank")
             }).then(() => {
 
-                changeBackgroundColorIfNotEmpty(memo);
+               // changeBackgroundColorIfNotEmpty(memo);
                 changeBackgroundColorIfNotEmpty(remark1);
                 changeBackgroundColorIfNotEmpty(remark2);
                 changeBackgroundColorIfNotEmpty(remark3);
                 changeBackgroundColorIfNotEmpty(remark4);
-                changeBackgroundColorIfNotEmpty(special_request_food);
+                // changeBackgroundColorIfNotEmpty(special_request_food);
                 changeBackgroundColorIfNotEmpty(remark5);
 
             })
