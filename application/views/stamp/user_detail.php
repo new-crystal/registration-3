@@ -101,7 +101,7 @@
                                 </tr>
                                 <tr>
                                     <th>이름</th>
-                                    <td style="background-color:#fafafa;"> <input class="form-control" type="text" value="<?php echo $item['nick_name']; ?>" name="nick_name" id="nick_name" disabled></td>
+                                    <td style="background-color:#fafafa;"> <input class="form-control" type="text" value="<?php echo $item['first_name'] . " " . $item['last_name']; ?>" name="nick_name" id="nick_name" disabled></td>
                                 </tr>
 
                                 <tr>
