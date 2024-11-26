@@ -107,6 +107,12 @@ $qrcode = $_GET["qrcode"] ?? "";
                                         <?php echo isset($user['event1']) ? $user['event1'] : ''; ?>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <th>event 1(스탬프)수령 시간</th>
+                                    <td id="event_1" class="qr_text">
+                                        <?php echo isset($user['event1_time']) ? $user['event1_time'] : ''; ?>
+                                    </td>
+                                </tr>
                                 <!-- <tr>
                                     <th>event 2(포스터) 수령 유무</th>
                                     <td id="event_2" class="qr_text">

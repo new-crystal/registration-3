@@ -496,7 +496,7 @@ class Admin extends CI_Controller
                 $affiliation_kor = $this->input->post('affiliation_kor');
                 $org_nametag = $this->input->post('org_nametag');
                 $department = $this->input->post('department');
-                $deposit = '미결제';
+                $deposit = '결제대기';
                 $memo = $this->input->post('memo');
                 $remark1 = $this->input->post('remark1');
                 $remark2 = $this->input->post('remark2');
