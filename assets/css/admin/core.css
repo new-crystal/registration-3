@@ -6591,6 +6591,12 @@ h6.panel-title,
   margin-top: 115px;
 }
 
+
+#printThis .txt_con.print{
+  margin-top: 122px;
+}
+
+
 #printThis .org{
   font-size: 14px;
   padding: 10px 10px 0 10px;

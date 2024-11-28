@@ -74,7 +74,7 @@
                 // echo mb_strlen($users['org_nametag'], "UTF-8") + mb_strlen($users['nation'], "UTF-8");
                 echo '<div class="a4_area">';
                 echo '<div class="bg_area">';
-                echo '<div class="txt_con">';
+                echo '<div class="txt_con print">';
                 echo '<div class="number_box">';
                 // echo '<div class="reg_1">' .  $lucky_num . '</div>';
                 // echo '<div class="reg_2">' .  $users['registration_no'] . '</div>';
