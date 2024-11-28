@@ -524,10 +524,10 @@ $en_name = $firstName . " " . $lastName
                 url : url,
                 data: data,
                 success: function(result){
-                    //console.log("result", enName.innerText)
+
                     const alert = document.querySelector("#alert");
                     const alertText = document.querySelector(".alert_text");
-                    //console.log(alert)
+
                     alert.style.display = "";
                     const today = new Date();
                     const time = document.querySelector(".time");
