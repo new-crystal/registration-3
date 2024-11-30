@@ -225,7 +225,7 @@ input {
         <div class="h-full">
             <div>
                 <div>
-                    <img src="../../assets/images/app_loading_bg2024.jpg" onclick="replace()"
+                    <img src="../../assets/images/app_loading_bg2024-01.jpg" onclick="replace()"
                         style="position: absolute;z-index: -999;width: 100vw;" />
                     <dl>
 
