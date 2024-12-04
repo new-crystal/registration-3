@@ -47,8 +47,14 @@
         background-color: orange;
     }
 
+    @font-face {
+        font-family: Gong;
+        src: url("../../../assets/font/Gong_Gothic_OTF_Bold.otf");
+    }
+
        
     .alert {
+        font-family: Gong;
         width: 100%;
         height: 260px;
         background: #ffc425;
@@ -69,6 +75,7 @@
         font-size: 5.5rem;
         font-weight: 700;
         position: relative;
+        font-family: Gong;
         /* animation: fadeInUp 1s; */
         -webkit-text-stroke-width: 5px;
         -webkit-text-stroke-color: #004471;
@@ -78,6 +85,7 @@
         font-size: 2.5rem;
         font-weight: 600;
         position: relative;
+        font-family: Gong;
         /* animation: fadeInUp 1s; */
         -webkit-text-stroke-width: 3px;
         -webkit-text-stroke-color: #004471;
@@ -483,7 +491,8 @@ $remark3 = "";
         
         const url = "/access/add_record"
         const data = {
-            reg_no : qrvalue
+            reg_no : qrvalue,
+            type : 4
         }
         if(qrvalue){
             $.ajax({

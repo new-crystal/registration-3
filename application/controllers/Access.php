@@ -487,23 +487,25 @@ class Access extends CI_Controller
                 $qr_time = date("Y-m-d");
                 if ($qr_time == '2024-11-29') {
                     $infoqr = array(
+                        'qr_chk_day_1' =>  'Y',
                         'qr_chk' => 'Y'
                     );
                     $this->users->update_qr_status($infoqr, $where);
                 }
                 if ($qr_time == '2024-11-30') {
                     $infoqr = array(
+                        'qr_chk_day_2' =>  'Y',
                         'qr_chk' => 'Y'
                     );
                     $this->users->update_qr_status($infoqr, $where);
                 }
-                // if ($qr_time == '2023-11-25') {
-                //     $infoqr = array(
-                //         'qr_chk_day_3' =>  'Y',
-                //         'qr_chk' => 'Y'
-                //     );
-                //     $this->users->update_qr_status($infoqr, $where);
-                // }
+                if ($qr_time == '2023-11-25') {
+                    $infoqr = array(
+                        'qr_chk_day_3' =>  'Y',
+                        'qr_chk' => 'Y'
+                    );
+                    $this->users->update_qr_status($infoqr, $where);
+                }
 
                 if ($this->entrance->record($info)) {
                     $userName = $this->users->get_user($where);
@@ -569,7 +571,8 @@ class Access extends CI_Controller
 
                 $info = array(
                     'registration_no' => $phone,
-                    'time' => $time
+                    'time' => $time,
+                    'type' => 0
                 );
 
                 $where = array(
@@ -726,7 +729,8 @@ class Access extends CI_Controller
 
                 $info = array(
                     'registration_no' => $qrcode,
-                    'time' => $time
+                    'time' => $time,
+                    'type' => 0
                 );
 
                 $where = array(
@@ -737,23 +741,25 @@ class Access extends CI_Controller
                 $qr_time = date("Y-m-d");
                 if ($qr_time == '2024-11-29') {
                     $infoqr = array(
+                        'qr_chk_day_1' =>  'Y',
                         'qr_chk' => 'Y'
                     );
                     $this->users->update_qr_status($infoqr, $where);
                 }
                 if ($qr_time == '2024-11-30') {
                     $infoqr = array(
+                        'qr_chk_day_2' =>  'Y',
                         'qr_chk' => 'Y'
                     );
                     $this->users->update_qr_status($infoqr, $where);
                 }
-                // if ($qr_time == '2023-11-25') {
-                //     $infoqr = array(
-                //         'qr_chk_day_3' =>  'Y',
-                //         'qr_chk' => 'Y'
-                //     );
-                //     $this->users->update_qr_status($infoqr, $where);
-                // }
+                if ($qr_time == '2023-11-25') {
+                    $infoqr = array(
+                        'qr_chk_day_3' =>  'Y',
+                        'qr_chk' => 'Y'
+                    );
+                    $this->users->update_qr_status($infoqr, $where);
+                }
 
                 if ($this->entrance->record($info)) {
                     $userName = $this->users->get_user($where);
@@ -1011,14 +1017,14 @@ class Access extends CI_Controller
            $qr_time = $date;
            if ($qr_time == '2024-11-29') {
                $infoqr = array(
-                   'qr_chk_day_1' => 'Y',
+                   //'qr_chk_day_1' => 'Y',
                    'qr_chk' => 'Y'
                );
                $this->users->update_qr_status($infoqr, $where);
            }
            if ($qr_time == '2024-11-30') {
                $infoqr = array(
-                   'qr_chk_day_2' =>  'Y',
+                  // 'qr_chk_day_2' =>  'Y',
                    'qr_chk' => 'Y'
                );
                $this->users->update_qr_status($infoqr, $where);
@@ -1030,12 +1036,13 @@ class Access extends CI_Controller
        public function add_record()
        {
             $reg_no = $_POST['reg_no'];
+            $type = $_POST['type'];
             $time = date("Y-m-d H:i:s");
 
             $info = array(
                 'registration_no' => $reg_no,
                 'time' => $time,
-                'type' => 2
+                'type' => $type
             );
 
             $where = array(
@@ -1043,7 +1050,7 @@ class Access extends CI_Controller
             );
 
             $qr_time = date("Y-m-d");
-            if ($qr_time == '2024-11-29') {
+            if ($qr_time == '2024-12-04') {
                 $infoqr = array(
                     'qr_chk_day_1' => 'Y',
                     'qr_chk' => 'Y'
@@ -1053,6 +1060,14 @@ class Access extends CI_Controller
             if ($qr_time == '2024-11-30') {
                 $infoqr = array(
                     'qr_chk_day_2' =>  'Y',
+                    'qr_chk' => 'Y'
+                );
+                $this->users->update_qr_status($infoqr, $where);
+            }
+
+            if ($qr_time == '2024-11-30') {
+                $infoqr = array(
+                    'qr_chk_day_3' =>  'Y',
                     'qr_chk' => 'Y'
                 );
                 $this->users->update_qr_status($infoqr, $where);
