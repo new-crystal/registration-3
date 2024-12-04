@@ -1668,6 +1668,15 @@ class Admin extends CI_Controller
                     );
                     $this->users->update_qr_status($infoqr, $where);
                 }
+
+                if ($qr_time == '2024-11-30') {
+                    $infoqr = array(
+                        'qr_chk_day_3' =>  'Y',
+                        'qr_chk' => 'Y',
+                        'qr_print' => 'Y'
+                    );
+                    $this->users->update_qr_status($infoqr, $where);
+                }
                 // $infoqr = array(
                 //     'qr_chk' =>  'Y'
                 // );

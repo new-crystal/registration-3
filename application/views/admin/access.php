@@ -79,18 +79,19 @@ $en_name = $firstName . " " . $lastName
 
     .access_btn{
         position:absolute;
-        bottom:150px;
+        bottom: 150px;
         left:50%;
         transform: translateX(-50%);
         width: 150px;
         height: 50px;
-        background-color: orange;
+        background-color: orangered;
         font-size: 20px;
         font-weight: 800;
+        color:#FFF;
     }
 
     .access_btn:hover{
-        background-color: orangered;
+        background-color: red;
     }
 
     
@@ -516,7 +517,8 @@ $en_name = $firstName . " " . $lastName
         
         const url = "/access/add_record"
         const data = {
-            reg_no : qrvalue
+            reg_no : qrvalue,
+            type: 2
         }
         if(qrvalue){
             $.ajax({
