@@ -1630,6 +1630,7 @@ class Admin extends CI_Controller
         }
     }
 
+    //!!! 날짜 변경 필요
     public function access()
     {
 
@@ -1643,23 +1644,44 @@ class Admin extends CI_Controller
             $qrcode = isset($_GET['qrcode']) ? $_GET['qrcode'] : null;
 
             if ($qrcode) {
-                $time = date("Y-m-d H:i:s");
+                
                 // echo $qr_time;
-                // $info = array(
-                //     'registration_no' => $qrcode,
-                //     'time' => $time
-                // );
+               
                 $where = array(
                     'registration_no' => $qrcode
                 );
-                $infoqr = array(
-                    'qr_chk' =>  'Y'
-                );
-                $this->users->update_qr_status($infoqr, $where);
+
+                $qr_time = date("Y-m-d");
+                if ($qr_time == '2024-12-04') {
+                    $infoqr = array(
+                        'qr_chk_day_1' => 'Y',
+                        'qr_chk' => 'Y',
+                        'qr_print' => 'Y'
+                    );
+                    $this->users->update_qr_status($infoqr, $where);
+                }
+                if ($qr_time == '2024-11-30') {
+                    $infoqr = array(
+                        'qr_chk_day_2' =>  'Y',
+                        'qr_chk' => 'Y',
+                        'qr_print' => 'Y'
+                    );
+                    $this->users->update_qr_status($infoqr, $where);
+                }
+                // $infoqr = array(
+                //     'qr_chk' =>  'Y'
+                // );
+                //$this->users->update_qr_status($infoqr, $where);
 
 
                 //입장시간, 퇴장시간 기록
-                // $this->entrance->record($info);
+                $time = date("Y-m-d H:i:s");
+                $info = array(
+                    'registration_no' => $qrcode,
+                    'time' => $time,
+                    'type' => 3
+                );
+                 $this->entrance->record($info);
 
                 $data['notice'] = $this->schedule->get_notice();
                 $data['user'] = $this->users->get_user($where);
