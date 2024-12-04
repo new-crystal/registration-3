@@ -33,6 +33,56 @@
     select {
         padding: 4px 8px;
     }
+
+    .access_btn{
+        width: 150px;
+        height: 40px;
+        background-color: orangered;
+        font-size: 20px;
+        font-weight: 800;
+        margin-left: 16px;
+    }
+
+    .access_btn:hover{
+        background-color: orange;
+    }
+
+       
+    .alert {
+        width: 100%;
+        height: 260px;
+        background: #ffc425;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #FFF;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.85;
+        z-index: 999;
+    }
+
+    .alert>p{
+        font-size: 5.5rem;
+        font-weight: 700;
+        position: relative;
+        /* animation: fadeInUp 1s; */
+        -webkit-text-stroke-width: 5px;
+        -webkit-text-stroke-color: #004471;
+    }
+
+    .alert>h6 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        position: relative;
+        /* animation: fadeInUp 1s; */
+        -webkit-text-stroke-width: 3px;
+        -webkit-text-stroke-color: #004471;
+        }
+
 </style>
 <?php
 $contry = "";
@@ -64,6 +114,7 @@ $remark3 = "";
                             <table>
                                 <tr>
                                     <td colspan="2"><button type="button" class="btn btn-primary" onclick="print('<?php echo $item['registration_no']; ?>')">QR Print</button>
+                                    <button type="button" onclick="saveTime('<?php echo $item['registration_no']; ?>')" class="access_btn">출결</button>
                                     </td>
                                 </tr>
                                 <!-- <tr>
@@ -356,6 +407,10 @@ $remark3 = "";
                         </div>
                     </div>
             </div>
+            <div class="alert" style="display:none;" id="alert">
+            <p class="time"></p>
+            <p class="alert_text">출결 체크 완료!</p>
+        </div>
     </section>
     </div>
     </div>
@@ -420,6 +475,42 @@ $remark3 = "";
         const re = /^[YN]$/;
         if (!re.test(text)) {
             alert("Y, N만 입력 가능합니다.")
+        }
+    }
+
+
+    function saveTime(qrvalue){
+        
+        const url = "/access/add_record"
+        const data = {
+            reg_no : qrvalue
+        }
+        if(qrvalue){
+            $.ajax({
+                type: "POST",
+                url : url,
+                data: data,
+                success: function(result){
+
+                    const alert = document.querySelector("#alert");
+                    const alertText = document.querySelector(".alert_text");
+
+                    alert.style.display = "";
+                    const today = new Date();
+                    const time = document.querySelector(".time");
+
+                    time.innerText = `${today.toLocaleString()}`
+
+                    setTimeout(() => {
+                        alert.style.display = "none";
+                    }, 1500)
+                    // window.location.reload()
+                },
+                error:function(e){  
+                    console.log(e)
+                    alert("출결등록 이슈가 발생했습니다. 관리자에게 문의해주세요.")
+                }
+            })  
         }
     }
 </script>

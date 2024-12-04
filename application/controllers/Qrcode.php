@@ -56,6 +56,8 @@ class Qrcode extends CI_Controller
         }
     }
 
+    // 1. QR code 페이지 프린팅
+    // 2. detail 페이지 프린팅
     public function print_file()
     {
         $this->load->view('admin/header');
@@ -68,28 +70,28 @@ class Qrcode extends CI_Controller
         );
 
         /** day1 ~ day3 access 기록*/
-        $qr_time = date("Y-m-d");
-        if ($qr_time == '2024-11-29') {
-            $infoqr = array(
-                'qr_chk_day_1' => 'Y',
-                'qr_chk' => 'Y'
-            );
-            $this->users->update_qr_status($infoqr, $where);
-        }
-        if ($qr_time == '2024-11-30') {
-            $infoqr = array(
-                'qr_chk_day_2' =>  'Y',
-                'qr_chk' => 'Y'
-            );
-            $this->users->update_qr_status($infoqr, $where);
-        }
-        if ($qr_time == '2023-11-25') {
-            $infoqr = array(
-                'qr_chk_day_3' =>  'Y',
-                'qr_chk' => 'Y'
-            );
-            $this->users->update_qr_status($infoqr, $where);
-        }
+        // $qr_time = date("Y-m-d");
+        // if ($qr_time == '2024-11-29') {
+        //     $infoqr = array(
+        //         'qr_chk_day_1' => 'Y',
+        //         'qr_chk' => 'Y'
+        //     );
+        //     $this->users->update_qr_status($infoqr, $where);
+        // }
+        // if ($qr_time == '2024-11-30') {
+        //     $infoqr = array(
+        //         'qr_chk_day_2' =>  'Y',
+        //         'qr_chk' => 'Y'
+        //     );
+        //     $this->users->update_qr_status($infoqr, $where);
+        // }
+        // if ($qr_time == '2023-11-25') {
+        //     $infoqr = array(
+        //         'qr_chk_day_3' =>  'Y',
+        //         'qr_chk' => 'Y'
+        //     );
+        //     $this->users->update_qr_status($infoqr, $where);
+        // }
 
         $data['users'] = $this->users->get_user($where);
         $this->users->update_qr_status($info, $where);
