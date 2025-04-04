@@ -78,7 +78,7 @@ select{
     <div class="page-header">
         <div class="page-header-content">
             <div class="page-title">
-                <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Gala Dinner 참석자 등록확인 페이지</span></h4>
+                <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Gala Dinner C table 참석자 등록확인 페이지</span></h4>
             </div>
         </div>
     </div>
@@ -90,7 +90,7 @@ select{
         <!-- Basic datatable -->
         <div class="panel panel-flat">
             <div class="panel-heading">
-                <h5 class="panel-title">Gala Dinner 미참석자(<?php echo count($users); ?>)</h5>
+                <h5 class="panel-title">Gala Dinner C table 참석자(<?php echo count($users); ?>)</h5>
             </div>
 
             <table class="table datatable-basic">
@@ -103,7 +103,9 @@ select{
                         <th>이름</th>
                         <th>한글이름</th>
                         <th>소속</th>
+                        <th>현장관리</th>
                         <th>전화번호</th>
+                        <th>출결시간</th>
                         <th>메모</th>
                     </tr>
                 </thead>
@@ -114,12 +116,26 @@ select{
                         echo '<td style="text-align: center;"><input type="checkbox" name="depositChk" class="depositChk" value="' .  $item['registration_no'] . '"></td>';
                         echo '<td class="reg_num pointer">' . $item['registration_no'] . '</td>';
                         echo '<td>' . $item['attendance_type'] . '</td>';
-                        echo '<td>' .$item['gala_table']. '</td>';
+                        echo "<td>
+                                <select name=\"gala_table\" data-id=\"".$item["registration_no"]."\">
+                                    <option value=\"\" ".(empty($item["gala_table"]) ? "selected" : "").">선택</option>
+                                    <option value=\"R\" ".($item["gala_table"] == "R" ? "selected" : "").">R</option>
+                                    <option value=\"C\" ".($item["gala_table"] == "C" ? "selected" : "").">C</option>
+                                </select>
+                            </td>";
                         echo '<td class="user_d"> <a href="/admin/user_detail?n=' . $item['registration_no'] . '"target="_top">' . $item['first_name']  . " " . $item['last_name'] . '</a> </td>';
                         echo '<td class="user_d">' . $item['name_kor'] .'</td>';
                         echo '<td>' . $item['org_nametag'] . '</td>';
-                       
+                        echo "<td>
+                        <select name=\"gala_status\" data-id=\"".$item["registration_no"]."\">
+                            <option value=\"\" ".(empty($item["gala_status"]) ? "selected" : "").">선택</option>
+                            <option value=\"Y\" ".($item["gala_status"] == "Y" ? "selected" : "").">Y</option>
+                            <option value=\"N\" ".($item["gala_status"] == "N" ? "selected" : "").">N</option>
+                            <option value=\"TBC\" ".($item["gala_status"] == "TBC" ? "selected" : "").">TBC</option>
+                        </select>
+                    </td>";
                         echo '<td>' . $item['phone'] . '</td>';
+                        echo '<td style="text-align: center;">' . $item['gala_time'] . '</td>';
                         if ($item['gala_memo'] != "" && $item['gala_memo'] != 'null') {
                             echo '<td>';
                             echo '<button class="btn qr_btn memo bg-indigo-800" onclick="onClickMemo(\'' . $item['registration_no'] . '\')" data-id="' . $item['registration_no'] . '" style="padding:8px;">메모</button>';
@@ -172,27 +188,78 @@ function copy(text) {
         }
     }
 
-
 function onClickMemo(id) {
     const url = `/gala/memo?n=${id}`;
     window.open(url, "Certificate", "width=500, height=300, top=30, left=30");
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-const searchBar = document.querySelector(".dataTables_filter");
-const userNum = <?php echo count($users); ?>;
-const userRNum = <?php echo count($r_users); ?>;
-const userCNum = <?php echo count($c_users); ?>;
+    const searchBar = document.querySelector(".dataTables_filter");
+    const userNum = <?php echo count($users); ?>;
+    const chkUserNum = <?php echo count($chk_users); ?>;
 
-    if (searchBar) {
-        const newElement = document.createElement("div");
-        newElement.classList.add("header_txt")
-        newElement.textContent = `미출결 총원 : ${userNum}명 / R 테이블 ${userRNum}명 / C 테이블 ${userCNum}명`;
-        searchBar.insertAdjacentElement("afterend", newElement);
-    } else {
-        console.warn(".dataTables_filter 요소를 찾을 수 없습니다.");
-    }
-});
+        if (searchBar) {
+            const newElement = document.createElement("div");
+            newElement.classList.add("header_txt")
+            newElement.textContent = `총원 : ${userNum}명 / 출결 : ${chkUserNum}명`;
+            searchBar.insertAdjacentElement("afterend", newElement);
+        } else {
+            console.warn(".dataTables_filter 요소를 찾을 수 없습니다.");
+        }
+    });
 
+ 
+    $("select[name=gala_table]").on("change",function(){
+		const gala_table = $(this).val();
+		const idx = $(this).data("id");
+
+		$.ajax({
+                url : "/gala/change_gala_table", 
+                type : "POST", 
+                data: {
+                        idx: idx,
+                        gala_table: gala_table
+                    },
+                dataType : "JSON", 
+                success : function(res){
+                    if(res.code == 200) {
+                        alert("변경이 완료되었습니다.");
+                        window.location.reload()
+                    } else {
+                        alert("문제가 발생했습니다. 잠시 후 다시 시도해주세요.");
+                    }
+                },
+                error: function () {
+                    alert("서버 통신 오류입니다.");
+                }
+            });
+	});
+
+ 
+    $("select[name=gala_status]").on("change",function(){
+		const gala_status = $(this).val();
+		const idx = $(this).data("id");
+
+		$.ajax({
+                url : "/gala/change_gala_status", 
+                type : "POST", 
+                data: {
+                        idx: idx,
+                        gala_status: gala_status
+                    },
+                dataType : "JSON", 
+                success : function(res){
+                    if(res.code == 200) {
+                        alert("변경이 완료되었습니다.");
+                        window.location.reload()
+                    } else {
+                        alert("문제가 발생했습니다. 잠시 후 다시 시도해주세요.");
+                    }
+                },
+                error: function () {
+                    alert("서버 통신 오류입니다.");
+                }
+            });
+	});
 
 </script>

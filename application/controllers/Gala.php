@@ -33,13 +33,31 @@ class Gala extends CI_Controller
     {
 
         $this->load->view('admin/header');
-        $data['primary_menu'] = 'all_user';
-        $data['users'] = $this->galaEvent->get_users();
+        if (!isset($this->session->admin_data['logged_in']))
+            $this->load->view('admin/login');
+        else {
+            $data['primary_menu'] = 'all_user';
+            $data['users'] = $this->galaEvent->get_users();
 
-        $this->load->view('gala/left_side.php', $data);
-        $this->load->view('gala/users', $data);
-        $this->load->view('footer');
+            $this->load->view('gala/left_side.php', $data);
+            $this->load->view('gala/users', $data);
+        }
+            $this->load->view('footer');
     }
+
+    public function login()
+    {
+        $user_id = $this->input->post("user_id");
+        $user_pass = $this->input->post("user_pass");
+
+        if ($user_id == ADMIN_ID && $user_pass == ADMIN_PASS) {
+            $this->session->set_userdata('admin_data', array(
+                'logged_in' => true
+            ));
+        }
+        redirect('gala');
+    }
+
 
     //갈라디너 관리 페이지
     public function gala_users()
@@ -70,7 +88,21 @@ class Gala extends CI_Controller
             'gala_chk' => 'N'
         );
 
+        $where_r = array(
+            'gala' => 'Gala dinner',
+            'gala_chk' => 'N',
+             'gala_table' => "R"
+        );
+
+        $where_c = array(
+            'gala' => 'Gala dinner',
+            'gala_chk' => 'N',
+             'gala_table' => "C"
+        );
+
         $data['users'] = $this->galaEvent->get_gala_user($where);
+        $data['r_users'] = $this->galaEvent->get_gala_user($where_r);
+        $data['c_users'] = $this->galaEvent->get_gala_user($where_c);
 
         $this->load->view('gala/left_side.php', $data);
         $this->load->view('gala/none_gala', $data);
@@ -89,6 +121,40 @@ class Gala extends CI_Controller
         $this->load->view('footer');
     }
 
+    //갈라디너 관리- R table 페이지
+    public function gala_r_users()
+    {
+        $this->load->view('admin/header');
+        $data['primary_menu'] = 'gala_r_users';
+
+        $where = array(
+            'gala' => "Gala dinner",
+            'gala_table' => "R"
+        );
+        $data['users'] =$this->galaEvent->get_gala_user($where); 
+
+        $this->load->view('gala/left_side.php', $data);
+        $this->load->view('gala/r_gala', $data);
+        $this->load->view('footer');
+    }
+
+      //갈라디너 관리- R table 페이지
+      public function gala_c_users()
+      {
+          $this->load->view('admin/header');
+          $data['primary_menu'] = 'gala_c_users';
+  
+          $where = array(
+              'gala' => "Gala dinner",
+              'gala_table' => "C"
+          );
+          $data['users'] =$this->galaEvent->get_gala_user($where); 
+  
+          $this->load->view('gala/left_side.php', $data);
+          $this->load->view('gala/c_gala', $data);
+          $this->load->view('footer');
+      }
+    
 
     //전체 참석자 관리 페이지
     //갈라참석 여부 

@@ -57,6 +57,20 @@
                                         </span>
                                     </a>
                                 </li>
+                                <li style="margin-bottom: 2rem;" <?php if ($primary_menu == 'gala_r_users') echo 'class="active"' ?>>
+                                    <a href="/gala/gala_r_users">
+                                        <i class="icon-list-unordered"></i>
+                                        <span>갈라 R 테이블 관리
+                                        </span>
+                                    </a>
+                                </li>
+                                <li style="margin-bottom: 2rem;" <?php if ($primary_menu == 'gala_c_users') echo 'class="active"' ?>>
+                                    <a href="/gala/gala_c_users">
+                                        <i class="icon-list-unordered"></i>
+                                        <span>갈라 C 테이블 관리
+                                        </span>
+                                    </a>
+                                </li>
                                 <li style="margin-bottom: 2rem;" <?php if ($primary_menu == 'gala_non_users') echo 'class="active"' ?>>
                                     <a href="/gala/gala_non_users">
                                         <i class="icon-list-unordered"></i>
