@@ -80,6 +80,35 @@
                                         </span>
                                     </a>
                                 </li>
+                                <li style="margin-bottom: 2rem;" <?php if ($primary_menu == 'onsite_users') echo 'class="active"' ?>>
+                                    <a href="/admin/onsite_users">
+                                        <i class="icon-list-unordered"></i>
+                                        <span>현장등록 현황
+                                        </span>
+                                    </a>
+                                </li>
+                                <!-- <li style="margin-bottom: 2rem;" <?php if ($primary_menu == 'gala') echo 'class="active"' ?>>
+                                    <a href="/admin/gala">
+                                        <i class="icon-list-unordered"></i>
+                                        <span>갈라디너 관리
+                                        </span>
+                                    </a>
+                                </li>
+                                <li style="margin-bottom: 2rem;" <?php if ($primary_menu == 'gala_participants') echo 'class="active"' ?>>
+                                    <a href="/admin/onsite_users">
+                                        <i class="icon-list-unordered"></i>
+                                        <span>갈라디너 참석자 현황
+                                        </span>
+                                    </a>
+                                </li> -->
+                                <li style="margin-bottom: 2rem;"
+                                    <?php if ($primary_menu == 'day1') echo 'class="active"' ?>>
+                                    <a href="/admin/time_day1">
+                                        <i class="icon-list-unordered"></i>
+                                        <span> Day별 출결
+                                        </span>
+                                    </a>
+                                </li>
                                 <!-- <li style="margin-bottom: 2rem;" <?php if ($primary_menu == 'notice') echo 'class="active"' ?>>
                                     <a href="/admin/notice">
                                         <i class="icon-list-unordered"></i>
@@ -87,7 +116,7 @@
                                         </span>
                                     </a>
                                 </li> -->
-                            
+                                <li class="navigation-header"><span>SubPage</span> <i class="icon-menu" title="Main pages"></i></li>
 
                                 <li style="margin-bottom: 2rem;">
                                     <a href="https://imcvp.org/main/onsite_registration.php" target="_blank">
@@ -110,14 +139,7 @@
                                         </span>
                                     </a>
                                 </li>
-                                <li style="margin-bottom: 2rem;"
-                                    <?php if ($primary_menu == 'day1') echo 'class="active"' ?>>
-                                    <a href="/admin/time_day1">
-                                        <i class="icon-list-unordered"></i>
-                                        <span> Day별 출결
-                                        </span>
-                                    </a>
-                                </li>
+
 
                                 <li style="margin-bottom: 2rem;">
                                     <a href="/admin/sicem_qr_excel_download" target="_blank">

@@ -69,8 +69,8 @@ table th {
                     <form action="/admin/send_all_msm" method="post" id="depositForm">
                         <button class="btn btn-primary pull-right"><i class="icon-checkmark"></i> 전체문자발송</button>
                     </form> -->
-                    <a class="btn btn-primary pull-right" href="/access/row_scan_qr" target="_blank"><i class="icon-qrcode"></i> 출결
-                        QR</a>
+                    <!-- <a class="btn btn-primary pull-right" href="/access/row_scan_qr" target="_blank"><i class="icon-qrcode"></i> 출결
+                        QR</a> -->
                 </div>
             </div>
 
@@ -95,6 +95,9 @@ table th {
 
                         <th>day2 입장시간</th>
                         <th>day2 퇴장시간</th>
+
+                        <th>day3 입장시간</th>
+                        <th>day3 퇴장시간</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -115,6 +118,9 @@ table th {
                          echo '<td style="text-align: center;">' .'<input type="time" class="mintime_input time_input day2" value="'. $item['mintime_day_2_formatted'] .'"/><button onclick="saveTime(this,`' . $item['registration_no'] . '`)">save</button></td>';
                          echo '<td style="text-align: center;">' .'<input type="time" class="maxtime_input time_input day2" value="'. $item['maxtime_day_2_formatted'] .'"/><button onclick="saveTime(this,`' . $item['registration_no'] . '`)">save</button></td>';
 
+                         //day 3 출결 시간
+                         echo '<td style="text-align: center;">' .'<input type="time" class="mintime_input time_input day3" value="'. $item['mintime_day_3_formatted'] .'"/><button onclick="saveTime(this,`' . $item['registration_no'] . '`)">save</button></td>';
+                         echo '<td style="text-align: center;">' .'<input type="time" class="maxtime_input time_input day3" value="'. $item['maxtime_day_3_formatted'] .'"/><button onclick="saveTime(this,`' . $item['registration_no'] . '`)">save</button></td>';
 
                     }
                     ?>
@@ -154,14 +160,14 @@ function saveTime(button, reg_no){
     // console.log(timeInput.classList) // day
     let date = ""
     if(timeInput.classList.contains("day1")){
-        date = "2024-11-29"
+        date = "2025-05-01"
     }
     else if(timeInput.classList.contains("day2")){
-        date = "2024-11-30"
+        date = "2025-05-02"
     }
-    // else if(timeInput.classList.contains("day3")){
-    //      date = "2024-11-02"
-    // }
+    else if(timeInput.classList.contains("day3")){
+         date = "2025-05-03"
+    }
 
     const url = "/access/edit_record"
     const data = {

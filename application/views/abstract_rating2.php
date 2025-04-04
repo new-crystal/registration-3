@@ -151,7 +151,7 @@
         const value5 =  select5.options[select5.selectedIndex].value;
         const value6 =  select6.options[select6.selectedIndex].value;
 
-        select1.options[select1.selectedIndex].value = "1.1점";
+        //select1.options[select1.selectedIndex].value = "1.1점";
 
         const sumTd = document.querySelector("#sum");
 
