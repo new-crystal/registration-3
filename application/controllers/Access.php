@@ -1015,20 +1015,27 @@ class Access extends CI_Controller
            );
 
            $qr_time = $date;
-           if ($qr_time == '2024-11-29') {
+           if ($qr_time == '2025-05-01') {
                $infoqr = array(
                    //'qr_chk_day_1' => 'Y',
                    'qr_chk' => 'Y'
                );
                $this->users->update_qr_status($infoqr, $where);
            }
-           if ($qr_time == '2024-11-30') {
+           if ($qr_time == '2025-05-02') {
                $infoqr = array(
                   // 'qr_chk_day_2' =>  'Y',
                    'qr_chk' => 'Y'
                );
                $this->users->update_qr_status($infoqr, $where);
            }
+           if ($qr_time == '2025-05-03') {
+            $infoqr = array(
+               // 'qr_chk_day_3' =>  'Y',
+                'qr_chk' => 'Y'
+            );
+            $this->users->update_qr_status($infoqr, $where);
+        }
          $this->entrance->record($info);
        
        }

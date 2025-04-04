@@ -139,7 +139,7 @@ class Users extends CI_Model
 		$this->db->insert($this->users, $info);
 
 		$id = $this->db->insert_id();
-		$registration_no = 'IMCVP2024-4' . str_pad($id, 3, '0', STR_PAD_LEFT);
+		$registration_no = 'SICEM2025-4' . str_pad($id, 3, '0', STR_PAD_LEFT);
 		$this->db->where('id', $id);
 		$this->db->update($this->users, array('registration_no' => $registration_no));
 	}
@@ -149,7 +149,7 @@ class Users extends CI_Model
 		$this->db->insert($this->users, $info);
 
 		$id = $this->db->insert_id();
-		$registration_no = 'IMCVP2024-4' . str_pad($id, 3, '0', STR_PAD_LEFT);
+		$registration_no = 'SICEM2025-4' . str_pad($id, 3, '0', STR_PAD_LEFT);
 		$this->db->where('id', $id);
 		$this->db->update($this->users, array('registration_no' => $registration_no));
 	}
@@ -378,8 +378,9 @@ class Users extends CI_Model
 		TIME_FORMAT(b.maxtime_day_1, '%H:%i') as maxtime_day_1_formatted,
 		TIME_FORMAT(b.mintime_day_1, '%H:%i') as mintime_day_1_formatted,
 		TIME_FORMAT(b1.maxtime_day_2, '%H:%i') as maxtime_day_2_formatted,
-		TIME_FORMAT(b1.mintime_day_2, '%H:%i') as mintime_day_2_formatted
-
+		TIME_FORMAT(b1.mintime_day_2, '%H:%i') as mintime_day_2_formatted,
+		TIME_FORMAT(b2.maxtime_day_3, '%H:%i') as maxtime_day_3_formatted,
+		TIME_FORMAT(b2.mintime_day_3, '%H:%i') as mintime_day_3_formatted
 	FROM users a
 	LEFT JOIN (
 		SELECT registration_no as qr_registration_no,
@@ -387,7 +388,7 @@ class Users extends CI_Model
 			MIN(time) as mintime_day_1,
 			TIMEDIFF(MAX(time), MIN(time)) as duration
 		FROM access
-		WHERE DATE(TIME) = '2024-11-29'
+		WHERE DATE(TIME) = '2025-05-01'
 		GROUP BY registration_no
 	) AS b ON a.registration_no = b.qr_registration_no
 	LEFT JOIN (
@@ -396,14 +397,51 @@ class Users extends CI_Model
 			MIN(time) as mintime_day_2,
 			TIMEDIFF(MAX(time), MIN(time)) as duration
 		FROM access
-		WHERE DATE(TIME) = '2024-11-30'
+		WHERE DATE(TIME) = '2025-05-02'
 		GROUP BY registration_no
 	) AS b1 ON a.registration_no = b1.qr_registration_no
+
+	LEFT JOIN (
+		SELECT registration_no as qr_registration_no,
+			MAX(time) as maxtime_day_3,
+			MIN(time) as mintime_day_3,
+			TIMEDIFF(MAX(time), MIN(time)) as duration
+		FROM access
+		WHERE DATE(TIME) = '2025-05-03'
+		GROUP BY registration_no
+	) AS b2 ON a.registration_no = b2.qr_registration_no
 	WHERE a.qr_generated = 'Y' 
 		AND a.deposit = '결제완료'
 	ORDER BY a.id ASC;
 
 	");
 	return $query->result_array();
+	}
+
+	public function get_onsite_users()
+	{
+		$query = $this->db->query("
+		SELECT a.*
+		FROM users a
+		WHERE a.qr_generated = 'Y' 
+		AND a.onsite_reg = '1'
+		ORDER BY a.id DESC;
+	");
+	return $query->result_array();
+	}
+
+
+	public function get_onsite_user($where)
+	{
+		$query = $this->db->query("
+				SELECT a.*
+				FROM users a
+				WHERE a.qr_generated = 'Y' 
+				AND a.onsite_reg = '1'
+				AND a.deposit_date = ?
+				ORDER BY a.id DESC
+			", array($where));
+
+		return $query->result_array();
 	}
 }

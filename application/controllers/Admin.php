@@ -156,7 +156,7 @@ class Admin extends CI_Controller
             /* QR생성 */
             $info = array(
                 'qr_generated' =>  'Y',
-                'deposit_date' =>  $time
+                'deposit_time' => date('Y-m-d H:i:s')
             );
             $where = array(
                 'registration_no' => $value
@@ -202,7 +202,8 @@ class Admin extends CI_Controller
 
         foreach ($regNo as $value) {
             $info = array(
-                'deposit' => '결제완료'
+                'deposit' => '결제완료',
+                'deposit_time' => date('Y-m-d H:i:s')
             );
             $where = array(
                 'registration_no' => $value,
@@ -1973,6 +1974,154 @@ class Admin extends CI_Controller
         $this->load->view('admin/header');
         $this->load->view('admin/kakao');
         $this->load->view('footer');
+    }
+
+    public function onsite_users()
+    {
+        $this->load->view('admin/header');
+        if (!isset($this->session->admin_data['logged_in']))
+            $this->load->view('admin/login');
+        else {
+            
+            $day = $this->input->get('day');
+            $data['users'] = $this->users->get_onsite_users();
+
+            if ($day === 'all') {
+                $list = $this->users->get_onsite_users(); // 전체 사용자
+            } elseif (in_array($day, ['day1', 'day2', 'day3'])) {
+                // 날짜 매핑
+                $dateMap = [
+                    'day1' => '2025-05-01',
+                    'day2' => '2025-05-02',
+                    'day3' => '2025-05-03'
+                ];
+                $selectedDate = $dateMap[$day];
+                $list = $this->users->get_onsite_user($selectedDate); // 해당 날짜 사용자
+            } 
+            $data['primary_menu'] = 'onsite_users';
+
+            $this->load->view('admin/left_side.php', $data);
+            $this->load->view('admin/onsite_users');
+        }
+        $this->load->view('footer');
+    }
+
+
+    public function onsite_check()
+    {
+        $regNum = $this->input->post('idx');
+        $deposit_method = $this->input->post('deposit_method');
+
+        $info = array(
+            'deposit' =>  '결제완료',
+            'deposit_method' => $deposit_method
+        );
+        $where = array(
+            'registration_no' => $regNum
+        );
+        $this->users->update_deposit_status($info, $where);
+        $time = date("Y-m-d H:i:s");
+        
+        /* QR생성 */
+        $info = array(
+            'qr_generated' =>  'Y',
+            'deposit_time' => date('Y-m-d H:i:s')
+        );
+        $where = array(
+            'registration_no' => $regNum
+        );
+
+        $str = $regNum;
+        $dir = "./assets/images/QR";
+        $upload_dir = $dir . '/';
+        $filename =  'qrcode_' . $regNum . '.png';
+
+        if (is_dir($dir) != true) {
+            mkdir($dir, 0700);
+        }
+
+        //유효성체크 제거
+        $qr_dataUri = $this->qrcode_e->create_QRcode($str, $upload_dir . $filename);
+        $this->users->update_qr_status($info, $where);
+        /* QR생성 끝 */
+
+        /* PNG to JPG 변환 */
+        $image = imagecreatefrompng($upload_dir . 'qrcode_' . $regNum . '.png');
+        $bg = imagecreatetruecolor(imagesx($image), imagesy($image));
+        imagefill($bg, 0, 0, imagecolorallocate($bg, 255, 255, 255));
+        imagealphablending($bg, TRUE);
+        imagecopy($bg, $image, 0, 0, 0, 0, imagesx($image), imagesy($image));
+        imagedestroy($image);
+        $quality = 100; // 0 = worst / smaller file, 100 = better / bigger file 
+        imagejpeg($bg, $upload_dir . 'qrcode_' . $regNum . '.jpg', $quality);
+        imagedestroy($bg);
+
+        echo json_encode(array('code' => 200, 'message' => '성공'));
+        exit;
+        //$this->load->view('admin/d_success');
+    }
+    
+
+    public function excel_download_onsite()
+    {
+
+        $day = $this->input->get('day');
+        $list = [];
+
+        if ($day === 'all') {
+            $list = $this->users->get_onsite_users(); // 전체 사용자
+        } elseif (in_array($day, ['day1', 'day2', 'day3'])) {
+            // 날짜 매핑
+            $dateMap = [
+                'day1' => '2025-05-01',
+                'day2' => '2025-05-02',
+                'day3' => '2025-05-03'
+            ];
+            $selectedDate = $dateMap[$day];
+            $list = $this->users->get_onsite_user($selectedDate); // 해당 날짜 사용자
+        } else {
+            // 예외 처리
+            show_error('잘못된 요청입니다.', 400);
+            return;
+        }
+
+        $object = new PHPExcel();
+        $object->setActiveSheetIndex(0);
+
+        $table_columns = array("No.", "등록번호", "성함", "한국 이름", "소속", "연락처", "결제 수단", "결제 금액", "결제 시간", "메모");
+
+        $column = 0;
+
+        foreach ($table_columns as $field) {
+            $object->getActiveSheet()->setCellValueByColumnAndRow($column, 1, $field);
+            $column++;
+        }
+
+        $excel_row = 2;
+
+        foreach ($list as $row) {
+
+            $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $excel_row - 1);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $row['registration_no']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row['last_name'] . ' ' . $row['first_name']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row['name_kor']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row['affiliation']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $row['phone']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $row['deposit_method']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row['fee']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $row['deposit_time']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $row['memo']);
+
+            $excel_row++;
+        }
+
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="현장등록인원.xlsx"');
+
+        header('Cache-Control: max-age=0');
+
+        $object_writer = PHPExcel_IOFactory::createWriter($object, 'Excel2007');
+        $object_writer->save('php://output');
     }
 
 }

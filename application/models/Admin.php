@@ -1999,6 +1999,7 @@ class Admin extends CI_Controller
         }
         $this->load->view('footer');
     }
+
     public function qr_blank_user()
     {
         $this->load->view('admin/header');
@@ -2012,5 +2013,7 @@ class Admin extends CI_Controller
             $this->load->view('admin/qr_blank_user');
         }
         $this->load->view('footer');
-    }
+    }   
+
+   
 }
