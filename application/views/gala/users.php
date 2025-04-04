@@ -83,7 +83,7 @@
                         <th>Full Name</th>
                         <th>성함</th>
                         <th>네임택용 Affiliation </th>
-                        <th>갈라참석여부</th>
+                        <th>갈라디너 참석여부</th>
                         <th>Phone Number</th>
                         <th>ID(E-mail)</th>
                         <th>메모</th>
@@ -114,7 +114,7 @@
                             </td>";
                         echo '<td>' . $item['phone'] . '</td>';
                         echo '<td class="user_d"><a href="/admin/user_detail?n=' . $item['registration_no'] . '" target="_self">' . $item['email'] . '</a></td>';
-                        if ($item['memo'] != "" && $item['memo'] != 'null') {
+                        if ($item['gala_memo'] != "" && $item['gala_memo'] != 'null') {
                             echo '<td>';
                             echo '<button class="btn qr_btn memo bg-indigo-800" onclick="onClickMemo(\'' . $item['registration_no'] . '\')" data-id="' . $item['registration_no'] . '" style="padding:8px;">메모</button>';
                         } else {
@@ -160,15 +160,9 @@
     }
 
     function onClickMemo(id) {
-        const url = `/admin/memo?n=${id}`;
+        const url = `/gala/memo?n=${id}`;
         window.open(url, "Certificate", "width=500, height=300, top=30, left=30");
     }
-
-    function onClickReceipt(id) {
-        const url = `/admin/receipt?n=${id}`
-        window.open(url, "Certificate", "width=500, height=300, top=30, left=30")
-    }
-
      
     $("select[name=gala]").on("change",function(){
 		const gala_status = $(this).val();

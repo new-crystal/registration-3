@@ -502,9 +502,9 @@ class Admin extends CI_Controller
 
         $this->load->view('admin/header');
 
-        if (!isset($this->session->admin_data['logged_in']))
-            $this->load->view('admin/login');
-        else {
+        // if (!isset($this->session->admin_data['logged_in']))
+        //     $this->load->view('admin/login');
+        // else {
             $this->load->helper('form');
             $this->load->library('form_validation');
             //
@@ -520,7 +520,7 @@ class Admin extends CI_Controller
 
             $this->load->view('admin/left_side.php', $data);
             $this->load->view('admin/user_detail_test', $data);
-        }
+       // }
         $this->load->view('footer');
     }
 
