@@ -67,7 +67,6 @@ class Gala extends CI_Controller
         $data['users'] = $this->galaEvent->get_gala_users();
 
         $where = array(
-            'gala' => 'Gala dinner',
             'gala_chk' => 'Y'
         );
         $data['chk_users'] = $this->galaEvent->get_gala_user($where);
@@ -84,19 +83,16 @@ class Gala extends CI_Controller
         $data['primary_menu'] = 'gala_non_users';
 
         $where = array(
-            'gala' => 'Gala dinner',
-            'gala_chk' => 'N'
+            'gala_chk' => 'Y',
         );
 
         $where_r = array(
-            'gala' => 'Gala dinner',
-            'gala_chk' => 'N',
+            'gala_chk' => 'Y',
              'gala_table' => "R"
         );
 
         $where_c = array(
-            'gala' => 'Gala dinner',
-            'gala_chk' => 'N',
+            'gala_chk' => 'Y',
              'gala_table' => "C"
         );
 
@@ -128,10 +124,12 @@ class Gala extends CI_Controller
         $data['primary_menu'] = 'gala_r_users';
 
         $where = array(
-            'gala' => "Gala dinner",
+            'gala_chk' => "Y",
             'gala_table' => "R"
         );
+
         $data['users'] =$this->galaEvent->get_gala_user($where); 
+        $data['chk_users'] = $this->galaEvent->get_gala_user($where);
 
         $this->load->view('gala/left_side.php', $data);
         $this->load->view('gala/r_gala', $data);
@@ -145,11 +143,13 @@ class Gala extends CI_Controller
           $data['primary_menu'] = 'gala_c_users';
   
           $where = array(
-              'gala' => "Gala dinner",
+              'gala_chk' => "Y",
               'gala_table' => "C"
           );
+
           $data['users'] =$this->galaEvent->get_gala_user($where); 
-  
+          $data['chk_users'] = $this->galaEvent->get_gala_user($where);
+
           $this->load->view('gala/left_side.php', $data);
           $this->load->view('gala/c_gala', $data);
           $this->load->view('footer');
@@ -163,14 +163,32 @@ class Gala extends CI_Controller
         $gala = $this->input->post('gala');
         $regNum = $this->input->post('regNum');
 
-        $info = array(
-            'gala' => $gala,
-            'updatetime' => date('Y-m-d H:i:s')
+        //if -> reg_num이 있으면 update 없으면 insert
+        $reg = array(
+            'reg_num' => $regNum
         );
-        $where = array(
-            'registration_no' => $regNum
-        );
-        $this->galaEvent->update_gala($info, $where);
+
+        $searched = $this->galaEvent->get_gala_user($reg);
+        // print_r($searched);
+        if(count($searched) !== 0){
+            $info = array(
+                'gala_chk' => $gala,
+                'update_time' => date('Y-m-d H:i:s')
+            );
+            $where = array(
+                'reg_num' => $regNum
+            );
+            $this->galaEvent->update_gala($info, $where);
+        }else{
+            $info = array(
+                'reg_num' => $regNum,
+                'gala_chk' => $gala,
+                'register_date' => date('Y-m-d H:i:s')
+            );
+
+            $this->galaEvent->add_gala_user($info);
+        }
+
         echo json_encode(array('code' => 200, 'message' => '성공'));
         exit;
     }
@@ -185,10 +203,10 @@ class Gala extends CI_Controller
 
         $info = array(
             'gala_table' => $gala,
-            'updatetime' => date('Y-m-d H:i:s')
+            'update_time' => date('Y-m-d H:i:s')
         );
         $where = array(
-            'registration_no' => $regNum
+            'reg_num' => $regNum
         );
         $this->galaEvent->update_gala($info, $where);
         echo json_encode(array('code' => 200, 'message' => '성공'));
@@ -205,10 +223,10 @@ class Gala extends CI_Controller
 
         $info = array(
             'gala_status' => $gala,
-            'updatetime' => date('Y-m-d H:i:s')
+            'update_time' => date('Y-m-d H:i:s')
         );
         $where = array(
-            'registration_no' => $regNum
+            'reg_num' => $regNum
         );
         $this->galaEvent->update_gala($info, $where);
         echo json_encode(array('code' => 200, 'message' => '성공'));

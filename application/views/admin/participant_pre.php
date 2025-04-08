@@ -38,7 +38,7 @@ $day_1_users = $day1_num + $day1_on_num;
 $day_2_users = $day2_num + $day2_on_num;
 
 /** day 3 출결 유저 수 */
-$day_3_users = $day3_num + $day3_on_num;
+$day_3_users = count($day_3) + count($day_3_e);
 
 $committee = 0;
 $speaker = 0;
@@ -61,24 +61,12 @@ foreach($users as $user){
     }
 }
 
-//총 현장등록 인원
-$onsite_count = $onsite_count_day1 + $onsite_count_day2 + $onsite_count_day3;
 
-//사전등록 인원
-$pre_reg_count = count($users) - $onsite_count;
-
-//day별 사전등록 인원 
-$pre_reg_count_day1 = count($users) - $onsite_count_day1;
-$pre_reg_count_day2 = count($users) - $onsite_count_day2;
-$pre_reg_count_day3 = count($users) - $onsite_count_day3;
 ?>
 <div class="text-center flex flex-col items-center justify-center">
     <h1 class="text-6xl font-semibold text-orange-600 my-10">IMCVP 2024</h1>
     <h6 class="text-3xl font-semibold mb-20 ">현장 참석자 데이터</h6>
-    <h6 class="text-3xl font-semibold mb-20 ">총 등록인원 : <?php echo count($users) ?>명(사전등록 : <?php echo $pre_reg_count; ?>명 + 현장등록 <?php echo $onsite_count; ?>명)</h6>
-    <h6 class="text-3xl font-semibold mb-20 ">Day 1 현장 등록인원 :  <?php echo $onsite_count_day1; ?>명</h6>
-    <h6 class="text-3xl font-semibold mb-20 ">Day 2 현장 등록인원 : <?php echo $onsite_count_day2; ?>명</h6>
-    <h6 class="text-3xl font-semibold mb-20 ">Day 3 현장 등록인원 :<?php echo $onsite_count_day3; ?>명</h6>
+    <h6 class="text-3xl font-semibold mb-20 ">총 등록인원 : <?php echo count($users) ?>명</h6>
     <h6 class="text-3xl font-semibold mb-20 ">현장 QR 출결 : <?php echo count($item) ?> 명 / 미출결 : <?php echo $non_qr ?>명
     </h6>
 
@@ -88,28 +76,23 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
             <th rowspan=2 class="total_table bg-slate-300 total">
             <?php echo $day_1_users + $day_2_users ?>
             </th>
-            <td class="total_table bg-sky-200">5월 1일(목)</td>
-            <td class="total_table bg-amber-200">5월 2일(금)</td>
-            <td class="total_table bg-red-200">5월 3일(토)</td>
+            <td class="total_table bg-sky-200">11월 29일(금)</td>
+            <td class="total_table bg-amber-200">11월 30일(토)</td>
         </tr>
         <tr>
             <td class="count_9"> <?php echo $day_1_users ?></td>
             <td class="count_10"> <?php echo $day_2_users ?></td>
-            <td class="count_10"> <?php echo $day_3_users ?></td>
         </tr>
     </table>
 
     <table class="w-9/12 text-2xl mb-20 mt-20">
         <tr class="text-black">
             <th colspan="2" rowspan="2" class="bg-slate-300">등록구분</th>
-            <th colspan="2" class="bg-sky-200">5월 1일(목)</th>
-            <th colspan="2" class="bg-amber-200">5월 2일(금)</th>
-            <th colspan="2" class="bg-red-200">5월 3일(토)</th>
-            <th rowspan="2" class="bg-slate-300">Total<br/>(중복인원 제외)</th>
+            <th colspan="2" class="bg-sky-200">11월 29일(금)</th>
+            <th colspan="2" class="bg-amber-200">11월 30일(토)</th>
+            <th rowspan="2" class="bg-slate-300">Total</th>
         </tr>
         <tr class="text-black">
-            <th>국외</th>
-            <th>국내</th>
             <th>국외</th>
             <th>국내</th>
             <th>국외</th>
@@ -131,12 +114,6 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
                 <?php echo isset($day2_speaker_kor) ?  $day2_speaker_kor : 0; ?>
             </td>
             <td>
-                <?php echo isset($day3_speaker_eng) ? $day3_speaker_eng  : 0; ?>
-            </td>
-            <td>
-                <?php echo isset($day3_speaker_kor) ?  $day3_speaker_kor : 0; ?>
-            </td>
-            <td>
                 <?php
                     echo isset($speaker_count) ?  $speaker_count : 0; 
                 ?>
@@ -156,12 +133,6 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
             </td>
             <td>
                 <?php echo isset($day2_chairperson_kor) ?  $day2_chairperson_kor : 0; ?>
-            </td>
-            <td>
-                <?php echo isset($day3_chairperson_eng) ? $day3_chairperson_eng  : 0; ?>
-            </td>
-            <td>
-                <?php echo isset($day3_chairperson_kor) ?  $day3_chairperson_kor : 0; ?>
             </td>
             <td>
                 <?php
@@ -186,12 +157,6 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
                 <?php echo isset($day2_penel_kor) ?  $day2_penel_kor : 0; ?>
             </td>
             <td>
-                <?php echo isset($day3_penel_eng) ? $day3_penel_eng  : 0; ?>
-            </td>
-            <td>
-                <?php echo isset($day3_penel_kor) ?  $day3_penel_kor : 0; ?>
-            </td>
-            <td>
                 <?php
                     echo isset($panel_count) ?  $panel_count : 0; 
                 ?>
@@ -210,12 +175,6 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
             </td>
             <td>
                 <?php echo isset($day2_committee_kor) ?  $day2_committee_kor : 0; ?>
-            </td>
-            <td>
-                <?php echo isset($day3_committee_eng) ? $day3_committee_eng  : 0; ?>
-            </td>
-            <td>
-                <?php echo isset($day3_committee_kor) ?  $day3_committee_kor : 0; ?>
             </td>
             <td>
                 <?php
@@ -239,12 +198,6 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
                 <?php echo isset($day2_participants_kor) ?  $day2_participants_kor : 0; ?>
             </td>
             <td>
-                <?php echo isset($day3_participants_eng) ? $day3_participants_eng  : 0; ?>
-            </td>
-            <td>
-                <?php echo isset($day3_participants_kor) ?  $day3_participants_kor : 0; ?>
-            </td>
-            <td>
                 <?php
                  echo isset($participant_count) ?  $participant_count : 0; 
                 ?>
@@ -263,12 +216,6 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
             </td>
             <td>
                 <?php echo isset($day2_sponsor_kor) ?  $day2_sponsor_kor : 0; ?>
-            </td>
-            <td>
-                <?php echo isset($day3_sponsor_eng) ? $day3_sponsor_eng  : 0; ?>
-            </td>
-            <td>
-                <?php echo isset($day3_sponsor_kor) ?  $day3_sponsor_kor : 0; ?>
             </td>
             <td>
                 <?php
@@ -291,18 +238,12 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
                 <?php echo isset($day2_other_kor) ?  $day2_other_kor : 0; ?>
             </td>
             <td>
-                <?php echo isset($day3_other_eng) ? $day3_other_eng  : 0; ?>
-            </td>
-            <td>
-                <?php echo isset($day3_other_kor) ?  $day3_other_kor : 0; ?>
-            </td>
-            <td>
                 <?php
                 echo isset($others_count) ?  $others_count : 0; 
                 ?>
             </td>
         </tr>
-    <!--------------  확인 필요!!!!  -------------------->
+
         <tr>
             <th class="bg-red-100" colspan="2">계</th>
             <td class="day_1_e">
@@ -317,19 +258,12 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
             <td class="day_2">
                 <?php echo  $day2_speaker_kor + $day2_chairperson_kor + $day2_penel_kor + $day2_committee_kor + $day2_participants_kor + $day2_sponsor_kor + $day2_other_kor ?>
             </td>
-            <td class="day_3_e">
-                <?php echo  $day3_speaker_eng + $day3_chairperson_eng + $day3_penel_eng + $day3_committee_eng + $day3_participants_eng + $day3_other_eng; ?>
-            </td>
-            <td class="day_3">
-                <?php echo  $day3_speaker_kor + $day3_chairperson_kor + $day3_penel_kor + $day3_committee_kor + $day3_participants_kor + $day3_sponsor_kor + $day3_other_kor ?>
-            </td>
             <td rowspan="2" class="count_7"></td>
         </tr>
         <tr>
             <th class="bg-red-100" colspan="2">합계</th>
             <td colspan="2" class="count_1"><?php echo $day1_num; ?></td>
             <td colspan="2" class="count_2"><?php echo $day2_num; ?></td>
-            <td colspan="2" class="count_2"><?php echo $day3_num; ?></td>
         </tr>
 
         <tr>
@@ -346,12 +280,6 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
             </td>
             <td>
                 <?php echo isset($day2_on_speaker_kor) ?  $day2_on_speaker_kor : 0; ?>
-            </td>
-            <td>
-                <?php echo isset($day3_on_speaker_eng) ? $day3_on_speaker_eng  : 0; ?>
-            </td>
-            <td>
-                <?php echo isset($day3_on_speaker_kor) ?  $day3_on_speaker_kor : 0; ?>
             </td>
             <td>
                 <?php
@@ -375,12 +303,6 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
                 <?php echo isset($day2_on_chairperson_kor) ?  $day2_on_chairperson_kor : 0; ?>
             </td>
             <td>
-                <?php echo isset($day3_on_chairperson_eng) ? $day3_on_chairperson_eng  : 0; ?>
-            </td>
-            <td>
-                <?php echo isset($day3_on_chairperson_kor) ?  $day3_on_chairperson_kor : 0; ?>
-            </td>
-            <td>
                 <?php
                  echo isset($chairperson_on_count) ?  $chairperson_on_count : 0; 
                 ?>
@@ -402,12 +324,6 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
                 <?php echo isset($on_panel_2) ?  $on_panel_2 : 0; ?>
             </td>
             <td>
-                <?php echo isset($on_panel_3_e) ? $on_panel_3_e  : 0; ?>
-            </td>
-            <td>
-                <?php echo isset($on_panel_3) ?  $on_panel_3 : 0; ?>
-            </td>
-            <td>
                 <?php
                  echo isset($panel_on_count) ?  $panel_on_count : 0; 
                 ?>
@@ -426,12 +342,6 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
             </td>
             <td>
                 <?php echo isset($day2_on_committee_kor) ?  $day2_on_committee_kor : 0; ?>
-            </td>
-            <td>
-                <?php echo isset($day3_on_committee_eng) ? $day3_on_committee_eng  : 0; ?>
-            </td>
-            <td>
-                <?php echo isset($day3_on_committee_kor) ?  $day3_on_committee_kor : 0; ?>
             </td>
             <td>
                 <?php
@@ -455,12 +365,6 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
                 <?php echo isset($day2_on_participants_kor) ?  $day2_on_participants_kor : 0; ?>
             </td>
             <td>
-                <?php echo isset($day3_on_participants_eng) ? $day3_on_participants_eng  : 0; ?>
-            </td>
-            <td>
-                <?php echo isset($day3_on_participants_kor) ?  $day3_on_participants_kor : 0; ?>
-            </td>
-            <td>
                 <?php
                    echo isset($participant_on_count) ?  $participant_on_count : 0; 
                 ?>
@@ -480,12 +384,6 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
             </td>
             <td>
                 <?php echo isset($day2_on_sponsor_kor) ?  $day2_on_sponsor_kor : 0; ?>
-            </td>
-            <td>
-                <?php echo isset($day3_on_sponsor_eng) ? $day3_on_sponsor_eng  : 0; ?>
-            </td>
-            <td>
-                <?php echo isset($day3_on_sponsor_kor) ?  $day3_on_sponsor_kor : 0; ?>
             </td>
             <td>
                 <?php
@@ -508,12 +406,6 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
                 <?php echo isset($day2_on_other_kor) ?  $day2_on_other_kor : 0; ?>
             </td>
             <td>
-                <?php echo isset($day3_on_other_eng) ? $day3_on_other_eng  : 0; ?>
-            </td>
-            <td>
-                <?php echo isset($day3_on_other_kor) ?  $day3_on_other_kor : 0; ?>
-            </td>
-            <td>
                 <?php
                    echo isset($others_on_count) ?  $others_on_count : 0; 
                 ?>
@@ -533,19 +425,12 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
             <td class="on_day_2">
                 <?php echo $day2_on_speaker_kor + $day2_on_chairperson_kor + $day2_on_penel_kor + $day2_on_committee_kor + $day2_on_participants_kor + $day2_on_sponsor_kor + $day2_on_other_kor; ?>
             </td>
-            <td class="on_day_2_e">
-                <?php echo $day3_on_speaker_eng + $day3_on_chairperson_eng + $day3_on_penel_eng + $day3_on_committee_eng + $day3_on_participants_eng + $day3_on_sponsor_eng + $day3_on_other_eng;  ?>
-            </td>
-            <td class="on_day_2">
-                <?php echo $day3_on_speaker_kor + $day3_on_chairperson_kor + $day3_on_penel_kor + $day3_on_committee_kor + $day3_on_participants_kor + $day3_on_sponsor_kor + $day3_on_other_kor; ?>
-            </td>
             <td rowspan="2" class="count_8"></td>
         </tr>
         <tr>
             <th class="bg-blue-100" colspan="2">합계</th>
             <td colspan="2" class="count_4"><?php echo $day1_on_num; ?></td>
             <td colspan="2" class="count_5"><?php echo $day2_on_num; ?></td>
-            <td colspan="2" class="count_5"><?php echo $day3_on_num; ?></td>
         </tr>
     </table>
 

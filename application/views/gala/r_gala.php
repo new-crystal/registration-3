@@ -135,7 +135,7 @@ select{
                         </select>
                     </td>";
                         echo '<td>' . $item['phone'] . '</td>';
-                        echo '<td style="text-align: center;">' . $item['gala_time'] . '</td>';
+                        echo '<td style="text-align: center;">' . 'Time!!' . '</td>';
                         if ($item['gala_memo'] != "" && $item['gala_memo'] != 'null') {
                             echo '<td>';
                             echo '<button class="btn qr_btn memo bg-indigo-800" onclick="onClickMemo(\'' . $item['registration_no'] . '\')" data-id="' . $item['registration_no'] . '" style="padding:8px;">메모</button>';
