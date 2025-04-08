@@ -109,16 +109,22 @@ $qrcode = $_GET["qrcode"] ?? "";
                                 </tr>
                                 <tr>
                                     <th>event 1(스탬프)수령 시간</th>
-                                    <td id="event_1" class="qr_text">
+                                    <td id="event_1_time" class="qr_text">
                                         <?php echo isset($user['event1_time']) ? $user['event1_time'] : ''; ?>
                                     </td>
                                 </tr>
-                                <!-- <tr>
+                                <tr>
                                     <th>event 2(포스터) 수령 유무</th>
                                     <td id="event_2" class="qr_text">
                                         <?php echo isset($user['event2']) ? $user['event2'] : ''; ?>
                                     </td>
-                                </tr> -->
+                                </tr>
+                                <tr>
+                                    <th>event 2(포스터)  수령 시간</th>
+                                    <td id="event_2_time" class="qr_text">
+                                        <?php echo isset($user['event2_time']) ? $user['event2_time'] : ''; ?>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <th>성함</th>
                                     <td id="en_name" class="qr_text">
@@ -150,7 +156,7 @@ $qrcode = $_GET["qrcode"] ?? "";
 
                         <div class="w-[550px] flex items-center justify-around *:w-[250px] *:h-[50px] *:border">
                             <button class="hover:bg-amber-300 event_btn event1 <?php echo $user['event1']; ?>" type="button" data-id="1">Event 1 (스탬프) 상품 수령 완료</button>
-                            <!-- <button class="hover:bg-violet-300 event_btn event2 <?php echo $user['event2']; ?>" type="button" data-id="2">Event 2 (포스터)  상품 수령 완료</button> -->
+                            <button class="hover:bg-violet-300 event_btn event2 <?php echo $user['event2']; ?>" type="button" data-id="2">Event 2 (포스터)  상품 수령 완료</button>
                         </div>
                     </div>
                 </form>

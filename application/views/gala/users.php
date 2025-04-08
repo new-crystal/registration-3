@@ -78,21 +78,22 @@
                 <thead>
                     <tr>
                         <th style="width: 30px;"></th>
-                        <th>Registration No.</th>
+                        <th>등록 번호</th>
                         <th>참가유형</th>
                         <th>Full Name</th>
                         <th>성함</th>
-                        <th>네임택용 Affiliation </th>
+                        <th>네임택용 소속 </th>
                         <th>갈라디너 참석여부</th>
-                        <th>Phone Number</th>
+                        <th>연락처</th>
                         <th>ID(E-mail)</th>
-                        <th>메모</th>
+                        <th>갈라 메모</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     $index = 1;
                     foreach ($users as $item) {
+                        // print_r($item);
                         $index++;
                         if ($index % 2 === 0) {
                             echo '<tr style="background-color:#eee">';
@@ -107,9 +108,9 @@
                         echo '<td>' . $item['org_nametag'] . '</td>';
                         echo "<td>
                                 <select name=\"gala\" data-id=\"".$item["registration_no"]."\">
-                                    <option value=\"\" ".(empty($item["gala"]) ? "selected" : "").">선택</option>
-                                    <option value=\"Gala dinner\" ".($item["gala"] == "Gala dinner" ? "selected" : "").">참석</option>
-                                    <option value=\"None\" ".($item["gala"] == "None" ? "selected" : "").">불참석</option>
+                                    <option value=\"\" ".(empty($item["gala_chk"]) ? "selected" : "").">선택</option>
+                                    <option value=\"Y\" ".($item["gala_chk"] == "Y" ? "selected" : "").">참석</option>
+                                    <option value=\"N\" ".($item["gala_chk"] == "N" ? "selected" : "").">불참석</option>
                                 </select>
                             </td>";
                         echo '<td>' . $item['phone'] . '</td>';

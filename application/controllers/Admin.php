@@ -65,7 +65,7 @@ class Admin extends CI_Controller
 
         $this->load->view('admin/header');
         if (!isset($this->session->admin_data['logged_in']))
-            $this->load->view('admin/login');
+         $this->load->view('admin/login');
         else {
             // 
             $data['primary_menu'] = 'abstracts';
@@ -1491,7 +1491,7 @@ class Admin extends CI_Controller
 
            $data['day1_other_kor'] = $this->table->get_day1_other_kor();
            $data['day1_other_eng'] = $this->table->get_day1_other_eng();
-
+     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
            $data['day2_speaker_kor'] = $this->table->get_day2_speaker_kor();
            $data['day2_speaker_eng'] = $this->table->get_day2_speaker_eng();
 
@@ -1512,9 +1512,31 @@ class Admin extends CI_Controller
 
            $data['day2_other_kor'] = $this->table->get_day2_other_kor();
            $data['day2_other_eng'] = $this->table->get_day2_other_eng();
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            $data['day3_speaker_kor'] = $this->table->get_day3_speaker_kor();
+            $data['day3_speaker_eng'] = $this->table->get_day3_speaker_eng();
 
+            $data['day3_chairperson_kor'] = $this->table->get_day3_chairperson_kor();
+            $data['day3_chairperson_eng'] = $this->table->get_day3_chairperson_eng();
+
+            $data['day3_penel_kor'] = $this->table->get_day3_penel_kor();
+            $data['day3_penel_eng'] = $this->table->get_day3_penel_eng();
+
+            $data['day3_committee_kor'] = $this->table->get_day3_committee_kor();
+            $data['day3_committee_eng'] = $this->table->get_day3_committee_eng();
+
+            $data['day3_participants_kor'] = $this->table->get_day3_participants_kor();
+            $data['day3_participants_eng'] = $this->table->get_day3_participants_eng();
+
+            $data['day3_sponsor_kor'] = $this->table->get_day3_sponsor_kor();
+            $data['day3_sponsor_eng'] = $this->table->get_day3_sponsor_eng();
+
+            $data['day3_other_kor'] = $this->table->get_day3_other_kor();
+            $data['day3_other_eng'] = $this->table->get_day3_other_eng();
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
            $data['day1_num'] = $this->table->get_day1();
            $data['day2_num'] = $this->table->get_day2();
+           $data['day3_num'] = $this->table->get_day3();
 
            $data['day1_on_speaker_kor'] = $this->table->get_on_day1_speaker_kor();
            $data['day1_on_speaker_eng'] = $this->table->get_on_day1_speaker_eng();
@@ -1536,7 +1558,7 @@ class Admin extends CI_Controller
 
            $data['day1_on_other_kor'] = $this->table->get_on_day1_other_kor();
            $data['day1_on_other_eng'] = $this->table->get_on_day1_other_eng();
-
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
            $data['day2_on_speaker_kor'] = $this->table->get_on_day2_speaker_kor();
            $data['day2_on_speaker_eng'] = $this->table->get_on_day2_speaker_eng();
 
@@ -1558,8 +1580,32 @@ class Admin extends CI_Controller
            $data['day2_on_other_kor'] = $this->table->get_on_day2_other_kor();
            $data['day2_on_other_eng'] = $this->table->get_on_day2_other_eng();
 
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            $data['day3_on_speaker_kor'] = $this->table->get_on_day3_speaker_kor();
+            $data['day3_on_speaker_eng'] = $this->table->get_on_day3_speaker_eng();
+
+            $data['day3_on_chairperson_kor'] = $this->table->get_on_day3_chairperson_kor();
+            $data['day3_on_chairperson_eng'] = $this->table->get_on_day3_chairperson_eng();
+
+            $data['day3_on_penel_kor'] = $this->table->get_on_day3_penel_kor();
+            $data['day3_on_penel_eng'] = $this->table->get_on_day3_penel_eng();
+
+            $data['day3_on_committee_kor'] = $this->table->get_on_day3_committee_kor();
+            $data['day3_on_committee_eng'] = $this->table->get_on_day3_committee_eng();
+
+            $data['day3_on_participants_kor'] = $this->table->get_on_day3_participants_kor();
+            $data['day3_on_participants_eng'] = $this->table->get_on_day3_participants_eng();
+
+            $data['day3_on_sponsor_kor'] = $this->table->get_on_day3_sponsor_kor();
+            $data['day3_on_sponsor_eng'] = $this->table->get_on_day3_sponsor_eng();
+
+            $data['day3_on_other_kor'] = $this->table->get_on_day3_other_kor();
+            $data['day3_on_other_eng'] = $this->table->get_on_day3_other_eng();
+
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
            $data['day1_on_num'] = $this->table->get_on_day1();
            $data['day2_on_num'] = $this->table->get_on_day2();
+           $data['day3_on_num'] = $this->table->get_on_day3();
            
            $data['chairperson_count'] = $this->table->get_on_chairperson();
            $data['committee_count'] = $this->table->get_on_committee();
@@ -1577,6 +1623,13 @@ class Admin extends CI_Controller
            $data['sponsor_on_count'] = $this->table->get_on_sponsor_1();
            $data['others_on_count'] = $this->table->get_on_others_1();
 
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            $data['onsite_count_day1'] = $this->table->get_onsite_1();
+            $data['onsite_count_day2'] = $this->table->get_onsite_2();
+            $data['onsite_count_day3'] = $this->table->get_onsite_3();
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             $this->load->view('admin/left_side.php', $data);
             $this->load->view('admin/participant.php', $data);
         }

@@ -1,10 +1,10 @@
 <?php
-    $non_user = 0;
-    foreach($users as $item){
-        if($item['qr_chk'] == "N"){
-            $non_user++;
-        }
-    }
+    // $non_user = 0;
+    // foreach($users as $item){
+    //     if($item['qr_chk'] == "N"){
+    //         $non_user++;
+    //     }
+    // }
 ?>
 
 <script type="text/javascript" src="/assets/js/admin/lecture_history.js"></script>
@@ -112,6 +112,7 @@ select{
                 <tbody>
                     <?php
                     foreach ($users as $item) {
+                        // print_r($item);
                         echo '<tr>';
                         echo '<td style="text-align: center;"><input type="checkbox" name="depositChk" class="depositChk" value="' .  $item['registration_no'] . '"></td>';
                         echo '<td class="reg_num pointer">' . $item['registration_no'] . '</td>';
@@ -135,7 +136,7 @@ select{
                         </select>
                     </td>";
                         echo '<td>' . $item['phone'] . '</td>';
-                        echo '<td style="text-align: center;">' . $item['gala_time'] . '</td>';
+                        echo '<td style="text-align: center;">' . 'Time~~~' . '</td>';
                         if ($item['gala_memo'] != "" && $item['gala_memo'] != 'null') {
                             echo '<td>';
                             echo '<button class="btn qr_btn memo bg-indigo-800" onclick="onClickMemo(\'' . $item['registration_no'] . '\')" data-id="' . $item['registration_no'] . '" style="padding:8px;">메모</button>';
