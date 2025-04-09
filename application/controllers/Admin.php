@@ -1537,6 +1537,7 @@ class Admin extends CI_Controller
            $data['day1_num'] = $this->table->get_day1();
            $data['day2_num'] = $this->table->get_day2();
            $data['day3_num'] = $this->table->get_day3();
+           $data['pre_reg_num'] = $this->table->get_pre_reg();
 
            $data['day1_on_speaker_kor'] = $this->table->get_on_day1_speaker_kor();
            $data['day1_on_speaker_eng'] = $this->table->get_on_day1_speaker_eng();
@@ -1606,6 +1607,7 @@ class Admin extends CI_Controller
            $data['day1_on_num'] = $this->table->get_on_day1();
            $data['day2_on_num'] = $this->table->get_on_day2();
            $data['day3_on_num'] = $this->table->get_on_day3();
+           $data['on_site_num'] = $this->table->get_on_site();
            
            $data['chairperson_count'] = $this->table->get_on_chairperson();
            $data['committee_count'] = $this->table->get_on_committee();
