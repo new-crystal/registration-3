@@ -513,6 +513,16 @@ class Table extends CI_Model
         return count($result); 
     }
 
+    public function get_pre_reg()
+    {
+        $query = $this->db->query("
+                SELECT *
+                FROM users a
+                WHERE a.qr_chk = 'Y' AND a.onsite_reg = 0
+        ");
+        $result = $query->result_array();  
+        return count($result); 
+    }
 
        ////////////////////////////////////////////     day 1 -  현장등록   /////////////////////////////////////////
     public function get_on_day1_speaker_kor()
@@ -1020,6 +1030,18 @@ class Table extends CI_Model
             $result = $query->result_array();  
             return count($result); 
         }
+
+        public function get_on_site()
+        {
+            $query = $this->db->query("
+            SELECT *
+            FROM users a
+            WHERE a.qr_chk = 'Y' AND a.onsite_reg = 1
+            ");
+            $result = $query->result_array();  
+            return count($result); 
+        }
+
 
 
     ////////////////////////////////////////////////// 패컬티 입장 유무 - 사전 등록 ///////////////////////////////////////////////////////////////////

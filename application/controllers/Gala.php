@@ -34,7 +34,7 @@ class Gala extends CI_Controller
 
         $this->load->view('admin/header');
         if (!isset($this->session->admin_data['logged_in']))
-            $this->load->view('admin/login');
+            $this->load->view('gala/login');
         else {
             $data['primary_menu'] = 'all_user';
             $data['users'] = $this->galaEvent->get_users();

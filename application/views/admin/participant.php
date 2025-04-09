@@ -323,7 +323,7 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
             <td class="day_3">
                 <?php echo  $day3_speaker_kor + $day3_chairperson_kor + $day3_penel_kor + $day3_committee_kor + $day3_participants_kor + $day3_sponsor_kor + $day3_other_kor ?>
             </td>
-            <td rowspan="2" class="count_7"></td>
+            <td rowspan="2" class="count_7"><?php echo $pre_reg_num; ?></td>
         </tr>
         <tr>
             <th class="bg-red-100" colspan="2">합계</th>
@@ -539,7 +539,7 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
             <td class="on_day_2">
                 <?php echo $day3_on_speaker_kor + $day3_on_chairperson_kor + $day3_on_penel_kor + $day3_on_committee_kor + $day3_on_participants_kor + $day3_on_sponsor_kor + $day3_on_other_kor; ?>
             </td>
-            <td rowspan="2" class="count_8"></td>
+            <td rowspan="2" class="count_8"> <?php echo $on_site_num; ?></td>
         </tr>
         <tr>
             <th class="bg-blue-100" colspan="2">합계</th>
