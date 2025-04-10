@@ -146,38 +146,43 @@ $remark3 = "";
                                     </td>
                                 </tr> -->
                                 <tr>
-                                    <th style="background-color: #fb8500">Remarks 1</th>
+                                    <th style="background-color: #fb8500">네임텍 하단</th>
                                     <td><input class="form-control" type="text" name="remark1" id="remark1" value="<?php echo $item['remark1']; ?>">
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th style="background-color: #fb8500">Remarks 2</th>
+                                    <th style="background-color: #fb8500">Welcome Reception</th>
                                     <td>
                                         <input class="form-control" type="text" value="<?php echo $item['remark2']; ?>" name="remark2" id="remark2">
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th style="background-color: #fb8500">Remarks 3</th>
+                                    <th style="background-color: #fb8500">Gala Dinner</th>
                                     <td><input class="form-control" type="text" name="remark3" value="<?php echo $item['remark3']; ?>" id="remark3">
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th style="background-color: #fb8500">Remarks 4</th>
+                                    <th style="background-color: #fb8500">Presidential Dinner</th>
                                     <td><input class="form-control" type="text" value="<?php echo $item['remark4']; ?>" name="remark4" id="remark4">
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th style="background-color: #fb8500">Remarks 5</th>
+                                    <th style="background-color: #fb8500">안내/서명/심사표</th>
                                     <td><input class="form-control" type="text" value="<?php echo $item['remark5']; ?>" name="remark5" id="remark5">
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th style="background-color: #fb8500">special_request_food</th>
+                                    <th style="background-color: #fb8500">특이식단</th>
                                     <td>
-                                        <input class="form-control" type="text" value="<?php echo $item['special_request_food']; ?>" name="special_request_food" id="special_request_food">
+                                        <input class="form-control" type="text" value="<?php echo $item['remark6']; ?>" name="remark6" id="remark6">
                                     </td>
                                 </tr>
-
+                                <tr>
+                                    <th style="background-color: #fb8500">기타/선물제공</th>
+                                    <td>
+                                        <input class="form-control" type="text" value="<?php echo $item['remark7']; ?>" name="remark7" id="remark7">
+                                    </td>
+                                </tr>
                                 <tr>
                                     <th style="background-color: #fb8500">memo</th>
                                     <td><input class="form-control" type="text" value="<?php echo $item['memo']; ?>" name="memo" id="memo">

@@ -89,7 +89,8 @@
                         <th style="width: 30px;"></th>
                         <th>Registration No.</th>
                         <th>결제상태</th>
-                        <th>회원유무</th>
+                        <!-- <th>회원유무</th> -->
+                        <th></th>
                         <!-- <th style="width:90px;">등록시간</th> -->
                         <!-- <th style="width:60px;">KES <br>회원여부</th> -->
                         <th>Type of Participation</th>
@@ -127,22 +128,25 @@
                         }
                         echo '' . $item['deposit'] . '</td>';
                         echo '</td>';
-                        if ($item['member_status'] == "비회원") {
-                            echo '<td style="color:black;">';
-                        } else {
-                            echo '<td style="color:red;">';
-                        }
-                        echo '' . $item['member_status'] . '</td>';
+                        // if ($item['member_status'] == "비회원") {
+                        //     echo '<td style="color:black;">';
+                        // } else {
+                        //     echo '<td style="color:red;">';
+                        // }
+                        // echo '' . $item['member_status'] . '</td>';
+                        echo '<td>
+                            <button onclick="onClickprint(\'' . $item['registration_no'] . '\')">수정</button>
+                        </td>';
                         // echo '<td>' . $item['time'] . '</td>';
                         // echo '<td>' . $item['kes_member_status'] . '</td>';
                         echo '<td>' . $item['attendance_type'] . '</td>';
 
-                        echo '<td>' . $item['first_name']  . " " . $item['last_name'] .  '</td>';
+                        echo '<td>' . $item['en_name']  . " " . $item['last_name'] .  '</td>';
                         echo '<td>' . $item['name_kor'] . '</td>';
                         echo '<td>' . $item['org_nametag'] . '</td>';
                         // echo '<td>' . $item['nation'] . '</td>';
                         echo '<td>' . $item['phone'] . '</td>';
-                        echo '<td class="user_d"><a href="/admin/user_detail?n=' . $item['registration_no'] . '" target="_self">' . $item['email'] . '</a></td>';
+                        echo '<td class="user_d">' . $item['email'] . '</td>';
                         // echo '<td>' . $item['member_type']  . '</td>';
                         echo '<td>' . $item['fee']  . '</td>';
                         // echo '<td>' . $item['deposit_date']  . '</td>';
@@ -207,6 +211,11 @@
     function onClickReceipt(id) {
         const url = `/admin/receipt?n=${id}`
         window.open(url, "Certificate", "width=500, height=300, top=30, left=30")
+    }
+
+    function onClickprint(id){
+        const url = `/admin/access?n=${id}&print=N`;
+        window.location.href = url
     }
 
 

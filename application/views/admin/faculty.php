@@ -5,6 +5,8 @@
             $non_user++;
         }
     }
+
+
 ?>
 
 <script type="text/javascript" src="/assets/js/admin/lecture_history.js"></script>
@@ -94,19 +96,35 @@ table th {
                     <tr>
                         <th></th>
                         <th>접수번호</th>
-                        <th style="min-width: 100px">참석자유형</th>
-                        <!-- <th>참석자구분</th> -->
-                        <!-- <th>분야구분</th> -->
+                        <th>참가 유형</th>
                         <th>이름</th>
                         <th>소속</th>
                         <th>전화번호</th>
+                        <th>Day 1 출결</th>
                         <th>Day 1 출결시간</th>
+                        <th>Day 2 출결</th>
                         <th>Day 2 출결시간</th>
+                        <th>Day 3 출결</th>
+                        <th>Day 3 출결시간</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
+                        function getAttendanceStatus($item) {
+                            $chk_day_1 = ($item['qr_chk_day_1'] === 'Y') ? 'day1출결' : 'day1미출결';
+                            $chk_day_2 = ($item['qr_chk_day_2'] === 'Y') ? 'day2출결' : 'day2미출결';
+                            $chk_day_3 = ($item['qr_chk_day_3'] === 'Y') ? 'day3출결' : 'day3미출결';
+                        
+                            return [
+                                'chk_day_1' => $chk_day_1,
+                                'chk_day_2' => $chk_day_2,
+                                'chk_day_3' => $chk_day_3,
+                            ];
+                        }
                     foreach ($users as $item) {
+                    
+                        $result = getAttendanceStatus($item);
+
                         echo '<tr>';
                         echo '<td style="text-align: center;"><input type="checkbox" name="depositChk" class="depositChk" value="' .  $item['registration_no'] . '"></td>';
                         echo '<td class="reg_num pointer">' . $item['registration_no'] . '</td>';
@@ -116,8 +134,12 @@ table th {
                         echo '<td class="user_d"> <a href="/admin/user_detail?n=' . $item['registration_no'] . '"target="_top">' . $item['first_name']  . " " . $item['last_name'] . '</a> </td>';
                         echo '<td>' . $item['org_nametag'] . '</td>';
                         echo '<td>' . $item['phone'] . '</td>';
+                        echo '<td style="text-align: center;">' . $result['chk_day_1'] . '</td>';
                         echo '<td style="text-align: center;">' . $item['mintime_day_1'] . '</td>';
+                        echo '<td style="text-align: center;">' . $result['chk_day_2']. '</td>';
                         echo '<td style="text-align: center;">' . $item['mintime_day_2'] . '</td>';
+                        echo '<td style="text-align: center;">' . $result['chk_day_3'] . '</td>';
+                        echo '<td style="text-align: center;">' . $item['mintime_day_3'] . '</td>';
                         echo '</tr>';
                     }
                     ?>

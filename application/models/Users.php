@@ -21,7 +21,6 @@ class Users extends CI_Model
 		$query = $this->db->query("
 		SELECT *
 		FROM users a
-		ORDER BY a.time DESC
 ");
 		return $query->result_array();
 	}
@@ -149,7 +148,7 @@ class Users extends CI_Model
 		$this->db->insert($this->users, $info);
 
 		$id = $this->db->insert_id();
-		$registration_no = 'SICEM2025-4' . str_pad($id, 3, '0', STR_PAD_LEFT);
+		$registration_no = 'O-4' . str_pad($id, 2, '0', STR_PAD_LEFT);
 		$this->db->where('id', $id);
 		$this->db->update($this->users, array('registration_no' => $registration_no));
 	}
@@ -354,7 +353,7 @@ class Users extends CI_Model
 				MIN(time) as mintime_day_1,
 				TIMEDIFF(MAX(time), MIN(time)) as duration
 			FROM access
-			 WHERE DATE(TIME) = '2024-11-29'
+			 WHERE DATE(TIME) = '2025-05-01'
 			GROUP BY registration_no
 		) b ON a.registration_no = b.qr_registration_no
 		LEFT JOIN (
@@ -362,9 +361,18 @@ class Users extends CI_Model
 				MIN(time) as mintime_day_2,
 				TIMEDIFF(MAX(time), MIN(time)) as duration
 			FROM access
-			 WHERE DATE(TIME) = '2024-11-30'
+			 WHERE DATE(TIME) = '2025-05-02'
 			GROUP BY registration_no
 		) b1 ON a.registration_no = b1.qr_registration_no
+
+		LEFT JOIN (
+			SELECT registration_no as qr_registration_no,
+				MIN(time) as mintime_day_3,
+				TIMEDIFF(MAX(time), MIN(time)) as duration
+			FROM access
+			 WHERE DATE(TIME) = '2025-05-03'
+			GROUP BY registration_no
+		) b2 ON a.registration_no = b2.qr_registration_no
 		WHERE a.qr_generated = 'Y' AND a.deposit = '결제완료' AND a.attendance_type != 'Participants' AND a.attendance_type != 'Sponsor'
 		ORDER BY a.id ASC
 ");
