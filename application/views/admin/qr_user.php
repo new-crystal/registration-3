@@ -114,7 +114,7 @@ table th {
                         // echo '<td>' . substr($item['time'], 0, 10) . '</td>';
                         echo '<td class="user_d" onclick="copy(\'' . $item['registration_no'] . '\')">' . $item['registration_no'] . '</td>';
                         echo '<td>' . $item['attendance_type'] . '</td>';
-                        echo '<td>' . $item['first_name']  . " " .  $item['last_name'] . '</td>';
+                        echo '<td>' . $item['en_name']  . " " .  $item['last_name'] . '</td>';
                         echo '<td>' . $item['name_kor'] . '</td>';
                         echo '<td>' . $item['org_nametag'] . '</td>';
                         echo '<td class="user_d"><a href="/admin/user_detail?n=' . $item['registration_no'] . '" target="_self">' . $item['email'] . '</a></td>';

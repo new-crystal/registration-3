@@ -39,19 +39,19 @@ $en_name = $firstName . " " . $lastName
     .qr-info-table th {
         border: 2px solid #eee;
         text-align: center;
-        font-size: 1.25rem;
+        font-size: 1.4rem;
         line-height: 2.5rem;
     }
 
     .qr-info-table td {
         border: 1px solid #eee;
         text-align: left;
-        font-size: 1.5rem;
+        font-size: 2rem;
         line-height: 2.5rem;
         padding-left: 4rem;
         /* display: flex; */
         align-items: center;
-        /* height: 4rem; */
+        height: 5.5rem; 
         font-weight: bold;
     }
 
@@ -79,7 +79,7 @@ $en_name = $firstName . " " . $lastName
 
     .access_btn{
         position:absolute;
-        bottom: 150px;
+        bottom: 90px;
         left:50%;
         transform: translateX(-50%);
         width: 150px;
@@ -182,8 +182,9 @@ $en_name = $firstName . " " . $lastName
                             </tr>
                             <tr>
                                 <th>성함(E)</th>
-                                <td id="en_name" class="qr_text">
-                                    <?php echo isset($user['first_name']) ? $user['first_name'] . " " . $user['last_name'] : ''; ?>
+                                <td id="" class="qr_text">
+                                    <input id="en_name" value="<?php if (isset($user['en_name'])) echo $user['en_name'] ?>"/>
+                                    <button class="w-[150px] h-[40px] bg-indigo-950 mt-20 mb-20 hover:bg-slate-300 active:bg-slate-300 text-white" type="button" id="nickname_btn">성함 변경</button>
                                 </td>
                             </tr>
                             <tr>
@@ -198,8 +199,9 @@ $en_name = $firstName . " " . $lastName
                             </tr>
                             <tr>
                                 <th>소속(E)</th>
-                                <td id="affiliation" class="qr_text">
-                                    <?php if (isset($user['affiliation'])) echo $user['affiliation'] ?></td>
+                                <td id="" class="qr_text">
+                                    <input id="affiliation" value="<?php if (isset($user['org_nametag'])) echo $user['org_nametag'] ?>"/>
+                                    <button class="w-[150px] h-[40px] bg-indigo-950 mt-20 mb-20 hover:bg-slate-300 active:bg-slate-300 text-white" type="button" id="org_btn">소속 변경</button>
                             </tr>
                             <tr>
                                 <th>참가자 유형</th>
@@ -208,9 +210,17 @@ $en_name = $firstName . " " . $lastName
                                 </td>
                             </tr>
                             <tr>
+                                <th>의사면허번호</th>
+                                <td id="" class="qr_text">
+                                    <input id="licence_number" value="<?php if (isset($user['licence_number'])) echo $user['licence_number'] ?>"/>
+                                    <button class="w-[150px] h-[40px] bg-indigo-950 mt-20 mb-20 hover:bg-slate-300 active:bg-slate-300 text-white" type="button" id="ln_btn">면허번호 변경</button>
+                                </td>
+                            </tr>
+                            <tr>
                                 <th>등록비</th>
-                                <td id="fee" class="qr_text">
-                                    <?php if (isset($user['fee'])) echo $user['fee'] ?></td>
+                                <td id="" class="qr_text">
+                                <input id="fee" value="<?php if (isset($user['fee'])) echo $user['fee'] ?>"/>
+                                <button class="w-[150px] h-[40px] bg-indigo-950 mt-20 mb-20 hover:bg-slate-300 active:bg-slate-300 text-white" type="button" id="fee_btn">등록비 변경</button>
                             </tr>
                         </table>
                         <table class="qr-info-table mb-80 w-2/5" id="qrTable">
@@ -230,35 +240,47 @@ $en_name = $firstName . " " . $lastName
                                 </td>
                             </tr> -->
                             <tr>
-                                <th class="memoHeader">remark1<br/>(네임텍 하단)</th>
+                                <th class="memoHeader">네임텍 하단</th>
                                 <td id="remark1" class="qr_text">
                                     <?php if (isset($user['remark1'])) echo $user['remark1'] ?>
                                 </td>
                             </tr>
                             <tr>
-                                <th class="memoHeader">remark2<br/>(특이식단)</th>
+                                <th class="memoHeader">초록 스티커<br/>Welcome Reception</th>
                                 <td id="remark2" class="qr_text">
                                     <?php if (isset($user['remark2'])) echo $user['remark2'] ?>
                                 </td>
                             </tr>
                             <tr>
-                                <th class="memoHeader">remark3<br/>(안내/서명/심사표)</th>
+                                <th class="memoHeader">파랑 스티커<br/>Gala Dinner</th>
                                 <td id="remark3" class="qr_text">
                                     <?php if (isset($user['remark3'])) echo $user['remark3'] ?>
                                 </td>
                             </tr>
 
                             <tr>
-                                <th class="memoHeader">remark4<br/>(갈라디너 참석/퍼즐)</th>
+                                <th class="memoHeader">빨강 스티커<br/>Presidential Dinner</th>
                                 <td id="remark4" class="qr_text">
                                     <?php if (isset($user['remark4'])) echo $user['remark4'] ?>
                                 </td>
                             </tr>
                             
                             <tr>
-                                <th class="memoHeader">remark5<br/>(선물제공/안내)</th>
+                                <th class="memoHeader">제공사항<br/>안내서/심사표/선물</th>
                                 <td id="remark5" class="qr_text">
                                     <?php if (isset($user['remark5'])) echo $user['remark5'] ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="memoHeader">특이식단 카드</th>
+                                <td id="remark6" class="qr_text">
+                                    <?php if (isset($user['remark6'])) echo $user['remark6'] ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="memoHeader">특이사항<br/>(동명이인/프리뷰 안내/면허번호 확인/미입금)</th>
+                                <td id="remark7" class="qr_text">
+                                    <?php if (isset($user['remark7'])) echo $user['remark7'] ?>
                                 </td>
                             </tr>
                             <tr>
@@ -311,6 +333,7 @@ $en_name = $firstName . " " . $lastName
     // const member_type_s = document.querySelector("#member_type_s")
     const deposit = document.querySelector("#deposit")
     const fee = document.querySelector("#fee")
+    const licence_number = document.querySelector("#licence_number")
     const is_score = document.querySelector("#is_score")
     const memo = document.querySelector("#memo")
     const number = document.querySelector("#number")
@@ -319,6 +342,8 @@ $en_name = $firstName . " " . $lastName
     const remark3 = document.querySelector("#remark3")
     const remark4 = document.querySelector("#remark4")
     const remark5 = document.querySelector("#remark5")
+    const remark6 = document.querySelector("#remark6")
+    const remark7 = document.querySelector("#remark7")
     const special_request_food = document.querySelector("#special_request_food")
     // const remark6 = document.querySelector("#remark6")
     // const remark7 = document.querySelector("#remark7")
@@ -327,10 +352,19 @@ $en_name = $firstName . " " . $lastName
     const content = document.querySelector(".content")
     const notice = document.querySelector("#notice")
     const attendance_date = document.querySelector("#attendance_date")
+
+       //sujeong / 성함 변경 버튼
+    const nicknameBtn = document.querySelector("#nickname_btn");
+    const orgBtn = document.querySelector("#org_btn")
+    const lnBtn = document.querySelector("#ln_btn")
+    const feeBtn = document.querySelector("#fee_btn")
+
     var childWindow;
     let popUpWindow;
     let qrvalue = "";
     let bc = "";
+
+    let isPrint = "Y";
 
     content.addEventListener("click", () => {
         qrcode.focus();
@@ -356,10 +390,11 @@ $en_name = $firstName . " " . $lastName
     }
 
     function changeBackgroundColorIfNotEmpty(element) {
-        if (element.innerText !== "" && element.innerText !== "Not Applicable") {
-            element.style.backgroundColor = "#ffe566";
-        } else {
+        const content = element.textContent.trim();
+        if (content === "") {
             element.style.backgroundColor = "#fff";
+        } else {
+            element.style.backgroundColor = "#ffe566";
         }
     }
 
@@ -405,42 +440,26 @@ $en_name = $firstName . " " . $lastName
                 const htmlDocument = parser.parseFromString(data, 'text/html');
                 //console.log(htmlDocument)
                 if (htmlDocument.querySelector("#number").innerText) {
-                    number.innerText = htmlDocument.querySelector("#number").innerText.replace(/<br\s*\/?>/gi, "")
-                        .trim();
-                    enName.innerText = htmlDocument.querySelector("#en_name").innerText.replace(/<br\s*\/?>/gi, "")
-                        .trim();
-                    name.innerText = htmlDocument.querySelector("#name").innerText.replace(/<br\s*\/?>/gi, "")
-                        .trim();
-                    nation.innerText = htmlDocument.querySelector("#nation").innerText.replace(/<br\s*\/?>/gi, "")
-                        .trim();
-                    affiliation.innerText = htmlDocument.querySelector("#affiliation").innerText.replace(/<br\s*\/?>/gi,
-                            "")
-                        .trim();
+                    number.innerText = htmlDocument.querySelector("#number").innerText.replace(/<br\s*\/?>/gi, "").trim();
+                    enName.value = htmlDocument.querySelector("#en_name").value.replace(/<br\s*\/?>/gi, "").trim();
+                    name.innerText = htmlDocument.querySelector("#name").innerText.replace(/<br\s*\/?>/gi, "").trim();
+                    nation.innerText = htmlDocument.querySelector("#nation").innerText.replace(/<br\s*\/?>/gi, "").trim();
+                    affiliation.value = htmlDocument.querySelector("#affiliation").value.replace(/<br\s*\/?>/gi, "").replace(/\s/g, "");
                     // attendance_type.innerText = htmlDocument.querySelector("#attendance_type").innerText.replace(
                     //         /<br\s*\/?>/gi, "")
                     //     .trim();
-                    category.innerText = htmlDocument.querySelector("#member_type").innerText.replace(
-                            /<br\s*\/?>/gi, "")
-                        .trim();
-                    fee.innerText = htmlDocument.querySelector("#fee").innerText.replace(/<br\s*\/?>/gi, "")
-                        .trim();
-                    // special_request_food.innerText = htmlDocument.querySelector("#special_request_food").innerText
-                    //     .replace(/<br\s*\/?>/gi,
-                    //         "")
-                    //     .trim();
-                    memo.innerText = htmlDocument.querySelector("#memo").innerText.replace(/<br\s*\/?>/gi, "")
-                        .trim();
-                    remark1.innerText = htmlDocument.querySelector("#remark1").innerText.replace(/<br\s*\/?>/gi, "")
-                        .trim();
-                    remark2.innerText = htmlDocument.querySelector("#remark2").innerText.replace(/<br\s*\/?>/gi, "")
-                        .trim();
-                    remark3.innerText = htmlDocument.querySelector("#remark3").innerText.replace(/<br\s*\/?>/gi,
-                            "")
-                        .trim();
-                    remark4.innerText = htmlDocument.querySelector("#remark4").innerText.replace(/<br\s*\/?>/gi, "")
-                        .trim();
-                    remark5.innerText = htmlDocument.querySelector("#remark5").innerText.replace(/<br\s*\/?>/gi, "")
-                        .trim();
+                    category.innerText = htmlDocument.querySelector("#member_type").innerText.replace(/<br\s*\/?>/gi, "").trim();
+                    fee.value = htmlDocument.querySelector("#fee").value.replace(/<br\s*\/?>/gi, "").trim();
+                    licence_number.value = htmlDocument.querySelector("#licence_number").value.replace(/<br\s*\/?>/gi, "").trim();
+                    memo.innerText = htmlDocument.querySelector("#memo").innerText.replace(/<br\s*\/?>/gi, "").trim();
+                    
+                    remark1.innerText =  htmlDocument.querySelector("#remark1").innerText.replace(/<br\s*\/?>/gi, "").trim();
+                    remark2.innerText =  htmlDocument.querySelector("#remark2").innerText.replace(/<br\s*\/?>/gi, "").trim();
+                    remark3.innerText =  htmlDocument.querySelector("#remark3").innerText.replace(/<br\s*\/?>/gi, "").trim();
+                    remark4.innerText =  htmlDocument.querySelector("#remark4").innerText.replace(/<br\s*\/?>/gi, "").trim();
+                    remark5.innerText =  htmlDocument.querySelector("#remark5").innerText.replace(/<br\s*\/?>/gi, "").trim();
+                    remark6.innerText =  htmlDocument.querySelector("#remark6").innerText.replace(/<br\s*\/?>/gi, "").trim();
+                    remark7.innerText =  htmlDocument.querySelector("#remark7").innerText.replace(/<br\s*\/?>/gi, "").trim();
                     notice.innerHTML = htmlDocument.querySelector("#notice").innerHTML
                 } else {
                     number.innerText = qrvalue
@@ -451,16 +470,21 @@ $en_name = $firstName . " " . $lastName
                     throw new Error("없는 QR입니다.");
                 }
             }).then(() => {
-                window.open(`https://reg3.webeon.net/qrcode/print_file?registration_no=${qrvalue}`, "_blank")
+                if(isPrint == "Y"){
+                    window.open(`https://reg3.webeon.net/qrcode/print_file?registration_no=${qrvalue}`, "_blank")
+                }
             }).then(() => {
 
                // changeBackgroundColorIfNotEmpty(memo);
+               console.log(remark1.innerText)
                 changeBackgroundColorIfNotEmpty(remark1);
                 changeBackgroundColorIfNotEmpty(remark2);
                 changeBackgroundColorIfNotEmpty(remark3);
                 changeBackgroundColorIfNotEmpty(remark4);
                 // changeBackgroundColorIfNotEmpty(special_request_food);
                 changeBackgroundColorIfNotEmpty(remark5);
+                changeBackgroundColorIfNotEmpty(remark6);
+                changeBackgroundColorIfNotEmpty(remark7);
 
             })
             .catch(error => {
@@ -560,6 +584,15 @@ $en_name = $firstName . " " . $lastName
         if (qrvalue) {
             number.innerText = qrvalue
         }
+
+        const params = new URLSearchParams(window.location.search);
+        const regNum = params.get('n');
+        isPrint = params.get('print') ? params.get('print') : "Y";
+        
+        if(regNum){
+            qrvalue = regNum;
+            fetchData(regNum)
+        }
     }
 
     memoBtn.addEventListener("click", () => {
@@ -574,6 +607,83 @@ $en_name = $firstName . " " . $lastName
                     memo.innerText = childInputValue;
                 }
             });
+        }
+    })
+
+    nicknameBtn.addEventListener("click", ()=>{
+        const regiNum = number.innerText;
+        const url = `/admin/memo_nickname?n=${regiNum}`;
+        if (regiNum) {
+            const memoWindow = window.open(url, "Certificate", "width=500, height=300, top=30, left=30");
+
+            window.addEventListener("message", (event) => {
+                if (event.source === memoWindow) {
+                    const childInputValue = event.data;
+                    // memo.innerText = childInputValue;
+                    // console.log("hi")
+                    fetchData(childInputValue)
+                }
+            });
+        }else{
+            alert("QR 코드를 확인해주세요.")
+        }
+    })
+
+    orgBtn.addEventListener("click", ()=>{
+        const regiNum = number.innerText;
+        const url = `/admin/memo_org?n=${regiNum}`;
+        if (regiNum) {
+            const memoWindow = window.open(url, "Certificate", "width=500, height=300, top=30, left=30");
+
+            window.addEventListener("message", (event) => {
+                if (event.source === memoWindow) {
+                    const childInputValue = event.data;
+                    // memo.innerText = childInputValue;
+                    // console.log("hi")
+                    fetchData(childInputValue)
+                }
+            });
+        }else{
+            alert("QR 코드를 확인해주세요.")
+        }
+    })
+
+
+    lnBtn.addEventListener("click", ()=>{
+        const regiNum = number.innerText;
+        const url = `/admin/memo_ln?n=${regiNum}`;
+        if (regiNum) {
+            const memoWindow = window.open(url, "Certificate", "width=500, height=300, top=30, left=30");
+
+            window.addEventListener("message", (event) => {
+                if (event.source === memoWindow) {
+                    const childInputValue = event.data;
+                    // memo.innerText = childInputValue;
+                    // console.log("hi")
+                    fetchData(childInputValue)
+                }
+            });
+        }else{
+            alert("QR 코드를 확인해주세요.")
+        }
+    })
+
+    feeBtn.addEventListener("click", ()=>{
+        const regiNum = number.innerText;
+        const url = `/admin/memo_fee?n=${regiNum}`;
+        if (regiNum) {
+            const memoWindow = window.open(url, "Certificate", "width=500, height=300, top=30, left=30");
+
+            window.addEventListener("message", (event) => {
+                if (event.source === memoWindow) {
+                    const childInputValue = event.data;
+                    // memo.innerText = childInputValue;
+                    // console.log("hi")
+                    fetchData(childInputValue)
+                }
+            });
+        }else{
+            alert("QR 코드를 확인해주세요.")
         }
     })
 

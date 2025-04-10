@@ -35,22 +35,21 @@ class OnSite extends CI_Controller
             $affiliation = $this->input->post('affiliation');
             $affilation_kor = $this->input->post('affiliation_kor');
             $department = $this->input->post('department');
-            $department_kor = $this->input->post('department_kor');
             $phone1 = $this->input->post('phone1');
             $phone2 = $this->input->post('phone2');
-            $conference_info = $this->input->post('conference_info');
+            $is_score =  $this->input->post('is_score');
+            $ln =  $this->input->post('ln');
+            $sn =  $this->input->post('sn');
+            $member =  $this->input->post('member');
+            $kes_id =  $this->input->post('kes_id');
             $special_request_food = $this->input->post('special_request_food');
-            $attendance_type = $this->input->post('attendance_type');
-            $attendance_other_type = $this->input->post('attendance_other_type');
+            $attendance_date = $this->input->post('attendance_date');
             $member_type = $this->input->post('member_type');
+            $member_trainee_type = $this->input->post('member_trainee_type');
             $member_other_type = $this->input->post('member_other_type');
-            $deposit_method = $this->input->post('deposit_method');
-            $fee = 0;
-            $time = date("Y-m-d H:i:s");
-            // $etc3 = $this->input->post('etc3');
-            $etc4 = $this->input->post('etc4');
-            // $uagent = $this->agent->agent_string();
+            $fee = $this->input->post('fee');
             $email = $email1 . "@" . $email2;
+            $time = date("Y-m-d H:i:s");
 
             if ($nation == "Korea") {
                 $phone = $phone2;
@@ -58,102 +57,78 @@ class OnSite extends CI_Controller
                 $phone = '+' . $phone1 . " " . $phone2;
             }
 
-            if ($member_other_type) {
-                $member_type = $member_other_type;
-            }
+            // if ($member_other_type) {
+            //     $member_type = $member_other_type;
+            // }
 
-
-            $day2_breakfast_yn = 'N';
-            $day2_luncheon_yn = 'N';
-            $day3_breakfast_yn = 'N';
-            $day3_luncheon_yn = 'N';
             $onsite_reg = '1';
 
             if ($special_request_food == "None") {
                 $special_request_food = 'N';
             }
 
-            if ($etc4 === "/") {
-                $etc4 = null;
-            }
-
-            if ($attendance_type == "ISCP full member") {
-                $attendance_type = "Participants(ISCP full member)";
-                $member_status = "ISCP full member";
-            } else {
-                $member_status = "N/A";
-            }
-
-
-            if ($nation === "Korea") {
-                if ($attendance_type === "Participants") {
-                    if ($member_type === "Specialist" || $member_type === "Professor") {
-                        $fee = "70,000";
-                    } else if (
-                        $member_type === "Fellow" || $member_type === "Researcher" || $member_type === "Nurses" ||
-                        $member_type === "Nutritionists" || $member_type === "Corporate member" || $member_type ===
-                        "Military medical officer"
-                    ) {
-                        $fee = "30,000";
-                    } else if ($member_type === "Resident" || $member_type === "Student") {
-                        $fee = "0";
-                    } else {
-                        $fee = "30,000";
-                    }
-                } else {
-                    $fee = 0;
+            $attendance_type = "";
+            $attendance_date_text = "";
+            if($attendance_date == "full"){
+                $attendance_type = "Participant";
+            }else if($attendance_date != "full"){
+                $attendance_type = "One-day Participant";
+                if($attendance_date == "day1"){
+                    $attendance_date_text = "Thursday, May 1"; 
                 }
-            } else {
-                if ($attendance_type === "Participants") {
-                    if ($member_type === "Specialist" || $member_type === "Professor") {
-                        $fee = "USD 300(KRW 405,000)";
-                    } else if (
-                        $member_type === "Fellow" || $member_type === "Researcher" || $member_type === "Nurses" ||
-                        $member_type === "Nutritionists" || $member_type === "Corporate member" || $member_type ===
-                        "Military medical officer"
-                    ) {
-                        $fee = "USD 150(KRW 202,500)";
-                    } else if ($member_type === "Resident" || $member_type === "Student") {
-                        $fee = "0";
-                    } else {
-                        $fee = "USD 150(KRW 202,500)";
-                    }
-                } else {
-                    $fee = 0;
+                if($attendance_date == "day2"){
+                    $attendance_date_text = "Friday, May 2"; 
+                }
+                if($attendance_date == "day3"){
+                    $attendance_date_text = "Saturday, May 3"; 
                 }
             }
-
-            if ($attendance_other_type) {
-                $attendance_type = $attendance_other_type;
+            ///
+            $member_status = "";
+            if($member == "Y"){
+                $member_status = "Member ( ID : ".$kes_id.")";
+            }else if($member == "N"){
+                $member_status = "Non-Member";
             }
 
+            $member_etc_type = "";
+            if($member_trainee_type){
+                $member_etc_type = $member_trainee_type;
+            }else if ($member_other_type){
+                $member_etc_type = $member_other_type;
+            }
+
+            $member_type_text = "";
+            if($member == "Y"){
+                $member_type_text = $member_type . " - member";
+            }else if($member == "N"){
+                $member_type_text =  $member_type ." - Non-member";
+            }
+            
             $info = array(
                 'name_kor' => preg_replace("/\s+/", "", $name),
-                'attendance_type' => trim($attendance_type),
-                'member_type' => trim($member_type),
-                'member_other_type' => trim($member_other_type),
-                'org_nametag' => trim($affiliation),
+                'attendance_type' => $attendance_type,
+                'member_type' => $member_type_text,
+                'member_other_type' => $member_etc_type,
+                'org_nametag' => $affiliation,
                 'phone' => preg_replace("/\s+/", "", $phone),
                 'email' => preg_replace("/\s+/", "", $email),
-                'time' => $time,
                 'nation' => $nation,
                 'first_name' => $first_name,
                 'last_name' => $last_name,
+                'en_name' => $first_name . " " .$last_name,
                 'affiliation' => $affiliation,
                 'department' => $department,
-                'department_kor' => $department_kor,
                 'affiliation_kor' => $affilation_kor,
-                'conference_info' => $conference_info,
-                'day2_breakfast_yn' => $day2_breakfast_yn,
-                'day2_luncheon_yn' => $day2_luncheon_yn,
-                'day3_breakfast_yn' => $day3_breakfast_yn,
-                'day3_luncheon_yn' => $day3_luncheon_yn,
-                'deposit_method' => $deposit_method,
                 'special_request_food' => $special_request_food,
-                'member_status' =>  $member_status,
+                'attendance_date' => $attendance_date_text,
+                'remark1' => $attendance_date_text,
                 'fee' => $fee,
                 'onsite_reg' => $onsite_reg,
-                'etc4' => $etc4
+                'member' => $member_status,
+                'updatetime' => $time,
+                'licence_number' => $ln,
+                'specialty_number' => $sn,
                 // 'uagent' => $uagent,
             );
             $this->users->add_onsite_user($info);
@@ -187,6 +162,7 @@ class OnSite extends CI_Controller
             $conference_info = $this->input->post('conference_info');
             $special_request_food = $this->input->post('special_request_food');
             $attendance_type = $this->input->post('attendance_type');
+            $attendance_other_type = $this->input->post('attendance_other_type');
             $attendance_other_type = $this->input->post('attendance_other_type');
             $member_type = $this->input->post('member_type');
             $member_other_type = $this->input->post('member_other_type');

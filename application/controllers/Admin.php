@@ -2143,7 +2143,7 @@ class Admin extends CI_Controller
         $object = new PHPExcel();
         $object->setActiveSheetIndex(0);
 
-        $table_columns = array("No.", "등록번호", "성함", "한국 이름", "소속", "연락처", "결제 수단", "결제 금액", "결제 시간", "메모");
+        $table_columns = array("No.", "등록번호", "email", "성함", "한국 이름", "소속", "연락처", "결제 수단", "결제 금액", "결제 시간", "메모");
 
         $column = 0;
 
@@ -2158,14 +2158,15 @@ class Admin extends CI_Controller
 
             $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $excel_row - 1);
             $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $row['registration_no']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row['last_name'] . ' ' . $row['first_name']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row['name_kor']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row['affiliation']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $row['phone']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $row['deposit_method']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row['fee']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $row['deposit_time']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $row['memo']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row['email']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row['last_name'] . ' ' . $row['first_name']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row['name_kor']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $row['affiliation']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $row['phone']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row['deposit_method']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $row['fee']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $row['deposit_time']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(10, $excel_row, $row['memo']);
 
             $excel_row++;
         }
@@ -2179,4 +2180,152 @@ class Admin extends CI_Controller
         $object_writer->save('php://output');
     }
 
+    //sujeong / 닉네임 변경 이벤트
+    public function memo_nickname()
+    {
+
+        if (!isset($this->session->admin_data['logged_in']))
+            $this->load->view('admin/login');
+        else {
+            $this->load->helper('form');
+            $this->load->library('form_validation');
+            // 
+            $data['primary_menu'] = 'user_qr';
+            $userId = $_GET['n'];
+            $where = array(
+                'registration_no' => $userId
+            );
+            $data['item'] = $this->users->get_user($where);
+
+            $this->form_validation->set_rules('nickname', 'Memo', 'required');
+
+            if ($this->form_validation->run() === FALSE) {
+                $this->load->view('admin/memo_nickname', $data);
+            } else {
+
+                $nickname = $this->input->post('nickname');
+
+                if ($nickname === "") {
+                    $info = array("nick_name" => null); // 메모 필드를 null로 설정하여 삭제
+                } else {
+                    $info = array("nick_name" => $nickname);
+                }
+
+
+                $this->users->add_memo($info, $where);
+            }
+        }
+    }
+
+    //sujeong / 소속 변경 이벤트
+    public function memo_org()
+    {
+
+        if (!isset($this->session->admin_data['logged_in']))
+            $this->load->view('admin/login');
+        else {
+            $this->load->helper('form');
+            $this->load->library('form_validation');
+            // 
+            $data['primary_menu'] = 'user_qr';
+            $userId = $_GET['n'];
+            $where = array(
+                'registration_no' => $userId
+            );
+            $data['item'] = $this->users->get_user($where);
+
+            $this->form_validation->set_rules('org', 'Memo', 'required');
+
+            if ($this->form_validation->run() === FALSE) {
+                $this->load->view('admin/memo_org', $data);
+            } else {
+
+                $org = $this->input->post('org');
+
+                if ($org === "") {
+                    $info = array("org_nametag" => null); // 메모 필드를 null로 설정하여 삭제
+                } else {
+                    $info = array("org_nametag" => $org);
+                }
+
+
+                $this->users->add_memo($info, $where);
+            }
+        }
+    }
+
+      //sujeong / 의사면허번호 변경 이벤트
+      public function memo_ln()
+      {
+  
+          if (!isset($this->session->admin_data['logged_in']))
+              $this->load->view('admin/login');
+          else {
+              $this->load->helper('form');
+              $this->load->library('form_validation');
+              // 
+              $data['primary_menu'] = 'user_qr';
+              $userId = $_GET['n'];
+              $where = array(
+                  'registration_no' => $userId
+              );
+              $data['item'] = $this->users->get_user($where);
+  
+              $this->form_validation->set_rules('ln', 'Memo', 'required');
+  
+              if ($this->form_validation->run() === FALSE) {
+                  $this->load->view('admin/memo_ln', $data);
+              } else {
+  
+                  $ln = $this->input->post('ln');
+  
+                  if ($ln === "") {
+                      $info = array("licence_number" => null); // 메모 필드를 null로 설정하여 삭제
+                  } else {
+                      $info = array("licence_number" => $org);
+                  }
+  
+  
+                  $this->users->add_memo($info, $where);
+              }
+          }
+      }
+
+
+        //sujeong / 금액 변경 이벤트
+    public function memo_fee()
+    {
+
+        if (!isset($this->session->admin_data['logged_in']))
+            $this->load->view('admin/login');
+        else {
+            $this->load->helper('form');
+            $this->load->library('form_validation');
+            // 
+            $data['primary_menu'] = 'user_qr';
+            $userId = $_GET['n'];
+            $where = array(
+                'registration_no' => $userId
+            );
+            $data['item'] = $this->users->get_user($where);
+
+            $this->form_validation->set_rules('fee', 'Memo', 'required');
+
+            if ($this->form_validation->run() === FALSE) {
+                $this->load->view('admin/memo_fee', $data);
+            } else {
+
+                $fee = $this->input->post('fee');
+
+                if ($fee === "") {
+                    $info = array("fee" => null); // 메모 필드를 null로 설정하여 삭제
+                } else {
+                    $info = array("fee" => $org);
+                }
+
+
+                $this->users->add_memo($info, $where);
+            }
+        }
+    }
 }

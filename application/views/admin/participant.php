@@ -73,7 +73,7 @@ $pre_reg_count_day2 = count($users) - $onsite_count_day2;
 $pre_reg_count_day3 = count($users) - $onsite_count_day3;
 ?>
 <div class="text-center flex flex-col items-center justify-center">
-    <h1 class="text-6xl font-semibold text-orange-600 my-10">IMCVP 2024</h1>
+    <h1 class="text-6xl font-semibold text-orange-600 my-10">SICEM 2025</h1>
     <h6 class="text-3xl font-semibold mb-20 ">현장 참석자 데이터</h6>
     <h6 class="text-3xl font-semibold mb-20 ">총 등록인원 : <?php echo count($users) ?>명(사전등록 : <?php echo $pre_reg_count; ?>명 + 현장등록 <?php echo $onsite_count; ?>명)</h6>
     <h6 class="text-3xl font-semibold mb-20 ">Day 1 현장 등록인원 :  <?php echo $onsite_count_day1; ?>명</h6>

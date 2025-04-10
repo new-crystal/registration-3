@@ -4,7 +4,7 @@
 
 <style>
     @page {
-        size: 10cm 24cm;
+        size: 10.5cm 25cm;
         margin: 0;
     }
 
@@ -38,8 +38,8 @@
     }
 
     #printThis {
-        width: 10cm;
-        height: 24cm;
+        width: 10.5cm;
+        height: 25cm;
         margin: 0;
         padding: 0;
     }
@@ -63,7 +63,7 @@
     <!-- Content area -->
     <div class="content" id="nametag">
         <div id="printThis">
-            <div id="editor1" contenteditable="true" style="height:24cm;">
+            <div id="editor1" contenteditable="true" style="height:25cm;">
                 <?php
                 $lang = preg_match("/[\xE0-\xFF][\x80-\xFF][\x80-\xFF]/", $users['name_kor']);
                 $nicknameLength = mb_strlen($users['first_name'], "UTF-8") + mb_strlen($users['last_name'], "UTF-8");
@@ -74,7 +74,7 @@
                 // echo mb_strlen($users['org_nametag'], "UTF-8") + mb_strlen($users['nation'], "UTF-8");
                 echo '<div class="a4_area">';
                 echo '<div class="bg_area">';
-                echo '<div class="txt_con print">';
+                echo '<div class="txt_con">';
                 echo '<div class="number_box">';
                 // echo '<div class="reg_1">' .  $lucky_num . '</div>';
                 // echo '<div class="reg_2">' .  $users['registration_no'] . '</div>';
@@ -83,22 +83,22 @@
                 if ($users['nt_info'] != '') {
                     echo '<div class="org" id="nt_info">' . $users['nt_info'] . '</div>';
                 }
-                /**닉네임 조건식 17글자이상 24글자 미만 */
-                if ($nicknameLength >= 17 && $nicknameLength < 24) {
-                    echo '<div class="nick_name lang_en small_nickname" id="first_name">' .  $users['first_name'] . '</div>';
-                    echo '<div class="nick_name lang_en small_nickname" id="last_name">' .  $users['last_name'] . '</div>';
-                }
-                /**닉네임 조건식 24글자 이상 */
-                else if ($nicknameLength >= 24) {
-                    echo '<div class="nick_name lang_en small_small_nickname" id="first_name">' .  $users['first_name'] . '</div>';
-                    echo '<div class="nick_name lang_en small_small_nickname" id="last_name">' .  $users['last_name'] . '</div>';
-                }
-                /**닉네임 조건식 17글자 미만 */
-                else if ($nicknameLength < 17) {
-                    echo '<div class="nick_name lang_en" id="first_name">' .  $users['first_name'] . '</div>';
-                    echo '<div class="nick_name lang_en" id="last_name">' .  $users['last_name'] . '</div>';
-                }
-
+                // /**닉네임 조건식 17글자이상 24글자 미만 */
+                // if ($nicknameLength >= 17 && $nicknameLength < 24) {
+                //     echo '<div class="nick_name lang_en small_nickname" id="first_name">' .  $users['first_name'] . '</div>';
+                //     echo '<div class="nick_name lang_en small_nickname" id="last_name">' .  $users['last_name'] . '</div>';
+                // }
+                // /**닉네임 조건식 24글자 이상 */
+                // else if ($nicknameLength >= 24) {
+                //     echo '<div class="nick_name lang_en small_small_nickname" id="first_name">' .  $users['first_name'] . '</div>';
+                //     echo '<div class="nick_name lang_en small_small_nickname" id="last_name">' .  $users['last_name'] . '</div>';
+                // }
+                // /**닉네임 조건식 17글자 미만 */
+                // else if ($nicknameLength < 17) {
+                //     echo '<div class="nick_name lang_en" id="first_name">' .  $users['first_name'] . '</div>';
+                //     echo '<div class="nick_name lang_en" id="last_name">' .  $users['last_name'] . '</div>';
+                // }
+                echo '<div class="nick_name lang_en small_nickname" id="first_name">' .  $users['en_name'] . '</div>';
                 /**소속 조건식 30글자 기준 */
                 if ($orgLength <= 30) {
                     echo '<div class="org" id="org">' . $users['org_nametag'] . '</div>';
@@ -110,9 +110,9 @@
                 echo '<div id="qrcode" class=""><img src="/assets/images/QR/qrcode_' . $users['registration_no'] . '.jpg"></div>';
 
                 echo '<div class="receipt receipt_price number_box">' . $users['fee']. '</div>';
-                echo '<div class="receipt receipt_name number_box">' . $users['first_name'] ." " . $users['last_name']. '</div>';
+                echo '<div class="receipt receipt_name number_box">' . $users['en_name'] ." " . $users['last_name']. '</div>';
                 echo '<div class="receipt end_num_1 number_box">' . $lucky_num . '</div>';
-                echo '<div class="receipt end_num_2 number_box">' . $lucky_num . '</div></div>';
+      
 
                 echo '</div>';
                 echo '</div>';
@@ -152,8 +152,8 @@ function printElement(elem) {
 
     if (!$printSection) {
         var $printSection = document.createElement("div");
-        $printSection.style.width = "10cm";
-        $printSection.style.height = "24cm";
+        $printSection.style.width = "10.5cm";
+        $printSection.style.height = "25cm";
         $printSection.id = "printSection";
         document.body.appendChild($printSection);
     }

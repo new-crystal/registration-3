@@ -99,16 +99,16 @@
 }
 
 #printThis .a4_area{
-    width: 10cm;
-    height: 24cm;
+    width: 10.5cm;
+    height: 25cm;
     page-break-after: always;
 }
 
 #printThis .bg_area{
-    width: 10cm;
-    height: 24cm;
+    width: 10.5cm;
+    height: 25cm;
     border: 1px solid transparent;
-    background-image: url('../../images/nametag.png');
+    background-image: url('../../images/SICEM2025_nametag.jpg');
     background-size: contain;
     margin: 0;
     background-repeat: no-repeat;
@@ -170,7 +170,7 @@
 }
 
 #printThis .small_nickname{
-  font-size: 33px !important;
+  font-size: 24px !important;
 }
 
 #printThis .small_small_nickname{
@@ -252,20 +252,20 @@
 }
 
 #printThis .receipt_name{
-  top: 804px;
+  top: 775px;
   left: 0px;
   justify-content: flex-end;
 }
 
 #printThis .receipt_price{
-  top: 795px;
+  top: 762px;
   left: 0px;
   justify-content: flex-end;
 }
 
 #printThis .end_num_1{
-  top: 877px;
-  left: -233px;
+  top: 974px;
+  left: -133px;
 }
 #printThis .end_num_2{
   top: 857px;
@@ -6561,12 +6561,12 @@ h6.panel-title,
 }
 
 #printThis .a4_area{
-    width: 10cm;
-    height: 24cm;
+    width: 10.5cm;
+    height: 25cm;
     page-break-after: always;
 }
 
-#printThis .bg_area{
+/* #printThis .bg_area{
     width: 10cm;
     height: 24cm;
     border: 1px solid transparent;
@@ -6575,7 +6575,7 @@ h6.panel-title,
     margin: 0;
     background-repeat: no-repeat;
     background-position: center;
-}
+} */
 
 #printThis *{
     display: block;
@@ -6588,7 +6588,7 @@ h6.panel-title,
   height: 750px;
   position: relative;
   width: 100%;
-  margin-top: 115px;
+  margin-top: 100px;
 }
 
 
@@ -6598,7 +6598,7 @@ h6.panel-title,
 
 
 #printThis .org{
-  font-size: 14px;
+  font-size: 12px;
   padding: 10px 10px 0 10px;
   top: 16%;
   word-break: keep-all;
@@ -6608,11 +6608,13 @@ h6.panel-title,
   align-items: center;
   /* letter-spacing: -0.5px; */
   transform: translateY(-8px);
-  font-weight: 400!important;
+  font-weight: 400;
 }
 
 #printThis .org.nation{
   height: 30px;
+  font-size: 16px;
+  font-weight: 800 !important;
 }
 
 #printThis .small_nickname{
