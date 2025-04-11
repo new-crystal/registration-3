@@ -35,9 +35,9 @@ async function saveMemo() {
     const registration_no = window.location.search.split("=")[1];
 
     if (memoValue === "") {
-        formData.set('nickname', null); // 메모 필드의 값을 공백으로 설정
+        formData.set('fee', null); // 메모 필드의 값을 공백으로 설정
     } else {
-        formData.set('nickname', memoValue);
+        formData.set('fee', memoValue);
     }
     try {
         const response = await fetch(url, {
@@ -47,16 +47,16 @@ async function saveMemo() {
 
         if (response.ok) {
             // 메모 저장 성공
-            alert("성함 저장 성공");
+            alert("등록비 저장 성공");
             const parentWindow = window.opener;   
             window.opener.postMessage(registration_no, "*");
             window.close();
         } else {
             // 메모 저장 실패
-            alert("성함 저장 실패");
+            alert("등록비 저장 실패");
         }
     } catch (error) {
-        console.log("성함 저장 중 오류 발생:", error);
+        console.log("등록비 저장 중 오류 발생:", error);
     }
 }
 </script>

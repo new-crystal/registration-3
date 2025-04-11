@@ -113,7 +113,7 @@
                                 <li class="navigation-header"><span>SubPage</span> <i class="icon-menu" title="Main pages"></i></li>
 
                                 <li style="margin-bottom: 2rem;">
-                                    <a href="https://imcvp.org/main/onsite_registration.php" target="_blank">
+                                    <a href="https://reg3.webeon.net/onSite" target="_blank">
                                         <i class="icon-user-plus"></i>
                                         <span>현장등록페이지
                                         </span>

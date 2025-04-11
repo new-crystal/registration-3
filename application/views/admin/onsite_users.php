@@ -122,7 +122,7 @@
                    
                         echo '' . $item['deposit'] . '</td>';
                         echo '</td>';
-                        echo '<td>' . $item['fee']  . '</td>';
+                        echo '<td onclick="copy(\'' . $item['fee'] . '\')">' . $item['fee']  . '</td>';
                         echo "<td>
                                 <select name=\"deposit_method\" data-id=\"".$item["registration_no"]."\">
                                     <option value=\"\" ".(empty($item["deposit_method"]) ? "selected" : "").">선택</option>
@@ -139,13 +139,13 @@
                         //     echo '<td style="color:red;">';
                         // }
                         // echo '' . $item['member_status'] . '</td>';
-                        echo '<td>' . $item['remark1'] . '</td>';
-                        echo '<td>' . $item['special_request_food'] . '</td>';
-                        echo '<td>' . $item['attendance_type'] . '</td>';
-                        echo '<td>' . $item['first_name']  . " " . $item['last_name'] .  '</td>';
-                        echo '<td>' . $item['name_kor'] . '</td>';
-                        echo '<td>' . $item['org_nametag'] . '</td>';
-                        echo '<td class="user_d"><a href="/admin/user_detail?n=' . $item['registration_no'] . '" target="_self">' . $item['email'] . '</a></td>';
+                        echo '<td onclick="copy(\'' . $item['remark1'] . '\')">' . $item['remark1'] . '</td>';
+                        echo '<td onclick="copy(\'' . $item['special_request_food'] . '\')">' . $item['special_request_food'] . '</td>';
+                        echo '<td onclick="copy(\'' . $item['attendance_type'] . '\')">' . $item['attendance_type'] . '</td>';
+                        echo '<td onclick="copy(\'' . $item['first_name']  . " " . $item['last_name'] . '\')">' . $item['first_name']  . " " . $item['last_name'] .  '</td>';
+                        echo '<td onclick="copy(\'' . $item['name_kor'] . '\')">' . $item['name_kor'] . '</td>';
+                        echo '<td onclick="copy(\'' . $item['org_nametag'] . '\')">' . $item['org_nametag'] . '</td>';
+                        echo '<td class="user_d" onclick="copy(\'' . $item['email'] . '\')">' . $item['email'] . '</td>';
                        
                         if ($item['memo'] != "" && $item['memo'] != 'null') {
                             echo '<td>';
@@ -203,8 +203,28 @@
     }
 
     function print(reg) {
-        const url = `/qrcode/print_file?registration_no=${reg}`
-        fetch(url).then((res) => window.open(res.url))
+    
+        const url = "/access/add_record"
+        const data = {
+            reg_no : reg,
+            type: 5
+        }
+        if(reg){
+            $.ajax({
+                type: "POST",
+                url : url,
+                data: data,
+                success: function(result){
+                    const url = `/qrcode/print_file?registration_no=${reg}`
+                    fetch(url).then((res) => window.open(res.url))
+
+                },
+                error:function(e){  
+                    console.log(e)
+                    alert("출결등록 이슈가 발생했습니다. 관리자에게 문의해주세요.")
+                }
+            })  
+        }
     }
    
     $("select[name=deposit_method]").on("change",function(){
