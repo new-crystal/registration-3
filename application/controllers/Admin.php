@@ -2182,7 +2182,7 @@ class Admin extends CI_Controller
     }
 
     //sujeong / 닉네임 변경 이벤트
-    public function memo_nickname()
+    public function memo_firstname()
     {
 
         if (!isset($this->session->admin_data['logged_in']))
@@ -2198,18 +2198,18 @@ class Admin extends CI_Controller
             );
             $data['item'] = $this->users->get_user($where);
 
-            $this->form_validation->set_rules('nickname', 'Memo', 'required');
+            $this->form_validation->set_rules('first_name', 'Memo', 'required');
 
             if ($this->form_validation->run() === FALSE) {
-                $this->load->view('admin/memo_nickname', $data);
+                $this->load->view('admin/memo_firstname', $data);
             } else {
 
-                $nickname = $this->input->post('nickname');
+                $first_name = $this->input->post('first_name');
 
-                if ($nickname === "") {
-                    $info = array("nick_name" => null); // 메모 필드를 null로 설정하여 삭제
+                if ($first_name === "") {
+                    $info = array("en_name" => null); // 메모 필드를 null로 설정하여 삭제
                 } else {
-                    $info = array("nick_name" => $nickname);
+                    $info = array("en_name" => $first_name);
                 }
 
 
@@ -2218,6 +2218,45 @@ class Admin extends CI_Controller
         }
     }
 
+
+      //sujeong / 닉네임 변경 이벤트
+      public function memo_lastname()
+      {
+  
+          if (!isset($this->session->admin_data['logged_in']))
+              $this->load->view('admin/login');
+          else {
+              $this->load->helper('form');
+              $this->load->library('form_validation');
+              // 
+              $data['primary_menu'] = 'user_qr';
+              $userId = $_GET['n'];
+              $where = array(
+                  'registration_no' => $userId
+              );
+              $data['item'] = $this->users->get_user($where);
+  
+              $this->form_validation->set_rules('last_name', 'Memo', 'required');
+  
+              if ($this->form_validation->run() === FALSE) {
+                  $this->load->view('admin/memo_lastname', $data);
+              } else {
+  
+                  $last_name = $this->input->post('last_name');
+  
+                  if ($last_name === "") {
+                      $info = array("last_name" => null); // 메모 필드를 null로 설정하여 삭제
+                  } else {
+                      $info = array("last_name" => $last_name);
+                  }
+  
+  
+                  $this->users->add_memo($info, $where);
+              }
+          }
+      }
+
+      
     //sujeong / 소속 변경 이벤트
     public function memo_org()
     {
@@ -2283,7 +2322,7 @@ class Admin extends CI_Controller
                   if ($ln === "") {
                       $info = array("licence_number" => null); // 메모 필드를 null로 설정하여 삭제
                   } else {
-                      $info = array("licence_number" => $org);
+                      $info = array("licence_number" => $ln);
                   }
   
   
@@ -2321,11 +2360,84 @@ class Admin extends CI_Controller
                 if ($fee === "") {
                     $info = array("fee" => null); // 메모 필드를 null로 설정하여 삭제
                 } else {
-                    $info = array("fee" => $org);
+                    $info = array("fee" => $fee);
                 }
 
 
                 $this->users->add_memo($info, $where);
+            }
+        }
+    }
+
+    public function edit_access()
+    {
+        
+        $this->load->view('admin/header');
+        if (!isset($this->session->admin_data['logged_in'])) {
+            $this->load->view('admin/login');
+        } else {
+            // 
+            $data['primary_menu'] = 'qrcode';
+            $userId = $_GET['n'];
+            $where = array(
+                'registration_no' => $userId
+            );
+            $data['item'] = $this->users->get_user($where);
+            $this->load->view('admin/left_side.php', $data);
+            $qrcode = isset($_GET['qrcode']) ? $_GET['qrcode'] : null;
+
+            if ($qrcode) {
+                
+                // echo $qr_time;
+               
+                $where = array(
+                    'registration_no' => $qrcode
+                );
+
+                $qr_time = date("Y-m-d");
+                if ($qr_time == '2025-05-01') {
+                    $infoqr = array(
+                        'qr_chk_day_1' => 'Y',
+                        'qr_chk' => 'Y',
+                        'qr_print' => 'Y'
+                    );
+                    $this->users->update_qr_status($infoqr, $where);
+                }
+                if ($qr_time == '2025-05-02') {
+                    $infoqr = array(
+                        'qr_chk_day_2' =>  'Y',
+                        'qr_chk' => 'Y',
+                        'qr_print' => 'Y'
+                    );
+                    $this->users->update_qr_status($infoqr, $where);
+                }
+
+                if ($qr_time == '2025-05-03') {
+                    $infoqr = array(
+                        'qr_chk_day_3' =>  'Y',
+                        'qr_chk' => 'Y',
+                        'qr_print' => 'Y'
+                    );
+                    $this->users->update_qr_status($infoqr, $where);
+                }
+
+
+                //입장시간, 퇴장시간 기록
+                $time = date("Y-m-d H:i:s");
+                $info = array(
+                    'registration_no' => $qrcode,
+                    'time' => $time,
+                    'type' => 3
+                );
+                 $this->entrance->record($info);
+
+                $data['notice'] = $this->schedule->get_notice();
+                $data['user'] = $this->users->get_user($where);
+
+                $this->load->view('admin/access_modify', $data);
+            } else {
+                $data['notice'] = $this->schedule->get_notice();
+                $this->load->view('admin/access_modify', $data);
             }
         }
     }

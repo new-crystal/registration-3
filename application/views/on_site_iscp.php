@@ -351,10 +351,39 @@ td {
                 <col width="20%">
                 <col width="*">
             </colgroup>
+          
+            <tr>
+                <th>
+                    ID(email)
+                    <span class="hit">*</span>
+                </th>
+                <td>
+                    <div class="email_box w-11/12">
+
+                        <div class="flex items-center w-full justify-between p-1 flex-wrap">
+                            <input type="text" name="email1" id="Email1" maxlength="64" value="" class="w-4/12">
+                            <p class="mx-1">@</p>
+                            <input type="text" name="email2" id="Email2" maxlength="64" value="" class="w-4/12">
+                            <select id="Email3" class="border mx-1" style="background-color:#ffffff;">
+                                <option value="" selected="selected">Choose</option>
+                                <option value="naver.com">naver.com</option>
+                                <option value="daum.net">daum.net</option>
+                                <option value="hotmail.com">hotmail.com</option>
+                                <option value="yahoo.co.kr">yahoo.co.kr</option>
+                                <option value="gmail.com">gmail.com</option>
+                            </select>
+                            <button class="check_btn bg-blue-700 text-white px-4 font-semibold" type="button">Check
+                                ID</button>
+                        </div>
+
+                        <p class="email_text">Please make sure you have entered your ID correctly as you can't modify it later.</p>
+                    </div>
+                </td>
+            </tr>
             <tr>
                 <th>Country<span class="hit">*</span></th>
                 <td>
-                    <select id="nation_no" name="nation" class="px-2 py-1 w-11/12 h-10 border" disabled>
+                    <select id="nation_no" name="nation" class="px-2 py-1 w-11/12 h-10 border" readonly>
                         <option data-nt="82" value="Korea" selected="">Korea</option>
                         <option data-nt="93" value="Afghanistan">Afghanistan</option>
                         <!-- <option data-nt="358" value="Aland Islands">Aland Islands</option> -->
@@ -606,46 +635,17 @@ td {
                 </td>
             </tr>
             <tr>
-                <th>
-                    ID(email)
-                    <span class="hit">*</span>
-                </th>
-                <td>
-                    <div class="email_box w-11/12">
-
-                        <div class="flex items-center w-full justify-between p-1 flex-wrap">
-                            <input type="text" name="email1" id="Email1" maxlength="64" value="" class="w-4/12">
-                            <p class="mx-1">@</p>
-                            <input type="text" name="email2" id="Email2" maxlength="64" value="" class="w-4/12">
-                            <select id="Email3" class="border mx-1" style="background-color:#ffffff;">
-                                <option value="" selected="selected">Choose</option>
-                                <option value="naver.com">naver.com</option>
-                                <option value="daum.net">daum.net</option>
-                                <option value="hotmail.com">hotmail.com</option>
-                                <option value="yahoo.co.kr">yahoo.co.kr</option>
-                                <option value="gmail.com">gmail.com</option>
-                            </select>
-                            <button class="check_btn bg-blue-700 text-white px-4 font-semibold" type="button">Check
-                                ID</button>
-                        </div>
-
-                        <p class="email_text">Please make sure you have entered your ID correctly as you can't modify it later.</p>
-                    </div>
-                </td>
-            </tr>
-         
-            <tr>
                 <th>Name<span class="hit">*</span></th>
                 <td>
                     <div class="w-11/12 flex flex-col">
                         <div class="flex w-full justify-between  mb-3">
                             <input type="text" id="firstName" name="first_name" placeholder="First Name (ex. Gildong) "
-                                class="w-6/12" disabled />
+                                class="w-6/12" readonly/>
                             <input type="text" id="lastName" placeholder="Last name (ex. Hong) " id="lastName"
-                                name="last_name" type="text" class="w-6/12" disabled />
+                                name="last_name" type="text" class="w-6/12" readonly/>
                         </div>
                         <input id="koreanName" name="name_kor" id="koreanName" placeholder="국문 이름 (ex. 홍길동)" type="text"
-                            class="w-full" disabled>
+                            class="w-full" readonly>
                     </div>
                 </td>
             </tr>
@@ -656,9 +656,9 @@ td {
                 </th>
                 <td>
                     <input type="text" id="affiliation" name="affiliation" class="w-11/12  mb-3"
-                        placeholder="Affiliation (ex. Korea University, Korea Hospital) " disabled />
+                        placeholder="Affiliation (ex. Korea University, Korea Hospital) " readonly/>
                     <input style="display: none;" type="text" id="affiliation_kor" name="affiliation_kor"
-                        class="w-11/12" placeholder="국문 소속 (ex. 한국대학교, 한국대병원)" disabled />
+                        class="w-11/12" placeholder="국문 소속 (ex. 한국대학교, 한국대병원)" readonly/>
                 </td>
             </tr>
             <tr>
@@ -668,9 +668,9 @@ td {
                 </th>
                 <td>
                     <input type="text" id="department" name="department" class="w-11/12  mb-3" placeholder="Department"
-                        disabled />
+                        readonly/>
                     <input style="display: none;" type="text" id="department_kor" name="department_kor"
-                        class="w-11/12  mb-3" placeholder="부서" disabled />
+                        class="w-11/12  mb-3" placeholder="부서" readonly/>
                 </td>
             </tr>
             <tr>
@@ -684,7 +684,7 @@ td {
                         <input type="text" id="contryNum" name="phone1" class="w-1/6" placeholder="contry number"
                             value="82" />
                         <input type="text" id="phoneNumber" name="phone2" class="w-5/6" placeholder="ex)01012345678"
-                            disabled />
+                            readonly/>
                     </div>
                 </td>
             </tr>
@@ -694,12 +694,12 @@ td {
                 </th>
                 <td>
                     <label>
-                        <input type="radio" value="Y" name="is_score"/>
+                        <input type="radio" value="Y" name="is_score" readonly/>
                         Necessary
                     </label>
                     <br/>
                     <label>
-                        <input type="radio" value="N" name="is_score" checked/>
+                        <input type="radio" value="N" name="is_score" checked readonly/>
                         Unnecessary
                     </label>
                 </td>
@@ -709,7 +709,7 @@ td {
                     의사면허번호<span class="hit">*</span>
                 </th>
                 <td>
-                    <input type="text" name="ln" class="w-11/12" placeholder="의사면허번호"/>
+                    <input type="text" name="ln" class="w-11/12" placeholder="의사면허번호" readonly/>
                 </td>
             </tr>
             <tr id="sn">
@@ -717,7 +717,7 @@ td {
                     전문의번호
                 </th>
                 <td>
-                    <input type="text" name="sn" class="w-11/12" placeholder="의사면허번호"/>
+                    <input type="text" name="sn" class="w-11/12" placeholder="의사면허번호" readonly/>
                 </td>
             </tr>
         </table>
@@ -778,12 +778,12 @@ td {
                 <th>Member (학회 회원 여부)<span class="hit">*</span></th>
                 <td>
                     <label>
-                        <input type="radio" value="Y" name="member"/>
+                        <input type="radio" value="Y" name="member" readonly/>
                         Member
                     </label>
                     <br/>
                     <label>
-                        <input type="radio" value="N" name="member" checked/>
+                        <input type="radio" value="N" name="member" checked readonly/>
                         Non-member
                     </label>
                 </td>
@@ -791,23 +791,23 @@ td {
             <tr id="kes_id">
                 <th>KES ID</th>
                 <td> 
-                    <input type="text" name="kes_id" class="w-11/12" placeholder="KES ID"/>
+                    <input type="text" name="kes_id" class="w-11/12" placeholder="KES ID" readonly/>
                 </td>
             </tr>
             <tr>
                 <th>Attendance Date (참석 날짜)<span class="hit">*</span></th>
                 <td>
                     <div>
-                        <input type="radio" id="full" name="attendance_date" value="full"/>
+                        <input type="radio" id="full" name="attendance_date" value="full" readonly/>
                         <label for="full">Full registration</label>
                         <br>
-                        <input type="radio" id="day1" name="attendance_date" value="day1"/>
+                        <input type="radio" id="day1" name="attendance_date" value="day1" readonly/>
                         <label for="day1">Thursday, May 1</label>
                         <br>
-                        <input type="radio" id="day2" name="attendance_date" value="day2"/>
+                        <input type="radio" id="day2" name="attendance_date" value="day2" readonly/>
                         <label for="day2">Friday May 2</label>
                         <br>
-                        <input type="radio" id="day3" name="attendance_date" value="day3"/>
+                        <input type="radio" id="day3" name="attendance_date" value="day3" readonly/>
                         <label for="day3">Saturday May 3</label>
                     </div>
                 </td>
@@ -819,8 +819,7 @@ td {
                 </th>
                 <td>
                     <div class="flex w-11/12 justify-between items-center border">
-                        <select id="category" style="background-color:#ffffff;" class="px-2 py-1 w-full h-10"
-                            name="member_type">
+                        <select id="category" style="background-color:#ffffff;" class="px-2 py-1 w-full h-10" name="member_type" readonly>
                             <option value="" selected="selected">Select</option>
                             <option value="Medical doctor">Medical doctor</option>
                             <option value="Professor">Professor</option>
@@ -860,13 +859,13 @@ td {
                 <td>
                     <div>
                         <input id="special_request_food" name="special_request_food" hidden />
-                        <input type="radio" id="special_no" data-id="None" />
+                        <input type="radio" id="special_no" data-id="None" readonly/>
                         <label for="special_no">None</label>
                         <br>
-                        <input type="radio" id="special_halal" data-id="Halal" />
+                        <input type="radio" id="special_halal" data-id="Halal" readonly/>
                         <label for="special_halal">Halal food</label>
                         <br>
-                        <input type="radio" id="special_vege" data-id="Vegetarian" />
+                        <input type="radio" id="special_vege" data-id="Vegetarian" readonly/>
                         <label for="special_vege">Vegetarian food</label>
                     </div>
                 </td>
@@ -1157,14 +1156,24 @@ check_btn.addEventListener("click", () => {
     checkEmail()
 })
 
+$(document).ready(function () {
+    // console.log(check_email);
+        $(document).on('click', 'input[readonly], select[readonly]', function(e) {
+            // console.log('clicked disabled');
+
+            if (!check_email) {
+                e.preventDefault();
+                alert("Please check your ID first.");
+                email_1.focus()
+            }
+        });
+    });
+
 /**이메일 중복검사 */
 async function checkEmail() {
     const email = `${email_1.value}@${email_2.value}`
     const url = `/onSite/check_email?n=${email}`
-    const personalInfoList = [firstName, LastName, KoreanName, contry, affilation, koreanAffiliation,
-        department, department_kor,
-        phone
-    ]
+    // const personalInfoList = [firstName, LastName, KoreanName, contry, affilation, koreanAffiliation, department, department_kor, phone]
 
     const response = await fetch(url, {
         method: "GET"
@@ -1177,21 +1186,25 @@ async function checkEmail() {
         check_email = false;
         email_text.innerText = "This email address is already taken"
         email_text.style.color = "#c1121f"
+        email_1.value = "";
+        email_2.value = "";
     } else {
         alert("This email address is available")
         check_email = true;
         email_text.innerText = "This email address is available"
         email_text.style.color = "blue"
-
-        personalInfoList.map((info) => {
-            removeDisabled(info)
-        })
+        $('input[readonly], select[readonly]').each(function () {
+            $(this).prop('readonly', false);
+        });
+        // personalInfoList.map((info) => {
+        //     removeDisabled(info)
+        // })
     }
 }
 
-/**disabled 지우기 */
+/**readonly지우기 */
 function removeDisabled(content) {
-    content.disabled = false;
+    content.readonly= false;
 }
 
 toggleLicenseRows();
