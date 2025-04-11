@@ -2207,9 +2207,9 @@ class Admin extends CI_Controller
                 $first_name = $this->input->post('first_name');
 
                 if ($first_name === "") {
-                    $info = array("en_name" => null); // 메모 필드를 null로 설정하여 삭제
+                    $info = array("first_name" => null); // 메모 필드를 null로 설정하여 삭제
                 } else {
-                    $info = array("en_name" => $first_name);
+                    $info = array("first_name" => $first_name);
                 }
 
 
@@ -2384,10 +2384,9 @@ class Admin extends CI_Controller
             );
             $data['item'] = $this->users->get_user($where);
             $this->load->view('admin/left_side.php', $data);
-            $qrcode = isset($_GET['qrcode']) ? $_GET['qrcode'] : null;
+            $qrcode =  $userId;
 
             if ($qrcode) {
-                
                 // echo $qr_time;
                
                 $where = array(
