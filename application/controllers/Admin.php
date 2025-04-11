@@ -2041,18 +2041,19 @@ class Admin extends CI_Controller
             $day = $this->input->get('day');
             $data['users'] = $this->users->get_onsite_users();
 
-            if ($day === 'all') {
-                $list = $this->users->get_onsite_users(); // 전체 사용자
-            } elseif (in_array($day, ['day1', 'day2', 'day3'])) {
-                // 날짜 매핑
-                $dateMap = [
-                    'day1' => '2025-05-01',
-                    'day2' => '2025-05-02',
-                    'day3' => '2025-05-03'
-                ];
-                $selectedDate = $dateMap[$day];
-                $list = $this->users->get_onsite_user($selectedDate); // 해당 날짜 사용자
-            } 
+            // if ($day === 'all') {
+            //     $list = $this->users->get_onsite_users(); // 전체 사용자
+            // } elseif (in_array($day, ['day1', 'day2', 'day3'])) {
+            //     // 날짜 매핑
+            //     $dateMap = [
+            //         'day1' => '2025-05-01',
+            //         'day2' => '2025-05-02',
+            //         'day3' => '2025-05-03'
+            //     ];
+            //     $selectedDate = $dateMap[$day];
+            //     $list = $this->users->get_onsite_user($selectedDate); // 해당 날짜 사용자
+            // } 
+            $data['users'] = $this->users->get_onsite_users();
             $data['primary_menu'] = 'onsite_users';
 
             $this->load->view('admin/left_side.php', $data);
