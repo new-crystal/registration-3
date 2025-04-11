@@ -138,7 +138,7 @@ class Users extends CI_Model
 		$this->db->insert($this->users, $info);
 
 		$id = $this->db->insert_id();
-		$registration_no = 'SICEM2025-4' . str_pad($id, 3, '0', STR_PAD_LEFT);
+		$registration_no = 'SICEM2025-4' . str_pad($id, 2, '0', STR_PAD_LEFT);
 		$this->db->where('id', $id);
 		$this->db->update($this->users, array('registration_no' => $registration_no));
 	}
@@ -148,7 +148,7 @@ class Users extends CI_Model
 		$this->db->insert($this->users, $info);
 
 		$id = $this->db->insert_id();
-		$registration_no = 'O-4' . str_pad($id, 2, '0', STR_PAD_LEFT);
+		$registration_no = 'O-' . str_pad($id, 2, '0', STR_PAD_LEFT);
 		$this->db->where('id', $id);
 		$this->db->update($this->users, array('registration_no' => $registration_no));
 	}
@@ -431,8 +431,7 @@ class Users extends CI_Model
 		$query = $this->db->query("
 		SELECT a.*
 		FROM users a
-		WHERE a.qr_generated = 'Y' 
-		AND a.onsite_reg = '1'
+		WHERE a.onsite_reg = '1'
 		ORDER BY a.id DESC;
 	");
 	return $query->result_array();

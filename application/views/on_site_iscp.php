@@ -316,7 +316,7 @@ td {
 </style>
 <script src="https://cdn.tailwindcss.com"></script>
 <?php echo form_open('/onSite', 'id="addForm" name="addForm" ') ?>
-<!-- <form action="/onSite/sicem" class="w-3/5 mx-auto"> -->
+<!-- <form class="w-3/5 mx-auto"> -->
 <!-- <img src="./mail_header.png" alt="header" class="w-full h-96" /> -->
 <div class="wrap_1">
     <img class="onsite_header" src="../../assets/images/onsite_hdr.jpg" />
@@ -717,7 +717,7 @@ td {
                     전문의번호
                 </th>
                 <td>
-                    <input type="text" name="ln" class="w-11/12" placeholder="의사면허번호"/>
+                    <input type="text" name="sn" class="w-11/12" placeholder="의사면허번호"/>
                 </td>
             </tr>
         </table>
@@ -899,9 +899,12 @@ td {
                 <col width="*">
             </colgroup>
             <tr>
-                <th>Total</th>
+                <th>
+                    Total
+                    <input type="hidden" name="fee" id="fee" />
+                </th>
                 <td id="total" class="font-semibold underline underline-offset-8 text-2xl">
-                    <input name="fee" id="fee" hidden />
+                  
                 </td>
             </tr>
         </table>
@@ -1234,19 +1237,19 @@ function toggleKesIdRow() {
 // })
 
 /**가입 경로 */
-conferList.forEach((checkbox) => {
-    checkbox.addEventListener("change", (e) => {
-        conferList.forEach((otherCheckbox) => {
-            if (otherCheckbox !== checkbox) {
-                otherCheckbox.checked = false;
-            }
-        });
-        // if (e.target.dataset.id) {
-        //     conference_other.style.display = "none";
-        // }
-        conference_info.value = e.target.dataset.id
-    });
-});
+// conferList.forEach((checkbox) => {
+//     checkbox.addEventListener("change", (e) => {
+//         conferList.forEach((otherCheckbox) => {
+//             if (otherCheckbox !== checkbox) {
+//                 otherCheckbox.checked = false;
+//             }
+//         });
+//         if (e.target.dataset.id) {
+//             conference_other.style.display = "none";
+//         }
+//         conference_info.value = e.target.dataset.id
+//     });
+// });
 
 
 /**지불방법 checkbox */
@@ -1553,7 +1556,7 @@ function calRegiFee() {
     //     total.innerText = `￦${fee}`
     // } else if (fee !== undefined) {
         total.innerText = fee;
-        fee_input.value = fee;
+        $('#fee').val(fee);
     // }
 }
 </script>

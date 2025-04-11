@@ -92,7 +92,8 @@
                         <th>등록비</th>
                         <th>결제수단</th>
                         <th>프린트</th>
-                        <th>회원유무</th>
+                        <th>하단띠지</th>
+                        <th>Special Food</th>
                         <th>Type of Participation</th>
                         <th>Full Name</th>
                         <th>성함</th>
@@ -132,12 +133,14 @@
                                 </select>
                             </td>";
                         echo '<td><button class="bg-indigo-600 p-8" onclick="print(\'' . $item['registration_no'] . '\')">출력</button></td>';
-                        if ($item['member_status'] == "비회원") {
-                            echo '<td style="color:black;">';
-                        } else {
-                            echo '<td style="color:red;">';
-                        }
-                        echo '' . $item['member_status'] . '</td>';
+                        // if ($item['member_status'] == "비회원") {
+                        //     echo '<td style="color:black;">';
+                        // } else {
+                        //     echo '<td style="color:red;">';
+                        // }
+                        // echo '' . $item['member_status'] . '</td>';
+                        echo '<td>' . $item['remark1'] . '</td>';
+                        echo '<td>' . $item['special_request_food'] . '</td>';
                         echo '<td>' . $item['attendance_type'] . '</td>';
                         echo '<td>' . $item['first_name']  . " " . $item['last_name'] .  '</td>';
                         echo '<td>' . $item['name_kor'] . '</td>';
