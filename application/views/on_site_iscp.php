@@ -193,11 +193,15 @@ td {
 
 @media screen and (max-width:600px) {
     #addForm {
-        width: 80%;
+        width: 98%;
     }
 
     .number {
         display: none;
+    }
+
+    .text-xl{
+        font-size: 1rem !important;
     }
 
     th,
@@ -238,6 +242,7 @@ td {
 
     .term_wrap .term_box {
         max-height: 100px !important;
+        font-size: 10px;
     }
 
     .term_label {

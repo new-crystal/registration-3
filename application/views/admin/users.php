@@ -214,7 +214,8 @@
     }
 
     function onClickprint(id){
-        const url = `/admin/access?n=${id}&print=N`;
+        // const url = `/admin/access?n=${id}&print=N`;
+        const url = `/admin/edit_access?n=${id}`;
         window.location.href = url
     }
 

@@ -129,8 +129,7 @@ $en_name = $firstName . " " . $lastName
                             <tr>
                                 <th>성함(E)</th>
                                 <td  class="qr_text">
-                                    <input id="en_name"  value="<?php echo isset($user['first_name']) ? $user['first_name'] . " " . $user['last_name'] : ''; ?>
-                                        ?>"/>
+                                    <input id="en_name"  value="<?php echo isset($user['first_name']) ? $user['first_name'] . " " . $user['last_name'] : ''; ?>"/>
                                     <button class="w-[95px] h-[40px] bg-indigo-950 mt-20 mb-20 hover:bg-slate-300 active:bg-slate-300 text-white" type="button" id="firstname_btn">firstname 변경</button>
                                     <button class="w-[95px] h-[40px] bg-lime-600 mt-20 mb-20 hover:bg-slate-950 active:bg-slate-950 text-white" type="button" id="lastname_btn">lastname 변경</button>
                                 </td>
@@ -138,7 +137,7 @@ $en_name = $firstName . " " . $lastName
                             <tr>
                                 <th>성함(K)</th>
                                 <td id="name" class="qr_text">
-                                    <?php if (isset($en_name)) echo $en_name ?></td>
+                                    <?php if (isset($user['name_kor'])) echo $user['name_kor'] ?></td>
                             </tr>
                             <tr>
                                 <th>국적</th>
@@ -375,7 +374,7 @@ $en_name = $firstName . " " . $lastName
         convertToEnglish();
         qrvalue = qrcode.value
         qrvalue = qrcode.value.replace(/\s/g, "");
-        fetchData(qrvalue)
+        // fetchData(qrvalue)
         qrcode.value = "";
         qrcode.focus();
     })
@@ -385,76 +384,7 @@ $en_name = $firstName . " " . $lastName
         window.open(`https://reg3.webeon.net/qrcode/print_file?registration_no=${qrvalue}`, "_blank")
     })
 
-    function fetchData(qrcode) {
-        // Ajax 요청 수행
-        executeFunctionInChildWindow(qrcode);
-        fetch(`/admin/access?qrcode=${qrcode}`)
-            .then(response => response.text())
-            .then((data) => {
-                const parser = new DOMParser();
-                const htmlDocument = parser.parseFromString(data, 'text/html');
-                //console.log(htmlDocument)
-                if (htmlDocument.querySelector("#number").innerText) {
-                    number.innerText = htmlDocument.querySelector("#number").innerText.replace(/<br\s*\/?>/gi, "").trim();
-                    enName.value = htmlDocument.querySelector("#en_name").value.replace(/<br\s*\/?>/gi, "").trim();
-                    name.innerText = htmlDocument.querySelector("#name").innerText.replace(/<br\s*\/?>/gi, "").trim();
-                    nation.innerText = htmlDocument.querySelector("#nation").innerText.replace(/<br\s*\/?>/gi, "").trim();
-                    affiliation.value = htmlDocument.querySelector("#affiliation").value.replace(/<br\s*\/?>/gi, "").replace(/\s/g, "");
-                    // attendance_type.innerText = htmlDocument.querySelector("#attendance_type").innerText.replace(
-                    //         /<br\s*\/?>/gi, "")
-                    //     .trim();
-                    category.innerText = htmlDocument.querySelector("#member_type").innerText.replace(/<br\s*\/?>/gi, "").trim();
-                    fee.value = htmlDocument.querySelector("#fee").value.replace(/<br\s*\/?>/gi, "").trim();
-                    licence_number.value = htmlDocument.querySelector("#licence_number").value.replace(/<br\s*\/?>/gi, "").trim();
-                    memo.innerText = htmlDocument.querySelector("#memo").innerText.replace(/<br\s*\/?>/gi, "").trim();
-                    
-                    remark1.innerText =  htmlDocument.querySelector("#remark1").innerText.replace(/<br\s*\/?>/gi, "").trim();
-                    remark2.innerText =  htmlDocument.querySelector("#remark2").innerText.replace(/<br\s*\/?>/gi, "").trim();
-                    remark3.innerText =  htmlDocument.querySelector("#remark3").innerText.replace(/<br\s*\/?>/gi, "").trim();
-                    remark4.innerText =  htmlDocument.querySelector("#remark4").innerText.replace(/<br\s*\/?>/gi, "").trim();
-                    remark5.innerText =  htmlDocument.querySelector("#remark5").innerText.replace(/<br\s*\/?>/gi, "").trim();
-                    remark6.innerText =  htmlDocument.querySelector("#remark6").innerText.replace(/<br\s*\/?>/gi, "").trim();
-                    remark7.innerText =  htmlDocument.querySelector("#remark7").innerText.replace(/<br\s*\/?>/gi, "").trim();
-                    //notice.innerHTML = htmlDocument.querySelector("#notice").innerHTML
-                } else {
-                    number.innerText = qrvalue
-                    name.innerText = "없는 QR입니다."
-                    org.innerText = ""
-                    category.innerText = ""
-                    etc1.innerText = ""
-                    throw new Error("없는 QR입니다.");
-                }
-            }).then(() => {
-                if(isPrint == "Y"){
-                    // window.open(`https://reg3.webeon.net/qrcode/print_file?registration_no=${qrvalue}`, "_blank")
-                }
-            }).then(() => {
 
-               // changeBackgroundColorIfNotEmpty(memo);
-            //    console.log(remark1.innerText)
-                changeBackgroundColorIfNotEmpty(remark1);
-                changeBackgroundColorIfNotEmpty(remark2);
-                changeBackgroundColorIfNotEmpty(remark3);
-                changeBackgroundColorIfNotEmpty(remark4);
-                // changeBackgroundColorIfNotEmpty(special_request_food);
-                changeBackgroundColorIfNotEmpty(remark5);
-                changeBackgroundColorIfNotEmpty(remark6);
-                changeBackgroundColorIfNotEmpty(remark7);
-
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
-    }
-
-    function executeFunctionInChildWindow(data) {
-        bc = new BroadcastChannel("test_channel");
-       
-        bc.postMessage({
-            qrcode: data
-        });
-        
-    }
 
     // function executeFunctionInChildWindow(data) {
 
@@ -546,7 +476,7 @@ $en_name = $firstName . " " . $lastName
         
         if(regNum){
             qrvalue = regNum;
-            fetchData(regNum)
+            //fetchData(regNum)
         }
     }
 
