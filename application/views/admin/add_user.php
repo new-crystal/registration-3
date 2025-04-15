@@ -34,7 +34,7 @@
                                 <label class="col-sm-2 control-label">구분 2</label>
                                 <div class="col-sm-10">
                                     <select class="form-control input-lg m-bot15" name="member_type" id="type2">
-                                        <option value="Certified M.D.">Certified M.D.</option>
+                                        <option value="Medical doctor">Medical doctor</option>
                                         <option value="Professor">Professor</option>
                                         <option value="Researcher">Researcher</option>
                                         <option value="Nutritionist">Nutritionist</option>
@@ -96,7 +96,7 @@
                                 <label class="col-sm-2 control-label">국가</label>
                                 <div class="col-sm-10">
                                     <input class="form-control" type="text" name="nation" id="nation">
-                                    <select id="nation_no" name="nation_no" class="required">
+                                    <select id="nation_no" name="nation_no" class="required input-lg m-bot15">
 										<option value="" selected="" hidden="">Choose</option>
                                         <option data-nt="82" value="25">Korea</option>
                                         <option data-nt="93" value="122">Afghanistan</option>
@@ -494,19 +494,33 @@
     // })
     $(function() {
         $("#addForm").submit(function() {
-            // if (!$.trim($("#name_kor").val())) {
-            //     alert("이름을 입력해주세요.");
-            //     $("#name_kor").focus();
-            //     return false;
-            // }
+            if (!$.trim($("input[name=first_name]").val())) {
+                alert("이름을 입력해주세요.");
+                $("input[name=first_name]").focus();
+                return false;
+            }
+
+            if (!$.trim($("input[name=last_name]").val())) {
+                alert("이름을 입력해주세요.");
+                $("input[name=last_name]").focus();
+                return false;
+            }
+
+            if (!$.trim($("#org").val())) {
+                alert("소속단체명을 입력해주세요.");
+                $("#org").focus();
+                return false;
+            }
+
+            if (!$.trim($("#nation").val())) {
+                alert("국가를 입력해주세요.");
+                $("#nation").focus();
+                return false;
+            }
             // if (!$.trim($("#sn").val())) {
             //     $("#sn").val('00000');
             // }
-            // if (!$.trim($("#org").val())) {
-            //     alert("소속단체명을 입력해주세요.");
-            //     $("#org").focus();
-            //     return false;
-            // }
+         
             // if (!$.trim($("#type1").val())) {
             //     alert("구분1을 입력해주세요.");
             //     $("#type1").focus();

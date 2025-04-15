@@ -482,20 +482,21 @@ class Admin extends CI_Controller
             if ($this->form_validation->run() === FALSE) {
                 $this->load->view('admin/add_user');
             } else {
+                $nation = $this->input->post('nation');
+                $affiliation = $this->input->post('affiliation');
+                $first_name = $this->input->post('first_name');
+                $last_name = $this->input->post('last_name');
+                $org_nametag = $this->input->post('affiliation');
+
                 $attendance_type = $this->input->post('attendance_type');
                 $member_type = $this->input->post('member_type');
                 $member_status = $this->input->post('member_status');
                 $license = $this->input->post('licence_number');
                 $specialty_number = $this->input->post('specialty_number');
-                $first_name = $this->input->post('first_name');
-                $last_name = $this->input->post('last_name');
                 $name_kor = $this->input->post('name_kor');
                 $phone = $this->input->post('phone');
                 $email = $this->input->post('email');
-                $nation = $this->input->post('nation');
-                $affiliation = $this->input->post('affiliation');
                 $affiliation_kor = $this->input->post('affiliation_kor');
-                $org_nametag = $this->input->post('org_nametag');
                 $department = $this->input->post('department');
                 $deposit = '결제대기';
                 $memo = $this->input->post('memo');
@@ -506,9 +507,9 @@ class Admin extends CI_Controller
                 
                 $deposit_method = $this->input->post('deposit_method');
                 $fee = $this->input->post('fee');
-                $etc4 = $this->input->post('etc4');
-                // $remark5 = $this->input->post('remark5');
-                $special_request_food = $this->input->post('special_request_food');
+                // $etc4 = $this->input->post('etc4');
+                // // $remark5 = $this->input->post('remark5');
+                // $special_request_food = $this->input->post('special_request_food');
                 // $fee = 0;
                 $onsite_reg = "1";
 
@@ -528,7 +529,6 @@ class Admin extends CI_Controller
                     'email' => preg_replace("/\s+/", "", $email),
                     'member_type' => trim($member_type),
                     'fee' => $fee,
-                    'time' => $time,
                     'uagent' => $uagent,
                     'deposit' => $deposit,
                     'memo' => $memo,
@@ -541,10 +541,8 @@ class Admin extends CI_Controller
                     'remark2' => $remark2,
                     'remark3' => $remark3,
                     'remark4' => $remark4,
-                    'special_request_food' => $special_request_food,
                     'deposit_method' => $deposit_method,
                     'onsite_reg' => $onsite_reg,
-                    'etc4' => $etc4
                 );
                 //                var_dump($info);
                 $this->users->add_onsite_user($info);
@@ -721,7 +719,6 @@ class Admin extends CI_Controller
                     'day2_luncheon_yn' => $day2_luncheon_yn,
                     'day2_satellite_yn' => $day2_satellite_yn,
                     'updatetime' => $updateTime,
-                    'time' => $time,
                     'conference_info' => $conference_info,
                     'special_request_food' => $special_request_food,
                     'etc4' => $etc4,
@@ -763,7 +760,7 @@ class Admin extends CI_Controller
         $object = new PHPExcel();
         $object->setActiveSheetIndex(0);
 
-        $table_columns = array("NO", "Registration No.", "등록유형", "등록일", "e-mail", "참석여부", "QR프린트여부", "방문일자", "국내/국외", "Country", "학회구분", "Full Name", "First Name", "Last Name", "이름", "Name Badge_affiliation",  "부서", "연락처", "참가유형", "참석자구분", "등록비", "결제 방법","할인율","프로모션 코드","추천인", "면허번호", "전문의 번호", "1일차 오찬 여부", "1일차 Satellite 여부", "2일차 조식 여부", "2일차 오찬 여부", "2일차 Satellite 여부", "coference information", "remark1", "remark2", "remark3", "remark4", "remark5","Special meal request", "Memo", "Day 1 참석여부", "Day 1 입실 시간", "Day 1 퇴실 시간", "체류시간", "Break 제외 시간","Day 1 예상평점", "Day 2 참석여부", "Day 2 입실 시간", "Day 2 퇴실 시간", "체류시간", "Break 제외 시간", "Day 2 예상평점");
+        $table_columns = array("NO", "Registration No.", "현장등록 여부", "참석여부", "e-mail", "Full Name", "소속","Country", "등록비", "이름(한국어)", "소속(한국어)", "국내/국외", "연락처", "면허번호", "전문의번호", "구분", "회원 구분", "Detail Category", "KES Membership Check-up", "참가유형", "Attendance date", "네임택 하단", "스티커1 (웰컴리셉션)", "스티커2 (갈라 디너)", "스티커3(프레지덴셜 디너)", "제공 사항 (안내서/심사표/선물)", "특이식단카드", "특이사항(동명이인/프리뷰안내, 면허번호, 미입금)", "Memo","Day 1 참석여부", "Day 1 입실 시간", "Day 1 퇴실 시간", "체류시간", "Break 제외 시간","Day 1 예상평점", "Day 2 참석여부", "Day 2 입실 시간", "Day 2 퇴실 시간", "체류시간", "Break 제외 시간", "Day 2 예상평점", "Day 3 참석여부", "Day 3 입실 시간", "Day 3 퇴실 시간", "체류시간", "Break 제외 시간", "Day 3 예상평점");
 
         $column = 0;
 
@@ -814,9 +811,10 @@ class Admin extends CI_Controller
             $leave2 = $row['maxtime_day2'];
             $spent2 = $this->time_spent->time_spentcalc($enter2, $leave2, $start, $end, $breaks);
 
-            // $enter3 = $row['mintime_day3'];
-            // $leave3 = $row['maxtime_day3'];
-            // $spent3 = $this->time_spent->time_spentcalc($enter3, $leave3, $start, $end, $breaks);
+            $enter3 = $row['mintime_day3'];
+            $leave3 = $row['maxtime_day3'];
+            $spent3 = $this->time_spent->time_spentcalc($enter3, $leave3, $start, $end, $breaks);
+
             $date = "";
             $type1 = "";
 
@@ -825,10 +823,13 @@ class Admin extends CI_Controller
 
 
             $score1 = floor($spent1 / 60);
-            $score1 = min(6, $score1);
+            $score1 = min(3, $score1);
 
             $score2 = floor($spent2 / 60);
             $score2 = min(6, $score2);
+
+            $score3 = floor($spent3 / 60);
+            $score3 = min(6, $score3);
 
             $member_type = "";
 
@@ -843,12 +844,6 @@ class Admin extends CI_Controller
                 $onsite = "현장등록";
             }
 
-            if($row['member_type'] == "Paritipants"){
-                $member_type = "Participants";
-            }else{
-                $member_type = $row['member_type'];
-            }
-
             //  $score = floor($spent / 60);
             //  $max_score = $this->schedule->get_maxscore();
             //  $score = min($max_score, $score);
@@ -860,59 +855,54 @@ class Admin extends CI_Controller
             $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $excel_row - 1);
             $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $row['registration_no']);
             $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $onsite);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row['time']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $chk);
             $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row['email']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $chk);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $row['qr_print']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row['mintime']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $contry);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $row['nation']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(10, $excel_row, $row['member_status']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(11, $excel_row, $row['first_name'] . " " . $row['last_name']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(12, $excel_row, $row['first_name']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(13, $excel_row, $row['last_name']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(14, $excel_row, $row['name_kor']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(15, $excel_row, $row['org_nametag']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(16, $excel_row, $row['department']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(17, $excel_row, $row['phone']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(18, $excel_row, $row['attendance_type']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(19, $excel_row, $member_type );
-            $object->getActiveSheet()->setCellValueByColumnAndRow(20, $excel_row, $row['fee']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(21, $excel_row, $row['deposit_method']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $row['first_name'] . " " . $row['last_name']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $row['org_nametag']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row['nation']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $row['fee']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $row['name_kor']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(10, $excel_row, $row['affiliation_kor']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(11, $excel_row, $contry);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(12, $excel_row, $row['phone']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(13, $excel_row, $row['licence_number']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(14, $excel_row, $row['specialty_number']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(15, $excel_row, $row['type']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(16, $excel_row, $row['member_type']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(17, $excel_row, $row['member_other_type']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(18, $excel_row, $row['member']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(19, $excel_row, $row['attendance_type']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(20, $excel_row, $row['attendance_date']);
 
-            $object->getActiveSheet()->setCellValueByColumnAndRow(22, $excel_row, $row['etc1']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(23, $excel_row, $row['etc2']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(24, $excel_row, $row['etc3']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(25, $excel_row, $row['licence_number']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(26, $excel_row, $row['specialty_number']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(27, $excel_row, $row['day1_luncheon_yn']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(28, $excel_row, $row['day1_satellite_yn']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(29, $excel_row, $row['day2_breakfast_yn']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(30, $excel_row, $row['day2_luncheon_yn']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(31, $excel_row, $row['day2_satellite_yn']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(32, $excel_row, $row['conference_info']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(21, $excel_row, $row['remark1']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(22, $excel_row, $row['remark2']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(23, $excel_row, $row['remark3']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(24, $excel_row, $row['remark4']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(25, $excel_row, $row['remark5']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(26, $excel_row, $row['remark6']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(27, $excel_row, $row['remark7']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(28, $excel_row, $row['memo']);
 
-            $object->getActiveSheet()->setCellValueByColumnAndRow(33, $excel_row, $row['remark1']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(34, $excel_row, $row['remark2']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(35, $excel_row, $row['remark3']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(36, $excel_row, $row['remark4']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(37, $excel_row, $row['remark5']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(38, $excel_row, $row['special_request_food']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(39, $excel_row, $row['memo']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(29, $excel_row,  $row['qr_chk_day_1']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(30, $excel_row, date("H:i", strtotime($row['mintime_day1'])));  //DAY1입실
+            $object->getActiveSheet()->setCellValueByColumnAndRow(31, $excel_row, date("H:i", strtotime($row['maxtime_day1'])));  //DAY1퇴실
+            $object->getActiveSheet()->setCellValueByColumnAndRow(32, $excel_row, $row['d_format_day1']);                //DAY1체류시간
+            $object->getActiveSheet()->setCellValueByColumnAndRow(33, $excel_row, hoursandmins($spent1));
+            $object->getActiveSheet()->setCellValueByColumnAndRow(34, $excel_row, $score1);
 
-            $object->getActiveSheet()->setCellValueByColumnAndRow(40, $excel_row,  $row['qr_chk_day_1']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(41, $excel_row, date("H:i", strtotime($row['mintime_day1'])));  //DAY1입실
-            $object->getActiveSheet()->setCellValueByColumnAndRow(42, $excel_row, date("H:i", strtotime($row['maxtime_day1'])));  //DAY1퇴실
-            $object->getActiveSheet()->setCellValueByColumnAndRow(43, $excel_row, $row['d_format_day1']);                //DAY1체류시간
-            $object->getActiveSheet()->setCellValueByColumnAndRow(44, $excel_row, hoursandmins($spent1));
-            $object->getActiveSheet()->setCellValueByColumnAndRow(45, $excel_row, $score1);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(35, $excel_row,  $row['qr_chk_day_2']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(36, $excel_row, date("H:i", strtotime($row['mintime_day2'])));  //DAY2입실
+            $object->getActiveSheet()->setCellValueByColumnAndRow(37, $excel_row, date("H:i", strtotime($row['maxtime_day2'])));  //DAY2퇴실
+            $object->getActiveSheet()->setCellValueByColumnAndRow(38, $excel_row, $row['d_format_day2']);                          //DAY2체류시
+            $object->getActiveSheet()->setCellValueByColumnAndRow(39, $excel_row, hoursandmins($spent2));
+            $object->getActiveSheet()->setCellValueByColumnAndRow(40, $excel_row, $score2);
 
-            $object->getActiveSheet()->setCellValueByColumnAndRow(46, $excel_row,  $row['qr_chk_day_2']);
-            $object->getActiveSheet()->setCellValueByColumnAndRow(47, $excel_row, date("H:i", strtotime($row['mintime_day2'])));  //DAY2입실
-            $object->getActiveSheet()->setCellValueByColumnAndRow(48, $excel_row, date("H:i", strtotime($row['maxtime_day2'])));  //DAY2퇴실
-            $object->getActiveSheet()->setCellValueByColumnAndRow(49, $excel_row, $row['d_format_day2']);                          //DAY2체류시
-            $object->getActiveSheet()->setCellValueByColumnAndRow(50, $excel_row, hoursandmins($spent2));
-            $object->getActiveSheet()->setCellValueByColumnAndRow(51, $excel_row, $score2);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(41, $excel_row,  $row['qr_chk_day_3']);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(42, $excel_row, date("H:i", strtotime($row['mintime_day3'])));  //DAY3입실
+            $object->getActiveSheet()->setCellValueByColumnAndRow(43, $excel_row, date("H:i", strtotime($row['maxtime_day3'])));  //DAY3퇴실
+            $object->getActiveSheet()->setCellValueByColumnAndRow(44, $excel_row, $row['d_format_day3']);                          //DAY3체류시
+            $object->getActiveSheet()->setCellValueByColumnAndRow(45, $excel_row, hoursandmins($spent3));
+            $object->getActiveSheet()->setCellValueByColumnAndRow(46, $excel_row, $score3);
 
             // $object->getActiveSheet()->setCellValueByColumnAndRow(48, $excel_row,  $row['qr_chk_day_3']);
             // $object->getActiveSheet()->setCellValueByColumnAndRow(49, $excel_row, date("H:i", strtotime($row['mintime_day3'])));  //DAY3입실
@@ -1394,6 +1384,7 @@ class Admin extends CI_Controller
         }
     }
 
+    //!!!! 수정 필요 !!!!!!
     public function send_all_mail()
     {
         if (!isset($this->session->admin_data['logged_in']))
@@ -1486,6 +1477,9 @@ class Admin extends CI_Controller
            $data['day1_participants_kor'] = $this->table->get_day1_participants_kor();
            $data['day1_participants_eng'] = $this->table->get_day1_participants_eng();
 
+           $data['day1_one_day_kor'] = $this->table->get_day1_one_day_kor();
+           $data['day1_one_day_eng'] = $this->table->get_day1_one_day_eng();
+
            $data['day1_sponsor_kor'] = $this->table->get_day1_sponsor_kor();
            $data['day1_sponsor_eng'] = $this->table->get_day1_sponsor_eng();
 
@@ -1506,6 +1500,9 @@ class Admin extends CI_Controller
 
            $data['day2_participants_kor'] = $this->table->get_day2_participants_kor();
            $data['day2_participants_eng'] = $this->table->get_day2_participants_eng();
+           
+           $data['day2_one_day_kor'] = $this->table->get_day2_one_day_kor();
+           $data['day2_one_day_eng'] = $this->table->get_day2_one_day_eng();
 
            $data['day2_sponsor_kor'] = $this->table->get_day2_sponsor_kor();
            $data['day2_sponsor_eng'] = $this->table->get_day2_sponsor_eng();
@@ -1527,6 +1524,9 @@ class Admin extends CI_Controller
 
             $data['day3_participants_kor'] = $this->table->get_day3_participants_kor();
             $data['day3_participants_eng'] = $this->table->get_day3_participants_eng();
+            
+            $data['day3_one_day_kor'] = $this->table->get_day3_one_day_kor();
+            $data['day3_one_day_eng'] = $this->table->get_day3_one_day_eng();
 
             $data['day3_sponsor_kor'] = $this->table->get_day3_sponsor_kor();
             $data['day3_sponsor_eng'] = $this->table->get_day3_sponsor_eng();
@@ -1553,6 +1553,9 @@ class Admin extends CI_Controller
 
            $data['day1_on_participants_kor'] = $this->table->get_on_day1_participants_kor();
            $data['day1_on_participants_eng'] = $this->table->get_on_day1_participants_eng();
+           
+           $data['day1_on_one_day_kor'] = $this->table->get_on_day1_one_day_kor();
+           $data['day1_on_one_day_eng'] = $this->table->get_on_day1_one_day_eng();
 
            $data['day1_on_sponsor_kor'] = $this->table->get_on_day1_sponsor_kor();
            $data['day1_on_sponsor_eng'] = $this->table->get_on_day1_sponsor_eng();
@@ -1574,6 +1577,9 @@ class Admin extends CI_Controller
 
            $data['day2_on_participants_kor'] = $this->table->get_on_day2_participants_kor();
            $data['day2_on_participants_eng'] = $this->table->get_on_day2_participants_eng();
+
+           $data['day2_on_one_day_kor'] = $this->table->get_on_day2_one_day_kor();
+           $data['day2_on_one_day_eng'] = $this->table->get_on_day2_one_day_eng();
 
            $data['day2_on_sponsor_kor'] = $this->table->get_on_day2_sponsor_kor();
            $data['day2_on_sponsor_eng'] = $this->table->get_on_day2_sponsor_eng();
@@ -1597,6 +1603,9 @@ class Admin extends CI_Controller
             $data['day3_on_participants_kor'] = $this->table->get_on_day3_participants_kor();
             $data['day3_on_participants_eng'] = $this->table->get_on_day3_participants_eng();
 
+            $data['day3_on_one_day_kor'] = $this->table->get_on_day3_one_day_kor();
+            $data['day3_on_one_day_eng'] = $this->table->get_on_day3_one_day_eng();
+
             $data['day3_on_sponsor_kor'] = $this->table->get_on_day3_sponsor_kor();
             $data['day3_on_sponsor_eng'] = $this->table->get_on_day3_sponsor_eng();
 
@@ -1614,6 +1623,7 @@ class Admin extends CI_Controller
            $data['speaker_count'] = $this->table->get_on_speaker();
            $data['panel_count'] = $this->table->get_on_panel();
            $data['participant_count'] = $this->table->get_on_participant();
+           $data['one_day_count'] = $this->table->get_on_one_day();
            $data['sponsor_count'] = $this->table->get_on_sponsor();
            $data['others_count'] = $this->table->get_on_others();
            
@@ -1622,6 +1632,7 @@ class Admin extends CI_Controller
            $data['speaker_on_count'] = $this->table->get_on_speaker_1();
            $data['panel_on_count'] = $this->table->get_on_panel_1();
            $data['participant_on_count'] = $this->table->get_on_participant_1();
+           $data['one_day_on_count'] = $this->table->get_on_one_day_1();
            $data['sponsor_on_count'] = $this->table->get_on_sponsor_1();
            $data['others_on_count'] = $this->table->get_on_others_1();
 
@@ -1708,7 +1719,7 @@ class Admin extends CI_Controller
                 );
 
                 $qr_time = date("Y-m-d");
-                if ($qr_time == '2024-12-04') {
+                if ($qr_time == '2025-05-01') {
                     $infoqr = array(
                         'qr_chk_day_1' => 'Y',
                         'qr_chk' => 'Y',
@@ -1716,7 +1727,7 @@ class Admin extends CI_Controller
                     );
                     $this->users->update_qr_status($infoqr, $where);
                 }
-                if ($qr_time == '2024-11-30') {
+                if ($qr_time == '2025-05-02') {
                     $infoqr = array(
                         'qr_chk_day_2' =>  'Y',
                         'qr_chk' => 'Y',
@@ -1725,7 +1736,7 @@ class Admin extends CI_Controller
                     $this->users->update_qr_status($infoqr, $where);
                 }
 
-                if ($qr_time == '2024-11-30') {
+                if ($qr_time == '2025-05-03') {
                     $infoqr = array(
                         'qr_chk_day_3' =>  'Y',
                         'qr_chk' => 'Y',
@@ -1765,6 +1776,7 @@ class Admin extends CI_Controller
         $this->load->view('admin/loading');
     }
 
+        //!!!! 수정 필요 !!!!!!
     public function sendMail()
     {
         $userId = $_GET['n'];
@@ -1813,6 +1825,8 @@ class Admin extends CI_Controller
         $context = stream_context_create($opts);
         $result = file_get_contents('http://www.into-webinar.com/MailSenderApi', false, $context);
     }
+
+        //!!!! 수정 필요 !!!!!!
     public function sendEMail()
     {
         $userId = $_GET['n'];

@@ -135,7 +135,7 @@
                         // }
                         // echo '' . $item['member_status'] . '</td>';
                         echo '<td>
-                            <button onclick="onClickprint(\'' . $item['registration_no'] . '\')">수정</button>
+                            <button class="btn qr_btn memo bg-indigo-800" onclick="onClickprint(\'' . $item['registration_no'] . '\')">수정</button>
                         </td>';
                         // echo '<td>' . $item['time'] . '</td>';
                         // echo '<td>' . $item['kes_member_status'] . '</td>';

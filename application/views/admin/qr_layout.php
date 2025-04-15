@@ -79,7 +79,7 @@
                 // echo '<div class="reg_1">' .  $lucky_num . '</div>';
                 // echo '<div class="reg_2">' .  $users['registration_no'] . '</div>';
                 echo '</div>';
-                echo '<div class="reg" id="reg">' .  $lucky_num . '</div>';
+                echo '<div class="reg" id="reg">' .  $users['registration_no'] . '</div>';
                 if ($users['nt_info'] != '') {
                     echo '<div class="org" id="nt_info">' . $users['nt_info'] . '</div>';
                 }
@@ -98,7 +98,7 @@
                 //     echo '<div class="nick_name lang_en" id="first_name">' .  $users['first_name'] . '</div>';
                 //     echo '<div class="nick_name lang_en" id="last_name">' .  $users['last_name'] . '</div>';
                 // }
-                echo '<div class="nick_name lang_en small_nickname" id="first_name">' .  $users['en_name'] . '</div>';
+                echo '<div class="nick_name lang_en small_nickname" id="first_name">' .  $users['first_name'] .' ' .$users['last_name']  . '</div>';
                 /**소속 조건식 30글자 기준 */
                 if ($orgLength <= 30) {
                     echo '<div class="org" id="org">' . $users['org_nametag'] . '</div>';
@@ -111,7 +111,7 @@
 
                 echo '<div class="receipt receipt_price number_box">' . $users['fee']. '</div>';
                 echo '<div class="receipt receipt_name number_box">' . $users['en_name'] ." " . $users['last_name']. '</div>';
-                echo '<div class="receipt end_num_1 number_box">' . $lucky_num . '</div>';
+                echo '<div class="receipt end_num_1 number_box">' . $users['registration_no'] . '</div>';
       
 
                 echo '</div>';
