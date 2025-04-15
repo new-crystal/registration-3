@@ -131,7 +131,7 @@ $en_name = $firstName . " " . $lastName
         -webkit-text-stroke-width: 3px;
         -webkit-text-stroke-color: #004471;
         }
-
+        #firstname_btn, #lastname_btn{ font-size:12px; font-weight: 400;}
 </style>
 
 <div class="page-container">
@@ -183,8 +183,9 @@ $en_name = $firstName . " " . $lastName
                             <tr>
                                 <th>성함(E)</th>
                                 <td id="" class="qr_text">
-                                    <input id="en_name" value="<?php if (isset($user['en_name'])) echo $user['en_name'] ?>"/>
-                                    <button class="w-[150px] h-[40px] bg-indigo-950 mt-20 mb-20 hover:bg-slate-300 active:bg-slate-300 text-white" type="button" id="nickname_btn">성함 변경</button>
+                                    <input id="en_name" value="<?php if (isset($user['first_name'])) echo $user['first_name'] .' ' .$user['last_name']  ?>"/>
+                                    <button class="w-[95px] h-[40px] bg-indigo-950 mt-20 mb-20 hover:bg-slate-300 active:bg-slate-300 text-white" type="button" id="firstname_btn">firstname 변경</button>
+                                    <button class="w-[95px] h-[40px] bg-lime-600 mt-20 mb-20 hover:bg-slate-950 active:bg-slate-950 text-white" type="button" id="lastname_btn">lastname 변경</button>
                                 </td>
                             </tr>
                             <tr>
@@ -359,6 +360,10 @@ $en_name = $firstName . " " . $lastName
     const lnBtn = document.querySelector("#ln_btn")
     const feeBtn = document.querySelector("#fee_btn")
 
+           //sujeong / 성함 변경 버튼
+    const firstnameBtn = document.querySelector("#firstname_btn");
+    const lastnameBtn = document.querySelector("#lastname_btn");
+
     var childWindow;
     let popUpWindow;
     let qrvalue = "";
@@ -418,6 +423,44 @@ $en_name = $firstName . " " . $lastName
             })
         }
     }
+
+    firstnameBtn.addEventListener("click", ()=>{
+        const regiNum = number.innerText;
+        const url = `/admin/memo_firstname?n=${regiNum}`;
+        if (regiNum) {
+            const memoWindow = window.open(url, "Certificate", "width=500, height=300, top=30, left=30");
+
+            window.addEventListener("message", (event) => {
+                if (event.source === memoWindow) {
+                    const childInputValue = event.data;
+                    // memo.innerText = childInputValue;
+                    // console.log("hi")
+                    fetchData(childInputValue)
+                }
+            });
+        }else{
+            alert("QR 코드를 확인해주세요.")
+        }
+    })
+
+    lastnameBtn.addEventListener("click", ()=>{
+        const regiNum = number.innerText;
+        const url = `/admin/memo_lastname?n=${regiNum}`;
+        if (regiNum) {
+            const memoWindow = window.open(url, "Certificate", "width=500, height=300, top=30, left=30");
+
+            window.addEventListener("message", (event) => {
+                if (event.source === memoWindow) {
+                    const childInputValue = event.data;
+                    // memo.innerText = childInputValue;
+                    // console.log("hi")
+                    fetchData(childInputValue)
+                }
+            });
+        }else{
+            alert("QR 코드를 확인해주세요.")
+        }
+    })
 
 
     form.addEventListener("submit", (e) => {
@@ -610,24 +653,24 @@ $en_name = $firstName . " " . $lastName
         }
     })
 
-    nicknameBtn.addEventListener("click", ()=>{
-        const regiNum = number.innerText;
-        const url = `/admin/memo_nickname?n=${regiNum}`;
-        if (regiNum) {
-            const memoWindow = window.open(url, "Certificate", "width=500, height=300, top=30, left=30");
+    // nicknameBtn.addEventListener("click", ()=>{
+    //     const regiNum = number.innerText;
+    //     const url = `/admin/memo_nickname?n=${regiNum}`;
+    //     if (regiNum) {
+    //         const memoWindow = window.open(url, "Certificate", "width=500, height=300, top=30, left=30");
 
-            window.addEventListener("message", (event) => {
-                if (event.source === memoWindow) {
-                    const childInputValue = event.data;
-                    // memo.innerText = childInputValue;
-                    // console.log("hi")
-                    fetchData(childInputValue)
-                }
-            });
-        }else{
-            alert("QR 코드를 확인해주세요.")
-        }
-    })
+    //         window.addEventListener("message", (event) => {
+    //             if (event.source === memoWindow) {
+    //                 const childInputValue = event.data;
+    //                 // memo.innerText = childInputValue;
+    //                 // console.log("hi")
+    //                 fetchData(childInputValue)
+    //             }
+    //         });
+    //     }else{
+    //         alert("QR 코드를 확인해주세요.")
+    //     }
+    // })
 
     orgBtn.addEventListener("click", ()=>{
         const regiNum = number.innerText;

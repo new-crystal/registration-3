@@ -116,7 +116,7 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
             <th>국내</th>
         </tr>
         <tr>
-            <th class="bg-red-100" rowspan="7">사전등록</th>
+            <th class="bg-red-100" rowspan="8">사전등록</th>
             <th class="bg-red-100">Speaker</th>
             <td>
                 <?php echo isset($day1_speaker_eng) ? $day1_speaker_eng : 0; ?>
@@ -250,6 +250,34 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
                 ?>
             </td>
         </tr>
+
+        <tr>
+            <th class="bg-red-100">One-day Participant</th>
+            <td>
+                <?php echo isset($day1_one_day_eng) ? $day1_one_day_eng : 0; ?>
+            </td>
+            <td>
+                <?php echo isset($day1_one_day_kor) ?  $day1_one_day_kor  : 0; ?>
+            </td>
+            <td>
+                <?php echo isset($day2_one_day_eng) ? $day2_one_day_eng  : 0; ?>
+            </td>
+            <td>
+                <?php echo isset($day2_one_day_kor) ?  $day2_one_day_kor : 0; ?>
+            </td>
+            <td>
+                <?php echo isset($day3_one_day_eng) ? $day3_one_day_eng  : 0; ?>
+            </td>
+            <td>
+                <?php echo isset($day3_one_day_kor) ?  $day3_one_day_kor : 0; ?>
+            </td>
+            <td>
+                <?php
+                 echo isset($one_day_count) ?  $one_day_count : 0; 
+                ?>
+            </td>
+        </tr>
+
         <tr>
             <th class="bg-red-100">Sponsor</th>
             <td>
@@ -306,22 +334,22 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
         <tr>
             <th class="bg-red-100" colspan="2">계</th>
             <td class="day_1_e">
-                <?php echo  $day1_speaker_eng + $day1_chairperson_eng + $day1_penel_eng + $day1_committee_eng + $day1_participants_eng + $day1_sponsor_eng + $day1_other_eng;  ?>
+                <?php echo  $day1_speaker_eng + $day1_chairperson_eng + $day1_penel_eng + $day1_committee_eng + $day1_participants_eng + $day1_one_day_eng + $day1_sponsor_eng + $day1_other_eng;  ?>
             </td>
             <td class="day_1">
-                <?php echo  $day1_speaker_kor + $day1_chairperson_kor + $day1_penel_kor + $day1_committee_kor + $day1_participants_kor + $day1_other_kor; ?>
+                <?php echo  $day1_speaker_kor + $day1_chairperson_kor + $day1_penel_kor + $day1_committee_kor + $day1_participants_kor + $day1_one_day_kor + $day1_other_kor; ?>
             </td>
             <td class="day_2_e">
-                <?php echo  $day2_speaker_eng + $day2_chairperson_eng + $day2_penel_eng + $day2_committee_eng + $day2_participants_eng + $day2_other_eng; ?>
+                <?php echo  $day2_speaker_eng + $day2_chairperson_eng + $day2_penel_eng + $day2_committee_eng + $day2_participants_eng + $day2_one_day_eng + $day2_other_eng; ?>
             </td>
             <td class="day_2">
-                <?php echo  $day2_speaker_kor + $day2_chairperson_kor + $day2_penel_kor + $day2_committee_kor + $day2_participants_kor + $day2_sponsor_kor + $day2_other_kor ?>
+                <?php echo  $day2_speaker_kor + $day2_chairperson_kor + $day2_penel_kor + $day2_committee_kor + $day2_participants_kor + $day2_one_day_kor + $day2_sponsor_kor + $day2_other_kor ?>
             </td>
             <td class="day_3_e">
-                <?php echo  $day3_speaker_eng + $day3_chairperson_eng + $day3_penel_eng + $day3_committee_eng + $day3_participants_eng + $day3_other_eng; ?>
+                <?php echo  $day3_speaker_eng + $day3_chairperson_eng + $day3_penel_eng + $day3_committee_eng + $day3_participants_eng + $day3_one_day_eng + $day3_other_eng; ?>
             </td>
             <td class="day_3">
-                <?php echo  $day3_speaker_kor + $day3_chairperson_kor + $day3_penel_kor + $day3_committee_kor + $day3_participants_kor + $day3_sponsor_kor + $day3_other_kor ?>
+                <?php echo  $day3_speaker_kor + $day3_chairperson_kor + $day3_penel_kor + $day3_committee_kor + $day3_participants_kor + $day3_one_day_kor + $day3_sponsor_kor + $day3_other_kor ?>
             </td>
             <td rowspan="2" class="count_7"><?php echo $pre_reg_num; ?></td>
         </tr>
@@ -333,7 +361,7 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
         </tr>
 
         <tr>
-            <th class="bg-blue-100" rowspan="7">현장등록</th>
+            <th class="bg-blue-100" rowspan="8">현장등록</th>
             <th class="bg-blue-100">Speaker</th>
             <td>
                 <?php echo isset($day1_on_speaker_eng) ? $day1_on_speaker_eng : 0; ?>
@@ -466,6 +494,32 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
                 ?>
             </td>
         </tr>
+        <tr>
+            <th class="bg-blue-100">One-day Participant</th>
+            <td>
+                <?php echo isset($day1_on_one_day_eng) ? $day1_on_one_day_eng : 0; ?>
+            </td>
+            <td>
+                <?php echo isset($day1_on_one_day_kor) ?  $day1_on_one_day_kor  : 0; ?>
+            </td>
+            <td>
+                <?php echo isset($day2_on_one_day_eng) ? $day2_on_one_day_eng  : 0; ?>
+            </td>
+            <td>
+                <?php echo isset($day2_on_one_day_kor) ?  $day2_on_one_day_kor : 0; ?>
+            </td>
+            <td>
+                <?php echo isset($day3_on_one_day_eng) ? $day3_on_one_day_eng  : 0; ?>
+            </td>
+            <td>
+                <?php echo isset($day3_on_one_day_kor) ?  $day3_on_one_day_kor : 0; ?>
+            </td>
+            <td>
+                <?php
+                 echo isset($one_day_on_count) ?  $one_day_on_count : 0; 
+                ?>
+            </td>
+        </tr>
 
         <tr>
             <th class="bg-blue-100">Sponsor</th>
@@ -522,22 +576,22 @@ $pre_reg_count_day3 = count($users) - $onsite_count_day3;
         <tr>
             <th class="bg-blue-100" colspan="2">계</th>
             <td class="on_day_1_e">
-                <?php echo  $day1_on_speaker_eng + $day1_on_chairperson_eng + $day1_on_penel_eng + $day1_on_committee_eng + $day1_on_participants_eng + $day1_on_sponsor_eng + $day1_on_other_eng;   ?>
+                <?php echo  $day1_on_speaker_eng + $day1_on_chairperson_eng + $day1_on_penel_eng + $day1_on_committee_eng + $day1_on_participants_eng + $day1_on_one_day_eng + $day1_on_sponsor_eng + $day1_on_other_eng;   ?>
             </td>
             <td class="on_day_1">
-                <?php echo $day1_on_speaker_kor + $day1_on_chairperson_kor + $day1_on_penel_kor + $day1_on_committee_kor + $day1_on_participants_kor + $day1_on_sponsor_kor + $day1_on_other_kor;  ?>
+                <?php echo $day1_on_speaker_kor + $day1_on_chairperson_kor + $day1_on_penel_kor + $day1_on_committee_kor + $day1_on_participants_kor + $day1_on_one_day_kor + $day1_on_sponsor_kor + $day1_on_other_kor;  ?>
             </td>
             <td class="on_day_2_e">
-                <?php echo $day2_on_speaker_eng + $day2_on_chairperson_eng + $day2_on_penel_eng + $day2_on_committee_eng + $day2_on_participants_eng + $day2_on_sponsor_eng + $day2_on_other_eng;  ?>
+                <?php echo $day2_on_speaker_eng + $day2_on_chairperson_eng + $day2_on_penel_eng + $day2_on_committee_eng + $day2_on_participants_eng + $day2_on_one_day_eng + $day2_on_sponsor_eng + $day2_on_other_eng;  ?>
             </td>
             <td class="on_day_2">
-                <?php echo $day2_on_speaker_kor + $day2_on_chairperson_kor + $day2_on_penel_kor + $day2_on_committee_kor + $day2_on_participants_kor + $day2_on_sponsor_kor + $day2_on_other_kor; ?>
+                <?php echo $day2_on_speaker_kor + $day2_on_chairperson_kor + $day2_on_penel_kor + $day2_on_committee_kor + $day2_on_participants_kor + $day2_on_one_day_kor + $day2_on_sponsor_kor + $day2_on_other_kor; ?>
             </td>
             <td class="on_day_2_e">
-                <?php echo $day3_on_speaker_eng + $day3_on_chairperson_eng + $day3_on_penel_eng + $day3_on_committee_eng + $day3_on_participants_eng + $day3_on_sponsor_eng + $day3_on_other_eng;  ?>
+                <?php echo $day3_on_speaker_eng + $day3_on_chairperson_eng + $day3_on_penel_eng + $day3_on_committee_eng + $day3_on_participants_eng + $day3_on_one_day_eng + $day3_on_sponsor_eng + $day3_on_other_eng;  ?>
             </td>
             <td class="on_day_2">
-                <?php echo $day3_on_speaker_kor + $day3_on_chairperson_kor + $day3_on_penel_kor + $day3_on_committee_kor + $day3_on_participants_kor + $day3_on_sponsor_kor + $day3_on_other_kor; ?>
+                <?php echo $day3_on_speaker_kor + $day3_on_chairperson_kor + $day3_on_penel_kor + $day3_on_committee_kor + $day3_on_participants_kor + $day3_on_one_day_kor + $day3_on_sponsor_kor + $day3_on_other_kor; ?>
             </td>
             <td rowspan="2" class="count_8"> <?php echo $on_site_num; ?></td>
         </tr>
